@@ -25,6 +25,9 @@
     <!-- BASE CSS -->
     <link href="<?php echo Widgets::quickStylesPath(); ?>base.css" rel="stylesheet">
     
+    <!-- SPECIFIC CSS -->
+    <link href="<?php echo Widgets::quickStylesPath(); ?>jquery.cookiebar.css" rel="stylesheet">
+    
     <!-- Modernizr -->
     <script src="<?php echo Widgets::quickScriptPath(); ?>modernizr.js"></script> 
 
@@ -40,3 +43,16 @@
 </head>
 
 <body>
+<!--[if lte IE 8]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
+<![endif]-->
+
+<!--<div id="preloader">
+    <div class="sk-spinner sk-spinner-wave" id="status">
+        <div class="sk-rect1"></div>
+        <div class="sk-rect2"></div>
+        <div class="sk-rect3"></div>
+        <div class="sk-rect4"></div>
+        <div class="sk-rect5"></div>
+    </div>
+</div> End Preload -->
