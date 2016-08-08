@@ -14,22 +14,15 @@ class StoreController extends CController
 			
 			/** Register all scripts here*/
 			if ($this->theme_compression==2){
-                            
-                            echo 'compressing staff not finished. Can be broken after enabling compressing.';
-                            die();
-                            
-                            ScriptManagerCompress::RegisterAllJSFile(); 
+				ScriptManagerCompress::RegisterAllJSFile();
 			    ScriptManagerCompress::registerAllCSSFiles();
 			   
-                            $compress_css = require_once 'assets/css/css.php';
+				$compress_css = require_once 'assets/css/css.php';
 			    $cs = Yii::app()->getClientScript();
 			    Yii::app()->clientScript->registerCss('compress-css',$compress_css);
-                            
 			} else {
-                            
-			   ScriptManager::RegisterAllJSFileQuickFood();
-			   ScriptManager::registerAllCSSFilesQuickFoods();
-                           
+			   ScriptManager::RegisterAllJSFile();
+			   ScriptManager::registerAllCSSFiles();
 			}
 			return true;
 		}
@@ -1671,8 +1664,7 @@ class StoreController extends CController
 		/** Register all scripts here*/
 		ScriptManager::RegisterAllJSFile();
 		ScriptManager::registerAllCSSFiles();
-                
-		$this->render('404-page', array(
+		$this->render('404-page',array(
 		  'header'=>true
 		));
 	}
