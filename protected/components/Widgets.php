@@ -1908,5 +1908,36 @@ class Widgets extends CApplicationComponent
 		</div> <!--END header-wrap-->
 		<?php
 	}
+        
+        /* TODO: move to another class. Avoid mixing between different components */
+        
+        public static function quickImagesPath()
+	{
+            $path = Yii::app()->request->baseUrl . '/assets/images/quickfood/';
+            if ( empty( $path ) ){ return ; }
+            
+            return $path;
+                        
+	}
+        
+        public static function quickStylesPath()
+	{
+            $path = Yii::app()->request->baseUrl . '/assets/css/quickfood/';
+            if ( empty( $path ) ){ return ; }
+            
+            return $path;
+                        
+	}
+        
+        public static function quickScriptPath()
+	{
+            $path = Yii::app()->request->baseUrl . '/assets/js/quickfood/';
+            if ( empty( $path ) ){ return ; }
+            
+            return $path;
+                        
+	}
+        
+        
 	
 } /*END CLass*/
