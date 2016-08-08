@@ -28,7 +28,7 @@ class StoreController extends CController
 			} else {
                             
 			   ScriptManager::RegisterAllJSFileQuickFood();
-			   ScriptManager::registerAllCSSFilesQuickFoods();
+			   ScriptManager::registerAllCSSFilesQuickFood();
                            
 			}
 			return true;
@@ -1669,8 +1669,8 @@ class StoreController extends CController
 	public function missingAction($action)
 	{
 		/** Register all scripts here*/
-		ScriptManager::RegisterAllJSFile();
-		ScriptManager::registerAllCSSFiles();
+		ScriptManager::RegisterAllJSFileQuickFood();
+		ScriptManager::registerAllCSSFilesQuickFood();
                 
 		$this->render('404-page', array(
 		  'header'=>true

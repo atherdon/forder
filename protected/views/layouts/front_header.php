@@ -26,7 +26,7 @@
     <link href="<?php echo Widgets::quickStylesPath(); ?>base.css" rel="stylesheet">
     
     <!-- Modernizr -->
-    <script src="<?php echo Widgets::quickStylesPath(); ?>modernizr.js"></script> 
+    <script src="<?php echo Widgets::quickScriptPath(); ?>modernizr.js"></script> 
 
     <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>

@@ -74,11 +74,12 @@ return array(
 	    	    
 	    'Smtpmail'=>array(
 	        'class'=>'application.extension.smtpmail.PHPMailer',
+                
 	        'Host'=>"smtp.gmail.com",
-            'Username'=>'arthur@netweightit.com',
-            'Password'=>'biBcf1K8r4Yn',
-            'Mailer'=>'smtp',
-            'SMTPSecure' => 'tls',
+                'Username'=>'arthur@netweightit.com',
+                'Password'=>'biBcf1K8r4Yn',
+                'Mailer'=>'smtp',
+                'SMTPSecure' => 'tls',
             // 'Host'=>"YOUR HOST",
             // 'Username'=>'YOUR USERNAME',
             // 'Password'=>'YOUR PASSWORD',
