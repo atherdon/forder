@@ -614,16 +614,16 @@ video {
 	margin-left:-20px;
 }
 .box_home#one{
-	background:#fff url(../img/icon_home_1.svg) no-repeat center 40px;
+	background:#fff url(../../images/quickfood/icon_home_1.svg) no-repeat center 40px;
 }
 .box_home#two{
-	background:#fff url(../img/icon_home_2.svg) no-repeat center 40px;
+	background:#fff url(../../images/quickfood/icon_home_2.svg) no-repeat center 40px;
 }
 .box_home#three{
-	background:#fff url(../img/icon_home_3.svg) no-repeat center 40px;
+	background:#fff url(../../images/quickfood/icon_home_3.svg) no-repeat center 40px;
 }
 .box_home#four{
-	background:#fff url(../img/icon_home_4.svg) no-repeat center 40px;
+	background:#fff url(../../images/quickfood/icon_home_4.svg) no-repeat center 40px;
 }
 .box_home h3{
 	font-size:16px;
@@ -637,7 +637,7 @@ video {
 	margin-top:25px;
 }
 #delivery_time strong span{
-	background:url(../img/time_panel.svg) no-repeat 0 0;
+	background:url(../../images/quickfood/time_panel.svg) no-repeat 0 0;
 	display: inline-block;
 	width:80px;
 	margin-left:10px;
