@@ -20,86 +20,43 @@ $placholder_search=Yii::t("default",$placholder_search);
 ?>
 
 
-<!-- SubHeader =============================================== -->
-<section class="parallax-window" id="home" data-parallax="scroll" 
-         data-image-src="<?php echo Widgets::quickImagesPath(); ?>sub_header_home.jpg" data-natural-width="1400" data-natural-height="550">
-<div id="subheader">
-    <div id="sub_content">
-        
-        <h1><?php //echo $home_search_text;?></h1>
-        <p> <?php //echo $home_search_subtext;?></p>
-        
-        <h1>Order Takeaway or Delivery Food</h1>
-        <p>
-            Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
-        </p>
-        
-        
-        
-<?php  if ( $home_search_mode == "address" || $home_search_mode == "") { 
-    
-            if ( $enabled_advance_search=="yes"){
 
-                    $this->renderPartial('/front/quickfood/advanced_search', array(
-                        
-                      'home_search_text'    => $home_search_text,
-                      'kr_search_adrress'   => $kr_search_adrress,
-                      'placholder_search'   => $placholder_search,
-                      'home_search_subtext' => $home_search_subtext,
-                      'theme_search_merchant_name'     => getOptionA('theme_search_merchant_name'),
-                      'theme_search_street_name'       => getOptionA('theme_search_street_name'),
-                      'theme_search_cuisine'           => getOptionA('theme_search_cuisine'),
-                      'theme_search_foodname'          => getOptionA('theme_search_foodname'),
-                      'theme_search_merchant_address'  => getOptionA('theme_search_merchant_address'),
-                    ));
+<img class="mobile-home-banner" src="<?php echo assetsURL()."/images/banner.jpg"?>">
 
-            } else { 
+<div id="parallax-wrap" class="parallax-container parallax-home" 
+data-parallax="scroll" data-position="top" data-bleed="10" 
+data-image-src="<?php echo assetsURL()."/images/banner.jpg"?>">
 
-                $this->renderPartial('/front/quickfood/single_search', array(
-                  'home_search_text'    => $home_search_text,
-                  'kr_search_adrress'   => $kr_search_adrress,
-                  'placholder_search'   => $placholder_search,
-                  'home_search_subtext' => $home_search_subtext
-                ));
-
-            }
-        
-        } else {
-            
-            $this->renderPartial('/front/quickfood/search_postcode',array(
-                  'home_search_text'    => $home_search_text,
-                  'placholder_search'   => $placholder_search,
-                  'home_search_subtext' => t("Enter your post code")
-            ));
-            
-        }
+<?php 
+if ( $home_search_mode=="address" || $home_search_mode=="") { 
+	if ( $enabled_advance_search=="yes"){
+		$this->renderPartial('/front/advance_search',array(
+		  'home_search_text'=>$home_search_text,
+		  'kr_search_adrress'=>$kr_search_adrress,
+		  'placholder_search'=>$placholder_search,
+		  'home_search_subtext'=>$home_search_subtext,
+		  'theme_search_merchant_name'=>getOptionA('theme_search_merchant_name'),
+		  'theme_search_street_name'=>getOptionA('theme_search_street_name'),
+		  'theme_search_cuisine'=>getOptionA('theme_search_cuisine'),
+		  'theme_search_foodname'=>getOptionA('theme_search_foodname'),
+		  'theme_search_merchant_address'=>getOptionA('theme_search_merchant_address'),
+		));
+	} else $this->renderPartial('/front/single_search',array(
+	      'home_search_text'=>$home_search_text,
+		  'kr_search_adrress'=>$kr_search_adrress,
+		  'placholder_search'=>$placholder_search,
+		  'home_search_subtext'=>$home_search_subtext
+	));
+} else {
+	$this->renderPartial('/front/search_postcode',array(
+	      'home_search_text'=>$home_search_text,
+		  'placholder_search'=>$placholder_search,
+		  'home_search_subtext'=>t("Enter your post code")
+	));
+}
 ?>
-        
-        
-    </div><!-- End sub_content -->
-</div><!-- End subheader -->
-<div id="count" class="hidden-xs">
-    <ul>
-        <li>
-            <span class="number">2650</span> Restaurant
-        </li>
-        <li>
-            <span class="number">5350</span> People Served
-        </li>
-        <li>
-            <span class="number">12350</span> Registered Users
-        </li>
-    </ul>
-</div>
-</section><!-- End section -->
-<!-- End SubHeader ============================================ -->
 
-
-
-
-
-
-
+</div> <!--parallax-container-->
 
 <?php if ($theme_hide_how_works<>2):?>
 <!--HOW IT WORKS SECTIONS-->
