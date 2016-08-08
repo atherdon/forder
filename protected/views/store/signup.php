@@ -1,4 +1,4 @@
-<?php
+<?php 
 $this->renderPartial('/front/banner-receipt',array(
    'h1'=>t("Login & Signup"),
    'sub_text'=>t("sign up to start ordering")

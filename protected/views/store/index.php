@@ -205,18 +205,29 @@ $placholder_search=Yii::t("default",$placholder_search);
 
 
 
+<!--FEATURED RESTAURANT SECIONS-->
+<?php if ($disabled_featured_merchant==""):?>
+<?php if ( getOptionA('disabled_featured_merchant')!="yes"):?>
+<?php if ($res=Yii::app()->functions->getFeatureMerchant2()):?>
+
+
 <div class="white_bg">
     <div class="container margin_60">
         
         <div class="main_title">
-           <h2 class="nomargin_top">Choose from Most Popular</h2>
+           <h2 class="nomargin_top">Choose from Most Popular </h2><?php //echo t("Featured Restaurants")?>
             <p>
                 Cum doctus civibus efficiantur in imperdiet deterruisset.
             </p>
         </div>
         
         <div class="row">
+            
+            
+            
+            
             <div class="col-md-6">
+                
                 <a href="detail_page.html" class="strip_list">
                 <div class="ribbon_1">Popular</div>
                     <div class="desc">
@@ -238,9 +249,11 @@ $placholder_search=Yii::t("default",$placholder_search);
                             <li>Delivery<i class="icon_check_alt2 ok"></i></li>
                         </ul>
                     </div><!-- End desc-->
+                    
                 </a><!-- End strip_list-->
+                
                <a href="detail_page.html" class="strip_list">
-               <div class="ribbon_1">Popular</div>
+                    <div class="ribbon_1">Popular</div>
                     <div class="desc">
                         <div class="thumb_strip">
                             <img src="<?php echo Widgets::quickImagesPath(); ?>thumb_restaurant_2.jpg" alt="">
@@ -261,8 +274,9 @@ $placholder_search=Yii::t("default",$placholder_search);
                         </ul>
                     </div><!-- End desc-->
                 </a><!-- End strip_list-->
+                
                 <a href="detail_page.html" class="strip_list">
-                <div class="ribbon_1">Popular</div>
+                    <div class="ribbon_1">Popular</div>
                     <div class="desc">
                         <div class="thumb_strip">
                             <img src="<?php echo Widgets::quickImagesPath(); ?>thumb_restaurant_3.jpg" alt="">
@@ -283,8 +297,13 @@ $placholder_search=Yii::t("default",$placholder_search);
                         </ul>
                     </div><!-- End desc-->
                 </a><!-- End strip_list-->
+                
             </div><!-- End col-md-6-->
+            
+            
             <div class="col-md-6">
+                
+                
                 <a href="detail_page.html" class="strip_list">
                 <div class="ribbon_1">Popular</div>
                     <div class="desc">
@@ -307,6 +326,8 @@ $placholder_search=Yii::t("default",$placholder_search);
                         </ul>
                     </div><!-- End desc-->
                 </a><!-- End strip_list-->
+                
+                
                 <a href="detail_page.html" class="strip_list">
                 <div class="ribbon_1">Popular</div>
                     <div class="desc">
@@ -329,6 +350,8 @@ $placholder_search=Yii::t("default",$placholder_search);
                         </ul>
                     </div><!-- End desc-->
                 </a><!-- End strip_list-->
+                
+                
                 <a href="detail_page.html" class="strip_list">
                 <div class="ribbon_1">Popular</div>
                     <div class="desc">
@@ -351,12 +374,20 @@ $placholder_search=Yii::t("default",$placholder_search);
                         </ul>
                     </div><!-- End desc-->
                 </a><!-- End strip_list-->
+                
+                
             </div>
         </div><!-- End row -->   
         
         </div><!-- End container -->
 </div><!-- End white_bg -->
-        
+<?php endif;?>
+<?php endif;?>
+<?php endif;?>
+<!--END FEATURED RESTAURANT SECIONS-->
+
+
+
 
 <div class="high_light">
     <div class="container">
@@ -385,6 +416,9 @@ $placholder_search=Yii::t("default",$placholder_search);
 <?php if ($disabled_featured_merchant==""):?>
 <?php if ( getOptionA('disabled_featured_merchant')!="yes"):?>
 <?php if ($res=Yii::app()->functions->getFeatureMerchant2()):?>
+
+
+
 <div class="sections section-feature-resto">
 <div class="container">
 
@@ -437,6 +471,9 @@ $placholder_search=Yii::t("default",$placholder_search);
   
 </div> <!--container-->
 </div>
+
+
+
 <?php endif;?>
 <?php endif;?>
 <?php endif;?>
