@@ -428,7 +428,7 @@ footer .styled-select {
    width: 100%;
    overflow:hidden;
    height: 40px;
-   background: #f8f8f8 url(../img/arrow_down.svg) no-repeat  right center ;
+   background: #f8f8f8 url(../../images/quickfood/arrow_down.svg) no-repeat  right center ;
    border:none;
 	margin-bottom:15px;
 	-webkit-border-radius: 3px;
@@ -516,7 +516,7 @@ footer .styled-select {
 	text-align:center;
 	margin:0 10px;
 	padding-left:20px;
-	background:url(../img/dots_vert.png) center left no-repeat;
+	background:url(../../images/quickfood/dots_vert.png) center left no-repeat;
 }
 #count ul li:first-child{
 	margin-left:0;
@@ -2061,7 +2061,7 @@ a.bt_filters{
    width: 100%;
    overflow:hidden;
    height: 36px;
-   background: url(../img/arrow_down.svg) no-repeat  right center ;
+   background: url(../../images/quickfood/arrow_down.svg) no-repeat  right center ;
    border:none;
    border-right: 1px solid #ededed;
 } 

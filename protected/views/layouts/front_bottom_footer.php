@@ -14,16 +14,19 @@
             </div>
             <div class="col-md-3 col-sm-3">
                 <h3>About</h3>
-                <ul>
+                
+                
+<!--                <ul>
                     <li><a href="about.html">About us</a></li>
                     <li><a href="faq.html">Faq</a></li>
                     <li><a href="contacts.html">Contacts</a></li>
                     <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>
                     <li><a href="#0" data-toggle="modal" data-target="#register">Register</a></li>
                     <li><a href="#0">Terms and conditions</a></li>
-                </ul>
+                </ul>-->
                 
-                <?php if ($theme_hide_footer_section1!=2):?>
+
+                <?php if ($theme_hide_footer_section1 != 2):?>
                     <h3><?php echo t("Menu")?></h3>
 
                     <?php if (is_array($menu) && count($menu)>=1):?>
@@ -39,8 +42,8 @@
                 <?php endif;?>
                     
                     
-                <?php if ($theme_hide_footer_section2!=2):?>
-                    <h3><?php echo t("Others")?></h3>
+                <?php if ($theme_hide_footer_section2 != 2):?>
+                    <h3><?php //echo t("Others")?></h3>
 
                     <?php if (is_array($others_menu) && count($others_menu)>=1):?>
                     <?php foreach ($others_menu as $val):?>
@@ -107,36 +110,26 @@
                 <h3>Settings</h3>
                 <div class="styled-select">
                     
-                      <?php 
-        if ($show_language<>1){
-        	if ( $theme_lang_pos=="bottom" || $theme_lang_pos==""){
-		        echo CHtml::dropDownList('language-options','',
-		         (array)FunctionsV3::getLanguage()
-		         ,array(
-		         'class'=>"language-options selectpicker",
-		         'title'=>t("Select language")
-		        ));
-        	}
-        }
-        ?>
+                <?php 
+                    if ($show_language<>1){
+                            if ( $theme_lang_pos=="bottom" || $theme_lang_pos==""){
+                                
+ 
+                            echo CHtml::dropDownList(
+                                    'language-options', false, 
+                                    (array)FunctionsV3::getLanguage() 
+                                    );
+                                    
+                            }
+                    }
+    
+   
+                    ?>
                     
-                    <select class="form-control" name="lang" id="lang">
-                        <option value="English" selected>English</option>
-                        <option value="French">French</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="Russian">Russian</option>
-                    </select>
+
                 </div>
-                <div class="styled-select">
-                    
-                    <select class="form-control" name="currency" id="currency">
-                        <option value="USD" selected>USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="RUB">RUB</option>
-                    </select>
-                    
-                </div>
+                
+               
             </div>
         </div><!-- End row -->
         <div class="row">
@@ -199,7 +192,13 @@
 <div class="layer"></div><!-- Mobile menu overlay mask -->
 
 <!--MODAL LOGIN-->
-<?php $this->renderPartial('/layouts/_front_login', [] ); ?>
+<?php 
+
+//var_dump( $google_login_enabled ); die();
+
+//$this->renderPartial('/layouts/_front_login', [
+//        'google_login_enabled' => $google_login_enabled 
+//     ] ); ?>
 
 <!--MODAL REGISTRATION-->
-<?php $this->renderPartial('/layouts/_front_sign_up', [] ); ?>   
+<?php //$this->renderPartial('/layouts/_front_sign_up', [] ); ?>   

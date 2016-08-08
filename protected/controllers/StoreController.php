@@ -73,49 +73,65 @@ class StoreController extends CController
 	public function actionHome()
 	{
 		
-		unset($_SESSION['voucher_code']);
-        unset($_SESSION['less_voucher']);
-        unset($_SESSION['google_http_refferer']); 
+            unset($_SESSION['voucher_code']);
+            unset($_SESSION['less_voucher']);
+            unset($_SESSION['google_http_refferer']); 
         
-		if (isset($_GET['token'])){
-			if (!empty($_GET['token'])){
-			    //Yii::app()->functions->paypalSetCancelOrder($_GET['token']);
-			}
-		}
+            if (isset($_GET['token'])){
+                    if (!empty($_GET['token'])){
+                        //Yii::app()->functions->paypalSetCancelOrder($_GET['token']);
+                    }
+            }
 				
-		$seo_title=Yii::app()->functions->getOptionAdmin('seo_home');
-		$seo_meta=Yii::app()->functions->getOptionAdmin('seo_home_meta');
-		$seo_key=Yii::app()->functions->getOptionAdmin('seo_home_keywords');
+            $seo_title = Yii::app()->functions->getOptionAdmin('seo_home');
+            $seo_meta  = Yii::app()->functions->getOptionAdmin('seo_home_meta');
+            $seo_key   = Yii::app()->functions->getOptionAdmin('seo_home_keywords');
 					
-		if (!empty($seo_title)){
-		   $seo_title=smarty('website_title',getWebsiteName(),$seo_title);
-		   $this->pageTitle=$seo_title;
-		   Yii::app()->functions->setSEO($seo_title,$seo_meta,$seo_key);
-		}
+            if (!empty($seo_title)){
+               $seo_title=smarty('website_title',getWebsiteName(),$seo_title);
+               $this->pageTitle=$seo_title;
+               Yii::app()->functions->setSEO($seo_title,$seo_meta,$seo_key);
+            }
 
+            
+            
+            /* functionality from sign up page for making login, registration via modal */
+            
+            
+            
 		
-		$this->render('index',array(
-		   'home_search_mode'=>getOptionA('home_search_mode'),
-		   'enabled_advance_search'=> getOptionA('enabled_advance_search'),
-		   'theme_hide_how_works'=>getOptionA('theme_hide_how_works'),
-		   'theme_hide_cuisine'=>getOptionA('theme_hide_cuisine'),
-		   'disabled_featured_merchant'=>getOptionA('disabled_featured_merchant'),
-		   'disabled_subscription'=>getOptionA('disabled_subscription'),
-		   'theme_show_app'=>getOptionA('theme_show_app'),
-		   'theme_app_android'=>FunctionsV3::prettyUrl(getOptionA('theme_app_android')),
-		   'theme_app_ios'=>FunctionsV3::prettyUrl(getOptionA('theme_app_ios')),
-		   'theme_app_windows'=>FunctionsV3::prettyUrl(getOptionA('theme_app_windows')),
-		));
+            $this->render('index', array(
+               'home_search_mode'           => getOptionA('home_search_mode'),
+               'enabled_advance_search'     => getOptionA('enabled_advance_search'),
+               'theme_hide_how_works'       => getOptionA('theme_hide_how_works'),
+               'theme_hide_cuisine'         => getOptionA('theme_hide_cuisine'),
+               'disabled_featured_merchant' => getOptionA('disabled_featured_merchant'),
+               'disabled_subscription'      => getOptionA('disabled_subscription'),
+               'theme_show_app'             => getOptionA('theme_show_app'),
+               'theme_app_android'          => FunctionsV3::prettyUrl(getOptionA('theme_app_android')),
+               'theme_app_ios'              => FunctionsV3::prettyUrl(getOptionA('theme_app_ios')),
+               'theme_app_windows'          => FunctionsV3::prettyUrl(getOptionA('theme_app_windows')),
+                
+                //customization
+//               'google_login_enabled'    => getOptionA('google_login_enabled'),
+//	       'captcha_customer_login'  => getOptionA('captcha_customer_login'),
+//	       'captcha_customer_signup' => getOptionA('captcha_customer_signup')
+               // @TODO check $fb variable from signup action - store controller. 
+                
+                
+            ));
 	}
 				  
 	public function actionIndex()
 	{							
 		$this->redirect(Yii::app()->request->baseUrl."/store/home");
-		Yii::app()->end();		
+		Yii::app()->end();	
+                
 	}	
 	
 	public function actionCuisine()
 	{
+            
 		/*update merchant if expired and sponsored*/
 		Yii::app()->functions->updateMerchantSponsored();
 		Yii::app()->functions->updateMerchantExpired();
@@ -203,12 +219,12 @@ class StoreController extends CController
 		}
 		
 		$this->render('signup',array(
-		   'terms_customer'=>getOptionA('website_terms_customer'),
-		   'terms_customer_url'=>Yii::app()->functions->prettyLink(getOptionA('website_terms_customer_url')),
-		   'fb_flag'=>$fb,
-		   'google_login_enabled'=>getOptionA('google_login_enabled'),
-		   'captcha_customer_login'=>getOptionA('captcha_customer_login'),
-		   'captcha_customer_signup'=>getOptionA('captcha_customer_signup')
+		   'terms_customer'          => getOptionA('website_terms_customer'),
+		   'terms_customer_url'      => Yii::app()->functions->prettyLink(getOptionA('website_terms_customer_url')),
+		   'fb_flag'                 => $fb,
+		   'google_login_enabled'    => getOptionA('google_login_enabled'),
+		   'captcha_customer_login'  => getOptionA('captcha_customer_login'),
+		   'captcha_customer_signup' => getOptionA('captcha_customer_signup')
 		));
 	}
 	

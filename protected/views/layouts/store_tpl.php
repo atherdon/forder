@@ -44,11 +44,12 @@
 <?php echo $content;?>
 
 
-
+<?php //var_dump($google_login_enabled); die();?>
 
 
 <!--BOOTOM FOOTER-->
 <?php $this->renderPartial('/layouts/front_bottom_footer', array(
+    
   'fb_page'      => getOptionA('admin_fb_page'),
   'twitter_page' => getOptionA('admin_twitter_page'),
   'google_page'  => getOptionA('admin_google_page'),
@@ -61,6 +62,11 @@
   'youtube_url'    => getOptionA('admin_youtube_url'),
   'theme_hide_footer_section1' => getOptionA('theme_hide_footer_section1'),
   'theme_hide_footer_section2' => getOptionA('theme_hide_footer_section2'),
+    
+  //customization  
+  'google_login_enabled'    => getOptionA('google_login_enabled'),
+  'captcha_customer_login'  => getOptionA('captcha_customer_login'),
+  'captcha_customer_signup' => getOptionA('captcha_customer_signup')
     
 ));?>
 
