@@ -206,9 +206,9 @@ $placholder_search=Yii::t("default",$placholder_search);
 
 
 <!--FEATURED RESTAURANT SECIONS-->
-<?php if ($disabled_featured_merchant==""):?>
-<?php if ( getOptionA('disabled_featured_merchant')!="yes"):?>
-<?php if ($res=Yii::app()->functions->getFeatureMerchant2()):?>
+<?php // if ($disabled_featured_merchant == ""):?>
+<?php // if ( getOptionA('disabled_featured_merchant') != "yes"):?>
+<?php // if ($res=Yii::app()->functions->getFeatureMerchant2()):?>
 
 
 <div class="white_bg">
@@ -381,9 +381,9 @@ $placholder_search=Yii::t("default",$placholder_search);
         
         </div><!-- End container -->
 </div><!-- End white_bg -->
-<?php endif;?>
-<?php endif;?>
-<?php endif;?>
+<?php // endif;?>
+<?php // endif;?>
+<?php // endif;?>
 <!--END FEATURED RESTAURANT SECIONS-->
 
 
@@ -413,9 +413,9 @@ $placholder_search=Yii::t("default",$placholder_search);
 
 
 <!--FEATURED RESTAURANT SECIONS-->
-<?php if ($disabled_featured_merchant==""):?>
-<?php if ( getOptionA('disabled_featured_merchant')!="yes"):?>
-<?php if ($res=Yii::app()->functions->getFeatureMerchant2()):?>
+<?php  if ($disabled_featured_merchant==""):?>
+<?php  if ( getOptionA('disabled_featured_merchant')!="yes"):?>
+<?php  if ($res=Yii::app()->functions->getFeatureMerchant2()):?>
 
 
 
@@ -474,9 +474,9 @@ $placholder_search=Yii::t("default",$placholder_search);
 
 
 
-<?php endif;?>
-<?php endif;?>
-<?php endif;?>
+<?php  endif;?>
+<?php  endif;?>
+<?php  endif;?>
 <!--END FEATURED RESTAURANT SECIONS-->
 
 

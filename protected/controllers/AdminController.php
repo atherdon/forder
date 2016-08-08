@@ -140,7 +140,7 @@ class AdminController extends CController
 	
 	public function actionMerchantAdd()
 	{
-		$this->crumbsTitle=Yii::t("default","Merchant Add");
+		$this->crumbsTitle = Yii::t("default","Merchant Add");
 		$this->render('merchant-add');
 	}
 	

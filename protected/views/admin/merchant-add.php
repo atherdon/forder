@@ -9,6 +9,7 @@ if (isset($_GET['id'])){
 		$url_login=baseUrl()."/merchant/autologin/id/".$data['merchant_id']."/token/".$data['password'];		
 	}
 }
+
 ?>                              
 
 <div class="uk-width-1">
@@ -143,7 +144,7 @@ if (isset($_GET['id'])){
           'data-validation'=>"required"
           ))?>
         </div>
-                
+         
         <div class="uk-form-row">
           <label class="uk-form-label"><?php echo Yii::t("default","City")?></label>
           <?php echo CHtml::textField('city',
@@ -218,7 +219,7 @@ if (isset($_GET['id'])){
           ))?>
         </div>
         
-               
+          
     </fieldset>
 </li>
 
@@ -257,7 +258,7 @@ Yii::app()->functions->data="list";
   ,Yii::app()->functions->getPackagesList())
   ?>
   </div>
-  
+             
   <div class="uk-form-row">
   <label class="uk-form-label"><?php echo Yii::t("default","Package Price")?></label>
   <span class="uk-text-primary"><?php echo adminCurrencySymbol().standardPrettyFormat($data['package_price'])?></span>
@@ -289,8 +290,16 @@ Yii::app()->functions->data="list";
   </div>
 </li>
 
+
+
+
+<?php if (! empty( $_GET ) ) { ?>
+    
+
+
 <li>
-  <?php if ($payment_res=Yii::app()->functions->getMerchantPaymentTransaction($_GET['id'])):?>
+  <?php if ($payment_res = Yii::app()->functions->getMerchantPaymentTransaction( $_GET['id'] )): ?>
+    
 	  <table id="table_list" class="uk-table uk-table-hover uk-table-striped uk-table-condensed">
 	  <caption><?php echo Yii::t("default","Merchant Payment History")?></caption>
 	   <thead>	
@@ -302,6 +311,9 @@ Yii::app()->functions->data="list";
 	   <th><?php echo Yii::t("default","Transaction Date")?></th>	   
 	   </thead>    
 	   <tbody>
+               
+          <?php //if ( 0 ) { ?>     
+               
 	  <?php foreach ($payment_res as $val):?>
 	  <tr>
 	   <td><?php echo $val['package_name']?></td>
@@ -311,13 +323,18 @@ Yii::app()->functions->data="list";
 	   <td><?php echo Yii::t("default",$val['status'])?></td>
 	   <td><?php echo prettyDate($val['date_created'],true)?></td>
 	  </tr>
-	  <?php endforeach;?>  
+	  <?php  endforeach;?>  
+          
+          <?php //} ?>
+          
 	  </tbody>
 	  </table>
   <?php else :?>	  
   <p class="uk-text-warning"><?php echo Yii::t("default","No Payment records")?></p>
   <?php endif;?>
 </li>
+
+<?php } ?>
 
 <li>
 
@@ -332,19 +349,34 @@ Yii::app()->functions->data="list";
   ))
   ?> 
 </div>
-
+ <?php
+//
+//echo '123';
+//
+//die();
+//
+//?>
+    
 <div class="uk-form-row">
   <label class="uk-form-label"><?php echo Yii::t("default","commission on orders")?></label>
   <?php 
-  $percent_commision=Yii::app()->functions->getOptionAdmin('admin_commision_percent');
+  $percent_commision = Yii::app()->functions->getOptionAdmin('admin_commision_percent');
   if ($data['percent_commision']<=0){
   	  $data['percent_commision']=$percent_commision;
   }
   
-  $commision_type=Yii::app()->functions->getOptionAdmin('admin_commision_type');
-  if (!empty($data['commision_type'])){
-  	  $data['commision_type']=$data['commision_type'];
+  $commision_type = Yii::app()->functions->getOptionAdmin('admin_commision_type');
+  
+//  var_dump( $commision_type );
+//  die();
+  
+  if ( !empty( $data['commision_type'] ) ){
+  	  $data['commision_type'] = $data['commision_type'];
+  } else {
+      
+      $data['commision_type'] = false;
   }
+  
   
   echo CHtml::dropDownList('commision_type',
   $data['commision_type']
@@ -360,7 +392,7 @@ Yii::app()->functions->data="list";
   ))
   ?>
 </div>
-
+ 
 <p class="uk-text-danger">
 <?php echo t("Note: If this is ticked, the merchant will be charged commission per order and membership package will be ignored")?>
 </p>
