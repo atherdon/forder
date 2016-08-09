@@ -48,3 +48,4 @@ echo FormatDateTime(date('c'),false);
 <?php else :?>
 <h2><?php echo Yii::t("default","Welcome")?></h2>
 <?php endif; ?>
+

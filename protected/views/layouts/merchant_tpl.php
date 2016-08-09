@@ -94,7 +94,7 @@
       ?>
      <a class="merchant-status" href="<?php echo Yii::app()->request->baseUrl; ?>/merchant/MerchantStatus" ></a>
      </h4>
-    <?php endif;?>
+    <?php endif;?> 
   </div> <!--RIGHT-->
   <div class="right">
   <div class="notice-wrap"></div>
@@ -127,14 +127,14 @@
 
 <div class="main_wrapper">
   <div class="left_panel left">
-      <div class="menu">      
-        <?php $this->widget('zii.widgets.CMenu', Yii::app()->functions->merchantMenu());?>
+      <div class="menu">       
+        <?php $this->widget('zii.widgets.CMenu', Yii::app()->functions->merchantMenu());?>  
       </div>
   </div>
   <div class="left main_content">
      <div class="inner">
        <div class="breadcrumbs">
-        <div class="inner">
+        <div class="inner"> 
           <h2 class="uk-h2"><?php echo $this->crumbsTitle;?></h2>
           <?php Widgets::smsBalance();?>
           <?php Widgets::FaxBalance();?>
@@ -142,8 +142,8 @@
         </div>
        </div> <!--breadcrumbs-->
        
-       <div class="content_wrap">
-         <?php echo $content;?>
+       <div class="content_wrap"> 
+         <?php echo $content;?> 
        </div>
        
      </div> <!--INNER-->

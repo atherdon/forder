@@ -71,13 +71,14 @@ class MerchantController extends CController
 	}
 				  
 	public function actionIndex()
-	{					
+	{				
+            
 		if ( !Yii::app()->functions->isMerchantLogin()){						
 			$this->layout='login_tpl';
-			$this->render('login');
+			$this->render('login'); 
 		} else {											
-			$this->crumbsTitle=Yii::t("default","Dashboard");		
-			$this->render('dashboard');			
+			$this->crumbsTitle=Yii::t("default","Dashboard"); 		
+			$this->render('dashboard');	
 		}		
 	}	
 	

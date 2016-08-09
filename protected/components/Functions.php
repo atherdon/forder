@@ -879,7 +879,9 @@ class Functions extends CApplicationComponent
                    'url'=>array('merchant/braintreesettings')),                                                            
                                                          
                 ));              
-                              
+                             
+                
+               
               $fax_menu=array('visible'=>$this->hasMerchantAccess("fax"),'tag'=>'fax','label'=>'<i class="fa fa-fax"></i>'.Yii::t("default",'Fax'),      
                         
                    'itemOptions'=>array('class'=>''), 'items'=>array(
@@ -897,9 +899,10 @@ class Functions extends CApplicationComponent
                    'url'=>array('merchant/faxpurchasetrans')),                                 
 
               )); 
-              
+               
               if ( Yii::app()->functions->getOptionAdmin("fax_enabled")!=2){
               	 $fax_menu='';
+
               }
                             
 						
@@ -913,130 +916,151 @@ class Functions extends CApplicationComponent
         if ($minfo[0]->is_commission==2){
         	$togle_com=true;
         }	
-         
-		return array(  
-		    'activeCssClass'=>'active', 
-		    'encodeLabel'=>false,
-		    'items'=>array(
-                array('visible'=>$this->hasMerchantAccess("DashBoard"),'tag'=>"DashBoard",'label'=>'<i class="fa fa-home"></i>'.Yii::t("default","Dashboard"),
-                'url'=>array('/merchant/DashBoard')),
-                
-                array('visible'=>$this->hasMerchantAccess("Merchant"),'tag'=>"Merchant",'label'=>'<i class="fa fa-cutlery"></i>'.Yii::t("default","Merchant Info"),
-                'url'=>array('/merchant/Merchant')),
-                
-                array('visible'=>$this->hasMerchantAccess("Settings"),'tag'=>"Settings",'label'=>'<i class="fa fa-cog"></i>'.Yii::t("default","Settings"),
-                'url'=>array('/merchant/Settings')),
-                
-                array('visible'=>$this->hasMerchantAccess("tablebook"),'tag'=>"tablebook",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Table Booking"),
-                'url'=>array('/merchant/tablebooking')),
-                                                
-                array('visible'=>$this->hasMerchantAccess("orderStatus"),'tag'=>"orderStatus",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Order Status"),
-                'url'=>array('/merchant/orderStatus')),
-                                                                               
-                array('visible'=>$this->hasMerchantAccess("CategoryList"),'tag'=>"CategoryList",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Food Category"),
-                'url'=>array('/merchant/CategoryList')),
-                
-                array('visible'=>$this->hasMerchantAccess("Size"),'tag'=>"Size",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Size"),
-                'url'=>array('/merchant/Size')),
-                                
-                array('visible'=>$this->hasMerchantAccess("AddOnCategory"),'tag'=>"AddOnCategory",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","AddOn Category"),
-                'url'=>array('/merchant/AddOnCategory')),
-                
-                array('visible'=>$this->hasMerchantAccess("AddOnItem"),'tag'=>"AddOnItem",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","AddOn Item"),
-                'url'=>array('/merchant/AddOnItem')),
-                                
-                
-                array('visible'=>$this->hasMerchantAccess("ingredients"),'tag'=>"ingredients",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Ingredients"),
-                'url'=>array('/merchant/ingredients')),
-                                
-                
-                array('visible'=>$this->hasMerchantAccess("CookingRef"),'tag'=>"CookingRef",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Cooking Reference"),
-                'url'=>array('/merchant/CookingRef')),
-                                
-                array('visible'=>$this->hasMerchantAccess("FoodItem"),'tag'=>"FoodItem",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Food Item"),
-                'url'=>array('/merchant/FoodItem')),             
-                
-                array('visible'=>$this->hasMerchantAccess("shippingrate"),'tag'=>"shippingrate",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Delivery Charges Rates"),
-                'url'=>array('/merchant/shippingrate')),
-                
-                array('visible'=>$this->hasMerchantAccess("offers"),'tag'=>"offers",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Offers"),
-                'url'=>array('/merchant/offers')),
-                
-                array('visible'=>$this->hasMerchantAccess("gallerysettings"),'tag'=>"gallerysettings",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Gallery Settings"),
-                'url'=>array('/merchant/gallerysettings')),
-                
-                array('visible'=>$this->hasMerchantAccess("receiptSettings"),'tag'=>"receiptSettings",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Receipt Settings"),
-                'url'=>array('/merchant/receiptSettings')),
-                
-                array('visible'=>$this->hasMerchantAccess("voucher"),'tag'=>"voucher",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Voucher"),
-                'url'=>array('/merchant/voucher')),
-                
-                
-                // commission
-                
-                array('visible'=>$togle_com,'tag'=>'commission','label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default",'Commission'),
-                   'itemOptions'=>array('class'=>''), 'items'=>array(
-                   
-                   array('visible'=>$togle_com,'tag'=>'statement', 'label'=>'<i class="fa fa-paypal"></i>'.t("Statement"), 
-                   'url'=>array('merchant/statement')),                
-                   
-                   /*array('visible'=>$togle_com,'tag'=>'cashstatement', 'label'=>'<i class="fa fa-paypal"></i>'.t("Cash Statement"), 
-                   'url'=>array('merchant/cashstatement')),                */
-                   
-                   array('visible'=>$togle_com,'tag'=>'earnings', 'label'=>'<i class="fa fa-paypal"></i>'.t("Earnings"),
-                   'url'=>array('merchant/earnings')),     
-                   
-                   array('visible'=>$togle_com,'tag'=>'withdrawals', 'label'=>'<i class="fa fa-paypal"></i>'.t("Withdrawals"),
-                   'url'=>array('merchant/withdrawals')),     
-                                      
-                )),   
-                      
-                $payment_list,
-                
-                array('visible'=>$this->hasMerchantAccess("sms-gateway"),'tag'=>'sms-gateway','label'=>'<i class="fa fa-mobile"></i>'.Yii::t("default",'SMS'),
-                   'itemOptions'=>array('class'=>''), 'items'=>array(
-                   array('visible'=>$this->hasMerchantAccess("smsSettings"),'tag'=>'smsSettings', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","SMS Alert Settings"), 
-                   'url'=>array('merchant/smsSettings')),                
-                   array('visible'=>$this->hasMerchantAccess("smsBroadcast"),'tag'=>'smsBroadcast', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","SMS BroadCast"), 
-                   'url'=>array('merchant/smsBroadcast')),     
-                   array('visible'=>$this->hasMerchantAccess("purchaseSMS"),'tag'=>'purchaseSMS', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Purchase SMS Credit"), 
-                   'url'=>array('merchant/purchaseSMS')),                           
-                   array('visible'=>$this->hasMerchantAccess("purchasesmstransaction"),'tag'=>'purchasesmstransaction', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Purchase Credit Transactions"), 
-                   'url'=>array('merchant/purchasesmstransaction')),                           
-                )),
-                                
-                $fax_menu,
-                
-                array('visible'=>$this->hasMerchantAccess("reports"),'tag'=>'reports','label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default",'Reports'),
-                   'itemOptions'=>array('class'=>''), 'items'=>array(
-                   array('visible'=>$this->hasMerchantAccess("salesReport"),'tag'=>'salesReport','label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Sales Report"), 
-                   'url'=>array('merchant/salesReport')),
-                   array('visible'=>$this->hasMerchantAccess("salesSummaryReport"),'tag'=>'salesSummaryReport','label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Sales Summary Report"), 
-                   'url'=>array('merchant/salesSummaryReport')),                
-                   
-                   array('visible'=>$this->hasMerchantAccess("bookingreport"),'tag'=>'bookingreport','label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Booking Summary Report"), 
-                   'url'=>array('merchant/bookingreport')),                
-                )),
+//         die(); 
+        
+//        var_dump( $fax_menu ); die();
+        
+        $items = [
+                                   
+            array('visible'=>$this->hasMerchantAccess("DashBoard"),'tag'=>"DashBoard",'label'=>'<i class="fa fa-home"></i>'.Yii::t("default","Dashboard"),
+            'url'=>array('/merchant/DashBoard')),
 
-                /*array('tag'=>"home",'label'=>'<i class="fa fa-cog"></i>'.Yii::t("default","Receipt Settings"),
-                'url'=>array('/merchant/ReceiptSettings')),*/
-                
-                array('visible'=>$this->hasMerchantAccess("review"),'tag'=>"review",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Customer reviews"),
-                'url'=>array('/merchant/review')),               
-                
-                array('visible'=>$this->hasMerchantAccess("SocialSettings"),'tag'=>"SocialSettings",'label'=>'<i class="fa fa-facebook-square"></i>'.Yii::t("default","Social Settings"),
-                'url'=>array('/merchant/SocialSettings')),               
-                
-                array('visible'=>$this->hasMerchantAccess("AlertSettings"),'tag'=>"AlertSettings",'label'=>'<i class="fa fa-bell"></i>'.Yii::t("default","Alert Notification"),
-                'url'=>array('/merchant/AlertSettings')),               
-                                
-                array('visible'=>$this->hasMerchantAccess("user"),'tag'=>"user",'label'=>'<i class="fa fa-users"></i>'.Yii::t("default","User"),
-                'url'=>array('/merchant/user')),
-                                
-                array('tag'=>"logout",'label'=>'<i class="fa fa-sign-out"></i>'.Yii::t("default","Logout"),
-                'url'=>array('/merchant/login/logout/true')),
-            )
-		);
+            array('visible'=>$this->hasMerchantAccess("Merchant"),'tag'=>"Merchant",'label'=>'<i class="fa fa-cutlery"></i>'.Yii::t("default","Merchant Info"),
+            'url'=>array('/merchant/Merchant')),
+
+            array('visible'=>$this->hasMerchantAccess("Settings"),'tag'=>"Settings",'label'=>'<i class="fa fa-cog"></i>'.Yii::t("default","Settings"),
+            'url'=>array('/merchant/Settings')),
+
+            array('visible'=>$this->hasMerchantAccess("tablebook"),'tag'=>"tablebook",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Table Booking"),
+            'url'=>array('/merchant/tablebooking')),
+
+            array('visible'=>$this->hasMerchantAccess("orderStatus"),'tag'=>"orderStatus",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Order Status"),
+            'url'=>array('/merchant/orderStatus')),
+
+            array('visible'=>$this->hasMerchantAccess("CategoryList"),'tag'=>"CategoryList",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Food Category"),
+            'url'=>array('/merchant/CategoryList')),
+
+            array('visible'=>$this->hasMerchantAccess("Size"),'tag'=>"Size",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Size"),
+            'url'=>array('/merchant/Size')),
+
+            array('visible'=>$this->hasMerchantAccess("AddOnCategory"),'tag'=>"AddOnCategory",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","AddOn Category"),
+            'url'=>array('/merchant/AddOnCategory')),
+
+            array('visible'=>$this->hasMerchantAccess("AddOnItem"),'tag'=>"AddOnItem",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","AddOn Item"),
+            'url'=>array('/merchant/AddOnItem')),
+
+
+            array('visible'=>$this->hasMerchantAccess("ingredients"),'tag'=>"ingredients",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Ingredients"),
+            'url'=>array('/merchant/ingredients')),
+
+
+            array('visible'=>$this->hasMerchantAccess("CookingRef"),'tag'=>"CookingRef",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Cooking Reference"),
+            'url'=>array('/merchant/CookingRef')),
+
+            array('visible'=>$this->hasMerchantAccess("FoodItem"),'tag'=>"FoodItem",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Food Item"),
+            'url'=>array('/merchant/FoodItem')),             
+
+            array('visible'=>$this->hasMerchantAccess("shippingrate"),'tag'=>"shippingrate",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Delivery Charges Rates"),
+            'url'=>array('/merchant/shippingrate')),
+
+            array('visible'=>$this->hasMerchantAccess("offers"),'tag'=>"offers",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Offers"),
+            'url'=>array('/merchant/offers')),
+
+            array('visible'=>$this->hasMerchantAccess("gallerysettings"),'tag'=>"gallerysettings",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Gallery Settings"),
+            'url'=>array('/merchant/gallerysettings')),
+
+            array('visible'=>$this->hasMerchantAccess("receiptSettings"),'tag'=>"receiptSettings",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Receipt Settings"),
+            'url'=>array('/merchant/receiptSettings')),
+
+            array('visible'=>$this->hasMerchantAccess("voucher"),'tag'=>"voucher",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Voucher"),
+            'url'=>array('/merchant/voucher')),
+
+
+
+            // commission
+
+            array('visible'=>$togle_com,'tag'=>'commission','label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default",'Commission'),
+               'itemOptions'=>array('class'=>''), 'items'=>array(
+
+               array('visible'=>$togle_com,'tag'=>'statement', 'label'=>'<i class="fa fa-paypal"></i>'.t("Statement"), 
+               'url'=>array('merchant/statement')),                
+
+               /*array('visible'=>$togle_com,'tag'=>'cashstatement', 'label'=>'<i class="fa fa-paypal"></i>'.t("Cash Statement"), 
+               'url'=>array('merchant/cashstatement')),                */
+
+               array('visible'=>$togle_com,'tag'=>'earnings', 'label'=>'<i class="fa fa-paypal"></i>'.t("Earnings"),
+               'url'=>array('merchant/earnings')),     
+
+               array('visible'=>$togle_com,'tag'=>'withdrawals', 'label'=>'<i class="fa fa-paypal"></i>'.t("Withdrawals"),
+               'url'=>array('merchant/withdrawals')),     
+
+            )),   
+
+            $payment_list,
+
+            array('visible'=>$this->hasMerchantAccess("sms-gateway"),'tag'=>'sms-gateway','label'=>'<i class="fa fa-mobile"></i>'.Yii::t("default",'SMS'),
+               'itemOptions'=>array('class'=>''), 'items'=>array(
+               array('visible'=>$this->hasMerchantAccess("smsSettings"),'tag'=>'smsSettings', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","SMS Alert Settings"), 
+               'url'=>array('merchant/smsSettings')),                
+               array('visible'=>$this->hasMerchantAccess("smsBroadcast"),'tag'=>'smsBroadcast', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","SMS BroadCast"), 
+               'url'=>array('merchant/smsBroadcast')),     
+               array('visible'=>$this->hasMerchantAccess("purchaseSMS"),'tag'=>'purchaseSMS', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Purchase SMS Credit"), 
+               'url'=>array('merchant/purchaseSMS')),                           
+               array('visible'=>$this->hasMerchantAccess("purchasesmstransaction"),'tag'=>'purchasesmstransaction', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Purchase Credit Transactions"), 
+               'url'=>array('merchant/purchasesmstransaction')),                           
+            )),
+
+
+
+            array('visible'=>$this->hasMerchantAccess("reports"),'tag'=>'reports','label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default",'Reports'),
+               'itemOptions'=>array('class'=>''), 'items'=>array(
+               array('visible'=>$this->hasMerchantAccess("salesReport"),'tag'=>'salesReport','label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Sales Report"), 
+               'url'=>array('merchant/salesReport')),
+               array('visible'=>$this->hasMerchantAccess("salesSummaryReport"),'tag'=>'salesSummaryReport','label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Sales Summary Report"), 
+               'url'=>array('merchant/salesSummaryReport')),                
+
+               array('visible'=>$this->hasMerchantAccess("bookingreport"),'tag'=>'bookingreport','label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Booking Summary Report"), 
+               'url'=>array('merchant/bookingreport')),                
+            )),
+
+            /*array('tag'=>"home",'label'=>'<i class="fa fa-cog"></i>'.Yii::t("default","Receipt Settings"),
+            'url'=>array('/merchant/ReceiptSettings')),*/
+
+            array('visible'=>$this->hasMerchantAccess("review"),'tag'=>"review",'label'=>'<i class="fa fa-list-alt"></i>'.Yii::t("default","Customer reviews"),
+            'url'=>array('/merchant/review')),               
+
+            array('visible'=>$this->hasMerchantAccess("SocialSettings"),'tag'=>"SocialSettings",'label'=>'<i class="fa fa-facebook-square"></i>'.Yii::t("default","Social Settings"),
+            'url'=>array('/merchant/SocialSettings')),               
+
+            array('visible'=>$this->hasMerchantAccess("AlertSettings"),'tag'=>"AlertSettings",'label'=>'<i class="fa fa-bell"></i>'.Yii::t("default","Alert Notification"),
+            'url'=>array('/merchant/AlertSettings')),               
+
+            array('visible'=>$this->hasMerchantAccess("user"),'tag'=>"user",'label'=>'<i class="fa fa-users"></i>'.Yii::t("default","User"),
+            'url'=>array('/merchant/user')),
+
+            array('tag'=>"logout",'label'=>'<i class="fa fa-sign-out"></i>'.Yii::t("default","Logout"),
+            'url'=>array('/merchant/login/logout/true')),
+
+//            $fax_menu,
+                    
+        ];
+        
+        if ( !empty( $fax_menu )  ){
+        
+            $items[] = $fax_menu;
+             
+
+        }
+        
+        $result = array(  
+                    
+		    'activeCssClass' => 'active', 
+		    'encodeLabel'    => false,                   
+		    'items'          => $items,
+            );
+        
+            return $result;
+            
 	}	    
 	
 	public function hasMerchantAccess($tag='')
