@@ -350,10 +350,12 @@ $placholder_search=Yii::t("default",$placholder_search);
     <div class="container">
         <h3>Choose from over 2,000 Restaurants</h3>
         <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
-        <a href="list_page.html">View all Restaurants</a>
+        <a href="<?php echo Yii::app()->createUrl('/store/browse/' )?>">View all Restaurants</a>
     </div><!-- End container -->
 </div><!-- End hight_light -->
             
+
+
 <section class="parallax-window" data-parallax="scroll" data-image-src="<?php echo Widgets::quickImagesPath(); ?>bg_office.jpg" data-natural-width="1200" data-natural-height="600">
     <div class="parallax-content">
         <div class="sub_content">
@@ -365,76 +367,66 @@ $placholder_search=Yii::t("default",$placholder_search);
         </div><!-- End sub_content -->
     </div><!-- End subheader -->
 </section><!-- End section -->
-    
 
 
 
-<!--FEATURED RESTAURANT SECIONS-->
-<?php  if ($disabled_featured_merchant==""):?>
-<?php  if ( getOptionA('disabled_featured_merchant')!="yes"):?>
-<?php  if ($res=Yii::app()->functions->getFeatureMerchant2()):?>
+<?php if ($theme_hide_cuisine<>2):?>
+<!--CUISINE SECTIONS-->
+<?php if ( $list=FunctionsV3::getCuisine() ): ?>
 
 
 
-<div class="sections section-feature-resto">
-<div class="container">
 
+<div class="high_light">
+    <div class="container">
+        <h3>Choose from over 2,000 Restaurants</h3>
+        <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+        <a href="#">View all Restaurants</a>
+    </div><!-- End container -->
+</div><!-- End hight_light -->
 
-  <h2><?php echo t("Featured Restaurants")?></h2>
-  
-  <div class="row">
-  <?php foreach ($res as $val): //dump($val);?>
-  <?php $address= $val['street']." ".$val['city'];
-        $address.=" ".$val['state']." ".$val['post_code'];
-        
-        $ratings=Yii::app()->functions->getRatings($val['merchant_id']);
-  ?>   
-  
-    <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>">
-    <div class="col-md-5 border-light ">
-    
-        <div class="col-md-3 col-sm-3">
-           <img class="logo-small" src="<?php echo FunctionsV3::getMerchantLogo($val['merchant_id']);?>">
-        </div> <!--col-->
-        
-        <div class="col-md-9 col-sm-9">
-        
-          <div class="row">
-              <div class="col-sm-5">
-		          <div class="rating-stars" data-score="<?php echo $ratings['ratings']?>"></div>   
-	          </div>
-	          <div class="col-sm-2 merchantopentag">
-	          <?php echo FunctionsV3::merchantOpenTag($val['merchant_id'])?>   
-	          </div>
-          </div>
-          
-          <h4 class="concat-text"><?php echo clearString($val['restaurant_name'])?></h4>
-          
-          <p class="concat-text">
-          <?php //echo wordwrap(FunctionsV3::displayCuisine($val['cuisine']),50,"<br />\n");?>
-          <?php echo FunctionsV3::displayCuisine($val['cuisine']);?>
-          </p>
-          <p class="concat-text"><?php echo $address?></p>                             
-          <?php echo FunctionsV3::displayServicesList($val['service'])?>          
-        </div> <!--col-->
-        
-    </div> <!--col-6-->
-    </a>
-    <div class="col-md-1"></div>
-      
-  <?php endforeach;?>
-  </div> <!--end row-->
-
-  
-</div> <!--container-->
-</div>
+<section class="parallax-window" data-parallax="scroll" data-image-src="<?php echo Widgets::quickImagesPath(); ?>bg_office.jpg" data-natural-width="1200" data-natural-height="600">
+    <div class="parallax-content">
+        <div class="sub_content">
+            <i class="icon_mug"></i>
+            
+            
+            <h3>
+                <?php echo t("Browse by cuisine")?>
+            </h3>
+            <p>
+                <?php echo t("choose from your favorite cuisine")?>
+            </p>
+            <div class="row">
+                <?php $x=1;?>
+                <?php foreach ($list as $val): ?>
+                <div class="col-md-4 col-sm-4 indent-5percent nopad">
+                  <a href="<?php echo Yii::app()->createUrl('/store/cuisine',array("category"=>$val['cuisine_id']))?>" 
+                 class="<?php echo ($x%2)?"even":'odd'?> clean-up-link ">
+                  <?php 
+                  $cuisine_json['cuisine_name_trans']=!empty($val['cuisine_name_trans'])?json_decode($val['cuisine_name_trans'],true):'';	 
+                  echo qTranslate($val['cuisine_name'],'cuisine_name',$cuisine_json);
+                  if($val['total']>0){
+                    echo "<span>(".$val['total'].")</span>";
+                  }
+                  ?>
+                  </a>
+                </div>   
+                <?php $x++;?>
+                <?php endforeach;?>
+              </div> 
+            
+        </div><!-- End sub_content -->
+    </div><!-- End subheader -->
+</section><!-- End section -->
 
 
 
-<?php  endif;?>
-<?php  endif;?>
-<?php  endif;?>
-<!--END FEATURED RESTAURANT SECIONS-->
+<?php endif;?>
+<?php endif;?>
+
+
+
 
 
 <?php if ($theme_hide_cuisine<>2):?>
@@ -477,6 +469,7 @@ $placholder_search=Yii::t("default",$placholder_search);
 </div> <!--section-cuisine-->
 <?php endif;?>
 <?php endif;?>
+
 
 
 <?php if ($theme_show_app==2):?>

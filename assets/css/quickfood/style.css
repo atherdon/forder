@@ -1421,6 +1421,15 @@ ul.opening_list li span{
 .parallax-content-2 div i{
 	font-size:60px;
 }
+
+.parallax-content a {
+    color: white;
+    font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+        
+}
+
+
 /* 3.3 Position  breadcrumbs */
 #position {
 	background-color:#fff;

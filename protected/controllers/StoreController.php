@@ -660,7 +660,7 @@ class StoreController extends CController
 	
 	public function actionMenu()
 	{		
-				
+				die();
 		$data=$_GET;		
 		$current_merchant='';
 		if (isset($_SESSION['kr_merchant_id'])){
