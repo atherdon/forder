@@ -230,11 +230,7 @@ $placholder_search=Yii::t("default",$placholder_search);
             
             
             $pieces = array_chunk( $res, ceil(count( $res ) / 2));
-//            echo '<pre>';
-//            var_dump( $pieces[0] ); 
-//            var_dump( $pieces[1] ); 
-//            die(); 
-            
+
             ?>
             
              <div class="col-md-6">
@@ -254,9 +250,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                             
                             <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>" class="strip_list">
                                 
-                                <!--<div class="col-sm-2 merchantopentag">-->
-                                <?php //echo FunctionsV3::merchantOpenTag($val['merchant_id'])?>   
-                                <!--</div>-->
+                           
                                 
                                 <div class="ribbon_1">Popular</div>
                                     <div class="desc">
@@ -279,14 +273,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                                                                                        
                                         </div>
                                         <?php echo FunctionsV3::displayServicesList2($val['service'])?>
-<!--                                        <ul>
-                                            <li>
-                                                Take away<i class="icon_check_alt2 ok"></i>
-                                            </li>
-                                            <li>
-                                                Delivery<i class="icon_check_alt2 "></i>
-                                            </li>
-                                        </ul>-->
+
                                     </div><!-- End desc-->
 
                             </a><!-- End strip_list-->
@@ -298,8 +285,8 @@ $placholder_search=Yii::t("default",$placholder_search);
             </div>   
             
             <div class="col-md-6">
-                <?php //if(0){
-                    foreach ( $pieces[1] as $key => $val){ //dump($val);
+                <?php 
+                    foreach ( $pieces[1] as $key => $val){ 
 
                         $address  = $val['street'] . ", " . $val['city'];
                         $address .= ", " . $val['state'] . ", " . $val['post_code'];
@@ -311,10 +298,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                             
                             <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>" class="strip_list">
                                 
-                                <!--<div class="col-sm-2 merchantopentag">-->
-                                <?php //echo FunctionsV3::merchantOpenTag($val['merchant_id'])?>   
-                                <!--</div>-->
-                                
+                              
                                 <div class="ribbon_1">Popular</div>
                                     <div class="desc">
                                         <div class="thumb_strip">
@@ -345,178 +329,11 @@ $placholder_search=Yii::t("default",$placholder_search);
                     <?php
 
                     } 
-                    //                     }
-                ?>
-            </div>
-            
-            
-            
-            <?php
-//            foreach ($res as $key => $val){ //dump($val);
-//                
-//                var_dump( $key % 2 );
-//                echo '-----';
-                
-                ?>
-            
-            
-            <?php // } //die(); ?>
-            
-            <?php if (0 ) {?> 
-            <div class="col-md-6">
-                
-                <a href="detail_page.html" class="strip_list">
-                <div class="ribbon_1">Popular</div>
-                    <div class="desc">
-                        <div class="thumb_strip">
-                            <img src="<?php echo Widgets::quickImagesPath(); ?>thumb_restaurant.jpg" alt="">
-                        </div>
-                        <div class="rating">
-                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                        </div>
-                        <h3>Taco Mexican</h3>
-                        <div class="type">
-                            Mexican / American
-                        </div>
-                        <div class="location">
-                            135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-                        </div>
-                        <ul>
-                            <li>Take away<i class="icon_check_alt2 ok"></i></li>
-                            <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-                        </ul>
-                    </div><!-- End desc-->
                     
-                </a><!-- End strip_list-->
-                
-               <a href="detail_page.html" class="strip_list">
-                    <div class="ribbon_1">Popular</div>
-                    <div class="desc">
-                        <div class="thumb_strip">
-                            <img src="<?php echo Widgets::quickImagesPath(); ?>thumb_restaurant_2.jpg" alt="">
-                        </div>
-                        <div class="rating">
-                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                        </div>
-                        <h3>Naples Pizza</h3>
-                        <div class="type">
-                            Italian / Pizza
-                        </div>
-                        <div class="location">
-                            135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-                        </div>
-                        <ul>
-                            <li>Take away<i class="icon_check_alt2 ok"></i></li>
-                            <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-                        </ul>
-                    </div><!-- End desc-->
-                </a><!-- End strip_list-->
-                
-                <a href="detail_page.html" class="strip_list">
-                    <div class="ribbon_1">Popular</div>
-                    <div class="desc">
-                        <div class="thumb_strip">
-                            <img src="<?php echo Widgets::quickImagesPath(); ?>thumb_restaurant_3.jpg" alt="">
-                        </div>
-                        <div class="rating">
-                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                        </div>
-                        <h3>Japan Food</h3>
-                        <div class="type">
-                            Sushi / Japanese
-                        </div>
-                        <div class="location">
-                            135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-                        </div>
-                        <ul>
-                            <li>Take away<i class="icon_check_alt2 ok"></i></li>
-                            <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-                        </ul>
-                    </div><!-- End desc-->
-                </a><!-- End strip_list-->
-                
-            </div><!-- End col-md-6-->
-            
-            
-            <div class="col-md-6">
-                
-                
-                <a href="detail_page.html" class="strip_list">
-                <div class="ribbon_1">Popular</div>
-                    <div class="desc">
-                        <div class="thumb_strip">
-                            <img src="<?php echo Widgets::quickImagesPath(); ?>thumb_restaurant_4.jpg" alt="">
-                        </div>
-                        <div class="rating">
-                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                        </div>
-                        <h3>Sushi Gold</h3>
-                        <div class="type">
-                            Sushi / Japanese
-                        </div>
-                        <div class="location">
-                            135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-                        </div>
-                        <ul>
-                            <li>Take away<i class="icon_check_alt2 ok"></i></li>
-                            <li>Delivery<i class="icon_close_alt2 no"></i></li>
-                        </ul>
-                    </div><!-- End desc-->
-                </a><!-- End strip_list-->
-                
-                
-                <a href="detail_page.html" class="strip_list">
-                <div class="ribbon_1">Popular</div>
-                    <div class="desc">
-                        <div class="thumb_strip">
-                            <img src="<?php echo Widgets::quickImagesPath(); ?>thumb_restaurant_5.jpg" alt="">
-                        </div>
-                        <div class="rating">
-                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                        </div>
-                        <h3>Dragon Tower</h3>
-                        <div class="type">
-                            Chinese / Thai
-                        </div>
-                        <div class="location">
-                            135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-                        </div>
-                        <ul>
-                            <li>Take away<i class="icon_check_alt2 ok"></i></li>
-                            <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-                        </ul>
-                    </div><!-- End desc-->
-                </a><!-- End strip_list-->
-                
-                
-                <a href="detail_page.html" class="strip_list">
-                <div class="ribbon_1">Popular</div>
-                    <div class="desc">
-                        <div class="thumb_strip">
-                            <img src="<?php echo Widgets::quickImagesPath(); ?>thumb_restaurant_6.jpg" alt="">
-                        </div>
-                        <div class="rating">
-                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                        </div>
-                        <h3>China Food</h3>
-                        <div class="type">
-                            Chinese / Vietnam
-                        </div>
-                        <div class="location">
-                            135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-                        </div>
-                        <ul>
-                            <li>Take away<i class="icon_check_alt2 ok"></i></li>
-                            <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-                        </ul>
-                    </div><!-- End desc-->
-                </a><!-- End strip_list-->
-                
-                
+                ?>
             </div>
             
-            <?php } ?>
-            
+
         </div><!-- End row -->   
         
         </div><!-- End container -->
