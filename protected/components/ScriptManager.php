@@ -130,8 +130,9 @@ class ScriptManager
 		
 		$cs->registerScriptFile($baseUrl."/assets/vendor/jquery.printelement.js"
 		,CClientScript::POS_END); 
-		$cs->registerScriptFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.js?ver=1"
-		,CClientScript::POS_END); 
+                
+//		$cs->registerScriptFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.js?ver=1"
+//		,CClientScript::POS_END); 
 		
 		$cs->registerScriptFile($baseUrl."/assets/vendor/jquery.appear.js"
 		,CClientScript::POS_END); 
@@ -428,8 +429,8 @@ class ScriptManager
 
             $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.printelement.js"
             ,CClientScript::POS_END); 
-            $cs->registerScriptFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.js?ver=1"
-            ,CClientScript::POS_END); 
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.js?ver=1"
+//            ,CClientScript::POS_END); 
 
             $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.appear.js"
             ,CClientScript::POS_END); 

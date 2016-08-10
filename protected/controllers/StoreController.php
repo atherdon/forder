@@ -660,16 +660,17 @@ class StoreController extends CController
 	
 	public function actionMenu()
 	{		
-				die();
-		$data=$_GET;		
-		$current_merchant='';
-		if (isset($_SESSION['kr_merchant_id'])){
-			$current_merchant=$_SESSION['kr_merchant_id'];
-		}
+                
+            $data=$_GET;		
+            $current_merchant='';
+            if (isset($_SESSION['kr_merchant_id'])){
+                    $current_merchant=$_SESSION['kr_merchant_id'];
+            }
 
-		$res=FunctionsV3::getMerchantBySlug($data['merchant']);
+            $res=FunctionsV3::getMerchantBySlug($data['merchant']);
 		
 		if (is_array($res) && count($res)>=1){
+                    
 			if ( $current_merchant !=$res['merchant_id']){							 
 				 unset($_SESSION['kr_item']);
 			}		
@@ -699,54 +700,57 @@ class StoreController extends CController
 				
 				/*SET TIME*/
 				$mt_timezone=Yii::app()->functions->getOption("merchant_timezone",$merchant_id);				
-		    	if (!empty($mt_timezone)){       	 	
+                                
+		    	if ( !empty($mt_timezone) ){       	 	
 		    		Yii::app()->timeZone=$mt_timezone;
 		    	}		   		
 		    	
 		    	
-		    	$distance_type='';
-		    	$distance='';
-		    	$merchant_delivery_distance='';
-		    	$delivery_fee=0;
-		    			    			    	
+		    	$distance_type = '';
+		    	$distance      = '';
+		    	$merchant_delivery_distance = '';
+		    	$delivery_fee  = 0;
+		    		    			    	
 		    	/*double check if session has value else use cookie*/		    	
 		    	FunctionsV3::cookieLocation();
-					    		    	
-		    	if (isset($_SESSION['client_location'])){
-		    		
-		    		/*get the distance from client address to merchant Address*/             
-	                 $distance_type=FunctionsV3::getMerchantDistanceType($merchant_id); 
-	                 $distance_type_orig=$distance_type;
+                        
+		    	if ( isset( $_SESSION['client_location'])){ 
+                            
+                           
+                         /*get the distance from client address to merchant Address*/             
+                            $distance_type      = FunctionsV3::getMerchantDistanceType( $merchant_id ); //die();
+
+                            $distance_type_orig = $distance_type;
 	                 
-		             $distance=FunctionsV3::getDistanceBetweenPlot(
+		             $distance = FunctionsV3::getDistanceBetweenPlot(
 		                $_SESSION['client_location']['lat'],
 		                $_SESSION['client_location']['long'],
 		                $res['latitude'],$res['lontitude'],$distance_type
 		             );           
 		             		            		 
-		             $distance_type_raw = $distance_type=="M"?"miles":"kilometers";            		            
-		             $distance_type=$distance_type=="M"?t("miles"):t("kilometers");
+		             $distance_type_raw  = $distance_type == "M" ? "miles" : "kilometers" ;            		            
+		             $distance_type      = $distance_type == "M" ? t("miles") : t("kilometers") ;
 		             $distance_type_orig = $distance_type;
 		             
-		              if(!empty(FunctionsV3::$distance_type_result)){
-		             	$distance_type_raw=FunctionsV3::$distance_type_result;
-		             	$distance_type=t(FunctionsV3::$distance_type_result);
+		              if( !empty( FunctionsV3::$distance_type_result ) ){
+		             	$distance_type_raw = FunctionsV3::$distance_type_result;
+		             	$distance_type = t( FunctionsV3::$distance_type_result );
 		             }
 		             
-		             $merchant_delivery_distance=getOption($merchant_id,'merchant_delivery_miles');             
+		             $merchant_delivery_distance = getOption( $merchant_id, 'merchant_delivery_miles' );             
 		             		             
-		             $delivery_fee=FunctionsV3::getMerchantDeliveryFee(
+		             $delivery_fee = FunctionsV3::getMerchantDeliveryFee(
 		                          $merchant_id,
 		                          $res['delivery_charges'],
 		                          $distance,
-		                          $distance_type_raw);
+		                          $distance_type_raw );
 		    		
 		    	}			
-		    			    		
+		    		    		
 		    	
 		    	/*SESSION REF*/
 		    	$_SESSION['kr_merchant_id']=$merchant_id;
-                $_SESSION['kr_merchant_slug']=$data['merchant'];
+                        $_SESSION['kr_merchant_slug']=$data['merchant'];
 		    	$_SESSION['shipping_fee']=$delivery_fee;		
 		    			    	
 		    	/*CHECK IF BOOKING IS ENABLED*/
@@ -778,32 +782,40 @@ class StoreController extends CController
 		    	if ( getOptionA('theme_photos_tab')==2){
 		    		$photo_enabled=false;
 		    	}
-						    
-				$this->render('menu' ,array(
-				   'data'=>$res,
-				   'merchant_id'=>$merchant_id,
-				   'distance_type'=>$distance_type,
-				   'distance_type_orig'=>$distance_type_orig,
-				   'distance'=>$distance,
-				   'merchant_delivery_distance'=>$merchant_delivery_distance,
-				   'delivery_fee'=>$delivery_fee,
-				   'disabled_addcart'=>getOption($merchant_id,'merchant_disabled_ordering'),
-				   'merchant_website'=>getOption($merchant_id,'merchant_extenal'),
-				   'photo_enabled'=>$photo_enabled,
-				   'booking_enabled'=>$booking_enabled,
-				   'promo'=>$promo,
-				   'tc'=>getOptionA('theme_menu_colapse'),
-				   'theme_promo_tab'=>getOptionA('theme_promo_tab'),
-				   'theme_hours_tab'=>getOptionA('theme_hours_tab'),
-				   'theme_reviews_tab'=>getOptionA('theme_reviews_tab'),
-				   'theme_map_tab'=>getOptionA('theme_map_tab'),
-				   'theme_info_tab'=>getOptionA('theme_info_tab'),
-				   'theme_photos_tab'=>getOptionA('theme_photos_tab')
-				));	
+//				die();		    
+                        $variables = array(
+				   'data' => $res,
+				   'merchant_id'        => $merchant_id,
+				   'distance_type'      => $distance_type,
+//				   'distance_type_orig' => $distance_type_orig,
+				   'distance'           => $distance,
+				   'merchant_delivery_distance' => $merchant_delivery_distance,
+				   'delivery_fee'      => $delivery_fee,
+				   'disabled_addcart'  => getOption($merchant_id,'merchant_disabled_ordering'),
+				   'merchant_website'  => getOption($merchant_id,'merchant_extenal'),
+				   'photo_enabled'     => $photo_enabled,
+				   'booking_enabled'   => $booking_enabled,
+				   'promo'             => $promo,
+				   'tc'                => getOptionA('theme_menu_colapse'),
+				   'theme_promo_tab'   => getOptionA('theme_promo_tab'),
+				   'theme_hours_tab'   => getOptionA('theme_hours_tab'),
+				   'theme_reviews_tab' => getOptionA('theme_reviews_tab'),
+				   'theme_map_tab'     => getOptionA('theme_map_tab'),
+				   'theme_info_tab'    => getOptionA('theme_info_tab'),
+				   'theme_photos_tab'  => getOptionA('theme_photos_tab')
+                        );
+                        
+                        if( isset( $distance_type_orig ) ){
+                            $variables['distance_type_orig'] = $distance_type_orig;
+                        }
+                        
+                        
+                        $this->render('menu', $variables );	
 								
-			}  else  $this->render('error',array(
-		       'message'=>t("Sorry but this merchant is no longer available")
-		    ));
+			}  else  $this->render(
+                                    'error', 
+                                    array( 'message' => t("Sorry but this merchant is no longer available") )
+                                 );
 			
 		} else $this->render('error',array(
 		  'message'=>t("merchant is not available")

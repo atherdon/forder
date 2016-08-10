@@ -1,5 +1,5 @@
 <?php
-/*POINTS PROGRAM*/
+/*POINTS PROGRAM*/ 
 if (FunctionsV3::hasModuleAddon("pointsprogram")){
 	unset($_SESSION['pts_redeem_amt']);
 	unset($_SESSION['pts_redeem_points']);
@@ -33,11 +33,14 @@ $cs->registerScript(
   CClientScript::POS_HEAD
 );		
 
+
+
 /*PROGRESS ORDER BAR*/
 $this->renderPartial('/front/order-progress-bar',array(
    'step'=>3,
    'show_bar'=>true
 ));
+
 
 $now=date('Y-m-d');
 $now_time='';
@@ -127,6 +130,9 @@ echo CHtml::hiddenField('web_session_id',session_id());
 echo CHtml::hiddenField('merchant_map_latitude',$data['latitude']);
 echo CHtml::hiddenField('merchant_map_longtitude',$data['lontitude']);
 echo CHtml::hiddenField('restaurant_name',$data['restaurant_name']);
+
+
+
 
 
 /*add meta tag for image*/

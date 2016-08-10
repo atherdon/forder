@@ -826,19 +826,27 @@ class FunctionsV3
     
     public static function getMerchantDistanceType($merchant_id='')
     {
-    	$distance_type=getOption($merchant_id,'merchant_distance_type');
-    	$distance_type=strtolower($distance_type);        
+    	$distance_type = getOption( $merchant_id, 'merchant_distance_type' );
+        
+//        var_dump($distance_type);die();
+        
+    	$distance_type = strtolower( $distance_type ); 
+        
         switch ($distance_type) {
-        	case "mi":
-        		$type="M";
-        		break;        
-        	case "km":	
-        	    $type="K";
-        	    break;
-        	default:
-        		$type="M";
-        		break;
+            case "mi":
+                    $type="M";
+                    break;  
+
+            case "km":	
+                    $type="K";
+                    break;
+
+            default:
+                    $type="M";
+                    break;
         }
+        
+
         return $type;
     }
     

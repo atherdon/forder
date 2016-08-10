@@ -37,6 +37,7 @@ isset($this->data['web_session_id'])?$this->data['web_session_id']:''
 </div> <!--container-->
 
 <script type="text/javascript">
+    
 $.validate({ 	
 	language : jsLanguageValidator,
 	language : jsLanguageValidator,

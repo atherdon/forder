@@ -1,5 +1,11 @@
 <?php
-$kr_merchant_slug=isset($_SESSION['kr_merchant_slug'])?$_SESSION['kr_merchant_slug']:'';
+$kr_merchant_slug = isset( $_SESSION['kr_merchant_slug'] ) ? $_SESSION['kr_merchant_slug']:'';
+
+
+
+//var_dump( $_SESSION ); die();
+
+
 
 if (isset($_SESSION['search_type'])){
 	switch ($_SESSION['search_type']) {
@@ -33,6 +39,9 @@ if (isset($_SESSION['search_type'])){
 			$search_key='s';
 			break;
 	}
+} else {
+    $search_str = false;
+    $search_key = false;
 }
 ?>
 
