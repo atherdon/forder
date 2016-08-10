@@ -821,6 +821,12 @@ a.strip_list:hover h3{
 .desc .opening{
 	color:#C33;
 }
+.desc .open{
+	color: #6C3;
+}
+.desc .pre-order{
+	color: #f75d34;
+}
 .desc ul{
 	list-style:none;
 	margin:3px 0 0 0;

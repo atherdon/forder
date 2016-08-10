@@ -1938,6 +1938,68 @@ class Widgets extends CApplicationComponent
                         
 	}
         
+        public static function ratingHTML( $rating ){
+            
+            $html = '<div class="rating">';
+            
+            if( $rating < 1 ) {
+                $html .= '  <i class="icon_star "></i>
+                            <i class="icon_star "></i>
+                            <i class="icon_star "></i>
+                            <i class="icon_star "></i>
+                            <i class="icon_star"></i>
+                        </div>';
+            }
+            
+            if( $rating >= 1 && $rating < 2 ) {
+                $html .= '  <i class="icon_star voted"></i>
+                            <i class="icon_star "></i>
+                            <i class="icon_star "></i>
+                            <i class="icon_star "></i>
+                            <i class="icon_star"></i>
+                        </div>';
+            }
+            
+            if( $rating >= 2 && $rating < 3 ) {
+                $html .= '  <i class="icon_star voted"></i>
+                            <i class="icon_star voted"></i>
+                            <i class="icon_star "></i>
+                            <i class="icon_star "></i>
+                            <i class="icon_star"></i>
+                        </div>';
+            }
+            
+             if( $rating >= 3 && $rating < 4 ) {
+                $html .= '  <i class="icon_star voted"></i>
+                            <i class="icon_star voted"></i>
+                            <i class="icon_star voted"></i>
+                            <i class="icon_star "></i>
+                            <i class="icon_star"></i>
+                        </div>';
+            }
+            
+            if( $rating >= 4 && $rating < 5 ) {
+                $html .= '  <i class="icon_star voted"></i>
+                            <i class="icon_star voted"></i>
+                            <i class="icon_star voted"></i>
+                            <i class="icon_star voted"></i>
+                            <i class="icon_star"></i>
+                        </div>';
+            }
+            
+            if( $rating == 5 ) {
+                $html .= '  <i class="icon_star voted"></i>
+                            <i class="icon_star voted"></i>
+                            <i class="icon_star voted"></i>
+                            <i class="icon_star voted"></i>
+                            <i class="icon_star voted"></i>
+                        </div>';
+            }
+                    
+            return $html;
+                        
+        }
+        
         
 	
 } /*END CLass*/

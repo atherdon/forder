@@ -36,6 +36,7 @@ $placholder_search=Yii::t("default",$placholder_search);
         
         
         
+        
 <?php  if ( $home_search_mode == "address" || $home_search_mode == "") { 
     
             if ( $enabled_advance_search=="yes"){
@@ -74,6 +75,8 @@ $placholder_search=Yii::t("default",$placholder_search);
             
         }
 ?>
+        
+        
         
         
     </div><!-- End sub_content -->
@@ -206,9 +209,9 @@ $placholder_search=Yii::t("default",$placholder_search);
 
 
 <!--FEATURED RESTAURANT SECIONS-->
-<?php // if ($disabled_featured_merchant == ""):?>
-<?php // if ( getOptionA('disabled_featured_merchant') != "yes"):?>
-<?php // if ($res=Yii::app()->functions->getFeatureMerchant2()):?>
+<?php  if ( $disabled_featured_merchant == "" ):?>
+<?php  if ( getOptionA('disabled_featured_merchant') != "yes" ):?>
+<?php  if ( $res = Yii::app()->functions->getFeatureMerchant2() ):?>
 
 
 <div class="white_bg">
@@ -217,15 +220,149 @@ $placholder_search=Yii::t("default",$placholder_search);
         <div class="main_title">
            <h2 class="nomargin_top">Choose from Most Popular </h2><?php //echo t("Featured Restaurants")?>
             <p>
-                Cum doctus civibus efficiantur in imperdiet deterruisset.
+                Cum doctus civibus efficiantur in imperdiet deterruisset. <?php //echo t("Featured Restaurants")?>
             </p>
         </div>
         
         <div class="row">
+ 
+            <?php 
+            
+            
+            $pieces = array_chunk( $res, ceil(count( $res ) / 2));
+//            echo '<pre>';
+//            var_dump( $pieces[0] ); 
+//            var_dump( $pieces[1] ); 
+//            die(); 
+            
+            ?>
+            
+             <div class="col-md-6">
+                        
+                <?php
+                    foreach ( $pieces[0] as $key => $val){ //dump($val);
+                        
+                        
+                        $address  = $val['street'] . ", " . $val['city'];
+                        $address .= ", " . $val['state'] . ", " . $val['post_code'];
+        
+                        $ratings  = Yii::app()->functions->getRatings( $val['merchant_id'] );
+                        
+
+                        
+                        ?>
+                            
+                            <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>" class="strip_list">
+                                
+                                <!--<div class="col-sm-2 merchantopentag">-->
+                                <?php //echo FunctionsV3::merchantOpenTag($val['merchant_id'])?>   
+                                <!--</div>-->
+                                
+                                <div class="ribbon_1">Popular</div>
+                                    <div class="desc">
+                                        <div class="thumb_strip">
+                                            <img src="<?php echo FunctionsV3::getMerchantLogo($val['merchant_id']);?>" alt="">
+                                        </div>
+                                        
+                                        <?php echo Widgets::ratingHTML( $ratings['ratings'] ); ?>
+
+                                        <h3>
+                                            <?php echo clearString( $val['restaurant_name'] )?>
+                                        </h3>
+                                        <div class="type">
+                                            <?php echo FunctionsV3::displayCuisine2($val['cuisine']);?>
+                                        </div>
+                                        <div class="location">
+                                            <?php echo $address; ?>
+                                            
+                                            <?php echo FunctionsV3::merchantOpenTag2($val['merchant_id'])?> 
+                                                                                       
+                                        </div>
+                                        <?php echo FunctionsV3::displayServicesList2($val['service'])?>
+<!--                                        <ul>
+                                            <li>
+                                                Take away<i class="icon_check_alt2 ok"></i>
+                                            </li>
+                                            <li>
+                                                Delivery<i class="icon_check_alt2 "></i>
+                                            </li>
+                                        </ul>-->
+                                    </div><!-- End desc-->
+
+                            </a><!-- End strip_list-->
+                            
+                        <?php
+                        
+                    }
+                ?>
+            </div>   
+            
+            <div class="col-md-6">
+                <?php //if(0){
+                    foreach ( $pieces[1] as $key => $val){ //dump($val);
+
+                        $address  = $val['street'] . ", " . $val['city'];
+                        $address .= ", " . $val['state'] . ", " . $val['post_code'];
+        
+                        $ratings  = Yii::app()->functions->getRatings( $val['merchant_id'] );
+                        
+
+                        ?>
+                            
+                            <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>" class="strip_list">
+                                
+                                <!--<div class="col-sm-2 merchantopentag">-->
+                                <?php //echo FunctionsV3::merchantOpenTag($val['merchant_id'])?>   
+                                <!--</div>-->
+                                
+                                <div class="ribbon_1">Popular</div>
+                                    <div class="desc">
+                                        <div class="thumb_strip">
+                                            <img src="<?php echo FunctionsV3::getMerchantLogo($val['merchant_id']);?>" alt="">
+                                        </div>
+                                        
+                                        <?php echo Widgets::ratingHTML( $ratings['ratings'] ); ?>
+
+                                        <h3>
+                                            <?php echo clearString($val['restaurant_name'])?>
+                                        </h3>
+                                        <div class="type">
+                                            <?php echo FunctionsV3::displayCuisine2($val['cuisine']);?>
+                                        </div>
+                                        <div class="location">
+                                            
+                                            <?php echo $address; ?>
+                                            
+                                            <?php echo FunctionsV3::merchantOpenTag2($val['merchant_id'])?> 
+                                        </div>
+                                        <?php echo FunctionsV3::displayServicesList2($val['service'])?>
+
+                                    </div><!-- End desc-->
+
+                            </a><!-- End strip_list-->
+                            
+                            
+                    <?php
+
+                    } 
+                    //                     }
+                ?>
+            </div>
             
             
             
+            <?php
+//            foreach ($res as $key => $val){ //dump($val);
+//                
+//                var_dump( $key % 2 );
+//                echo '-----';
+                
+                ?>
             
+            
+            <?php // } //die(); ?>
+            
+            <?php if (0 ) {?> 
             <div class="col-md-6">
                 
                 <a href="detail_page.html" class="strip_list">
@@ -377,13 +514,16 @@ $placholder_search=Yii::t("default",$placholder_search);
                 
                 
             </div>
+            
+            <?php } ?>
+            
         </div><!-- End row -->   
         
         </div><!-- End container -->
 </div><!-- End white_bg -->
-<?php // endif;?>
-<?php // endif;?>
-<?php // endif;?>
+<?php endif;?>
+<?php endif;?>
+<?php endif;?>
 <!--END FEATURED RESTAURANT SECIONS-->
 
 

@@ -182,31 +182,6 @@ class FunctionsV3
     	return $htm;
     }
     
-    public static function displayServicesList2($service='')
-    {    
-    	$htm='<ul>';
-    	switch ($service) {
-    		case 1:
-    			$htm.='<li>' . t("Delivery") . ' <i class="icon_check_alt2 ok"></i></li>';
-    			$htm.='<li>' . t("Pickup")   . ' <i class="icon_check_alt2 ok"></i></li>';
-    			break;    			
-    	
-    		case 2:
-    			$htm.='<li>' . t("Delivery") . ' <i class="icon_check_alt2 ok"></i></li>';  
-                        $htm.='<li>' . t("Pickup")   . ' <i class="icon_check_alt2 no"></i></li>';                    
-    			break; 
-    		case 3:
-                        $htm.='<li>' . t("Delivery") . ' <i class="icon_check_alt2 no"></i></li>';  
-    			$htm.='<li>' . t("Pickup") . ' <i class="icon_check_alt2 ok"></i></li>';                       
-    			break; 
-    			
-    		default:
-    			break;
-    	}
-    	$htm.='</ul>';
-    	return $htm;
-    }
-    
     public static function displayCuisine($cuisine='')
     {    
     	$p='';
@@ -229,37 +204,6 @@ class FunctionsV3
     					 } else {
     					
     					    $p.= $list[$val].", ";
-    					 }
-    				}
-    			}
-    			$p=substr($p,0,-2);
-    		}
-    	}
-    	return $p;
-    }
-    
-        public static function displayCuisine2($cuisine='')
-    {    
-    	$p='';
-    	if ( !empty($cuisine)){
-    		$list=Yii::app()->functions->Cuisine(true);
-    		$cuisine=json_decode($cuisine,true);    		
-    		if (is_array($cuisine) && count($cuisine)>=1){
-    			foreach ($cuisine as $val) {    				
-    				if (array_key_exists($val,(array)$list)){
-    					
-    					 if ( Yii::app()->functions->multipleField()==2){
-    					 	
-	    					$cuisine_id=$val;    				
-	    					$cuisine_info=Yii::app()->functions->GetCuisine($cuisine_id);
-	    					
-	    					$cuisine_json['cuisine_name_trans']=!empty($cuisine_info['cuisine_name_trans'])?
-	    					json_decode($cuisine_info['cuisine_name_trans'],true):'';
-	    					
-    					    $p.= qTranslate($list[$val],'cuisine_name',$cuisine_json)  ."| ";
-    					 } else {
-    					
-    					    $p.= $list[$val]."| ";
     					 }
     				}
     			}
@@ -665,38 +609,6 @@ class FunctionsV3
         		$tag='<span class="label label-info">'.t("Pre-Order").'</span>';
         	} else {
         		$tag='<span class="label label-danger">'.t("Closed").'</span>';
-        	}
-        }      
-        return $tag;  
-    }
-    
-        public static function merchantOpenTag2($merchant_id='')
-    {
-    	$is_merchant_open = Yii::app()->functions->isMerchantOpen($merchant_id); 
-	    $merchant_preorder= Yii::app()->functions->getOption("merchant_preorder",$merchant_id);
-	    
-	    $now=date('Y-m-d');
-		$is_holiday=false;
-	        if ( $m_holiday=Yii::app()->functions->getMerchantHoliday($merchant_id)){  
-      	   if (in_array($now,(array)$m_holiday)){
-      	   	  $is_merchant_open=false;
-      	   }
-        }
-        
-        if ( $is_merchant_open==true){
-        	if ( getOption($merchant_id,'merchant_close_store')=="yes"){
-        		$is_merchant_open=false;	
-        		$merchant_preorder=false;			        		
-        	}
-        }
-        
-        if ($is_merchant_open){
-        	$tag = '<span class="open">'.t("Open").'</span>';
-        } else {
-        	if ($merchant_preorder){
-        		$tag = '<span class="pre-order">'.t("Pre-Order").'</span>';
-        	} else {
-        		$tag = '<span class="opening">'.t("Closed").'</span>';
         	}
         }      
         return $tag;  
