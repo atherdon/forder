@@ -1,9 +1,10 @@
-  <?php $this->renderPartial('/store/menu/details-content', array(
-                    'merchant_id'     => $merchant_id,    
-                    'theme_hours_tab' => $theme_hours_tab,
-                    'phone'           => $phone
-                ) ); ?>     
+  <?php // $this->renderPartial('/store/menu/details-content', array(
+             //       'merchant_id'     => $merchant_id,    
+             //       'theme_hours_tab' => $theme_hours_tab,
+             //       'phone'           => $phone
+             //   ) ); ?>     
 
+ <?php $this->renderPartial('/store/menu/restaurant-menu', array() ); ?>  
 
 <?php if ( 0 ) { ?>
 <div class="container margin_60_35">
