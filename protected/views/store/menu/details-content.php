@@ -11,48 +11,28 @@
             <p>
                 <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">View on map</a>
             </p>
-            <div class="box_style_2">
-                <h4 class="nomargin_top">
-                    Opening time <i class="icon_clock_alt pull-right"></i>
-                </h4>
-                <ul class="opening_list">
-                    <li>
-                        Monday
-                        <span>12.00am-11.00pm</span>
-                    </li>
-                    <li>
-                        Tuesday
-                        <span>12.00am-11.00pm</span>
-                    </li>
-                    <li>
-                        Wednesday 
-                        <span class="label label-danger">Closed</span>
-                    </li>
-                    <li>
-                        Thursday
-                        <span>12.00am-11.00pm</span>
-                    </li>
-                    <li>
-                        Friday
-                        <span>12.00am-11.00pm</span>
-                    </li>
-                    <li>
-                        Saturday
-                        <span>12.00am-11.00pm</span>
-                    </li>
-                    <li>
-                        Sunday 
-                        <span class="label label-danger">Closed</span>
-                    </li>
-                </ul>
-            </div>
+               
+            <!--OPENING HOURS-->
+	    <?php if ($theme_hours_tab==""):?>
+	    <li>	       	     
+	    <?php
+	    $this->renderPartial('/store/menu/merchant-hours',array(
+	      'merchant_id'=>$merchant_id
+	    )); ?>           
+	    </li>
+	    <?php endif;?>
+            
+	    <!--END OPENING HOURS-->
+             
             <div class="box_style_2 hidden-xs" id="help">
                 <i class="icon_lifesaver"></i>
                 <h4>
                     Need <span>Help?</span>
                 </h4>
-                <a href="tel://004542344599" class="phone">
-                    +45 423 445 99
+                <a href="tel://<?php echo $phone ?>" class="phone">
+                    
+                    <?php FunctionsV3::format_telephone( $phone ); ?>
+                    <!--+45 423 445 99-->
                 </a>
                 <small>
                     Monday to Friday 9.00am - 7.30pm
@@ -225,7 +205,11 @@
                                     <div id="general_rating">
                                             11 Reviews
                                             <div class="rating">
-                                                    <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+                                                    <i class="icon_star voted"></i>
+                                                    <i class="icon_star voted"></i>
+                                                    <i class="icon_star voted"></i>
+                                                    <i class="icon_star voted"></i>
+                                                    <i class="icon_star"></i>
                                             </div>
                                     </div>
 
@@ -234,12 +218,20 @@
                                                     <ul>
                                                             <li>Food Quality
                                                             <div class="rating">
-                                                                    <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star"></i>
+                                                                    <i class="icon_star"></i>
                                                             </div>
                                                             </li>
                                                             <li>Price
                                                             <div class="rating">
-                                                                    <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star"></i>
                                                             </div>
                                                             </li>
                                                     </ul>
@@ -248,12 +240,20 @@
                                                     <ul>
                                                             <li>Punctuality
                                                             <div class="rating">
-                                                                    <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star"></i>
+                                                                    <i class="icon_star"></i>
+                                                                    <i class="icon_star"></i>
                                                             </div>
                                                             </li>
                                                             <li>Courtesy
                                                             <div class="rating">
-                                                                    <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star voted"></i>
+                                                                    <i class="icon_star"></i>
                                                             </div>
                                                             </li>
                                                     </ul>
@@ -268,30 +268,49 @@
                                     <small> - 10 March 2015 -</small>
                                     <h4>Jhon Doe</h4>
                                     <p>
-                                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+                                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                             Sed a lorem quis neque interdum consequat ut sed sem. 
+                                             Duis quis tempor nunc. Interdum et malesuada fames ac 
+                                             ante ipsum primis in faucibus."
                                     </p>
                                     <div class="row">
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
                                                     </div>
                                                      Food Quality
                                             </div>
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star"></i>
+                                                            <i class="icon_star"></i>
+                                                            <i class="icon_star"></i>
                                                     </div>
                                                      Price
                                             </div>
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star"></i>
                                                     </div>
                                                      Punctuality
                                             </div>
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star"></i>
                                                     </div>
                                                      Courtesy
                                             </div>
@@ -303,30 +322,49 @@
                                     <small> - 25 March 2015 -</small>
                                     <h4>Markus Schulz</h4>
                                     <p>
-                                             "At sed dico invenire facilisis, sed option sapientem iudicabit ad, sea idque doming vituperatoribus at. Duo ut inani tantas scaevola. Commodo oblique at cum. Duo id vide delectus. Vel et doctus laoreet minimum, ei feugait pertinacia usu.
+                                             "At sed dico invenire facilisis, sed option sapientem 
+                                             iudicabit ad, sea idque doming vituperatoribus at. 
+                                             Duo ut inani tantas scaevola. Commodo oblique at cum.
+                                             Duo id vide delectus. Vel et doctus laoreet minimum, ei feugait pertinacia usu.
                                     </p>
                                     <div class="row">
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star"></i>
+                                                            <i class="icon_star"></i>
                                                     </div>
                                                      Food Quality
                                             </div>
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star"></i>
+                                                            <i class="icon_star"></i>
                                                     </div>
                                                      Price
                                             </div>
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star"></i>
+                                                            <i class="icon_star"></i>
+                                                            <i class="icon_star"></i>
                                                     </div>
                                                      Punctuality
                                             </div>
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star"></i>
                                                     </div>
                                                      Courtesy
                                             </div>
@@ -338,30 +376,51 @@
                                     <small> - 10 April 2015 -</small>
                                     <h4>Frank Cooper</h4>
                                     <p>
-                                             "Ne mea congue facilis eligendi, possit utamur sensibus id qui, mel tollit euismod alienum eu. Ad tollit lucilius praesent per, ex probo utroque placerat eos. Tale verear efficiendi et cum, meis timeam vix et, et duis debet nostro mel. Aeterno labitur per no, id nec tantas nemore. An minim molestie per, mei sumo vulputate cu."
+                                             "Ne mea congue facilis eligendi, possit utamur sensibus
+                                             id qui, mel tollit euismod alienum eu. 
+                                             Ad tollit lucilius praesent per, ex probo utroque 
+                                             placerat eos. Tale verear efficiendi et cum, meis 
+                                             timeam vix et, et duis debet nostro mel.
+                                             Aeterno labitur per no, id nec tantas nemore. An minim molestie per, mei sumo vulputate cu."
                                     </p>
                                     <div class="row">
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
                                                     </div>
                                                      Food Quality
                                             </div>
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star"></i>
+                                                            <i class="icon_star"></i>
+                                                            <i class="icon_star"></i>
                                                     </div>
                                                      Price
                                             </div>
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
                                                     </div>
                                                      Punctuality
                                             </div>
                                             <div class="col-md-3">
                                                     <div class="rating">
-                                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star voted"></i>
+                                                            <i class="icon_star"></i>
+                                                            <i class="icon_star"></i>
                                                     </div>
                                                      Courtesy
                                             </div>

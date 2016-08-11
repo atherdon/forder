@@ -1,3 +1,11 @@
+  <?php $this->renderPartial('/store/menu/details-content', array(
+                    'merchant_id'     => $merchant_id,    
+                    'theme_hours_tab' => $theme_hours_tab,
+                    'phone'           => $phone
+                ) ); ?>     
+
+
+<?php if ( 0 ) { ?>
 <div class="container margin_60_35">
 <div class="row">
     <div class="col-md-12">
@@ -23,7 +31,10 @@
         <div class="tab-content">
             <div class="tab-pane" id="details">
                 
-                <?php $this->renderPartial('/store/menu/details-content', array() ); ?>                 
+                <?php $this->renderPartial('/store/menu/details-content', array(
+                    'merchant_id'     => $merchant_id,    
+                    'theme_hours_tab' => $theme_hours_tab,
+                ) ); ?>                 
                 
             </div>
             <div class="tab-pane" id="menu">
@@ -49,3 +60,4 @@
     </div><!-- End col-md-12-->
 </div><!-- End row-->         
 </div><!-- End container-->         
+<?php } ?>

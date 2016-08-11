@@ -13,6 +13,10 @@ if ( !file_exists(FunctionsV3::uploadPath()."/$merchant_photo_bg")){
 /*RENDER MENU HEADER FILE*/
 $ratings = Yii::app()->functions->getRatings($merchant_id);   
 
+//echo '<pre>';
+//var_dump( $data['contact_phone'] );
+//die();
+
 $merchant_info = array(   
   'merchant_id'      => $merchant_id ,
   'minimum_order'    => $data['minimum_order'],
@@ -46,8 +50,10 @@ $cs->registerScript(
         
 $this->renderPartial( '/store/menu/tabs', 
         array( 
-            'booking_enabled' => $booking_enabled,
-            'merchant_id' =>  $merchant_id    
+            'booking_enabled'   => $booking_enabled,
+            'merchant_id'       => $merchant_id,    
+            'theme_hours_tab'   => $theme_hours_tab,
+            'phone'             => $data['contact_phone'],
         ) );  
         
         

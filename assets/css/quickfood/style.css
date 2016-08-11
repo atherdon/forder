@@ -2152,6 +2152,9 @@ a.bt_filters{
   border-bottom: none;
 }
 
+.label-font-14 {
+    font-size: 14px;    
+}
 /*v1.2 Affix (fixed) sidebar*/
 @media (min-width: 979px) {
  #cart_box.affix {
