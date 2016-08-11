@@ -1,15 +1,16 @@
-
-
-
- <!-- Footer ================================================== -->
-    <footer>
+<!-- Footer ================================================== -->
+<footer>
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-3">
+                
+                <?php if ( 0 ) { ?>
                 <h3>Secure payments with</h3>
                 <p>
                     <img src="<?php echo Widgets::quickImagesPath(); ?>cards.png" alt="" class="img-responsive">
                 </p>
+                <?php } ?>
+                
                 <?php FunctionsV3::getFooterAddress();?>
             </div>
             <div class="col-md-3 col-sm-3">
@@ -92,16 +93,6 @@
                 <?php endif;?>
                 
                
-                
-                
-                
-                
-               
-                
-                
-                
-                
-                
                 
                 
                 

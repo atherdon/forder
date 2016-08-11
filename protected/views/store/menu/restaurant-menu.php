@@ -16,38 +16,7 @@
                     'menu'        => $menu			  
             ));
         ?>
-        
-        <div class="box_style_1">
-            <ul id="cat_nav">
-                <li>
-                    <a href="#starters" class="active">
-                        Starters <span>(141)</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#main_courses">
-                        Main Courses <span>(20)</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#beef">
-                        Beef <span>(12)</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#desserts">
-                        Desserts <span>(11)</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#drinks">
-                        Drinks <span>(20)</span>
-                    </a>
-                </li>
-            </ul>
-        </div><!-- End box_style_1 -->
-        
-        
+
 
         
         <div class="box_style_2 hidden-xs" id="help">
