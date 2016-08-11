@@ -40,24 +40,28 @@ $cs->registerScript(
 );		
 
         
+
+
+
+
 $this->renderPartial( '/store/menu/tabs',array() );  
         
         
  if( 0 ) { 
 
-/*PROGRESS ORDER BAR*/
-$this->renderPartial('/front/order-progress-bar',array(
-   'step'=>3,
-   'show_bar'=>true
-));
+    /*PROGRESS ORDER BAR*/
+    $this->renderPartial('/front/order-progress-bar',array(
+       'step'=>3,
+       'show_bar'=>true
+    ));
 
  } 
 
-$now=date('Y-m-d');
-$now_time='';
+$now      = date('Y-m-d');
+$now_time = '';
 
-$checkout=FunctionsV3::isMerchantcanCheckout($merchant_id); 
-$menu=Yii::app()->functions->getMerchantMenu($merchant_id); 
+$checkout = FunctionsV3::isMerchantcanCheckout( $merchant_id ); 
+$menu     = Yii::app()->functions->getMerchantMenu( $merchant_id ); 
 
 echo CHtml::hiddenField('is_merchant_open',isset($checkout['code'])?$checkout['code']:'' );
 

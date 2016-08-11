@@ -48,13 +48,13 @@ $cs->registerScript(
 );		
 
         
-$this->renderPartial( '/store/menu/tabs', 
-        array( 
-            'booking_enabled'   => $booking_enabled,
-            'merchant_id'       => $merchant_id,    
-            'theme_hours_tab'   => $theme_hours_tab,
-            'phone'             => $data['contact_phone'],
-        ) );  
+//$this->renderPartial( '/store/menu/tabs', 
+//        array( 
+//            'booking_enabled'   => $booking_enabled,
+//            'merchant_id'       => $merchant_id,    
+//            'theme_hours_tab'   => $theme_hours_tab,
+//            'phone'             => $data['contact_phone'],
+//        ) );  
         
         
  if( 0 ) { 
@@ -67,11 +67,26 @@ $this->renderPartial('/front/order-progress-bar',array(
 
  } 
 
-$now=date('Y-m-d');
-$now_time='';
 
-$checkout=FunctionsV3::isMerchantcanCheckout($merchant_id); 
-$menu=Yii::app()->functions->getMerchantMenu($merchant_id); 
+
+$now      = date('Y-m-d');
+$now_time = '';
+
+$checkout = FunctionsV3::isMerchantcanCheckout( $merchant_id ); 
+$menu     = Yii::app()->functions->getMerchantMenu( $merchant_id ); 
+
+
+
+
+
+
+$this->renderPartial( '/store/menu/tabs', array(
+    'merchant_id' => $merchant_id,
+    'menu'        => $menu,
+) ); 
+
+
+
 
 echo CHtml::hiddenField('is_merchant_open',isset($checkout['code'])?$checkout['code']:'' );
 
