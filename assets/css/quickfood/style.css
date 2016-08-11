@@ -2081,6 +2081,77 @@ a.bt_filters{
    border-right: 1px solid #ededed;
 } 
 
+
+.nav.nav-tabs.nav-tabs-line > li > a {
+  padding: 10px 20px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  
+}
+.nav.nav-tabs.nav-tabs-line > li > a:hover,
+.nav.nav-tabs.nav-tabs-line > li > a:focus {
+  background-color: transparent;
+}
+.nav-tabs-line > li > a:hover {
+  border-bottom-color: #ccd5db;
+}
+.nav.nav-tabs.nav-tabs-line > li.active > a,
+.nav.nav-tabs.nav-tabs-line > li.active > a:hover,
+.nav.nav-tabs.nav-tabs-line > li.active > a:focus {
+  color: #62a8ea;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #62a8ea;
+}
+.nav-tabs-line .open > a,
+.nav-tabs-line .open > a:hover,
+.nav-tabs-line .open > a:focus {
+  border-color: transparent;
+  border-bottom-color: #ccd5db;
+}
+.nav-tabs-line.nav-tabs-bottom > li > a {
+  border-top: 2px solid transparent;
+  border-bottom: none;
+}
+.nav-tabs-line.nav-tabs-bottom > li > a:hover {
+  border-top-color: #ccd5db;
+  border-bottom-color: transparent;
+}
+.nav-tabs-line.nav-tabs-bottom > li.active > a,
+.nav-tabs-line.nav-tabs-bottom > li.active > a:hover,
+.nav-tabs-line.nav-tabs-bottom > li.active > a:focus {
+  border-top: 2px solid #62a8ea;
+  border-bottom: none;
+}
+.nav-tabs-line.nav-justified > li > a {
+  border-bottom: 2px solid #e4eaec;
+}
+.nav-tabs-line.nav-justified > li > a:hover {
+  border-bottom-color: #ccd5db;
+}
+.nav-tabs-line.nav-justified > li.active > a,
+.nav-tabs-line.nav-justified > li.active > a:hover,
+.nav-tabs-line.nav-justified > li.active > a:focus {
+  border-color: transparent;
+  border-bottom: 2px solid #62a8ea;
+}
+.nav-tabs-line.nav-justified.nav-tabs-bottom {
+  border-top: none;
+}
+.nav-tabs-line.nav-justified.nav-tabs-bottom > li > a {
+  border-top: 2px solid #e4eaec;
+  border-bottom: none;
+}
+.nav-tabs-line.nav-justified.nav-tabs-bottom > li > a:hover {
+  border-top-color: #ccd5db;
+}
+.nav-tabs-line.nav-justified.nav-tabs-bottom > li.active > a,
+.nav-tabs-line.nav-justified.nav-tabs-bottom > li.active > a:hover,
+.nav-tabs-line.nav-justified.nav-tabs-bottom > li.active > a:focus {
+  border-top-color: #62a8ea;
+  border-bottom: none;
+}
+
 /*v1.2 Affix (fixed) sidebar*/
 @media (min-width: 979px) {
  #cart_box.affix {

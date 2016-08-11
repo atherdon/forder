@@ -2,20 +2,25 @@
 <section class="parallax-window" data-parallax="scroll" data-image-src="<?php echo Widgets::quickImagesPath(); ?>sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
     <div id="subheader">
 	<div id="sub_content">
-    	<div id="thumb"><img src="<?php echo $merchant_logo;?>" alt=""></div>
+    	<div id="thumb">
+            <img src="<?php echo $merchant_logo;?>" alt=""></div>
                      <div class="rating">
                          <i class="icon_star voted"></i>
                          <i class="icon_star voted"></i>
                          <i class="icon_star voted"></i>
                          <i class="icon_star voted"></i>
-                         <i class="icon_star"></i> ( <small>
-                             <a href="#0">98 reviews</a></small> )
+                         <i class="icon_star"></i>
+                         ( <small>
+                             <a href="#0">98 reviews</a>
+                         </small> )
                      </div>
                     <h1>
-                        Mexican TacoMex
+                        <?php echo clearString($restaurant_name)?>
                     </h1>
                     <div>
-                        <em>Mexican / American</em>
+                        <em>
+                            Mexican / American
+                        </em>
                     </div>
                     <div>
                         <i class="icon_pin"></i>
@@ -31,13 +36,21 @@
 <div id="position">
     <div class="container">
         <ul>
-            <li><a href="#0">Home</a></li>
-            <li><a href="#0">Category</a></li>
-            <li>Page active</li>
+            <li>
+                <a href="<?php echo Yii::app()->getHomeUrl(); ?>">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo Yii::app()->createUrl('/store/browse' )?>">
+                    Restaurant List</a>
+            </li>
+            <li>
+                <?php echo clearString($restaurant_name) ?>
+            </li>
         </ul>
     </div>
 </div><!-- Position -->
-
 
     
 

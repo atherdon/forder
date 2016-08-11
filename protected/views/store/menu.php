@@ -44,9 +44,10 @@ $cs->registerScript(
 );		
 
         
-$this->renderPartial( '/store/menu/tabs', array( 
-    'booking_enabled' => $booking_enabled,
-    'merchant_id' =>  $merchant_id    
+$this->renderPartial( '/store/menu/tabs', 
+        array( 
+            'booking_enabled' => $booking_enabled,
+            'merchant_id' =>  $merchant_id    
         ) );  
         
         
