@@ -1,3 +1,48 @@
+<!-- SubHeader =============================================== -->
+<section class="parallax-window" data-parallax="scroll" data-image-src="<?php echo Widgets::quickImagesPath(); ?>sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
+    <div id="subheader">
+	<div id="sub_content">
+    	<div id="thumb"><img src="<?php echo $merchant_logo;?>" alt=""></div>
+                     <div class="rating">
+                         <i class="icon_star voted"></i>
+                         <i class="icon_star voted"></i>
+                         <i class="icon_star voted"></i>
+                         <i class="icon_star voted"></i>
+                         <i class="icon_star"></i> ( <small>
+                             <a href="#0">98 reviews</a></small> )
+                     </div>
+                    <h1>
+                        Mexican TacoMex
+                    </h1>
+                    <div>
+                        <em>Mexican / American</em>
+                    </div>
+                    <div>
+                        <i class="icon_pin"></i>
+                        135 Newtownards Road, Belfast, BT4 1AB - 
+                        <strong>Delivery charge:</strong>
+                        $10, free over $15.
+                    </div>
+    </div><!-- End sub_content -->
+</div><!-- End subheader -->
+</section><!-- End section -->
+<!-- End SubHeader ============================================ -->
+
+<div id="position">
+    <div class="container">
+        <ul>
+            <li><a href="#0">Home</a></li>
+            <li><a href="#0">Category</a></li>
+            <li>Page active</li>
+        </ul>
+    </div>
+</div><!-- Position -->
+
+
+    
+
+
+<?php if ( 0 ) { ?>
 <div class="mobile-banner-wrap relative">
  <div class="layer"></div>
  <img class="mobile-banner" src="<?php echo empty($background)?assetsURL()."/images/b-2-mobile.jpg":uploadURL()."/$background"; ?>">
@@ -54,3 +99,5 @@ data-image-src="<?php echo empty($background)?assetsURL()."/images/b-2.jpg":uplo
 </div> <!--search-wraps-->
 
 </div> <!--parallax-container-->
+
+<?php } ?>

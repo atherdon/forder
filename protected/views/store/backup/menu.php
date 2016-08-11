@@ -5,32 +5,28 @@ if (FunctionsV3::hasModuleAddon("pointsprogram")){
 	unset($_SESSION['pts_redeem_points']);
 }
 
-$merchant_photo_bg = getOption($merchant_id,'merchant_photo_bg');
+$merchant_photo_bg=getOption($merchant_id,'merchant_photo_bg');
 if ( !file_exists(FunctionsV3::uploadPath()."/$merchant_photo_bg")){
 	$merchant_photo_bg='';
 } 
 
 /*RENDER MENU HEADER FILE*/
-$ratings = Yii::app()->functions->getRatings($merchant_id);   
-
-$merchant_info = array(   
-  'merchant_id'      => $merchant_id ,
-  'minimum_order'    => $data['minimum_order'],
-  'ratings'          => $ratings,
-  'merchant_address' => $data['merchant_address'],
-  'cuisine'          => $data['cuisine'],
-  'restaurant_name'  => $data['restaurant_name'],
-  'background'       => $merchant_photo_bg,
-  'merchant_website' => $merchant_website,
-  'merchant_logo'    => FunctionsV3::getMerchantLogo($merchant_id),
-        
-  
+$ratings=Yii::app()->functions->getRatings($merchant_id);   
+$merchant_info=array(   
+  'merchant_id'=>$merchant_id ,
+  'minimum_order'=>$data['minimum_order'],
+  'ratings'=>$ratings,
+  'merchant_address'=>$data['merchant_address'],
+  'cuisine'=>$data['cuisine'],
+  'restaurant_name'=>$data['restaurant_name'],
+  'background'=>$merchant_photo_bg,
+  'merchant_website'=>$merchant_website,
+  'merchant_logo'=>FunctionsV3::getMerchantLogo($merchant_id)
 );
 
-//var_dump( $booking_enabled ); die();
 
-//$this->renderPartial('/front/menu-header', $merchant_info);
-$this->renderPartial( '/front/quickfood/menu-header', $merchant_info );
+
+$this->renderPartial('/front/menu-header', $merchant_info);
 
 
 
@@ -44,10 +40,7 @@ $cs->registerScript(
 );		
 
         
-$this->renderPartial( '/store/menu/tabs', array( 
-    'booking_enabled' => $booking_enabled,
-    'merchant_id' =>  $merchant_id    
-        ) );  
+$this->renderPartial( '/store/menu/tabs',array() );  
         
         
  if( 0 ) { 

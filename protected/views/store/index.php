@@ -230,7 +230,13 @@ $placholder_search=Yii::t("default",$placholder_search);
             
             
             $pieces = array_chunk( $res, ceil(count( $res ) / 2));
-
+            
+            if( isset( $pieces[1] ) ){
+                $use_second_row = 1;
+            } else {
+                $use_second_row = 0;
+            }
+            
             ?>
             
              <div class="col-md-6">
@@ -286,6 +292,9 @@ $placholder_search=Yii::t("default",$placholder_search);
             
             <div class="col-md-6">
                 <?php 
+                
+                    if( $use_second_row ){
+                
                     foreach ( $pieces[1] as $key => $val){ 
 
                         $address  = $val['street'] . ", " . $val['city'];
@@ -329,6 +338,8 @@ $placholder_search=Yii::t("default",$placholder_search);
                     <?php
 
                     } 
+                    
+                    }
                     
                 ?>
             </div>

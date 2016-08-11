@@ -34,6 +34,7 @@
 define('YII_ENABLE_ERROR_HANDLER', true);
 define('YII_ENABLE_EXCEPTION_HANDLER', true);
 ini_set("display_errors", true);
+define('YII_DEBUG',true);
 
 // @TODO: uncomment later
 //define('YII_ENABLE_ERROR_HANDLER', false);
