@@ -77,12 +77,14 @@ $menu     = Yii::app()->functions->getMerchantMenu( $merchant_id );
 
 
 
+//var_dump( $disabled_addcart ); die();
 
-
-
+// @TODO check cases with $disabled_addcart variable not empty.
 $this->renderPartial( '/store/menu/tabs', array(
-    'merchant_id' => $merchant_id,
-    'menu'        => $menu,
+    'merchant_id'      => $merchant_id,
+    'menu'             => $menu,
+    'disabled_addcart' => $disabled_addcart,
+    'tc'               => $tc,
 ) ); 
 
 
@@ -246,6 +248,14 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 		
 		<ul id="tab">
 		
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 		<!--MENU-->
 	    <li class="active">
 	        <div class="row">
@@ -260,15 +270,20 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 				</div>
 			 </div> <!--col-->
 			 <div class="col-md-8 col-xs-8 border" id="menu-list-wrapper">
+                             
 			 <?php 
-			 $admin_activated_menu=getOptionA('admin_activated_menu');			 
-			 $admin_menu_allowed_merchant=getOptionA('admin_menu_allowed_merchant');
-			 if ($admin_menu_allowed_merchant==2){			 	 
-			 	 $temp_activated_menu=getOption($merchant_id,'merchant_activated_menu');			 	 
-			 	 if(!empty($temp_activated_menu)){
-			 	 	 $admin_activated_menu=$temp_activated_menu;
-			 	 }
-			 }			 
+			 $admin_activated_menu        = getOptionA('admin_activated_menu');			 
+			 $admin_menu_allowed_merchant = getOptionA('admin_menu_allowed_merchant');
+                         
+			 if ($admin_menu_allowed_merchant == 2){			 	 
+                            $temp_activated_menu = getOption($merchant_id,'merchant_activated_menu');			 	 
+                            if(!empty($temp_activated_menu)){
+                                $admin_activated_menu = $temp_activated_menu;
+                            }
+			 }			
+                         
+                         
+                         
 			 switch ($admin_activated_menu)
 			 {
 			 	case 1:
@@ -302,6 +317,12 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 	    </li>
 	    <!--END MENU-->
 	    
+            
+            
+            
+            
+            
+            
 	    
 	    <!--OPENING HOURS-->
 	    <?php if ($theme_hours_tab==""):?>

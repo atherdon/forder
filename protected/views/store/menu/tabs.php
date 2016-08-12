@@ -5,8 +5,12 @@
              //   ) ); ?>     
 
  <?php $this->renderPartial('/store/menu/restaurant-menu', array(
-                    'merchant_id' => $merchant_id,
-                    'menu'        => $menu
+                    'merchant_id'      => $merchant_id,
+                    'menu'             => $menu,
+                    'disabled_addcart' => $disabled_addcart,
+                    'tc'               => $tc,
+                    
+         
  ) ); ?>  
 
 
