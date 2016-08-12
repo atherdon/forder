@@ -183,6 +183,10 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 ,'og:image');
 ?>
 
+
+
+
+
 <div class="sections section-menu section-grey2">
 <div class="container">
   <div class="row">
@@ -363,6 +367,17 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 	    <?php endif;?>
 	    <!--END BOOK A TABLE-->
 	    
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 	    <!--PHOTOS-->
 	    <?php if ($photo_enabled):?>
 	    <li>
@@ -377,6 +392,23 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 	    <?php endif;?>
 	    <!--END PHOTOS-->
 	    
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 	    <!--INFORMATION-->
 	    <?php if ($theme_info_tab==""):?>
 	    <li>
@@ -387,6 +419,20 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 	    <?php endif;?>
 	    <!--END INFORMATION-->
 	    
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 	    <!--PROMOS-->
 	    <?php if ( $promo['enabled']==2 && $theme_promo_tab==""):?>
 	    <li>
@@ -399,10 +445,25 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 	    <!--END PROMOS-->
 	    
 	    
+            
+            
+            
+            
+            
+            
 	   </ul>
 	   </div>
      
      </div> <!-- menu-left-content-->
+     
+     
+     
+     
+     
+     
+     
+     
+     
      
      <?php if (getOptionA('disabled_website_ordering')!="yes"):?>
      <div id="menu-right-content" class="col-md-4 border menu-right-content <?php echo $disabled_addcart=="yes"?"hide":''?>" >
@@ -491,6 +552,14 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
         </div> <!--inner-->
         <!--END CART-->
         
+        
+        
+        
+        
+        
+        
+        
+        
         <!--DELIVERY OPTIONS-->
         <div class="inner line-top relative delivery-option center">
            <i class="order-icon delivery-option-icon"></i>
@@ -533,9 +602,24 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
       </div> <!-- box-grey-->
       </div> <!--end theiaStickySidebar-->
      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
      </div> <!--menu-right-content--> 
      <?php endif;?>
   
+     
+     
   </div> <!--row-->
 </div> <!--container-->
 </div> <!--section-menu-->
