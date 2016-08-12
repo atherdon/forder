@@ -42,8 +42,11 @@
 
     <div class="col-md-8">
         <div class="box_style_2">
-            <h2 class="inner">Description</h2>
+            <h2 class="inner">
+                Description
+            </h2>
 
+            <?php if ( 0 ) { ?>    
             <div id="Img_carousel" class="slider-pro">
                 <div class="sp-slides">
 
@@ -209,7 +212,18 @@
                     agam decore nullam ei vis. Nec ad tota etiam eirmod. Harum debitis detraxit ut vel, eu vel option oporteat.
             </p>
 
-            <?php echo $this->renderPartial( '/store/menu/reviews' ); ?>
+            <?php } ?>
+            
+            
+            <?php if ( $theme_reviews_tab == "" ){
+                
+                    echo $this->renderPartial( '/store/menu/reviews', [
+
+                            'ratings'         => $ratings,
+                    ] );
+                 } ?>
+            
+            
         
 
         </div><!-- End box_style_1 -->

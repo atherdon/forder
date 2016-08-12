@@ -1,6 +1,11 @@
+
+
+
+
 <div id="summary_review">
     <div id="general_rating">
         11 Reviews
+        <?php echo $ratings['votes']." ".t("Reviews") ?>
         <div class="rating">
                 <i class="icon_star voted"></i>
                 <i class="icon_star voted"></i>

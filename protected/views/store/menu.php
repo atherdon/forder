@@ -85,6 +85,12 @@ $this->renderPartial( '/store/menu/tabs', array(
     'menu'             => $menu,
     'disabled_addcart' => $disabled_addcart,
     'tc'               => $tc,
+//    ''                 => 
+    'theme_hours_tab'   => $theme_hours_tab,
+    'theme_reviews_tab' => $theme_reviews_tab,
+    'phone'             => $data['contact_phone'],
+    'ratings'           => $ratings,
+    
 ) ); 
 
 
@@ -465,6 +471,13 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
      
      
      
+     
+     
+     
+     
+     
+     
+     
      <?php if (getOptionA('disabled_website_ordering')!="yes"):?>
      <div id="menu-right-content" class="col-md-4 border menu-right-content <?php echo $disabled_addcart=="yes"?"hide":''?>" >
      
@@ -473,6 +486,13 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
       
         <div class="star-float"></div>
       
+        
+        
+        
+        
+        
+        
+        
         <!--DELIVERY INFO-->
         <div class="inner center">
          <button type="button" class="close modal-close-btn" data-dismiss="modal" aria-label="Close">
@@ -519,6 +539,16 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
         </div>
         <!--END DELIVERY INFO-->
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <!--CART-->
         <div class="inner line-top relative">
         
@@ -551,6 +581,9 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
            
         </div> <!--inner-->
         <!--END CART-->
+        
+        
+        
         
         
         
@@ -598,6 +631,17 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
                                                                 
         </div> <!--inner-->
         <!--END DELIVERY OPTIONS-->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
       </div> <!-- box-grey-->
       </div> <!--end theiaStickySidebar-->

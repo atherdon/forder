@@ -623,6 +623,17 @@ class FunctionsV3
     	return '';
     }
     
+        public static function getFreeDeliveryTag2($merchant_id='')
+    {
+    	$fee = getOption( $merchant_id, 'free_delivery_above_price' );
+        
+    	if ( $fee > 0 ){
+                return ', free over ' . self::prettyPrice($fee) ;
+//    		return '<span class="label label-default">'. t("Free Delivery On Orders Over")." ". self::prettyPrice($fee).'</span>';
+    	}
+    	return '';
+    }
+    
     public static function getDeliveryEstimation($merchant_id='')
     {
     	$delivery_est=Yii::app()->functions->getOption("merchant_delivery_estimation",$merchant_id);

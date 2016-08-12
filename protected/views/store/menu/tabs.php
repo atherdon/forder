@@ -1,17 +1,21 @@
-  <?php // $this->renderPartial('/store/menu/details-content', array(
-             //       'merchant_id'     => $merchant_id,    
-             //       'theme_hours_tab' => $theme_hours_tab,
-             //       'phone'           => $phone
-             //   ) ); ?>     
+  <?php  $this->renderPartial('/store/menu/details-content', array(
+                    'merchant_id'       => $merchant_id,    
+                    'theme_hours_tab'   => $theme_hours_tab,
+                    'theme_reviews_tab' => $theme_reviews_tab,
+                    'phone'             => $phone,
+                    'ratings'           => $ratings,
+      
+                ) ); 
+  ?>     
 
- <?php $this->renderPartial('/store/menu/restaurant-menu', array(
-                    'merchant_id'      => $merchant_id,
-                    'menu'             => $menu,
-                    'disabled_addcart' => $disabled_addcart,
-                    'tc'               => $tc,
+ <?php //$this->renderPartial('/store/menu/restaurant-menu', array(
+         //           'merchant_id'      => $merchant_id,
+          //          'menu'             => $menu,
+           //         'disabled_addcart' => $disabled_addcart,
+           //         'tc'               => $tc,
                     
          
- ) ); ?>  
+ //) ); ?>  
 
 
 <?php if ( 0 ) { ?>
@@ -42,8 +46,9 @@
                 <div class="tab-pane" id="details">
 
                     <?php $this->renderPartial('/store/menu/details-content', array(
-                        'merchant_id'     => $merchant_id,    
-                        'theme_hours_tab' => $theme_hours_tab,
+                        'merchant_id'       => $merchant_id,    
+                        'theme_hours_tab'   => $theme_hours_tab,
+                        'theme_reviews_tab' => $theme_reviews_tab
                     ) ); ?>                 
 
                 </div>
@@ -57,9 +62,10 @@
                     <!--BOOK A TABLE-->
                         <?php if ($booking_enabled):?>
                         <li>
-                            <?php $this->renderPartial('/front/merchant-book-table',array(
-                              'merchant_id'=>$merchant_id
-                            )); ?>        
+                            <?php //$this->renderPartial('/front/merchant-book-table',array(
+                                  //  'merchant_id'=>$merchant_id
+                                  //  ));
+                            ?>        
                         </li>
                         <?php endif;?>
                     <!--END BOOK A TABLE-->

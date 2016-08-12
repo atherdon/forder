@@ -256,10 +256,10 @@ class FunctionsV3
 	    					$cuisine_json['cuisine_name_trans']=!empty($cuisine_info['cuisine_name_trans'])?
 	    					json_decode($cuisine_info['cuisine_name_trans'],true):'';
 	    					
-    					    $p.= qTranslate($list[$val],'cuisine_name',$cuisine_json)  ."| ";
+    					    $p.= qTranslate($list[$val],'cuisine_name',$cuisine_json)  ." | ";
     					 } else {
     					
-    					    $p.= $list[$val]."| ";
+    					    $p.= $list[$val]." | ";
     					 }
     				}
     			}
