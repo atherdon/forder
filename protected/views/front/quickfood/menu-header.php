@@ -9,24 +9,8 @@
     	<div id="thumb">
             <img src="<?php echo $merchant_logo;?>" alt="">
         </div>
-                        
-        <div class="rating">
-            <i class="icon_star voted"></i>
-            <i class="icon_star voted"></i>
-            <i class="icon_star voted"></i>
-            <i class="icon_star voted"></i>
-            <i class="icon_star"></i>
-
-
-
-            ( <small>
-                <a href="#0">
-                    <!--98 reviews-->
-                    <?php echo $ratings['votes']." ".t("Reviews") ?>
-                </a>
-            </small> )
-
-        </div>
+            
+        <?php echo Widgets::ratingHTML( $ratings, true ); ?>     
             
         <h1>
             <?php echo clearString($restaurant_name)?>
@@ -34,7 +18,6 @@
         <div>
             <em>
                 <?php echo FunctionsV3::displayCuisine2( $cuisine ); ?>
-                <!--Mexican / American-->
             </em>
         </div>
         <div>

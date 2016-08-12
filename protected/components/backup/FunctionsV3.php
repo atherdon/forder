@@ -623,7 +623,7 @@ class FunctionsV3
     	return '';
     }
     
-        public static function getFreeDeliveryTag2($merchant_id='')
+    public static function getFreeDeliveryTag2( $merchant_id = '' )
     {
     	$fee = getOption( $merchant_id, 'free_delivery_above_price' );
         

@@ -27,4 +27,14 @@
 </form>
 </div> <!--review-input-wrap-->
 
-<div class="box-grey rounded merchant-review-wrap" style="margin-top:0;"></div>
+<div class="box-grey rounded merchant-review-wrap" style="margin-top:0;">
+    
+    
+     <?php $this->renderPartial('/store/menu/reviews', array(
+                  'merchant_id' => $merchant_id,
+                  'ratings'     => $ratings,
+	   )); ?>   
+    
+ 
+    
+</div>

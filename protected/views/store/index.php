@@ -161,50 +161,6 @@ $placholder_search=Yii::t("default",$placholder_search);
 
 
 
-<?php if (0):?>
-<?php //if ($theme_hide_how_works<>2):?>
-<!--HOW IT WORKS SECTIONS-->
-<div class="sections section-how-it-works">
-<div class="container">
- <h2><?php echo t("How it works")?></h2>
- <p class="center"><?php echo t("Get your favourite food in 4 simple steps")?></p>
- 
- <div class="row">
-   <div class="col-md-3 col-sm-3 center">
-      <div class="steps step1-icon">
-        <img src="<?php echo assetsURL()."/images/step1.png"?>">
-      </div>
-      <h3><?php echo t("Search")?></h3>
-      <p><?php echo t("Find all restaurants available near you")?></p>
-   </div>
-   <div class="col-md-3 col-sm-3 center">
-      <div class="steps step2-icon">
-         <img src="<?php echo assetsURL()."/images/step2.png"?>">
-      </div>
-      <h3><?php echo t("Choose")?></h3>
-      <p><?php echo t("Browse hundreds of menus to find the food you like")?></p>
-   </div>
-   <div class="col-md-3 col-sm-3  center">
-      <div class="steps step2-icon">
-        <img src="<?php echo assetsURL()."/images/step3.png"?>">
-      </div>
-      <h3><?php echo t("Pay")?></h3>
-      <p><?php echo t("It's quick, secure and easy")?></p>
-   </div>
-   <div class="col-md-3 col-sm-3  center">
-     <div class="steps step2-icon">
-       <img src="<?php echo assetsURL()."/images/step4.png"?>">
-     </div>
-      <h3><?php echo t("Enjoy")?></h3>
-      <p><?php echo t("Food is prepared & delivered to your door")?></p>
-   </div>   
- </div>
-
- </div> <!--container-->
-</div> <!--section-how-it-works-->
-<?php endif;?>
-
-
 
 
 
@@ -264,7 +220,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                                             <img src="<?php echo FunctionsV3::getMerchantLogo($val['merchant_id']);?>" alt="">
                                         </div>
                                         
-                                        <?php echo Widgets::ratingHTML( $ratings['ratings'] ); ?>
+                                        <?php echo Widgets::ratingHTML( $ratings ); ?>
 
                                         <h3>
                                             <?php echo clearString( $val['restaurant_name'] )?>

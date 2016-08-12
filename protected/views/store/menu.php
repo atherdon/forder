@@ -349,7 +349,8 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 	    <?php if ($theme_reviews_tab==""):?>
 	    <li class="review-tab-content">	       	     
 	    <?php $this->renderPartial('/front/merchant-review',array(
-	      'merchant_id'=>$merchant_id
+	      'merchant_id' => $merchant_id,
+              'ratings'     => $ratings,  
 	    )); ?>           
 	    </li>
 	    <?php endif;?>

@@ -14,12 +14,12 @@
                
             <!--OPENING HOURS-->
 	    <?php if ($theme_hours_tab==""):?>
-	    <li>	       	     
-	    <?php
-	    $this->renderPartial('/store/menu/merchant-hours',array(
-	      'merchant_id'=>$merchant_id
-	    )); ?>           
-	    </li>
+                <li>	       	     
+                    <?php
+                    $this->renderPartial('/store/menu/merchant-hours',array(
+                      'merchant_id'=>$merchant_id
+                    )); ?>           
+                </li>
 	    <?php endif;?>
             
 	    <!--END OPENING HOURS-->
@@ -38,6 +38,9 @@
                     Monday to Friday 9.00am - 7.30pm
                 </small>
             </div>
+            
+            
+            
         </div>
 
     <div class="col-md-8">
@@ -220,6 +223,7 @@
                     echo $this->renderPartial( '/store/menu/reviews', [
 
                             'ratings'         => $ratings,
+                            'merchant_id'     => $merchant_id,
                     ] );
                  } ?>
             
