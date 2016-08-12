@@ -1,8 +1,9 @@
-<?php if( is_array( $menu ) && count( $menu ) >= 1 ) : ?>
+<?php if( is_array( $menu ) && count( $menu ) >= 1 ) { ?>
 
 
 
 
+<?php //if ( 0 ) { ?>
    
 <div class="col-md-6">
     <div class="box_style_2" id="main_menu">
@@ -10,12 +11,62 @@
             Menu
         </h2>
         
-        <h3 class="nomargin_top" id="starters">
-            Starters
-        </h3>
-        <p>
+        
+        
+        
+        <?php foreach ( $menu as $val ) { ?>
+
+                <h3 class="nomargin_top cat-<?php echo $val['category_id']?> " id="starters">
+                    <!--Starters-->
+                    <?php echo qTranslate( $val['category_name'], 'category_name', $val )?>
+                </h3>
+
+                
+                <?php 
+                    $x=0;                    
+                    if ( !empty( $val['category_description'] ) ): ?>
+                    <p class="small">
+                        <?php echo qTranslate( $val['category_description'], 'category_description', $val ) ?>
+                    </p>
+                <?php endif;?>
+
+                <?php echo Widgets::displaySpicyIconNew($val['dish'],"dish-category")?>   
+                    
+               <?php if ( is_array( $val['item'] ) && count( $val['item'] ) >= 1 ){ ?>     
+                    
+                     <?php foreach ( $val['item'] as $val_item ){ ?>
+                    
+                        
+                    
+                     <?php $x++; 
+                           } ?>
+                    
+               <?php } else { ?>     
+                    
+                    <div class="col-md-6">
+                        <p class="text-danger">
+                            <?php echo t("This restaurant has not published their menu yet.")?>
+                        </p>
+                    </div>
+                    
+                    <!--<p class="small text-danger">-->
+                        <?php //echo t("no item found on this category"); ?>
+                    <!--</p>-->
+                    
+               <?php } ?>     
+
+        <?php } ?>
+
+        
+        
+        
+        
+        
+        
+        
+<!--        <p>
                 Te ferri iisque aliquando pro, posse nonumes efficiantur in cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
-        </p>
+        </p>-->
         
         <table class="table table-striped cart-list">
             <thead>
@@ -91,6 +142,8 @@
             </tbody>
         </table>
         <hr>
+        
+        <?php if ( 0 ) { ?>
         <h3 id="main_courses">Main courses</h3>
         <p>
                 Te ferri iisque aliquando pro, posse nonumes efficiantur in cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
@@ -197,6 +250,12 @@
         </tbody>
         </table>
             <hr>
+            
+        <?php } ?>    
+            
+            
+        <?php if ( 0 ) { ?>    
+            
             <h3 id="beef">Beef</h3>
             <p>
                     Te ferri iisque aliquando pro, posse nonumes efficiantur in cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
@@ -303,6 +362,11 @@
                 </tbody>
             </table>
             <hr>
+            
+            <?php } ?>
+            
+            <?php if ( 0 ) { ?>
+            
             <h3 id="desserts">Desserts</h3>
             <p>
                 Te ferri iisque aliquando pro, posse nonumes efficiantur in cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
@@ -381,6 +445,9 @@
                 </tbody>
             </table>
             <hr>
+            <?php } ?>
+            
+            <?php if ( 0 ) { ?>
             <h3 id="drinks">Drinks</h3>
             <p>
                 Te ferri iisque aliquando pro, posse nonumes efficiantur in cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
@@ -458,19 +525,19 @@
             </tr>
             </tbody>
             </table>
+            
+            <?php } ?>
+            
     </div><!-- End box_style_1 -->
 </div><!-- End col-md-6 -->
 
 
+<?php //} ?> 
 
 
 
-
-
-
-
-
-
+<?php } ?>
+<?php if( is_array( $menu ) && count( $menu ) >= 1 ) : ?>
 
 
 
@@ -480,21 +547,83 @@
   <div class="menu-cat cat-<?php echo $val['category_id']?> ">
      <a href="javascript:;">       
        <span class="bold">
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
           <i class="<?php echo $tc==2?"ion-ios-arrow-thin-down":'ion-ios-arrow-thin-right'?>"></i>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
          <?php echo qTranslate($val['category_name'],'category_name',$val)?>
        </span>
        <b></b>
      </a>
-          
+         
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
      <?php $x=0?>
      
+      
+      
+      
+      
+      
+      
+      
+      
      <div class="items-row <?php echo $tc==2?"hide":''?>">
      
+         
+         
+         
+         
+         
+         
+         
+         
+         
      <?php if (!empty($val['category_description'])):?>
      <p class="small">
        <?php echo qTranslate($val['category_description'],'category_description',$val)?>
      </p>
      <?php endif;?>
+     
+     
+     
+     
+     
      <?php echo Widgets::displaySpicyIconNew($val['dish'],"dish-category")?>
      
      <?php if (is_array($val['item']) && count($val['item'])>=1):?>

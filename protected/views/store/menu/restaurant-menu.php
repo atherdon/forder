@@ -77,7 +77,7 @@
     ?>
     
     
-    
+    <?php if ( 0 ) { ?>
     
     <div class="col-md-3" id="sidebar">
         <div class="theiaStickySidebar">
@@ -165,6 +165,8 @@
     </div><!-- End theiaStickySidebar -->
     </div><!-- End col-md-3 -->
 
+    <?php } ?>
+    
 </div><!-- End row -->
 </div><!-- End container -->
 <!-- End Content =============================================== -->

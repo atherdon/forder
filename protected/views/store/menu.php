@@ -59,11 +59,11 @@ $cs->registerScript(
         
  if( 0 ) { 
 
-/*PROGRESS ORDER BAR*/
-$this->renderPartial('/front/order-progress-bar',array(
-   'step'=>3,
-   'show_bar'=>true
-));
+    /*PROGRESS ORDER BAR*/
+    $this->renderPartial('/front/order-progress-bar',array(
+       'step'=>3,
+       'show_bar'=>true
+    ));
 
  } 
 
