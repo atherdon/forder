@@ -47,6 +47,12 @@ $cs->registerScript(
   CClientScript::POS_HEAD
 );		
 
+
+
+//
+        
+var_dump( Yii::app()->controller->action->id ); die();
+
         
 //$this->renderPartial( '/store/menu/tabs', 
 //        array( 

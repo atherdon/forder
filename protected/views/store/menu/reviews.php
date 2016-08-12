@@ -91,13 +91,11 @@
                 
                 <img src="<?php echo FunctionsV3::getAvatar($val['client_id']); ?>" alt="" class="img-circle">
                 <small>
-                    <!--- 10 March 2015 --->
                     - <?php echo $pretyy_date; ?> -
                     
                 </small>
                 <h4>
                     <?php echo $val['client_name']; ?>
-                    <!--Jhon Doe-->
                 </h4>
                 <p>
                     "<?php echo nl2br($val['review'])?>"
@@ -106,7 +104,6 @@
                     <div class="col-md-3">
                         
                         <?php echo Widgets::ratingHTML( [ 'ratings' => $val['rating'], 'votes' => false ] ); ?>
-
                          <!--Food Quality-->
                     </div>
                     
@@ -196,175 +193,78 @@
 
 
 
+    <!-- Register modal -->   
+<div class="modal fade" id="myReview" tabindex="-1" role="dialog" aria-labelledby="review" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-popup">
+            <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+            <form method="post" action="assets/review_restaurant.php" name="review" id="review" class="popup-form">  
+                <div class="login_icon"><i class="icon_comment_alt"></i></div>
+                <input name="restaurant_name" id="restaurant_name" type="hidden" value="Mexican Taco Mex">	
+                <div class="row" >
+                    <div class="col-md-6">
+                <input name="name_review" id="name_review" type="text" placeholder="Name" class="form-control form-white">			
+                </div>
+                <div class="col-md-6">
+                    <input name="email_review" id="email_review" type="email" placeholder="Your email" class="form-control form-white">
+                </div>
+                </div><!-- End Row --> 
 
-
-
-
-
-
-<?php if ( 0 ) { ?>
-<div class="review_strip_single">
-    <img src="<?php echo Widgets::quickImagesPath(); ?>avatar1.jpg" alt="" class="img-circle">
-    <small> - 10 March 2015 -</small>
-    <h4>Jhon Doe</h4>
-    <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Sed a lorem quis neque interdum consequat ut sed sem. 
-        Duis quis tempor nunc. Interdum et malesuada fames ac 
-        ante ipsum primis in faucibus."
-    </p>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="rating">
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-            </div>
-             Food Quality
-        </div>
-        <div class="col-md-3">
-            <div class="rating">
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star"></i>
-                    <i class="icon_star"></i>
-                    <i class="icon_star"></i>
-            </div>
-             Price
-        </div>
-        <div class="col-md-3">
-            <div class="rating">
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star"></i>
-            </div>
-             Punctuality
-        </div>
-        <div class="col-md-3">
-            <div class="rating">
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star"></i>
-            </div>
-             Courtesy
-        </div>
-    </div><!-- End row -->
-</div><!-- End review strip -->
-
-<div class="review_strip_single">
-    <img src="<?php echo Widgets::quickImagesPath(); ?>avatar3.jpg" alt="" class="img-circle">
-    <small> - 25 March 2015 -</small>
-    <h4>Markus Schulz</h4>
-    <p>
-        "At sed dico invenire facilisis, sed option sapientem 
-        iudicabit ad, sea idque doming vituperatoribus at. 
-        Duo ut inani tantas scaevola. Commodo oblique at cum.
-        Duo id vide delectus. Vel et doctus laoreet minimum, ei feugait pertinacia usu.
-    </p>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="rating">
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star"></i>
-                    <i class="icon_star"></i>
-            </div>
-             Food Quality
-        </div>
-        <div class="col-md-3">
-            <div class="rating">
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star"></i>
-                    <i class="icon_star"></i>
-            </div>
-             Price
-        </div>
-        <div class="col-md-3">
-            <div class="rating">
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star"></i>
-                    <i class="icon_star"></i>
-                    <i class="icon_star"></i>
-            </div>
-             Punctuality
-        </div>
-        <div class="col-md-3">
-            <div class="rating">
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star voted"></i>
-                    <i class="icon_star"></i>
-            </div>
-             Courtesy
-        </div>
-    </div><!-- End row -->
-</div><!-- End review strip -->
-
-<div class="review_strip_single last">
-    <img src="<?php echo Widgets::quickImagesPath(); ?>avatar2.jpg" alt="" class="img-circle">
-    <small> - 10 April 2015 -</small>
-    <h4>Frank Cooper</h4>
-    <p>
-             "Ne mea congue facilis eligendi, possit utamur sensibus
-             id qui, mel tollit euismod alienum eu. 
-             Ad tollit lucilius praesent per, ex probo utroque 
-             placerat eos. Tale verear efficiendi et cum, meis 
-             timeam vix et, et duis debet nostro mel.
-             Aeterno labitur per no, id nec tantas nemore. An minim molestie per, mei sumo vulputate cu."
-    </p>
-    <div class="row">
-            <div class="col-md-3">
-                    <div class="rating">
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
+                <div class="row">
+                    <div class="col-md-6">
+                        <select class="form-control form-white" name="food_review" id="food_review">
+                            <option value="">Food Quality</option>
+                            <option value="Low">Low</option>
+                            <option value="Sufficient">Sufficient</option>
+                            <option value="Good">Good</option>
+                            <option value="Excellent">Excellent</option>
+                            <option value="Superb">Super</option>
+                            <option value="Not rated">I don't know</option>
+                        </select>                            
                     </div>
-                     Food Quality
-            </div>
-            <div class="col-md-3">
-                    <div class="rating">
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star"></i>
-                            <i class="icon_star"></i>
-                            <i class="icon_star"></i>
+                    <div class="col-md-6">
+                        <select class="form-control form-white"  name="price_review" id="price_review">
+                            <option value="">Price</option>
+                            <option value="Low">Low</option>
+                            <option value="Sufficient">Sufficient</option>
+                            <option value="Good">Good</option>
+                            <option value="Excellent">Excellent</option>
+                            <option value="Superb">Super</option>
+                            <option value="Not rated">I don't know</option>
+                        </select>
                     </div>
-                     Price
-            </div>
-            <div class="col-md-3">
-                    <div class="rating">
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
-                    </div>
-                     Punctuality
-            </div>
-            <div class="col-md-3">
-                    <div class="rating">
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
-                            <i class="icon_star"></i>
-                            <i class="icon_star"></i>
-                    </div>
-                     Courtesy
-            </div>
-    </div><!-- End row -->
-</div><!-- End review strip -->
+                </div><!--End Row -->    
 
-<?php } ?>
+                <div class="row">
+                    <div class="col-md-6">
+                        <select class="form-control form-white"  name="punctuality_review" id="punctuality_review">
+                            <option value="">Punctuality</option>
+                            <option value="Low">Low</option>
+                            <option value="Sufficient">Sufficient</option>
+                            <option value="Good">Good</option>
+                            <option value="Excellent">Excellent</option>
+                            <option value="Superb">Super</option>
+                            <option value="Not rated">I don't know</option>
+                        </select>                       
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-control form-white"  name="courtesy_review" id="courtesy_review">
+                            <option value="">Courtesy</option>
+                            <option value="Low">Low</option>
+                            <option value="Sufficient">Sufficient</option>
+                            <option value="Good">Good</option>
+                            <option value="Excellent">Excellent</option>
+                            <option value="Superb">Super</option>
+                            <option value="Not rated">I don't know</option>
+                        </select>
+                    </div>
+                </div><!--End Row -->     
+                <textarea name="review_text" id="review_text" class="form-control form-white" style="height:100px" placeholder="Write your review"></textarea>
+                <input type="text" id="verify_review" class="form-control form-white" placeholder="Are you human? 3 + 1 =">
+                <input type="submit" value="Submit" class="btn btn-submit" id="submit-review">
+            </form>
+            
+            <div id="message-review"></div>
+        </div>
+    </div>
+</div><!-- End Register modal -->   

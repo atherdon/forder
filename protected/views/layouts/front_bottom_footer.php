@@ -16,17 +16,6 @@
             <div class="col-md-3 col-sm-3">
                 <h3>About</h3>
                 
-                
-<!--                <ul>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="faq.html">Faq</a></li>
-                    <li><a href="contacts.html">Contacts</a></li>
-                    <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>
-                    <li><a href="#0" data-toggle="modal" data-target="#register">Register</a></li>
-                    <li><a href="#0">Terms and conditions</a></li>
-                </ul>-->
-                
-
                 <?php if ($theme_hide_footer_section1 != 2):?>
                     <h3><?php echo t("Menu")?></h3>
 
