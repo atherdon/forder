@@ -48,11 +48,6 @@ $cs->registerScript(
 );		
 
 
-
-//
-        
-var_dump( Yii::app()->controller->action->id ); die();
-
         
 //$this->renderPartial( '/store/menu/tabs', 
 //        array( 
