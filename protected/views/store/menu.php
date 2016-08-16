@@ -80,26 +80,6 @@ $menu     = Yii::app()->functions->getMerchantMenu( $merchant_id );
 
 //var_dump( $disabled_addcart ); die();
 
-// @TODO check cases with $disabled_addcart variable not empty.
-$this->renderPartial( '/store/menu/tabs', array(
-    'merchant_id'      => $merchant_id,
-    'menu'             => $menu,
-    'disabled_addcart' => $disabled_addcart,
-    'tc'               => $tc,
-//    ''                 => 
-    'theme_hours_tab'   => $theme_hours_tab,
-    'theme_reviews_tab' => $theme_reviews_tab,
-    'phone'             => $data['contact_phone'],
-    'ratings'           => $ratings,
-    
-    
-    'data'              => $data,
-    'distance'          => $distance,
-    'delivery_fee'      => $delivery_fee,
-    'checkout'          => $checkout,
-    'now'               => date('Y-m-d'),
-    'now_time'          => ''
-) ); 
 
 
 
@@ -150,6 +130,8 @@ if (!empty($minimum_order)){
 	 displayPrice(baseCurrency(),prettyFormat($minimum_order))
 	);
 }
+
+
 $merchant_maximum_order=Yii::app()->functions->getOption("merchant_maximum_order",$merchant_id);
  if (is_numeric($merchant_maximum_order)){
  	echo CHtml::hiddenField('merchant_maximum_order',unPrettyPrice($merchant_maximum_order));
@@ -173,6 +155,7 @@ echo CHtml::hiddenField('unit_distance',$distance_type);
 echo CHtml::hiddenField('from_address', FunctionsV3::getSessionAddress() );
 
 echo CHtml::hiddenField('merchant_close_store',getOption($merchant_id,'merchant_close_store'));
+
 /*$close_msg=getOption($merchant_id,'merchant_close_msg');
 if(empty($close_msg)){
 	$close_msg=t("This restaurant is closed now. Please check the opening times.");
@@ -187,6 +170,30 @@ echo CHtml::hiddenField('merchant_map_latitude',$data['latitude']);
 echo CHtml::hiddenField('merchant_map_longtitude',$data['lontitude']);
 echo CHtml::hiddenField('restaurant_name',$data['restaurant_name']);
 
+
+
+// @TODO check cases with $disabled_addcart variable not empty.
+$this->renderPartial( '/store/menu/tabs', array(
+    'merchant_id'      => $merchant_id,
+    'menu'             => $menu,
+    'disabled_addcart' => $disabled_addcart,
+    'tc'               => $tc,
+//    ''                 => 
+    'theme_hours_tab'   => $theme_hours_tab,
+    'theme_reviews_tab' => $theme_reviews_tab,
+    'phone'             => $data['contact_phone'],
+    'ratings'           => $ratings,
+    
+    
+    'data'              => $data,
+    'distance'          => $distance,
+    'delivery_fee'      => $delivery_fee,
+    'checkout'          => $checkout,
+    'now'               => date('Y-m-d'),
+    'now_time'          => '',
+    'minimum_order'     => $minimum_order,
+    'merchant_minimum_order_pickup' => $merchant_minimum_order_pickup,
+) ); 
 
 
 
