@@ -1,21 +1,26 @@
-  <?php  $this->renderPartial('/store/menu/details-content', array(
-                    'merchant_id'       => $merchant_id,    
-                    'theme_hours_tab'   => $theme_hours_tab,
-                    'theme_reviews_tab' => $theme_reviews_tab,
-                    'phone'             => $phone,
-                    'ratings'           => $ratings,
+  <?php  //$this->renderPartial('/store/menu/details-content', array(
+         //           'merchant_id'       => $merchant_id,    
+           //         'theme_hours_tab'   => $theme_hours_tab,
+             //       'theme_reviews_tab' => $theme_reviews_tab,
+               //     'phone'             => $phone,
+                 //   'ratings'           => $ratings,
       
-                ) ); 
+                //) ); 
   ?>     
 
- <?php //$this->renderPartial('/store/menu/restaurant-menu', array(
-         //           'merchant_id'      => $merchant_id,
-          //          'menu'             => $menu,
-           //         'disabled_addcart' => $disabled_addcart,
-           //         'tc'               => $tc,
-                    
-         
- //) ); ?>  
+ <?php $this->renderPartial('/store/menu/restaurant-menu', array(
+                   'merchant_id'      => $merchant_id,
+                   'menu'             => $menu,
+                   'disabled_addcart' => $disabled_addcart,
+                   'tc'               => $tc,
+     
+                   'data'             => $data,          
+                   'distance'         => $distance,
+     'delivery_fee'     => $delivery_fee,
+     'checkout'          => $checkout,
+     'now'               => $now,
+     'now_time'          => $now_time,
+ ) ); ?>  
 
 
 <?php if ( 0 ) { ?>

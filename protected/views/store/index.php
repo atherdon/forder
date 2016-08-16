@@ -205,22 +205,18 @@ $placholder_search=Yii::t("default",$placholder_search);
                         $address .= ", " . $val['state'] . ", " . $val['post_code'];
         
                         $ratings  = Yii::app()->functions->getRatings( $val['merchant_id'] );
-                        
 
-                        
                         ?>
                             
                             <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>" class="strip_list">
-                                
-                           
-                                
+                                                                                           
                                 <div class="ribbon_1">Popular</div>
                                     <div class="desc">
                                         <div class="thumb_strip">
                                             <img src="<?php echo FunctionsV3::getMerchantLogo($val['merchant_id']);?>" alt="">
                                         </div>
                                         
-                                        <?php echo Widgets::ratingHTML( $ratings ); ?>
+                                        <?php echo Widgets::ratingHTML( $ratings  ); ?>
 
                                         <h3>
                                             <?php echo clearString( $val['restaurant_name'] )?>
@@ -257,7 +253,6 @@ $placholder_search=Yii::t("default",$placholder_search);
                         $address .= ", " . $val['state'] . ", " . $val['post_code'];
         
                         $ratings  = Yii::app()->functions->getRatings( $val['merchant_id'] );
-                        
 
                         ?>
                             
@@ -270,7 +265,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                                             <img src="<?php echo FunctionsV3::getMerchantLogo($val['merchant_id']);?>" alt="">
                                         </div>
                                         
-                                        <?php echo Widgets::ratingHTML( $ratings['ratings'] ); ?>
+                                        <?php echo Widgets::ratingHTML(  $ratings ); ?>
 
                                         <h3>
                                             <?php echo clearString($val['restaurant_name'])?>

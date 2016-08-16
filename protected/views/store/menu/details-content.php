@@ -50,6 +50,48 @@
             </h2>
 
             <?php if ( 0 ) { ?>    
+            
+            
+            
+            
+             
+            
+	    <!--PHOTOS-->
+	    <?php if ($photo_enabled):?>
+	    <li>
+	    <?php 
+	    $gallery=Yii::app()->functions->getOption("merchant_gallery",$merchant_id);
+        $gallery=!empty($gallery)?json_decode($gallery):false;
+	    $this->renderPartial('/front/merchant-photos',array(
+	      'merchant_id'=>$merchant_id,
+	      'gallery'=>$gallery
+	    )); ?>        
+	    </li>
+	    <?php endif;?>
+	    <!--END PHOTOS-->
+	    
+            
+            
+            
+            
+            
+            
+            
+	    <!--INFORMATION-->
+	    <?php if ($theme_info_tab==""):?>
+	    <li>
+	        <div class="box-grey rounded " style="margin-top:0;">
+	          <?php echo getOption($merchant_id,'merchant_information')?>
+	        </div>
+	    </li>
+	    <?php endif;?>
+	    <!--END INFORMATION-->
+	    
+            
+            
+            
+            
+            
             <div id="Img_carousel" class="slider-pro">
                 <div class="sp-slides">
 

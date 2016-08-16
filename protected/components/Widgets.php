@@ -1941,13 +1941,15 @@ class Widgets extends CApplicationComponent
         public static function ratingHTML( $ratingAr, $extended = false ){
             
             $html   = '<div class="rating">';
+//            var_dump( $ratingAr );
             $rating = $ratingAr['ratings'];
+//            var_dump( $rating );
             
             if( $rating < 1 ) {
-                $html .= '  <i class="icon_star "></i>
-                            <i class="icon_star "></i>
-                            <i class="icon_star "></i>
-                            <i class="icon_star "></i>
+                $html .= '  <i class="icon_star"></i>
+                            <i class="icon_star"></i>
+                            <i class="icon_star"></i>
+                            <i class="icon_star"></i>
                             <i class="icon_star"></i>
                          ';
             }

@@ -69,7 +69,7 @@ $cs->registerScript(
  } 
 
 
-
+//
 $now      = date('Y-m-d');
 $now_time = '';
 
@@ -92,6 +92,13 @@ $this->renderPartial( '/store/menu/tabs', array(
     'phone'             => $data['contact_phone'],
     'ratings'           => $ratings,
     
+    
+    'data'              => $data,
+    'distance'          => $distance,
+    'delivery_fee'      => $delivery_fee,
+    'checkout'          => $checkout,
+    'now'               => date('Y-m-d'),
+    'now_time'          => ''
 ) ); 
 
 
