@@ -1,29 +1,16 @@
-  <?php  //$this->renderPartial('/store/menu/details-content', array(
-         //           'merchant_id'       => $merchant_id,    
-           //         'theme_hours_tab'   => $theme_hours_tab,
-             //       'theme_reviews_tab' => $theme_reviews_tab,
-               //     'phone'             => $phone,
-                 //   'ratings'           => $ratings,
+<?php //if ( 0 ) { ?>  
+<?php  $this->renderPartial('/store/menu/details-content', array(
+                    'merchant_id'       => $merchant_id,    
+                    'theme_hours_tab'   => $theme_hours_tab,
+                    'theme_reviews_tab' => $theme_reviews_tab,
+                    'phone'             => $phone,
+                    'ratings'           => $ratings,
       
-                //) ); 
+                ) ); 
   ?>     
 
- <?php $this->renderPartial('/store/menu/restaurant-menu', array(
-                   'merchant_id'      => $merchant_id,
-                   'menu'             => $menu,
-                   'disabled_addcart' => $disabled_addcart,
-                   'tc'               => $tc,
-     
-                   'data'             => $data,          
-                   'distance'         => $distance,
-     'delivery_fee'     => $delivery_fee,
-     'checkout'          => $checkout,
-     'now'               => $now,
-     'now_time'          => $now_time,
-     'minimum_order'     => $minimum_order,
-     'merchant_minimum_order_pickup' => $merchant_minimum_order_pickup,
- ) ); ?>  
 
+<?php // } ?>
 
 <?php if ( 0 ) { ?>
 
@@ -61,6 +48,22 @@
                 </div>
                 <div class="tab-pane" id="menu">
 
+                     <?php $this->renderPartial('/store/menu/restaurant-menu', array(
+                   'merchant_id'      => $merchant_id,
+                   'menu'             => $menu,
+                   'disabled_addcart' => $disabled_addcart,
+                   'tc'               => $tc,
+     
+                   'data'             => $data,          
+                   'distance'         => $distance,
+     'delivery_fee'     => $delivery_fee,
+     'checkout'          => $checkout,
+     'now'               => $now,
+     'now_time'          => $now_time,
+     'minimum_order'     => $minimum_order,
+     'merchant_minimum_order_pickup' => $merchant_minimum_order_pickup,
+ ) ); ?>  
+                    
                     <?php //$this->renderPartial('/store/menu/restaurant-menu', array() ); ?>  
 
                 </div>
@@ -69,9 +72,9 @@
                     <!--BOOK A TABLE-->
                         <?php if ($booking_enabled):?>
                         <li>
-                            <?php //$this->renderPartial('/front/merchant-book-table',array(
-                                  //  'merchant_id'=>$merchant_id
-                                  //  ));
+                            <?php $this->renderPartial('/front/merchant-book-table',array(
+                                    'merchant_id'=>$merchant_id
+                                    ));
                             ?>        
                         </li>
                         <?php endif;?>

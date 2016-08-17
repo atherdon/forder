@@ -80,9 +80,6 @@
                             <a href="javascript:;" class="clear-cart">
                                 [<?php echo t("Clear Order")?>]
                             </a>
-<!--                            <a href="javascript:;" class="top10 green-color change-address block text-center">
-                                [<?php //echo t("Change Your Address here")?>]
-                            </a>   -->
                         </td>
                     </tr>
                     

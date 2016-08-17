@@ -81,7 +81,7 @@ if ( $res ){
 
         <?php echo CHtml::textField('delivery_time', $now_time,
          array( 
-             'class'       => "timepick ", //"timepick grey-fields",
+             'class'       => "timepick ", //"timepick grey-fields",   https://eonasdan.github.io/bootstrap-datetimepicker/
              'placeholder' => Yii::t("default", "Delivery Time")
              )); ?>	       
                        	         	        
