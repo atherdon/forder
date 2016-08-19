@@ -56,20 +56,24 @@ class StoreController extends CController
 		}
     }	
 		
-	public function init()
-	{		
-		 $name=Yii::app()->functions->getOptionAdmin('website_title');
-		 if (!empty($name)){		 	
-		 	 Yii::app()->name = $name;
-		 }
-		 		 
-		 // set website timezone
-		 $website_timezone=Yii::app()->functions->getOptionAdmin("website_timezone");		 
-		 if (!empty($website_timezone)){		 	
-		 	Yii::app()->timeZone=$website_timezone;
-		 }		 		 
-	}
-	
+    public function init()
+    {		
+             $name=Yii::app()->functions->getOptionAdmin('website_title');
+             if (!empty($name)){		 	
+                     Yii::app()->name = $name;
+             }
+
+             // set website timezone
+             $website_timezone=Yii::app()->functions->getOptionAdmin("website_timezone");		 
+             if (!empty($website_timezone)){		 	
+                    Yii::app()->timeZone=$website_timezone;
+             }		 		 
+    }
+
+    public function actionHelp(){
+        
+    }
+    
 	public function actionHome()
 	{
 		
@@ -193,6 +197,8 @@ class StoreController extends CController
 		));
 	}
 	
+        
+        
 	public function actionSignup()
 	{
 		$cs = Yii::app()->getClientScript();
@@ -381,7 +387,7 @@ class StoreController extends CController
 	
 	public function actionAbout()
 	{
-		$this->render('index');
+            $this->render('index');
 	}
 	
 	public function actionContact()
@@ -911,7 +917,7 @@ class StoreController extends CController
 	
 	public function actionReceipt()
 	{
-		$this->render('receipt');
+            $this->render('receipt');
 	}
 	
 	public function actionLogout()
@@ -943,17 +949,17 @@ class StoreController extends CController
 	
 	public function actionPaypalInit()
 	{
-		$this->render('paypal-init');
+            $this->render('paypal-init');
 	}
 	
 	public function actionPaypalVerify()
 	{
-		$this->render('paypal-verify');
+            $this->render('paypal-verify');
 	}
 	
 	public function actionOrderHistory()
 	{
-		$this->render('order-history');
+            $this->render('order-history');
 	}
 	
 	public function actionProfile()
@@ -987,19 +993,19 @@ class StoreController extends CController
 	
 	public function actionhowItWork()
 	{
-		$this->render('dynamic-page');
+            $this->render('dynamic-page');
 	}
 	
 	public function actionforgotPassword()
 	{
-		if ($res=Yii::app()->functions->getLostPassToken($_GET['token']) ){
-			$this->render('forgot-pass');
-		} else $this->render('error',array('message'=>t("ERROR: Invalid token.")));
+            if ($res=Yii::app()->functions->getLostPassToken($_GET['token']) ){
+                    $this->render('forgot-pass');
+            } else $this->render('error',array('message'=>t("ERROR: Invalid token.")));
 	}
 	
 	public function actionPage()
 	{
-		$_GET=array_flip($_GET);   
+            $_GET=array_flip($_GET);   
         $slug=$_GET[''];
         if ($data=yii::app()->functions->getCustomPageBySlug($slug)){
         	
@@ -1043,17 +1049,17 @@ class StoreController extends CController
 	
 	public function actionstripeInit()
 	{
-		$this->render('stripe-init');
+            $this->render('stripe-init');
 	}
 	
 	public function actionMercadoInit()
 	{
-		$this->render('mercado-merchant-init');
+            $this->render('mercado-merchant-init');
 	}
 	
 	public function actionRenewSuccesful()
 	{
-		$this->render('merchant-renew-successful');
+            $this->render('merchant-renew-successful');
 	}
 	
 	public function actionBrowse()
@@ -1588,7 +1594,7 @@ class StoreController extends CController
 	
 	public function actionEpyInit()
 	{
-		$this->render('merchant-epyinit');
+            $this->render('merchant-epyinit');
 	}
 	
 	public function actionGuestCheckout()
