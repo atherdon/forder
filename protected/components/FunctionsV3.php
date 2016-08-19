@@ -162,32 +162,52 @@ class FunctionsV3
         $top_menu[] = array( 
                         'tag'   => "Registration",
                         'label' => '' . Yii::t("default", "Registration"),
-                        'url'   => array('/store/page/register') 
+                        'url'   => array('/store/page/register'),
+                        'linkOptions' => array(
+                                            'data-target' => '#login_2',
+                                            'data-toggle' => 'modal',
+                                        ),
+//                        [ 'vaja' => 'ja-ja' ]
             );
         
         $top_menu[] = array( 
                         'tag'   => "Login",
                         'label' => '' . Yii::t("default", "Login"),
-                        'url'   => array('/store/page/login') 
+                        'url'   => array('/store/page/login'),
+                        'linkOptions' => array(
+                                            'data-target' => '#login_2',
+                                            'data-toggle' => 'modal',
+                                        ),
             );
         
         $top_menu[] = array( 
                         'tag'   => "driver-registration",
                         'label' => '' . Yii::t("default", "Become a Driver"),
-                        'url'   => array('/store/page/become-a-driver') 
+                        'url'   => array('/store/page/become-a-driver'),
+                        'linkOptions' => array(
+                                            'data-target' => '#login_2',
+                                            'data-toggle' => 'modal',
+                                        ), 
             );
+        
         
         $top_menu[] = array( 
                         'tag'   => "Registration",
                         'label' => '' . Yii::t("default", "Become a Partner"),
-                        'url'   => array('/store/page/become-a-partner-restaurant-signup') 
+                        'url'   => array('/store/page/become-a-partner-restaurant-signup'),
+                        'linkOptions' => array(
+                                            'data-target' => '#login_2',
+                                            'data-toggle' => 'modal',
+                                        ), 
             );        
+        
         
         $top_menu[] = array( 
                         'tag'   => "Registration",
                         'label' => '' . Yii::t("default", "Terms & Conditions"),
                         'url'   => array('/store/page/terms-and-conditions') 
             );
+        
         
             return array(  		    
 		    'id'             => 'menu2',
