@@ -2,7 +2,28 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-3">
+            <div class="col-md-3 col-sm-2">
+                
+                
+                <?php if ($theme_hide_footer_section1 != 2):?>
+                
+                    <!--<h3><?php //echo t("Menu")?></h3>-->
+
+                    <?php if (is_array($menu) && count($menu)>=1):?>
+                    <?php foreach ($menu as $val):?>
+                    <li>
+                      <a 
+                        href="<?php echo FunctionsV3::customPageUrl($val)?>" 
+                            <?php FunctionsV3::openAsNewTab($val)?> >
+                       <?php echo $val['page_name']?></a>
+                    </li>
+                    <?php endforeach;?>
+                    <?php endif;?>
+
+                <?php endif;?>
+                
+                
+                
                 
                 <?php if ( 0 ) { ?>
                 <h3>Secure payments with</h3>
@@ -11,35 +32,28 @@
                 </p>
                 <?php } ?>
                 
-                <?php FunctionsV3::getFooterAddress();?>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <h3>About</h3>
                 
-                <?php if ($theme_hide_footer_section1 != 2):?>
-                    <h3><?php echo t("Menu")?></h3>
-
-                    <?php if (is_array($menu) && count($menu)>=1):?>
-                    <?php foreach ($menu as $val):?>
-                    <li>
-                      <a 
-                        href="<?php echo FunctionsV3::customPageUrl($val)?>" <?php FunctionsV3::openAsNewTab($val)?> >
-                       <?php echo $val['page_name']?></a>
-                    </li>
-                    <?php endforeach;?>
-                    <?php endif;?>
-
-                <?php endif;?>
+                
+                
+                <?php //FunctionsV3::getFooterAddress();?>
+                
+                
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <!--<h3>About</h3>-->
+                
+                
                     
                     
                 <?php if ($theme_hide_footer_section2 != 2):?>
-                    <h3><?php //echo t("Others")?></h3>
+                    <!--<h3><?php //echo t("Others")?></h3>-->
 
                     <?php if (is_array($others_menu) && count($others_menu)>=1):?>
                     <?php foreach ($others_menu as $val):?>
                         <li>
                           <a 
-                            href="<?php echo FunctionsV3::customPageUrl($val)?>" <?php FunctionsV3::openAsNewTab($val)?> >
+                            href="<?php echo FunctionsV3::customPageUrl($val)?>" 
+                                <?php FunctionsV3::openAsNewTab($val)?> >
                            <?php echo $val['page_name']?></a>
                         </li>
                     <?php endforeach;?>
@@ -49,7 +63,7 @@
                 
                 
             </div>
-            <div class="col-md-3 col-sm-3" id="newsletter">
+            <div class="col-md-4 col-sm-4" id="newsletter">
                 
 
                 
@@ -86,28 +100,39 @@
                 
                 
             </div>
-            <div class="col-md-2 col-sm-3">
-                <h3>Settings</h3>
-                <div class="styled-select">
-                    
-                <?php 
-                    if ($show_language<>1){
-                            if ( $theme_lang_pos=="bottom" || $theme_lang_pos==""){
-                                
- 
-                            echo CHtml::dropDownList(
-                                    'language-options', false, 
-                                    (array)FunctionsV3::getLanguage() 
-                                    );
-                                    
-                            }
-                    }
-    
-   
-                    ?>
-                    
+            
+            
+            <div class="col-md-3 col-sm-4">
+                
+                
+                <?php if ( 0 ) { ?>
+                    <h3>
+                        Settings
+                    </h3>
+                    <div class="styled-select">
 
-                </div>
+
+                        <?php 
+                            if( 0 ) {
+                                if ($show_language<>1){
+                                        if ( $theme_lang_pos=="bottom" || $theme_lang_pos==""){
+
+
+                                        echo CHtml::dropDownList(
+                                                'language-options', false, 
+                                                (array)FunctionsV3::getLanguage() 
+                                                );
+
+                                        }
+                                }
+
+                            }
+                            ?>
+
+
+                    </div>
+                <?php } ?>
+                
                 
                
             </div>
@@ -160,7 +185,7 @@
                     
                     <?php endif;?>
                     <p>
-                        © Quick Food 2015
+                        © Quick Food <?php echo date("Y"); ?>
                     </p>
                 </div>
             </div>

@@ -22,12 +22,3 @@ echo Widgets::ratingHTML( $ratings, true  );
     <!--Minimum order: $15-->
 </div>
 <?php echo FunctionsV3::displayServicesList2( $service )?>
-
-<!--<ul>
-    <li>
-        Take away<i class="icon_check_alt2 ok"></i>
-    </li>
-    <li>
-        Delivery<i class="icon_check_alt2 no"></i>
-    </li>
-</ul>-->

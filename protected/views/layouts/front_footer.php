@@ -57,5 +57,6 @@ if ( Yii::app()->controller->action->id == 'menu' ) { ?>
 <?php }
 ?>
 <script src="//www.google.com/recaptcha/api.js?onload=onloadMyCallback&render=explicit" async defer ></script>
+
 </body>
 </html>

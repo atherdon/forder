@@ -71,7 +71,37 @@ class FunctionsV3
 		echo $htm;
 	}
 	
-    public static function getMenu($class="menu")
+    public static function getMenu( $class = "menu" )
+    {
+        
+        $top_menu[] = array( 
+                        'tag'   => "login",
+                        'label' => '' . Yii::t("default", "Login"),
+                        'url'   => array('/store/#') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "registration",
+                        'label' => '' . Yii::t("default", "Register"),
+                        'url'   => array('/store/#') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "help",
+                        'label' => '' . Yii::t("default", "Help"),
+                        'url'   => array('/store/#') 
+            );
+        
+         return array(  		    
+		    'id'             => 'menu',
+		    'activeCssClass' => 'active', 
+		    'encodeLabel'    => false,
+		    'items'          => $top_menu                      
+         );       
+
+    }
+    
+    public static function _OldgetMenu( $class = "menu" )
     {
     	$top_menu_activated=self::getTopMenuActivated();
     
@@ -158,6 +188,122 @@ class FunctionsV3
 		    'items'=>$top_menu                      
          );        
     }
+    
+//    public static function getMenuQuick()
+//    {
+////    	$top_menu_activated = self::getTopMenuActivated();
+//    
+//        
+//        $top_menu[] = array( 
+//                        'tag'   => "login",
+//                        'label' => '' . Yii::t("default", "Login"),
+//                        'url'   => array('/store/#') 
+//            );
+//        
+//        $top_menu[] = array( 
+//                        'tag'   => "registration",
+//                        'label' => '' . Yii::t("default", "Register"),
+//                        'url'   => array('/store/#') 
+//            );
+//        
+//        $top_menu[] = array( 
+//                        'tag'   => "help",
+//                        'label' => '' . Yii::t("default", "Help"),
+//                        'url'   => array('/store/#') 
+//            );
+//        
+//        
+//        
+////    	$top_menu[] = array('tag'=>"signup",'label'=>''.Yii::t("default","Home"),
+////                'url'=>array('/store/home'));
+//                                              
+////        $top_menu[] = array('tag'=>"browse",
+////                'visible'=>in_array('browse',(array)$top_menu_activated)?true:false,
+////                'label'=>''.Yii::t("default","Browse Restaurant"),
+////                'url'=>array('/store/browse'));
+////                        
+//        
+////        $enabled_commission=getOptionA('admin_commission_enabled');		
+////		$signup_link="/store/merchantsignup";
+////		if ($enabled_commission=="yes"){
+////		   $signup_link="/store/merchantsignupselection";	
+////		}         
+//		
+////		$client_signup=in_array('signup',(array)$top_menu_activated)?true:false;
+////		if ($client_signup){
+////			$client_signup=Yii::app()->functions->isClientLogin()?false:true;
+////		}
+////								
+////		if ( getOptionA('merchant_disabled_registration')!="yes"){
+////		    $top_menu[]=array('tag'=>"resto_signup",
+////		        'visible'=>in_array('resto_signup',(array)$top_menu_activated)?true:false,
+////		        'label'=>''.Yii::t("default","Restaurant Signup"),
+////                'url'=>array($signup_link));
+////		}       
+//                
+////        $top_menu[]=array('tag'=>"contact",
+////                'visible'=>in_array('contact',(array)$top_menu_activated)?true:false,
+////                'label'=>''.Yii::t("default","Contact"),
+////                'url'=>array('/store/contact'));                             
+//                                       
+////       $top_menu[]=array('visible'=>$client_signup,
+////                'tag'=>"signup",'label'=>''.Yii::t("default","Login & Signup"),
+////                'url'=>array('/store/signup'));   
+//                  
+//       
+//        
+//        
+//        
+////        if ( Yii::app()->functions->isClientLogin()){
+////        	$top_menu[]=array(
+////        	  'url'=>array('/store/profile'),
+////        	  'label'=>'<i class="ion-android-contact"></i> '.ucwords(Yii::app()->functions->getClientName()),
+////        	  'itemOptions'=>array('class'=>'green-button')      	  
+////        	);
+////        	
+////        	$top_menu[]=array(
+////        	  'url'=>array('/store/logout'),
+////        	  'label'=>t("Sign Out"),
+////        	  'itemOptions'=>array('class'=>'logout-menu orange-button')
+////        	);
+////        }
+//        
+//        
+//        /*LANGUAGE BAR TOP*/
+////        $language_selection=true;
+////        $theme_lang_pos=getOptionA('theme_lang_pos');
+////        $show_language=getOptionA('show_language');
+////        if($show_language==1){
+////        	$language_selection=false;
+////        }
+////        if ( $theme_lang_pos=="bottom" || $theme_lang_pos==""){
+////        	$language_selection=false;
+////        }
+//        
+////        if ($language_selection){
+////           $language_info=Yii::app()->functions->languageInfo( isset($_COOKIE['kr_lang_id'])?$_COOKIE['kr_lang_id']:'' );
+////           $flag="<img src=\"".assetsURL()."/images/flags/us.png" ."\">";
+////           $text_lang=$flag.t("English");
+////           if($language_info){
+////           	   $flag_png=strtolower($language_info['country_code']).".png";
+////           	   $flag="<img src=\"".assetsURL()."/images/flags/$flag_png" ."\">";
+////           	   $text_lang=$flag.$language_info['language_code'];
+////           }
+////           $top_menu[]=array('visible'=>$language_selection,
+////                'tag'=>"signup",'label'=>$text_lang,
+////                'itemOptions'=>array('class'=>"language-selection"),
+////                'url'=>"javascript:;");   
+////        } 
+//       /*LANGUAGE BAR TOP*/         
+//               
+//        return array(  		    
+//		    'id'             => 'menu',
+//		    'activeCssClass' => 'active', 
+//		    'encodeLabel'    => false,
+//		    'items'          => $top_menu                      
+//         );        
+//    }
+    
     
     public static function displayServicesList($service='')
     {    

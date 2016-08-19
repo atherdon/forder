@@ -71,7 +71,37 @@ class FunctionsV3
 		echo $htm;
 	}
 	
-    public static function getMenu($class="menu")
+    public static function getMenu( $class = "menu" )
+    {
+        
+        $top_menu[] = array( 
+                        'tag'   => "login",
+                        'label' => '' . Yii::t("default", "Login"),
+                        'url'   => array('/store/#') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "registration",
+                        'label' => '' . Yii::t("default", "Register"),
+                        'url'   => array('/store/#') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "help",
+                        'label' => '' . Yii::t("default", "Help"),
+                        'url'   => array('/store/#') 
+            );
+        
+         return array(  		    
+		    'id'             => 'menu',
+		    'activeCssClass' => 'active', 
+		    'encodeLabel'    => false,
+		    'items'          => $top_menu                      
+         );       
+
+    }
+    
+    public static function _OldgetMenu( $class = "menu" )
     {
     	$top_menu_activated=self::getTopMenuActivated();
     

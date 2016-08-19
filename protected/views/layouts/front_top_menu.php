@@ -23,16 +23,23 @@
         </div>
         <nav class="col--md-8 col-sm-8 col-xs-8">
         <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);">
-            <span>Menu mobile</span>
+            <span>
+                Menu mobile
+            </span>
         </a>
         <div class="main-menu">
             
             
             
             <div id="header_menu">
-                <img src="<?php echo Widgets::quickImagesPath(); ?>logo.png" width="190" height="23" alt="" data-retina="true">
+                <img src="<?php echo Widgets::quickImagesPath(); ?>logo.png" 
+                     width="190" 
+                     height="23" alt="" data-retina="true">
             </div>
-            <a href="#" class="open_close" id="close_in"><i class="icon_close"></i></a>
+            
+            <a href="#" class="open_close" id="close_in">
+                <i class="icon_close"></i>
+            </a>
             
             <?php $this->widget('zii.widgets.CMenu', FunctionsV3::getMenu() );?> 
             
@@ -76,6 +83,7 @@
                 
             </ul>-->
             
+
         </div><!-- End main-menu -->
         </nav>
     </div><!-- End row -->
