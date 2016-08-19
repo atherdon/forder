@@ -9,59 +9,75 @@
                 <?php echo CHtml::hiddenField('currentController','store')?>   
                 
                  <?php if ($google_login_enabled==2 || $fb_flag==2 ) : ?>
+                
                     <?php if ( $fb_flag==2):?>
+                
                         <a href="javascript:fbcheckLogin();" class="fb-button orange-button medium rounded">
-                         <i class="ion-social-facebook"></i><?php echo t("login with Facebook")?>
+                            <i class="ion-social-facebook"></i>
+                                <?php echo t("login with Facebook")?>
                         </a> 
+                
                         <?php endif;?>
 
                         <?php if ($google_login_enabled==2):?>
+                
                         <div class="top10"></div>
-                        <a href="<?php echo Yii::app()->createUrl('/store/googleLogin')?>" 
-                        class="google-button orange-button medium rounded">
-                          <i class="ion-social-googleplus-outline"></i><?php echo t("Sign in with Google")?>
-                        </a> 
+                            <a href="<?php echo Yii::app()->createUrl('/store/googleLogin')?>" 
+                               class="google-button orange-button medium rounded">
+                              <i class="ion-social-googleplus-outline"></i>
+                              <?php echo t("Sign in with Google")?>
+                            </a> 
+                        
                         <?php endif;?>
 
                 <div class="login-or">
-                  <span><?php echo t("Or")?></span>
+                  <span>
+                      <?php echo t("Or")?>
+                  </span>
                 </div>
                 <?php endif;?>
                   
                 
+                <?php //if ( 0 ) { ?>
+                <div class="login_icon">
+                    <i class="icon_lock_alt"></i>
+                </div>
                 
-                <div class="login_icon"><i class="icon_lock_alt"></i></div>
+                <?php echo CHtml::textField('username', '',
+                               array('class'=>'grey-fields',
+                               'placeholder'=>t("Email"),
+                              'required'=>true
+                              ))?>
+
                 
-                     <?php echo CHtml::textField('username','',
-                array('class'=>'grey-fields',
-                'placeholder'=>t("Email"),
-               'required'=>true
-               ))?>
-                
-                
-                    <input type="text" class="form-control form-white" placeholder="Username">
+                <input type="text" class="form-control form-white" placeholder="Username">
                     
                     
                     
-                      <?php echo CHtml::passwordField('password','',
-                array('class'=>'grey-fields',
-                'placeholder'=>t("Password"),
-               'required'=>true
-               ))?>
-                    <input type="text" class="form-control form-white" placeholder="Password">
+                <?php echo CHtml::passwordField('password','',
+                              array('class'=>'grey-fields',
+                              'placeholder'=>t("Password"),
+                             'required'=>true
+                             ))?>
+                
+                <input type="text" class="form-control form-white" placeholder="Password">
                     
                     
                  <?php if ($captcha_customer_login==2):?>
-           <div class="top10">
-             <div id="kapcha-1"></div>
-           </div>
-          <?php endif;?>     
-                    
-                    
-                    <div class="text-left">
-                            <a href="javascript:;">Forgot Password?</a>
+                    <div class="top10">
+                        <div id="kapcha-1"></div>
                     </div>
-                    <button type="submit" class="btn btn-submit">Submit<?php //echo t("Login")?></button>
+                <?php endif;?>     
+                    
+                    
+          <?php// } ?>          
+                    
+                <div class="text-left">
+                    <a href="javascript:;">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn btn-submit">
+                    Submit<?php //echo t("Login")?>
+                </button>
             </form>
         </div>
     </div>
@@ -157,7 +173,7 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
                 
                 
                 
-                
+<?php if ( 0 ) { ?>      
                 
                 
                 
@@ -199,18 +215,4 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
 		  </div> <!--box-grey-->
 		</div> <!--section-forgotpass-->
 		</form>
-		
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+<?php  } ?> 	

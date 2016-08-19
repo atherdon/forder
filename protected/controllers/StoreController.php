@@ -218,6 +218,7 @@ class StoreController extends CController
 		
 		$fb=1;
 		$fb_app_id=getOptionA('fb_app_id');
+                
 		$fb_flag=getOptionA('fb_flag');
 		
 		if ( $fb_flag=="" && $fb_app_id<>""){

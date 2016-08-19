@@ -4,26 +4,8 @@
         <div class="row">
             <div class="col-md-3 col-sm-2">
                 
-                
-                <?php if ($theme_hide_footer_section1 != 2):?>
-                
-                    <!--<h3><?php //echo t("Menu")?></h3>-->
 
-                    <?php if (is_array($menu) && count($menu)>=1):?>
-                    <?php foreach ($menu as $val):?>
-                    <li>
-                      <a 
-                        href="<?php echo FunctionsV3::customPageUrl($val)?>" 
-                            <?php FunctionsV3::openAsNewTab($val)?> >
-                       <?php echo $val['page_name']?></a>
-                    </li>
-                    <?php endforeach;?>
-                    <?php endif;?>
-
-                <?php endif;?>
-                
-                
-                
+                <?php $this->widget('zii.widgets.CMenu', FunctionsV3::getFooterMenu1() );?> 
                 
                 <?php if ( 0 ) { ?>
                 <h3>Secure payments with</h3>
@@ -41,27 +23,9 @@
             </div>
             <div class="col-md-2 col-sm-2">
                 <!--<h3>About</h3>-->
-                
-                
-                    
-                    
-                <?php if ($theme_hide_footer_section2 != 2):?>
-                    <!--<h3><?php //echo t("Others")?></h3>-->
+                                
+                 <?php $this->widget('zii.widgets.CMenu', FunctionsV3::getFooterMenu2() );?> 
 
-                    <?php if (is_array($others_menu) && count($others_menu)>=1):?>
-                    <?php foreach ($others_menu as $val):?>
-                        <li>
-                          <a 
-                            href="<?php echo FunctionsV3::customPageUrl($val)?>" 
-                                <?php FunctionsV3::openAsNewTab($val)?> >
-                           <?php echo $val['page_name']?></a>
-                        </li>
-                    <?php endforeach;?>
-                    <?php endif;?>
-
-                <?php endif;?>      
-                
-                
             </div>
             <div class="col-md-4 col-sm-4" id="newsletter">
                 
@@ -201,9 +165,19 @@
 
 //var_dump( $google_login_enabled ); die();
 
-//$this->renderPartial('/layouts/_front_login', [
-//        'google_login_enabled' => $google_login_enabled 
-//     ] ); ?>
+$this->renderPartial('/layouts/forms/_front_login', [
+        'google_login_enabled'   => $google_login_enabled,
+        'fb_flag'                => $fb_flag,
+        'captcha_customer_login' => $captcha_customer_login,
+        //'do-action'              => $_GET['do-action'],
+     ] ); ?>
 
 <!--MODAL REGISTRATION-->
-<?php //$this->renderPartial('/layouts/_front_sign_up', [] ); ?>   
+<?php //$this->renderPartial('/layouts/forms/_front_sign_up', [
+        
+   // ] ); ?>   
+
+<!--MODAL REGISTRATION-->
+<?php //$this->renderPartial('/layouts/forms/_front_forgot_password', [
+        
+    //] ); ?>   

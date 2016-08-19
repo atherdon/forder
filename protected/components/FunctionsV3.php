@@ -101,6 +101,105 @@ class FunctionsV3
 
     }
     
+        public static function getFooterMenu1( $class = "menu" )
+    {
+        
+        $top_menu[] = array( 
+                        'tag'   => "about-us",
+                        'label' => '' . Yii::t("default", "About us"),
+                        'url'   => array('/store/page/about-us') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "blog",
+                        'label' => '' . Yii::t("default", "Blog"),
+                        'url'   => array('/store/page/blog') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "faq",
+                        'label' => '' . Yii::t("default", "Faq"),
+                        'url'   => array('/store/page/faq') 
+            );
+          
+        $top_menu[] = array( 
+                        'tag'   => "press",
+                        'label' => '' . Yii::t("default", "Press"),
+                        'url'   => array('/store/page/press') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "jobs",
+                        'label' => '' . Yii::t("default", "Jobs"),
+                        'url'   => array('/store/page/jobs') 
+            );
+        
+         return array(  		    
+		    'id'             => 'menu1',
+		    'activeCssClass' => 'active', 
+		    'encodeLabel'    => false,
+		    'items'          => $top_menu                      
+         );       
+
+    }
+    
+    
+        public static function getFooterMenu2( $class = "menu" )
+    {
+        
+        $top_menu[] = array( 
+                        'tag'   => "contact",
+                        'label' => '' . Yii::t("default", "Contact"),
+                        'url'   => array('/store/contact') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "Privacy & Terms",
+                        'label' => '' . Yii::t("default", "Privacy"),
+                        'url'   => array('/store/page/privacy-amp-terms') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "Registration",
+                        'label' => '' . Yii::t("default", "Registration"),
+                        'url'   => array('/store/page/register') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "Login",
+                        'label' => '' . Yii::t("default", "Login"),
+                        'url'   => array('/store/page/login') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "driver-registration",
+                        'label' => '' . Yii::t("default", "Become a Driver"),
+                        'url'   => array('/store/page/become-a-driver') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "Registration",
+                        'label' => '' . Yii::t("default", "Become a Partner"),
+                        'url'   => array('/store/page/become-a-partner-restaurant-signup') 
+            );        
+        
+        $top_menu[] = array( 
+                        'tag'   => "Registration",
+                        'label' => '' . Yii::t("default", "Terms & Conditions"),
+                        'url'   => array('/store/page/terms-and-conditions') 
+            );
+        
+            return array(  		    
+		    'id'             => 'menu2',
+		    'activeCssClass' => 'active', 
+		    'encodeLabel'    => false,
+		    'items'          => $top_menu                      
+         );       
+
+    }
+    
+    
+    
     public static function _OldgetMenu( $class = "menu" )
     {
     	$top_menu_activated=self::getTopMenuActivated();

@@ -44,7 +44,17 @@
 <?php echo $content;?>
 
 
-<?php //var_dump($google_login_enabled); die();?>
+<?php
+
+$fb = 1;
+$fb_app_id = getOptionA('fb_app_id');
+$fb_flag   = getOptionA('fb_flag'); 
+
+if ( $fb_flag == "" && $fb_app_id <> "") {
+        $fb = 2;
+}
+
+?>
 
 
 <!--BOOTOM FOOTER-->
@@ -66,7 +76,8 @@
   //customization  
   'google_login_enabled'    => getOptionA('google_login_enabled'),
   'captcha_customer_login'  => getOptionA('captcha_customer_login'),
-  'captcha_customer_signup' => getOptionA('captcha_customer_signup')
+  'captcha_customer_signup' => getOptionA('captcha_customer_signup'),
+  'fb_flag'                 => $fb,
     
 ));?>
 
