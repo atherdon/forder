@@ -174,7 +174,7 @@ $this->renderPartial('/layouts/forms/_front_login', [
 
 <!-- MODAL REGISTRATION-->
 <?php $this->renderPartial('/layouts/forms/_front_sign_up', [
-        
+        'captcha_customer_signup' => $captcha_customer_signup,
     ] ); ?>   
 
 <!-- MODAL FORGOT PASSWORD -->
