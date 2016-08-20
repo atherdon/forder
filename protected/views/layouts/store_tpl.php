@@ -3,22 +3,6 @@
 
 
 
-<!--COOKIE LAW-->
-<?php //@TODO finish cookie law panel ?>
-
-<?php if (getOptionA('cookie_law_enabled')==2):?>
-
-<?php $this->renderPartial('/front/cookie-law', array(
-    
-  'cookie_accept_text'  => getOptionA('cookie_accept_text'),
-  'cookie_info_text'    => getOptionA('cookie_info_text'),
-  'cookie_msg_text'     => getOptionA('cookie_msg_text'),
-  'cookie_info_link'    => getOptionA('cookie_info_link')
-    
-));?>
-
-<?php endif;?>
-<!--COOKIE LAW-->
 
 
 

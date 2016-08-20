@@ -487,8 +487,8 @@ class ScriptManager
                     ,CClientScript::POS_END);
             }
 
-            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery-cookie.js"
-            ,CClientScript::POS_END); 
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery-cookie.js"
+//            ,CClientScript::POS_END); 
 
             $cs->registerScriptFile($baseUrl."/assets/js/store.js?ver=3"
             ,CClientScript::POS_END); 
@@ -524,7 +524,32 @@ class ScriptManager
             $cs->registerScriptFile(
                     Widgets::quickScriptPath() . 'jquery.sliderPro.min.js',
                     CClientScript::POS_END
-                    );             
+                    );      
+             
+            // Restaurant Details page
+            $cs->registerScript(
+                      'image-slider-init',
+                      " 
+                        $( document ).ready(function( $ ) {
+            
+                            $( '#Img_carousel' ).sliderPro({
+                                    width: 960,
+                                    height: 500,
+                                    fade: true,
+                                    arrows: true,
+                                    buttons: false,
+                                    fullScreen: false,
+                                    smallSize: 500,
+                                    startSlide: 0,
+                                    mediumSize: 1000,
+                                    largeSize: 3000,
+                                    thumbnailArrows: true,
+                                    autoplay: false
+                            });
+                        });
+                      ",
+                      CClientScript::POS_END
+                      );
             
             // SPECIFIC SCRIPTS -->
             $cs->registerScriptFile(
@@ -548,6 +573,10 @@ class ScriptManager
                       CClientScript::POS_END
                       );
               
+            
+           
+            
+            
             
             
 	}
