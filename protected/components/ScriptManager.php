@@ -286,14 +286,15 @@ class ScriptManager
 		
 		$website_date_picker_format=getOptionA('website_date_picker_format');
 		if (!empty($website_date_picker_format)){
-	        echo CHtml::hiddenField('website_date_picker_format',$website_date_picker_format);
-        }
-        $website_time_picker_format=yii::app()->functions->getOptionAdmin('website_time_picker_format');
-        if ( !empty($website_time_picker_format)){
-	        echo CHtml::hiddenField('website_time_picker_format',$website_time_picker_format);
-        }
-        echo CHtml::hiddenField('disabled_cart_sticky',getOptionA('disabled_cart_sticky'));
-		echo "\n";
+                        echo CHtml::hiddenField('website_date_picker_format',$website_date_picker_format);
+                }
+                $website_time_picker_format=yii::app()->functions->getOptionAdmin('website_time_picker_format');
+                if ( !empty($website_time_picker_format)){
+                        echo CHtml::hiddenField('website_time_picker_format',$website_time_picker_format);
+                }
+                echo CHtml::hiddenField('disabled_cart_sticky',getOptionA('disabled_cart_sticky'));
+                        echo "\n";
+                        
 	}
 
         

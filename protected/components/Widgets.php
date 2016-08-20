@@ -1938,6 +1938,24 @@ class Widgets extends CApplicationComponent
                         
 	}
         
+        public static function driverStylesPath()
+	{
+            $path = Yii::app()->request->baseUrl . '/assets/css/driver/';
+            if ( empty( $path ) ){ return ; }
+            
+            return $path;
+                        
+	}
+        
+        public static function driverScriptPath()
+	{
+            $path = Yii::app()->request->baseUrl . '/assets/js/driver/';
+            if ( empty( $path ) ){ return ; }
+            
+            return $path;
+                        
+	}
+        
         public static function ratingHTML( $ratingAr, $extended = false ){
             
             $html   = '<div class="rating">';

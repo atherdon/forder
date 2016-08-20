@@ -5,7 +5,7 @@
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <script type="text/javascript" src="./Join DoorDash _ Make Great Money_files/generic2-1647.js"></script>
+  <script type="text/javascript" src="<?php echo Widgets::driverScriptPath(); ?>generic2-1647.js"></script>
   
   </script>
   
@@ -14,28 +14,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      Join DoorDash | Make Great Money
+      <?php echo CHtml::encode($this->pageTitle); ?>
   </title>
+  <meta name="keywords" content="pizza, delivery food, fast food, sushi, take away, chinese, italian food">
 
-  <link rel="stylesheet" href="./Join DoorDash _ Make Great Money_files/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo Widgets::driverStylesPath(); ?>bootstrap.min.css">
 
-  <script src="./Join DoorDash _ Make Great Money_files/jquery.min.js"></script>
-  <script src="./Join DoorDash _ Make Great Money_files/fastclick.min.js"></script>
-  <script src="./Join DoorDash _ Make Great Money_files/underscore-min.js"></script>
-  <script src="./Join DoorDash _ Make Great Money_files/bootstrap.min.js"></script>
-  <script src="./Join DoorDash _ Make Great Money_files/5326580297.js"></script>
+  <script src="<?php echo Widgets::driverScriptPath(); ?>jquery.min.js"></script>
+  <script src="<?php echo Widgets::driverScriptPath(); ?>fastclick.min.js"></script>
+  <script src="<?php echo Widgets::driverScriptPath(); ?>underscore-min.js"></script>
+  <script src="<?php echo Widgets::driverScriptPath(); ?>bootstrap.min.js"></script>
+  <script src="<?php echo Widgets::driverScriptPath(); ?>5326580297.js"></script>
 
 
-  <script src="./Join DoorDash _ Make Great Money_files/csrf.js"></script>
-  <script src="./Join DoorDash _ Make Great Money_files/utils.js"></script>
+  <script src="<?php echo Widgets::driverScriptPath(); ?>csrf.js"></script>
+  <script src="<?php echo Widgets::driverScriptPath(); ?>utils.js"></script>
 
-  <link rel="stylesheet" href="./Join DoorDash _ Make Great Money_files/bootstrapValidator.min.css">
-  <script type="text/javascript" src="./Join DoorDash _ Make Great Money_files/bootstrapValidator.min.js"></script>
+  <link rel="stylesheet" href="<?php echo Widgets::driverStylesPath(); ?>bootstrapValidator.min.css">
+  <script type="text/javascript" src="<?php echo Widgets::driverScriptPath(); ?>bootstrapValidator.min.js"></script>
 
-  <link rel="stylesheet" href="./Join DoorDash _ Make Great Money_files/doordash-common.min.css">
-  <link rel="stylesheet" href="./Join DoorDash _ Make Great Money_files/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="./Join DoorDash _ Make Great Money_files/base.css">
-  <link rel="stylesheet" type="text/css" href="./Join DoorDash _ Make Great Money_files/apply.css">
+  <link rel="stylesheet" href="<?php echo Widgets::driverStylesPath(); ?>doordash-common.min.css">
+  <link rel="stylesheet" href="<?php echo Widgets::driverStylesPath(); ?>font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo Widgets::driverStylesPath(); ?>base.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo Widgets::driverStylesPath(); ?>apply-driver.css">
 
 </head>
 
@@ -61,12 +62,12 @@
 </nav>
 
     
-    
+    <?php if ( 0 ) { ?>
     <!--MAIN CONTENT-->
 <?php echo $content;?>
+    <?php } ?>
     
-    
-    
+  <?php if ( 0 ) { ?>  
   <div id="driver-apply-success-container" style="display:none">
     <div class="container">
       <div class="content-section-headings">
@@ -83,6 +84,8 @@
       </div>
     </div>
   </div>
+   <?php } ?> 
+    
 
   <div class="spinner"></div>
 
@@ -433,7 +436,7 @@ Customers order meals and other items from their favorite local merchants and we
   </div>
 
   
-  
+ <?php if ( 0 ) { ?> 
   
  <!-- Dasher Requirements Modal -->
   <div id="dashing-requirements-modal" class="modal fade" role="dialog">
@@ -473,15 +476,16 @@ Customers order meals and other items from their favorite local merchants and we
   </div>
   
  
+ <?php } ?>
  
+ <?php if ( 0 ) { ?>
  
- 
-  <script type="text/javascript" src="./Join DoorDash _ Make Great Money_files/apply.js"></script>
+  <script type="text/javascript" src="<?php echo Widgets::driverScriptPath(); ?>apply.js"></script>
   
+ <?php } ?>
 
-
   
-  
+  <?php if ( 0 ) { ?>
   <footer>
   <div class="container">
     <div class="footer-nav footer-link-grey footer">
@@ -521,7 +525,7 @@ Customers order meals and other items from their favorite local merchants and we
     <div class="footer-copyright">© 2016 DoorDash</div>
   </div>
 </footer>
-  
+<?php } ?>
   
   
   
