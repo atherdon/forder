@@ -410,7 +410,16 @@ class StoreController extends CController
             $this->render('//store/terms/index');
         }
         
-
+        public function actionDriver(){
+            $this->layout = 'driver';
+            $this->render('//store/driver/index');
+        }
+        
+        public function actionPartner(){
+            $this->layout = 'partner';
+            $this->render('//store/partner/index');
+        }
+        
         
 	
 	public function actionContact()
