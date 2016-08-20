@@ -72,8 +72,11 @@
                     
 
                 <div class="text-left">                                  
-                    <a href="#0" data-toggle="modal" data-target="#forgot">Forgot Password?</a>
+                    <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#forgot">
+                        Forgot Password?
+                    </a>
                 </div>
+                        
                 <button type="submit" class="btn btn-submit">
                     <?php echo t("Submit")?>
                 </button>

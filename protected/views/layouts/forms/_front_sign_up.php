@@ -74,7 +74,7 @@
                              'class'    => "icheck",
                              'required' => true
                            ));?>
-                        <!--<input type="checkbox" value="accept_2" id="check_2" name="check_2" />-->
+                        
                         <label for="terms_n_condition">
                             <span>
                                 I Agree to the 
