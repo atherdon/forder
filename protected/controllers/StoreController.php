@@ -201,11 +201,15 @@ class StoreController extends CController
         
 	public function actionSignup()
 	{
+            
 		$cs = Yii::app()->getClientScript();
 		$baseUrl = Yii::app()->baseUrl; 
 		$cs->registerScriptFile($baseUrl."/assets/js/fblogin.js?ver=1"); 
 		    
 		if (Yii::app()->functions->isClientLogin()){
+                    
+                    
+                        echo '123'; die();
 			$this->redirect(Yii::app()->createUrl('/store')); 
 			die();
 		}

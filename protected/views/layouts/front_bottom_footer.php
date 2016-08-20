@@ -160,7 +160,7 @@
     
 <div class="layer"></div><!-- Mobile menu overlay mask -->
 
-<!--MODAL LOGIN-->
+<!-- MODAL LOGIN -->
 <?php 
 
 //var_dump( $google_login_enabled ); die();
@@ -172,12 +172,12 @@ $this->renderPartial('/layouts/forms/_front_login', [
         //'do-action'              => $_GET['do-action'],
      ] ); ?>
 
-<!--MODAL REGISTRATION-->
-<?php //$this->renderPartial('/layouts/forms/_front_sign_up', [
+<!-- MODAL REGISTRATION-->
+<?php $this->renderPartial('/layouts/forms/_front_sign_up', [
         
-   // ] ); ?>   
+    ] ); ?>   
 
-<!--MODAL REGISTRATION-->
-<?php //$this->renderPartial('/layouts/forms/_front_forgot_password', [
-        
-    //] ); ?>   
+<!-- MODAL FORGOT PASSWORD -->
+<?php $this->renderPartial('/layouts/forms/_front_forgot_password', [
+        'captcha_customer_login' => $captcha_customer_login,
+    ] ); ?>   

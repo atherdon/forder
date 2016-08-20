@@ -11,6 +11,8 @@
             
             <form action="#" class="popup-form" id="forms">
                 
+                
+                
                 <?php echo CHtml::hiddenField('action', 'clientLogin')?>
                 <?php echo CHtml::hiddenField('currentController', 'store')?>   
                 
@@ -69,10 +71,8 @@
                 <?php endif;?>     
                     
 
-                <div class="text-left">
-                    <a href="javascript:;">
-                        Forgot Password?
-                    </a>
+                <div class="text-left">                                  
+                    <a href="#0" data-toggle="modal" data-target="#forgot">Forgot Password?</a>
                 </div>
                 <button type="submit" class="btn btn-submit">
                     <?php echo t("Submit")?>
@@ -81,5 +81,3 @@
         </div>
     </div>
 </div><!-- End modal -->   
-
-

@@ -5,6 +5,7 @@
             <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
             <form action="#" class="popup-form" id="myRegister">
                 <div class="login_icon"><i class="icon_lock_alt"></i></div>
+                
                     <input type="text" class="form-control form-white" placeholder="Name">
                     <input type="text" class="form-control form-white" placeholder="Last Name">
                     <input type="email" class="form-control form-white" placeholder="Email">

@@ -75,16 +75,25 @@ class FunctionsV3
     {
         
         $top_menu[] = array( 
-                        'tag'   => "login",
+                        'tag'   => "Login",
                         'label' => '' . Yii::t("default", "Login"),
-                        'url'   => array('/store/#') 
+                        'url'   => array('#'),
+//                        'url'   => array('/store/page/login'),
+                        'linkOptions' => array(
+                                            'data-target' => '#login_2',
+                                            'data-toggle' => 'modal',
+                                        ),
             );
-        
+               
         $top_menu[] = array( 
-                        'tag'   => "registration",
-                        'label' => '' . Yii::t("default", "Register"),
-                        'url'   => array('/store/#') 
-            );
+                'tag'   => "Registration",
+                'label' => '' . Yii::t("default", "Register"),
+                'url'   => array('#'),
+                'linkOptions' => array(
+                                    'data-target' => '#register',
+                                    'data-toggle' => 'modal',
+                                ),
+        );  
         
         $top_menu[] = array( 
                         'tag'   => "help",
@@ -101,7 +110,7 @@ class FunctionsV3
 
     }
     
-        public static function getFooterMenu1( $class = "menu" )
+    public static function getFooterMenu1( $class = "menu" )
     {
         
         $top_menu[] = array( 
@@ -144,7 +153,7 @@ class FunctionsV3
     }
     
     
-        public static function getFooterMenu2( $class = "menu" )
+    public static function getFooterMenu2( $class = "menu" )
     {
         
         $top_menu[] = array( 
@@ -162,9 +171,9 @@ class FunctionsV3
         $top_menu[] = array( 
                         'tag'   => "Registration",
                         'label' => '' . Yii::t("default", "Registration"),
-                        'url'   => array('/store/page/register'),
+                        'url'   => array('#'),
                         'linkOptions' => array(
-                                            'data-target' => '#login_2',
+                                            'data-target' => '#register',
                                             'data-toggle' => 'modal',
                                         ),
 //                        [ 'vaja' => 'ja-ja' ]
@@ -173,7 +182,7 @@ class FunctionsV3
         $top_menu[] = array( 
                         'tag'   => "Login",
                         'label' => '' . Yii::t("default", "Login"),
-                        'url'   => array('/store/page/login'),
+                        'url'   => array('#'),
                         'linkOptions' => array(
                                             'data-target' => '#login_2',
                                             'data-toggle' => 'modal',
@@ -184,21 +193,21 @@ class FunctionsV3
                         'tag'   => "driver-registration",
                         'label' => '' . Yii::t("default", "Become a Driver"),
                         'url'   => array('/store/page/become-a-driver'),
-                        'linkOptions' => array(
-                                            'data-target' => '#login_2',
-                                            'data-toggle' => 'modal',
-                                        ), 
+//                        'linkOptions' => array(
+//                                            'data-target' => '#login_2',
+//                                            'data-toggle' => 'modal',
+//                                        ), 
             );
         
         
         $top_menu[] = array( 
-                        'tag'   => "Registration",
+                        'tag'   => "partner-registration",
                         'label' => '' . Yii::t("default", "Become a Partner"),
                         'url'   => array('/store/page/become-a-partner-restaurant-signup'),
-                        'linkOptions' => array(
-                                            'data-target' => '#login_2',
-                                            'data-toggle' => 'modal',
-                                        ), 
+//                        'linkOptions' => array(
+//                                            'data-target' => '#login_2',
+//                                            'data-toggle' => 'modal',
+//                                        ), 
             );        
         
         
