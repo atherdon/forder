@@ -3,34 +3,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-2">
-                
-
+  
                 <?php $this->widget('zii.widgets.CMenu', FunctionsV3::getFooterMenu1() );?> 
-                
-                <?php if ( 0 ) { ?>
-                <h3>Secure payments with</h3>
-                <p>
-                    <img src="<?php echo Widgets::quickImagesPath(); ?>cards.png" alt="" class="img-responsive">
-                </p>
-                <?php } ?>
-                
-                
-                
                 
                 <?php //FunctionsV3::getFooterAddress();?>
                 
                 
             </div>
             <div class="col-md-2 col-sm-2">
-                <!--<h3>About</h3>-->
                                 
                  <?php $this->widget('zii.widgets.CMenu', FunctionsV3::getFooterMenu2() );?> 
 
             </div>
             <div class="col-md-4 col-sm-4" id="newsletter">
-                
 
-                
                 <?php if ( getOptionA('disabled_subscription') == ""):?>
                 
                     <h3>
@@ -67,36 +53,6 @@
             
             
             <div class="col-md-3 col-sm-4">
-                
-                
-                <?php if ( 0 ) { ?>
-                    <h3>
-                        Settings
-                    </h3>
-                    <div class="styled-select">
-
-
-                        <?php 
-                            if( 0 ) {
-                                if ($show_language<>1){
-                                        if ( $theme_lang_pos=="bottom" || $theme_lang_pos==""){
-
-
-                                        echo CHtml::dropDownList(
-                                                'language-options', false, 
-                                                (array)FunctionsV3::getLanguage() 
-                                                );
-
-                                        }
-                                }
-
-                            }
-                            ?>
-
-
-                    </div>
-                <?php } ?>
-                
                 
                
             </div>
@@ -162,8 +118,6 @@
 
 <!-- MODAL LOGIN -->
 <?php 
-
-//var_dump( $google_login_enabled ); die();
 
 $this->renderPartial('/layouts/forms/_front_login', [
         'google_login_enabled'   => $google_login_enabled,

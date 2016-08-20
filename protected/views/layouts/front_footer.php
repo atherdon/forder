@@ -4,23 +4,9 @@ ScriptManager::registerGlobalVariables();
 ?>
 
 
-
-
-<!-- COMMON SCRIPTS -->
-<script src="<?php echo Widgets::quickScriptPath(); ?>jquery-1.11.2.min.js"></script>
-<script src="<?php echo Widgets::quickScriptPath(); ?>common_scripts_min.js"></script>
-<script src="<?php echo Widgets::quickScriptPath(); ?>functions.js"></script>
-<script src="<?php echo Widgets::quickScriptPath(); ?>validate.js"></script>
-
-
-
-<!--For details page-->
-<script src="js/infobox.js"></script>
-<script src="js/jquery.sliderPro.min.js"></script>
-
-
-
-<!-- SPECIFIC SCRIPTS -->
+<?php //var_dump( Yii::app()->controller->action->id ); die(); ?>
+<?php if ( 0 ) { ?>
+<?php //if ( Yii::app()->controller->action->id == 'home' ) { ?>
 <script src="<?php echo Widgets::quickScriptPath(); ?>jquery.cookiebar.js"></script>
 <script>
     $(document).ready(function(){
@@ -31,12 +17,14 @@ ScriptManager::registerGlobalVariables();
     });
 </script>
 
+<?php } ?>
 
 <?php 
 if ( Yii::app()->controller->action->id == 'menu' ) { ?>
 
     <script type="text/javascript">
 	$( document ).ready(function( $ ) {
+            
 		$( '#Img_carousel' ).sliderPro({
 			width: 960,
 			height: 500,
@@ -56,7 +44,10 @@ if ( Yii::app()->controller->action->id == 'menu' ) { ?>
     
 <?php }
 ?>
+
 <script src="//www.google.com/recaptcha/api.js?onload=onloadMyCallback&render=explicit" async defer ></script>
+
+
 
 </body>
 </html>

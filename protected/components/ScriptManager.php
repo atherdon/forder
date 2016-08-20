@@ -6,7 +6,7 @@ class ScriptManager
 		$baseUrl = Yii::app()->baseUrl; 
         $cs = Yii::app()->getClientScript();
         //$cs->registerScriptFile('//code.jquery.com/jquery-1.10.2.min.js',CClientScript::POS_END);            
-        $cs->registerScriptFile($baseUrl."/assets/vendor/jquery-1.10.2.min.js",CClientScript::POS_END);            
+        $cs->registerScriptFile($baseUrl . "/assets/vendor/jquery-1.10.2.min.js", CClientScript::POS_END);            
         
         $cs->registerScriptFile("//code.jquery.com/ui/1.10.3/jquery-ui.js"
 		,CClientScript::POS_END); 
@@ -305,13 +305,19 @@ class ScriptManager
             $baseUrl = Yii::app()->baseUrl; 
             $cs = Yii::app()->getClientScript();
             //$cs->registerScriptFile('//code.jquery.com/jquery-1.10.2.min.js',CClientScript::POS_END);            
-            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery-1.10.2.min.js",CClientScript::POS_END);            
+            $cs->registerScriptFile($baseUrl . "/assets/js/quickfood/jquery-1.11.2.min.js", CClientScript::POS_END);            
 
+            
+            
+            // @TODO from old code, need to decide what to do with it
+            // OLD CODE STARTS
             $cs->registerScriptFile("//code.jquery.com/ui/1.10.3/jquery-ui.js"
                     ,CClientScript::POS_END); 
+            
+            
 
-            $js_lang=Yii::app()->functions->jsLanguageAdmin();
-            $js_lang_validator=Yii::app()->functions->jsLanguageValidator();
+            $js_lang           = Yii::app()->functions->jsLanguageAdmin();
+            $js_lang_validator = Yii::app()->functions->jsLanguageValidator();
 
             $cs->registerScript(
                       'js_lang',
@@ -393,14 +399,9 @@ class ScriptManager
             $cs->registerScriptFile($baseUrl."/assets/vendor/ajaxupload/fileuploader.js"
             ,CClientScript::POS_END); 
 
-            /*$cs->registerScriptFile($baseUrl."/assets/vendor/bar-rating/jquery.barrating.min.js"
-            ,CClientScript::POS_END);*/ 
-
-            /*$cs->registerScriptFile($baseUrl."/assets/vendor/jquery.nicescroll.min.js"
-            ,CClientScript::POS_END); */
-
             $cs->registerScriptFile($baseUrl."/assets/vendor/iCheck/icheck.js"
             ,CClientScript::POS_END); 
+            
             $cs->registerScriptFile($baseUrl."/assets/vendor/chosen/chosen.jquery.min.js"
             ,CClientScript::POS_END); 
 
@@ -429,39 +430,19 @@ class ScriptManager
 
             $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.printelement.js"
             ,CClientScript::POS_END); 
-//            $cs->registerScriptFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.js?ver=1"
-//            ,CClientScript::POS_END); 
 
             $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.appear.js"
             ,CClientScript::POS_END); 
-
-            /*$cs->registerScriptFile($baseUrl."/assets/vendor/flexslider/jquery.flexslider-min.js"
-            ,CClientScript::POS_END); */
-
+            
             $cs->registerScriptFile($baseUrl."/assets/vendor/magnific-popup/jquery.magnific-popup.js"
             ,CClientScript::POS_END); 
 
-            /*$cs->registerScriptFile($baseUrl."/assets/vendor/bxslider/jquery.bxslider.min.js"
-            ,CClientScript::POS_END); */
-
             $cs->registerScriptFile($baseUrl."/assets/vendor/imagesloaded.pkgd.js"
             ,CClientScript::POS_END); 
+            
             $cs->registerScriptFile($baseUrl."/assets/vendor/intel/build/js/intlTelInput.js?ver=2.1.5"
             ,CClientScript::POS_END); 
 		
-            /*$cs->registerScriptFile("//www.google.com/recaptcha/api.js?onload=KMRSCaptchaCallback&render=explicit"
-            ,CClientScript::POS_END,array(
-              'async'=>"async"
-            )); */
-
-            /*$cs->registerScriptFile("//www.google.com/recaptcha/api.js"
-            ,CClientScript::POS_END,array(
-              'async'=>'async',
-              'defer'=>'defer'
-            )); */
-
-            /*$cs->registerScriptFile("//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-            ,CClientScript::POS_END); */
             $cs->registerScriptFile($baseUrl."/assets/vendor/bootstrap/js/bootstrap.min.js"
             ,CClientScript::POS_END); 
 
@@ -501,12 +482,7 @@ class ScriptManager
             $cs->registerScriptFile($baseUrl."/assets/vendor/EasyAutocomplete/jquery.easy-autocomplete.min.js"
             ,CClientScript::POS_END); 
 
-            /*$cs->registerScriptFile($baseUrl."/assets/vendor/pickadate.js/lib/picker.js"
-            ,CClientScript::POS_END); 
-            $cs->registerScriptFile($baseUrl."/assets/vendor/pickadate.js/lib/picker.time.js"
-            ,CClientScript::POS_END); */
-
-            if (Yii::app()->functions->getOptionAdmin('theme_time_pick')==2){
+            if ( Yii::app()->functions->getOptionAdmin('theme_time_pick') == 2 ){
                     $cs->registerScriptFile($baseUrl."/assets/vendor/timepicker.co/jquery.timepicker.js"
                     ,CClientScript::POS_END);
             }
@@ -518,7 +494,62 @@ class ScriptManager
             ,CClientScript::POS_END); 
 
             $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
-            ,CClientScript::POS_END); 
+            ,CClientScript::POS_END);
+            //OLD CODE ENDS
+            
+            
+            
+            // COMMON SCRIPTS -->
+            $cs->registerScriptFile(
+                    Widgets::quickScriptPath() . 'common_scripts_min.js',
+                    CClientScript::POS_END
+                    ); 
+            
+            $cs->registerScriptFile(
+                    Widgets::quickScriptPath() . 'functions.js',
+                    CClientScript::POS_END
+                    ); 
+            
+            $cs->registerScriptFile(
+                    Widgets::quickScriptPath() . 'validate.js',
+                    CClientScript::POS_END
+                    ); 
+            
+            //restaurant menu details page
+            $cs->registerScriptFile(
+                    Widgets::quickScriptPath() . 'infobox.js',
+                    CClientScript::POS_END
+                    ); 
+            
+            $cs->registerScriptFile(
+                    Widgets::quickScriptPath() . 'jquery.sliderPro.min.js',
+                    CClientScript::POS_END
+                    );             
+            
+            // SPECIFIC SCRIPTS -->
+            $cs->registerScriptFile(
+                    Widgets::quickScriptPath() . 'jquery.cookiebar.js',
+                    CClientScript::POS_END
+                    );   
+            $link = Yii::app()->createUrl('/store/page/privacy-amp-terms');
+//            var_dump( $link ); die();
+            $cs->registerScript(
+                      'cookie-bar-init',
+                      " 
+                        $(document).ready(function(){
+                            'use strict';
+                             $.cookieBar({
+                                    fixed: true,
+                                    message: 'We use cookies to improve your experience on our website. By browsing this website, you agree to our use of cookies.',
+                                    policyURL: '" . $link . "'
+                            });
+                        });
+                      ",
+                      CClientScript::POS_END
+                      );
+              
+            
+            
 	}
 	
 	public static function registerAllCSSFilesQuickFood()
