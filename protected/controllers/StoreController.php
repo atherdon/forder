@@ -402,6 +402,14 @@ class StoreController extends CController
             $this->render('//store/faq/index');
         }
         
+        public function actionPrivacy(){
+            $this->render('//store/privacy/index');
+        }
+        
+        public function actionTerms(){
+            $this->render('//store/terms/index');
+        }
+        
 
         
 	
