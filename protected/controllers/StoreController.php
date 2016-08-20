@@ -392,16 +392,17 @@ class StoreController extends CController
 	
 	public function actionAbout()
 	{
-            $this->render('index');
+            $this->render('//store/about/index');
 	}
         
         
         
         
         public function actionFaq(){
-            $this->render('faq');
+            $this->render('//store/faq/index');
         }
         
+
         
 	
 	public function actionContact()
