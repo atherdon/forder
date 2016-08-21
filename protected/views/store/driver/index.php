@@ -27,7 +27,7 @@ Customers order meals and other items from their favorite local merchants and Da
               data-bv-feedbackicons-validating="glyphicon glyphicon-refresh" 
               novalidate="novalidate">
 
-          <input type="hidden" name="csrfmiddlewaretoken" value="hodx4e2HX2v3J9K1QHKiPEtmDRPm9419">
+          <!--<input type="hidden" name="csrfmiddlewaretoken" value="hodx4e2HX2v3J9K1QHKiPEtmDRPm9419">-->
           
           
           <div class="form-group has-feedback">

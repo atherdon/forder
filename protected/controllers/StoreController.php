@@ -420,6 +420,11 @@ class StoreController extends CController
             $this->render('//store/partner/index');
         }
         
+        public function actionJobs(){
+//            $this->layout = 'partner';
+            $this->render('//store/jobs/content');
+        }
+        
         
 	
 	public function actionContact()
