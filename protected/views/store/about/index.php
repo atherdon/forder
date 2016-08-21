@@ -1,6 +1,6 @@
 
 <!-- SubHeader =============================================== -->
-<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="<?php echo Widgets::quickImagesPath(); ?>sub_header_cart.jpg" 
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="<?php echo Widgets::quickImagesPath(); ?>sub_header_2.jpg" 
          data-natural-width="1400" data-natural-height="350">
     <div id="subheader">
     	<div id="sub_content">
@@ -38,7 +38,7 @@
             </p>
         </div>
         <div class="col-md-7 col-md-offset-1 text-right hidden-sm hidden-xs">
-            <img src="img/devices.jpg" alt="" class="img-responsive">
+            <img src="<?php echo Widgets::quickImagesPath(); ?>devices.jpg" alt="" class="img-responsive">
         </div>
 	</div><!-- End row -->
 	<hr class="more_margin">
@@ -122,7 +122,8 @@
                 <div class="features-content">
                         <h3>"Ex vero mediocrem"</h3>
                         <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.
                         </p>
                         <p>
                                 Per ea erant aeque corpora, an agam tibique nec. At recusabo expetendis vim. Tractatos principes mel te, dolor solet viderer usu ad.

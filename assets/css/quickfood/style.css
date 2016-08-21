@@ -1261,7 +1261,7 @@ ul.opening_list li span{
 .features-bg {
     position: relative;
     min-height: 400px;
-    background: url(../img/features-intro-01.jpg) no-repeat center center;
+    background: url(../../images/quickfood/features-intro-01.jpg) no-repeat center center;
     background-size: cover;
 }
 .features-img {

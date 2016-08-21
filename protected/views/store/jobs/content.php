@@ -60,7 +60,7 @@
             <img src="<?php echo Widgets::quickImagesPath(); ?>devices.jpg" alt="" class="img-responsive">
         </div>
     </div><!-- End row -->
-	<hr class="more_margin">
+	
         
    
 
@@ -72,5 +72,5 @@
         <a href="#">View open positions</a>
     </div><!-- End container -->
 </div><!-- End hight_light -->  
-
+<hr class="more_margin">
 <!-- End Content =============================================== -->
