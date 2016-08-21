@@ -4,7 +4,7 @@
                 
                 
 <!-- Content ================================================== -->
-<div class="container margin_60_35">
+<div class=" margin_60_35">
     <div class="row">
 
         <div class="col-md-4">
@@ -49,7 +49,7 @@
                 Description
             </h2>
 
-            <?php if ( 0 ) { ?>    
+            <?php //if ( 0 ) { ?>    
             
             
             
@@ -257,7 +257,7 @@
                     agam decore nullam ei vis. Nec ad tota etiam eirmod. Harum debitis detraxit ut vel, eu vel option oporteat.
             </p>
 
-            <?php } ?>
+            <?php //} ?>
             
             
             <?php if ( $theme_reviews_tab == "" ){

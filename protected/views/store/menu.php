@@ -172,6 +172,23 @@ echo CHtml::hiddenField('restaurant_name',$data['restaurant_name']);
 
 
 
+
+
+/*add meta tag for image*/
+Yii::app()->clientScript->registerMetaTag(
+Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
+,'og:image');
+?>
+
+
+
+
+ <!--Tabs partial must be initialized here-->
+
+
+
+<?php 
+
 // @TODO check cases with $disabled_addcart variable not empty.
 $this->renderPartial( '/store/menu/tabs', array(
     'merchant_id'      => $merchant_id,
@@ -193,20 +210,17 @@ $this->renderPartial( '/store/menu/tabs', array(
     'now_time'          => '',
     'minimum_order'     => $minimum_order,
     'merchant_minimum_order_pickup' => $merchant_minimum_order_pickup,
+    
+    'booking_enabled'   => $booking_enabled,
+    'photo_enabled'     => $photo_enabled,
+    'theme_info_tab'    => $theme_info_tab,
 ) ); 
+ ?>
 
 
 
 
-/*add meta tag for image*/
-Yii::app()->clientScript->registerMetaTag(
-Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
-,'og:image');
-?>
-
-
-
-
+<?php if ( 0 ) { ?>
 
 <div class="sections section-menu section-grey2">
 <div class="container">
@@ -683,3 +697,6 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
   </div> <!--row-->
 </div> <!--container-->
 </div> <!--section-menu-->
+
+
+<?php } ?>

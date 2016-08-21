@@ -7,6 +7,8 @@
             <?php echo Widgets::ratingHTML( $ratings ); ?>
         </div>
     </div>
+    
+    
 <!--    <div class="row" id="rating_summary">
         <div class="col-md-6">
             <ul>
@@ -61,6 +63,9 @@
             </ul>
         </div>
     </div> End row -->
+
+
+
     
     <hr class="styled">
     <a href="#" 
@@ -134,6 +139,7 @@
                         </div>
                          Courtesy
                     </div>-->
+
                 </div><!-- End row -->
             </div><!-- End review strip -->
 
@@ -146,6 +152,7 @@
 
 ?>
 
+            
 <!-- Review modal -->   
 <div class="modal fade" id="myReview" tabindex="-1" role="dialog" aria-labelledby="review" aria-hidden="true">
     <div class="modal-dialog">
