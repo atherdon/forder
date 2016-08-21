@@ -102,7 +102,7 @@ class FunctionsV3
             );
         
          return array(  		    
-		    'id'             => 'menu',
+		    'id'             => 'menu-new',
 		    'activeCssClass' => 'active', 
 		    'encodeLabel'    => false,
 		    'items'          => $top_menu                      

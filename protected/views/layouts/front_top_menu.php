@@ -2,7 +2,7 @@
 <header>
 <div class="container-fluid">
     <div class="row">
-        <div class="col--md-4 col-sm-4 col-xs-4">
+        <div class="col-md-4 col-sm-4 col-xs-4">
             
             <?php if ( $theme_hide_logo <> 2 ) : ?>
             
@@ -21,7 +21,7 @@
             </a>-->
             
         </div>
-        <nav class="col--md-8 col-sm-8 col-xs-8">
+        <nav class="col-md-8 col-sm-8 col-xs-8">
         <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);">
             <span>
                 Menu mobile

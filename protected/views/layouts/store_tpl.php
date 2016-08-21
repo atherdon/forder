@@ -40,7 +40,7 @@ if ( $fb_flag == "" && $fb_app_id <> "") {
 
 ?>
 
-<?php if ( 0 ) { ?>
+<?php //if ( 0 ) { ?>
 
 <!--BOOTOM FOOTER-->
 <?php $this->renderPartial('/layouts/front_bottom_footer', array(
@@ -69,4 +69,4 @@ if ( $fb_flag == "" && $fb_app_id <> "") {
 <!--FOOTER-->
 <?php $this->renderPartial('/layouts/front_footer');?>
 
-<?php } ?>
+<?php //} ?>
