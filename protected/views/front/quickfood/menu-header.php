@@ -1,4 +1,4 @@
-<?php //var_dump( Widgets::quickImagesPath() . 'sub_header_2.jpg' ); die(); ?>
+
 <!-- SubHeader =============================================== -->
 <section class="parallax-window" data-parallax="scroll" 
          data-image-src="<?php echo Widgets::quickImagesPath(); ?>sub_header_2.jpg" 

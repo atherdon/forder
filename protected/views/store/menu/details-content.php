@@ -9,16 +9,6 @@
 
 
 
-
-
-
-
-
-
-
-<?php //if ( 0 ) { ?>
-
-
 <!-- Content ================================================== -->
 <div class=" margin_60_35">
     <div class="row">
@@ -104,7 +94,8 @@
 	    
             <?php } ?>
             
-            <?php if(0){ $this->renderPartial('/store/menu/details-content', array(
+            <?php if(0){ $this->renderPartial('/store/menu/slider', array(
+                
                             'merchant_id'       => $merchant_id,    
                             'theme_hours_tab'   => $theme_hours_tab,
                             'theme_reviews_tab' => $theme_reviews_tab,
@@ -112,6 +103,7 @@
                             'ratings'           => $ratings,
                             'photo_enabled'     => $photo_enabled,
                             'theme_info_tab'    => $theme_info_tab,
+                
             ) ); } ?>   
             
             

@@ -63,12 +63,12 @@
 
                         <!--BOOK A TABLE-->
                         <?php if ($booking_enabled):?>
-                        <li>
-                            <?php $this->renderPartial('/front/merchant-book-table',array(
+                        <!--<li>-->
+                            <?php $this->renderPartial('/store/menu/book-table',array(
                                             'merchant_id' => $merchant_id
                                     ));
                             ?>        
-                        </li>
+                        <!--</li>-->
                         <?php endif;?>
                         <!--END BOOK A TABLE-->
                         
