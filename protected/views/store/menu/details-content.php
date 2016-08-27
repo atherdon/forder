@@ -1,17 +1,34 @@
-<?php if ( 0 ) {?>
+<?php //if ( 0 ) {?>
 <div class="collapse" id="collapseMap">
     <div id="map" class="map"></div>
 </div><!-- End Map -->
-<?php } ?>                
-                
+<?php //} ?>                
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php //if ( 0 ) { ?>
+
+
 <!-- Content ================================================== -->
 <div class=" margin_60_35">
     <div class="row">
 
         <div class="col-md-4">
             <p>
-                <a class="btn_map" data-toggle="collapse" 
-                   href="#collapseMap" aria-expanded="false" 
+                <a class="btn_map" 
+                   data-toggle="collapse" 
+                   href="#collapseMap" 
+                   aria-expanded="false" 
                    aria-controls="collapseMap">
                     View on map
                 </a>
@@ -87,7 +104,15 @@
 	    
             <?php } ?>
             
-            
+            <?php if(0){ $this->renderPartial('/store/menu/details-content', array(
+                            'merchant_id'       => $merchant_id,    
+                            'theme_hours_tab'   => $theme_hours_tab,
+                            'theme_reviews_tab' => $theme_reviews_tab,
+                            'phone'             => $phone,
+                            'ratings'           => $ratings,
+                            'photo_enabled'     => $photo_enabled,
+                            'theme_info_tab'    => $theme_info_tab,
+            ) ); } ?>   
             
             
             <div id="Img_carousel" class="slider-pro">
@@ -108,17 +133,22 @@
                         data-medium="<?php echo Widgets::quickImagesPath(); ?>slider_single_restaurant/2_medium.jpg" 
                         data-large="<?php echo Widgets::quickImagesPath(); ?>slider_single_restaurant/2_large.jpg" 
                         data-retina="<?php echo Widgets::quickImagesPath(); ?>slider_single_restaurant/2_large.jpg">
+                        
                         <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="40" data-show-transition="left">
-                        Lorem ipsum dolor sit amet </h3>
+                            Lorem ipsum dolor sit amet 
+                        </h3>
+                        
                         <p class="sp-layer sp-white sp-padding" data-horizontal="40" data-vertical="100" data-show-transition="left" data-show-delay="200">
                              consectetur adipisicing elit
                         </p>
+                        
                         <p class="sp-layer sp-black sp-padding" data-horizontal="40" 
                            data-vertical="160" data-width="350" data-show-transition="left" data-show-delay="400">
                              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                              Ut enim ad minim veniam, quis nostrud exercitation ullamco
                              laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
+                        
                     </div>
 
                     <div class="sp-slide">
@@ -133,10 +163,12 @@
                            data-vertical="-50" data-show-transition="right" data-show-delay="500">
                              Lorem ipsum dolor sit amet
                         </p>
+                        
                         <p class="sp-layer sp-black sp-padding" data-position="centerCenter" 
                            data-vertical="50" data-show-transition="left" data-show-delay="700">
                              consectetur adipisicing elit
                         </p>
+                        
                     </div>
 
                     <div class="sp-slide">
@@ -153,6 +185,7 @@
                              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
+                        
                     </div>
 
                     <div class="sp-slide">
@@ -169,6 +202,7 @@
                              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
+                        
                     </div>
 
                     <div class="sp-slide">
@@ -185,6 +219,7 @@
                              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
+                        
                     </div>
 
                     <div class="sp-slide">
@@ -201,6 +236,7 @@
                              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
+                        
                     </div>
 
                    <div class="sp-slide">
@@ -215,10 +251,12 @@
                            data-vertical="50" data-show-transition="down" data-show-delay="500">
                              Lorem ipsum dolor sit amet
                         </p>
+                        
                         <p class="sp-layer sp-white sp-padding" data-horizontal="50" 
                            data-vertical="100" data-show-transition="up" data-show-delay="500">
                              consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </p>
+                        
                     </div>
 
                     <div class="sp-slide">
@@ -244,10 +282,14 @@
             </div>
             
             
-            <?php if ( 0 ) { ?>
             
             
-            <h3>About us</h3>
+            <?php //if ( 0 ) { ?>
+            
+            
+            <h3>
+                About us
+            </h3>
             <p>
                     Lorem ipsum dolor sit amet, ius sonet meliore partiendo cu. 
                     Nobis laudem mediocrem cum et. Debitis nonumes similique te eam, 
@@ -272,7 +314,7 @@
                     ] );
                  } ?>
             
-            <?php } ?>
+            <?php //} ?>
         
 
         </div><!-- End box_style_1 -->
@@ -280,3 +322,6 @@
 </div><!-- End row -->
 </div><!-- End container -->
 <!-- End Content =============================================== -->                               
+
+
+<?php //} ?>

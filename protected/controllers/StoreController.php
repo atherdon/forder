@@ -74,170 +74,170 @@ class StoreController extends CController
         
     }
     
-	public function actionHome()
-	{
-		
-            unset($_SESSION['voucher_code']);
-            unset($_SESSION['less_voucher']);
-            unset($_SESSION['google_http_refferer']); 
-        
-            if (isset($_GET['token'])){
-                    if (!empty($_GET['token'])){
-                        //Yii::app()->functions->paypalSetCancelOrder($_GET['token']);
-                    }
-            }
-				
-            $seo_title = Yii::app()->functions->getOptionAdmin('seo_home');
-            $seo_meta  = Yii::app()->functions->getOptionAdmin('seo_home_meta');
-            $seo_key   = Yii::app()->functions->getOptionAdmin('seo_home_keywords');
-					
-            if (!empty($seo_title)){
-               $seo_title=smarty('website_title',getWebsiteName(),$seo_title);
-               $this->pageTitle=$seo_title;
-               Yii::app()->functions->setSEO($seo_title,$seo_meta,$seo_key);
-            }
+    public function actionHome()
+    {
 
-            
-            
-            /* functionality from sign up page for making login, registration via modal */
-            
-            
-            
-		
-            $this->render('index', array(
-               'home_search_mode'           => getOptionA('home_search_mode'),
-               'enabled_advance_search'     => getOptionA('enabled_advance_search'),
-               'theme_hide_how_works'       => getOptionA('theme_hide_how_works'),
-               'theme_hide_cuisine'         => getOptionA('theme_hide_cuisine'),
-               'disabled_featured_merchant' => getOptionA('disabled_featured_merchant'),
-               'disabled_subscription'      => getOptionA('disabled_subscription'),
-               'theme_show_app'             => getOptionA('theme_show_app'),
-               'theme_app_android'          => FunctionsV3::prettyUrl(getOptionA('theme_app_android')),
-               'theme_app_ios'              => FunctionsV3::prettyUrl(getOptionA('theme_app_ios')),
-               'theme_app_windows'          => FunctionsV3::prettyUrl(getOptionA('theme_app_windows')),
-                
-                //customization
+        unset($_SESSION['voucher_code']);
+        unset($_SESSION['less_voucher']);
+        unset($_SESSION['google_http_refferer']); 
+
+        if (isset($_GET['token'])){
+                if (!empty($_GET['token'])){
+                    //Yii::app()->functions->paypalSetCancelOrder($_GET['token']);
+                }
+        }
+
+        $seo_title = Yii::app()->functions->getOptionAdmin('seo_home');
+        $seo_meta  = Yii::app()->functions->getOptionAdmin('seo_home_meta');
+        $seo_key   = Yii::app()->functions->getOptionAdmin('seo_home_keywords');
+
+        if (!empty($seo_title)){
+           $seo_title=smarty('website_title',getWebsiteName(),$seo_title);
+           $this->pageTitle=$seo_title;
+           Yii::app()->functions->setSEO($seo_title,$seo_meta,$seo_key);
+        }
+
+
+
+        /* functionality from sign up page for making login, registration via modal */
+
+
+
+
+        $this->render('index', array(
+           'home_search_mode'           => getOptionA('home_search_mode'),
+           'enabled_advance_search'     => getOptionA('enabled_advance_search'),
+           'theme_hide_how_works'       => getOptionA('theme_hide_how_works'),
+           'theme_hide_cuisine'         => getOptionA('theme_hide_cuisine'),
+           'disabled_featured_merchant' => getOptionA('disabled_featured_merchant'),
+           'disabled_subscription'      => getOptionA('disabled_subscription'),
+           'theme_show_app'             => getOptionA('theme_show_app'),
+           'theme_app_android'          => FunctionsV3::prettyUrl(getOptionA('theme_app_android')),
+           'theme_app_ios'              => FunctionsV3::prettyUrl(getOptionA('theme_app_ios')),
+           'theme_app_windows'          => FunctionsV3::prettyUrl(getOptionA('theme_app_windows')),
+
+            //customization
 //               'google_login_enabled'    => getOptionA('google_login_enabled'),
 //	       'captcha_customer_login'  => getOptionA('captcha_customer_login'),
 //	       'captcha_customer_signup' => getOptionA('captcha_customer_signup')
-               // @TODO check $fb variable from signup action - store controller. 
-                
-                
+           // @TODO check $fb variable from signup action - store controller. 
+
+
+        ));
+    }
+
+    public function actionIndex()
+    {							
+            $this->redirect(Yii::app()->request->baseUrl."/store/home");
+            Yii::app()->end();	
+
+    }	
+	
+    public function actionCuisine()
+    {
+
+            /*update merchant if expired and sponsored*/
+            Yii::app()->functions->updateMerchantSponsored();
+            Yii::app()->functions->updateMerchantExpired();
+
+            /*$category='';
+            $getdata=isset($_GET)?$_GET:'';
+            if(is_array($getdata) && count($getdata)>=1){
+                    $category=$getdata['category'];
+                    $category=str_replace("-"," ",$category);
+            }
+
+            if ( $cat_res=Yii::app()->functions->GetCuisineByName($category)){
+                    $cuisine_id=$cat_res['cuisine_id'];
+             } else $cuisine_id="-1";
+             $filter_cuisine[]=$cuisine_id;*/
+
+            $cuisine_id=isset($_GET['category'])?$_GET['category']:'';
+
+             if (!isset($_GET['filter_cuisine'])){
+                    $_GET['filter_cuisine']='';
+             }
+
+            $_GET['filter_cuisine']=$_GET['filter_cuisine'].",$cuisine_id";
+
+        $res=FunctionsV3::searchByMerchant(
+               'kr_search_category',
+               isset($_GET['st'])?$_GET['st']:'',
+               isset($_GET['page'])?$_GET['page']:0,
+               FunctionsV3::getPerPage(),
+               $_GET			  
+            );
+
+            $country_list=Yii::app()->functions->CountryList();
+            $country=getOptionA('merchant_default_country');  
+            if (array_key_exists($country,(array)$country_list)){
+                    $country_name = $country_list[$country];
+            } else $country_name="United states";
+
+            if ($lat_res=Yii::app()->functions->geodecodeAddress($country_name)){    		
+            $lat_res=array(
+              'lat'=>$lat_res['lat'],
+              'lng'=>$lat_res['long'],
+            );
+    } else {
+            $lat_res=array();
+    } 
+
+    $cs = Yii::app()->getClientScript();
+    $cs->registerScript(
+              'country_coordinates',
+              'var country_coordinates = '.json_encode($lat_res).'
+              ',
+              CClientScript::POS_HEAD
+            );
+
+            $this->render('merchant-list-cuisine',array(
+              'list'=>$res,
+              'category'=>$category
             ));
-	}
-				  
-	public function actionIndex()
-	{							
-		$this->redirect(Yii::app()->request->baseUrl."/store/home");
-		Yii::app()->end();	
-                
-	}	
-	
-	public function actionCuisine()
-	{
-            
-		/*update merchant if expired and sponsored*/
-		Yii::app()->functions->updateMerchantSponsored();
-		Yii::app()->functions->updateMerchantExpired();
-		
-		/*$category='';
-		$getdata=isset($_GET)?$_GET:'';
-		if(is_array($getdata) && count($getdata)>=1){
-			$category=$getdata['category'];
-			$category=str_replace("-"," ",$category);
-		}
-		
-		if ( $cat_res=Yii::app()->functions->GetCuisineByName($category)){
-			$cuisine_id=$cat_res['cuisine_id'];
-		 } else $cuisine_id="-1";
-		 $filter_cuisine[]=$cuisine_id;*/
-		
-		$cuisine_id=isset($_GET['category'])?$_GET['category']:'';
-		 
-		 if (!isset($_GET['filter_cuisine'])){
-		 	$_GET['filter_cuisine']='';
-		 }
-		 
-		$_GET['filter_cuisine']=$_GET['filter_cuisine'].",$cuisine_id";
-		 			 
-	    $res=FunctionsV3::searchByMerchant(
-		   'kr_search_category',
-		   isset($_GET['st'])?$_GET['st']:'',
-		   isset($_GET['page'])?$_GET['page']:0,
-		   FunctionsV3::getPerPage(),
-		   $_GET			  
-		);
-		
-		$country_list=Yii::app()->functions->CountryList();
-		$country=getOptionA('merchant_default_country');  
-		if (array_key_exists($country,(array)$country_list)){
-			$country_name = $country_list[$country];
-		} else $country_name="United states";
-				
-		if ($lat_res=Yii::app()->functions->geodecodeAddress($country_name)){    		
-    		$lat_res=array(
-    		  'lat'=>$lat_res['lat'],
-    		  'lng'=>$lat_res['long'],
-    		);
-    	} else {
-    		$lat_res=array();
-    	} 
-    	
-    	$cs = Yii::app()->getClientScript();
-    	$cs->registerScript(
-		  'country_coordinates',
-		  'var country_coordinates = '.json_encode($lat_res).'
-		  ',
-		  CClientScript::POS_HEAD
-		);
-		
-		$this->render('merchant-list-cuisine',array(
-		  'list'=>$res,
-		  'category'=>$category
-		));
-	}
+    }
 	
         
         
-	public function actionSignup()
-	{
-            
-		$cs = Yii::app()->getClientScript();
-		$baseUrl = Yii::app()->baseUrl; 
-		$cs->registerScriptFile($baseUrl."/assets/js/fblogin.js?ver=1"); 
-		    
-		if (Yii::app()->functions->isClientLogin()){
-                    
-                    
-                        echo '123'; die();
-			$this->redirect(Yii::app()->createUrl('/store')); 
-			die();
-		}
-		
-		$act_menu=FunctionsV3::getTopMenuActivated();
-		if (!in_array('signup',(array)$act_menu)){
-			$this->render('404-page',array('header'=>true));
-			return ;
-		}	
-		
-		$fb=1;
-		$fb_app_id=getOptionA('fb_app_id');
-                
-		$fb_flag=getOptionA('fb_flag');
-		
-		if ( $fb_flag=="" && $fb_app_id<>""){
-			$fb=2;
-		}
-		
-		$this->render('signup',array(
-		   'terms_customer'          => getOptionA('website_terms_customer'),
-		   'terms_customer_url'      => Yii::app()->functions->prettyLink(getOptionA('website_terms_customer_url')),
-		   'fb_flag'                 => $fb,
-		   'google_login_enabled'    => getOptionA('google_login_enabled'),
-		   'captcha_customer_login'  => getOptionA('captcha_customer_login'),
-		   'captcha_customer_signup' => getOptionA('captcha_customer_signup')
-		));
-	}
+    public function actionSignup()
+    {
+
+            $cs = Yii::app()->getClientScript();
+            $baseUrl = Yii::app()->baseUrl; 
+            $cs->registerScriptFile($baseUrl."/assets/js/fblogin.js?ver=1"); 
+
+            if (Yii::app()->functions->isClientLogin()){
+
+
+                    echo '123'; die();
+                    $this->redirect(Yii::app()->createUrl('/store')); 
+                    die();
+            }
+
+            $act_menu=FunctionsV3::getTopMenuActivated();
+            if (!in_array('signup',(array)$act_menu)){
+                    $this->render('404-page',array('header'=>true));
+                    return ;
+            }	
+
+            $fb=1;
+            $fb_app_id=getOptionA('fb_app_id');
+
+            $fb_flag=getOptionA('fb_flag');
+
+            if ( $fb_flag=="" && $fb_app_id<>""){
+                    $fb=2;
+            }
+
+            $this->render('signup',array(
+               'terms_customer'          => getOptionA('website_terms_customer'),
+               'terms_customer_url'      => Yii::app()->functions->prettyLink(getOptionA('website_terms_customer_url')),
+               'fb_flag'                 => $fb,
+               'google_login_enabled'    => getOptionA('google_login_enabled'),
+               'captcha_customer_login'  => getOptionA('captcha_customer_login'),
+               'captcha_customer_signup' => getOptionA('captcha_customer_signup')
+            ));
+    }
 	
 	public function actionSignin()
 	{
@@ -423,6 +423,12 @@ class StoreController extends CController
         public function actionCareers(){
 //            $this->layout = 'partner';
             $this->render('//store/jobs/content');
+        }
+        
+        public function actionSlider(){
+            $this->layout = 'clean';
+            $this->render('//store/zazaza');
+            
         }
         
         

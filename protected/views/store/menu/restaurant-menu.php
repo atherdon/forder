@@ -1,37 +1,38 @@
 <!-- Content ================================================== -->
-<div class="container margin_60_35">
+<div class=" margin_60_35">
     <div class="row">
 
-    <div class="col-md-3">
-        <p>
-            <a href="list_page.html" class="btn_side">
-                Back to search
-            </a>
-        </p>
-        
-        
-        <?php 
-            $this->renderPartial('/store/menu/menu-category', array(
-                    'merchant_id' => $merchant_id,
-                    'menu'        => $menu			  
-            ));
-        ?>
+        <div class="col-md-3">
+            <p>
+                <a href="<?php echo Yii::app()->createUrl('/store/browse' )?>" 
+                   class="btn_side">
+                    Back to search
+                </a>
+            </p>
 
 
-        
-        <div class="box_style_2 hidden-xs" id="help">
-            <i class="icon_lifesaver"></i>
-            <h4>
-                Need <span>Help?</span>
-            </h4>
-            <a href="tel://004542344599" class="phone">+45 423 445 99</a>
-            <small>
-                Monday to Friday 9.00am - 7.30pm
-            </small>
-        </div>
-        
-        
-    </div><!-- End col-md-3 -->
+            <?php 
+                $this->renderPartial('/store/menu/menu-category', array(
+                        'merchant_id' => $merchant_id,
+                        'menu'        => $menu			  
+                ));
+            ?>
+
+
+
+            <div class="box_style_2 hidden-xs" id="help">
+                <i class="icon_lifesaver"></i>
+                <h4>
+                    Need <span>Help?</span>
+                </h4>
+                <a href="tel://004542344599" class="phone">+45 423 445 99</a>
+                <small>
+                    Monday to Friday 9.00am - 7.30pm
+                </small>
+            </div>
+
+
+        </div><!-- End col-md-3 -->
 
     
     
@@ -93,7 +94,7 @@
             'delivery_fee'     => $delivery_fee,
             'checkout'          => $checkout,
             'now'               => $now,
-     'now_time'          => $now_time,
+            'now_time'          => $now_time,
             'minimum_order'     => $minimum_order,
             'merchant_minimum_order_pickup' => $merchant_minimum_order_pickup,
             

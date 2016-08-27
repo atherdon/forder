@@ -27,6 +27,7 @@
     
     <!-- SPECIFIC CSS -->
     <link href="<?php echo Widgets::quickStylesPath(); ?>jquery.cookiebar.css" rel="stylesheet">
+    <link href="<?php echo Widgets::quickStylesPath(); ?>slider-pro.min.css" rel="stylesheet">
     
     <!-- Modernizr -->
     <script src="<?php echo Widgets::quickScriptPath(); ?>modernizr.js"></script> 

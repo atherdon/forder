@@ -280,11 +280,12 @@ class ScriptManager
 		echo CHtml::hiddenField('admin_country_set',Yii::app()->functions->getOptionAdmin('admin_country_set'));
                 
                 
-                
+//                @TODO disabled due to google maps issue
+//                if( 0 ) { 
 		echo CHtml::hiddenField('google_auto_address',Yii::app()->functions->getOptionAdmin('google_auto_address'));
 		echo CHtml::hiddenField('google_default_country',getOptionA('google_default_country'));
 		echo CHtml::hiddenField('disabled_share_location',getOptionA('disabled_share_location'));
-                
+//                }
                 
                 
 		
@@ -556,7 +557,8 @@ class ScriptManager
                                     autoplay: false
                             });
                         });
-                        console.log('init');
+//                        console.log('init');
+                        console.log(  $( '#Img_carousel' ) );
                       ",
                       CClientScript::POS_END
                       );
@@ -608,11 +610,14 @@ class ScriptManager
 
 //            $cs->registerCssFile($baseUrl."/assets/vendor/colorpick/css/colpick.css");
 //            $cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
+            
             $cs->registerCssFile($baseUrl."/assets/vendor/chosen/chosen.css");
             $cs->registerCssFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.css?ver=1");
             $cs->registerCssFile($baseUrl."/assets/vendor/animate.min.css");
+            
             //$cs->registerCssFile($baseUrl."/assets/vendor/flexslider/flexslider.css");
             $cs->registerCssFile($baseUrl."/assets/vendor/magnific-popup/magnific-popup.css");
+
             //$cs->registerCssFile($baseUrl."/assets/vendor/bxslider/jquery.bxslider.css");
             $cs->registerCssFile($baseUrl."/assets/vendor/intel/build/css/intlTelInput.css");
             $cs->registerCssFile($baseUrl."/assets/vendor/rupee/rupyaINR.css");			
@@ -642,6 +647,11 @@ class ScriptManager
 
 //            $cs->registerCssFile($baseUrl.'/assets/css/store-v2.css?ver=1.0');
 //            $cs->registerCssFile($baseUrl.'/assets/css/responsive.css?ver=1.0');
+            
+            
+            
+            
+            
 	}	
 	
 	public static function registerGlobalVariablesQuickFood()
