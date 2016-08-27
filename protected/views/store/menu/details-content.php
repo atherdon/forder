@@ -1,7 +1,8 @@
+<?php if ( 0 ) {?>
 <div class="collapse" id="collapseMap">
     <div id="map" class="map"></div>
 </div><!-- End Map -->
-                
+<?php } ?>                
                 
 <!-- Content ================================================== -->
 <div class=" margin_60_35">
@@ -9,7 +10,11 @@
 
         <div class="col-md-4">
             <p>
-                <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">View on map</a>
+                <a class="btn_map" data-toggle="collapse" 
+                   href="#collapseMap" aria-expanded="false" 
+                   aria-controls="collapseMap">
+                    View on map
+                </a>
             </p>
                
             <!--OPENING HOURS-->
@@ -24,20 +29,13 @@
             
 	    <!--END OPENING HOURS-->
              
-            <div class="box_style_2 hidden-xs" id="help">
-                <i class="icon_lifesaver"></i>
-                <h4>
-                    Need <span>Help?</span>
-                </h4>
-                <a href="tel://<?php echo $phone ?>" class="phone">
-                    
-                    <?php //echo FunctionsV3::format_telephone( $phone ); ?>
-                    <!--+45 423 445 99-->
-                </a>
-                <small>
-                    Monday to Friday 9.00am - 7.30pm
-                </small>
-            </div>
+            <?php
+                    $this->renderPartial('/store/menu/_phone-block',array(
+                      'phone' => $phone
+                    ));                     
+            ?>           
+            
+
             
             
             
@@ -54,7 +52,7 @@
             
             
             
-             
+             <?php if ( 0 ) { ?>
             
 	    <!--PHOTOS-->
 	    <?php if ($photo_enabled):?>
@@ -87,7 +85,7 @@
 	    <?php endif;?>
 	    <!--END INFORMATION-->
 	    
-            
+            <?php } ?>
             
             
             
@@ -244,6 +242,11 @@
                     <img alt="" class="sp-thumbnail" src="<?php echo Widgets::quickImagesPath(); ?>slider_single_restaurant/9_medium.jpg">
                 </div>
             </div>
+            
+            
+            <?php if ( 0 ) { ?>
+            
+            
             <h3>About us</h3>
             <p>
                     Lorem ipsum dolor sit amet, ius sonet meliore partiendo cu. 
@@ -269,7 +272,7 @@
                     ] );
                  } ?>
             
-            
+            <?php } ?>
         
 
         </div><!-- End box_style_1 -->

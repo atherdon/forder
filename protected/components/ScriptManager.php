@@ -278,9 +278,15 @@ class ScriptManager
 	{				
 		echo CHtml::hiddenField('fb_app_id',Yii::app()->functions->getOptionAdmin('fb_app_id'));
 		echo CHtml::hiddenField('admin_country_set',Yii::app()->functions->getOptionAdmin('admin_country_set'));
+                
+                
+                
 		echo CHtml::hiddenField('google_auto_address',Yii::app()->functions->getOptionAdmin('google_auto_address'));
 		echo CHtml::hiddenField('google_default_country',getOptionA('google_default_country'));
 		echo CHtml::hiddenField('disabled_share_location',getOptionA('disabled_share_location'));
+                
+                
+                
 		
 		echo CHtml::hiddenField('theme_time_pick',Yii::app()->functions->getOptionAdmin('theme_time_pick'));
 		
@@ -550,6 +556,7 @@ class ScriptManager
                                     autoplay: false
                             });
                         });
+                        console.log('init');
                       ",
                       CClientScript::POS_END
                       );

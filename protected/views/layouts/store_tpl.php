@@ -1,7 +1,8 @@
+<?php //if ( 0 ) { ?>
 <!--HEADER-->
 <?php $this->renderPartial('/layouts/front_header'); ?>
 
-
+<?php //} ?>
 
 
 
