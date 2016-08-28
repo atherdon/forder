@@ -13,6 +13,10 @@ return array(
 		'application.modules.mobileapp.components.*',
 		'application.modules.merchantapp.components.*',
 		'application.modules.driver.components.*',
+            
+            
+//                'application.helpers.*',
+            
 	),
 	
 	'language'=>'default',		
@@ -101,10 +105,19 @@ return array(
 	         'developerKey' => '',
 	    ),
             
-            'phpThumb'  => array(
-                    'class'=>'ext.EPhpThumb.EPhpThumb',
-            //            'options'=>array(optional phpThumb specific options are added here)
-            ),
+//            'phpThumb'  => array(
+//                    'class'=>'ext.EPhpThumb.EPhpThumb',
+//            //            'options'=>array(optional phpThumb specific options are added here)
+//            ),
+            
+//            'image' => array(
+//                        'class'=>'application.extensions.image.CImageComponent',
+//                          // GD or ImageMagick
+//                          'driver'=>'GD',
+//                          // ImageMagick setup path
+//                          'params'=>array('directory'=>'/opt/local/bin'),
+//                      ),
+            
             
 	),
 );

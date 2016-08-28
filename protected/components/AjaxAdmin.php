@@ -515,6 +515,10 @@ if (!class_exists('AjaxAdmin'))
     public function uploadImage()
     {	    	
         $qqfile=$_GET['qqfile'];
+        
+        
+        
+        
         if (preg_match("/.php/i", $qqfile)) {
                 if (isset($_GET['currentController'])){
                         if ($_GET['currentController']!="admin"){
@@ -563,12 +567,32 @@ if (!class_exists('AjaxAdmin'))
             $file_name = str_replace(" ","-",$file_name);
             $path      = $path_to_upload.$file_name;
             
+            $path2     = $path_to_upload . $time . "-" . $pathinfo['filename'] . "-bitch." . $pathinfo['extension'];
+            
             $target    = fopen($path, "w");        
             fseek($temp, 0, SEEK_SET);
             stream_copy_to_stream($temp, $target);
+            
+            
+            $target    = fopen($path2, "w");        
+            fseek($temp, 0, SEEK_SET);
+            stream_copy_to_stream($temp, $target);
+            
+            $img = resize_image( $path2 , 50, 50 );
+            
+//            echo $target; die();
+//            var_dump( $target ); die();
 
-            $this->code=1;
-            $this->msg = Yii::t("default","Upload Completed");
+            
+//            $thumb = Yii::app()->phpThumb->create( $path . $file_name );
+//            $thumb->resize( 100, 100);
+//            $thumb->save(  uploadURL() . 'thumb-ja.jpg' );
+            
+            
+            
+            $this->code = 1;
+            $this->msg  = Yii::t("default","Upload Completed");
+            
             $this->details = array(
                'file'=>$file_name,
                'id'=>time().Yii::app()->functions->generateRandomKey(10)
@@ -8895,20 +8919,27 @@ $last_login=$val['last_login']=="0000-00-00 00:00:00"?"":date('M d,Y G:i:s',strt
                 //echo json_encode( $this->data['photo'] ); //die();
 //                var_dump( $this->data['photo'] ); die();
                 
+//            Yii::import("ext.EPhpThumb.EPhpThumb");    
                 
                 
-                
-            $gallery = json_encode( $this->data['photo'] );
+//            $gallery = json_encode( $this->data['photo'] );
+//            
+//            $path    = uploadURL() . '/' ; 
             
-            if ( is_array( $gallery ) && count( $gallery ) >= 1 ){
-                
-                 foreach ( $gallery as $val ){
-                     
-                     
-                     
-                 }
-                
-            }
+//            $zz = '';
+            
+//            if ( is_array( $gallery ) && count( $gallery ) >= 1 ){
+//                
+//                 foreach ( $gallery as $val ){
+//                     
+////                    $thumb = Yii::app()->phpThumb->create( $path . $val );
+////                    $zz = Yii::app()->phpThumb->create( $path . $val );
+////                    $thumb->resize( 100, 100);
+////                    $thumb->save(  uploadURL() . 'thumb-ja.jpg' );
+//                     
+//                 }
+//                
+//            }
                 
                 
                 Yii::app()->functions->updateOption(
@@ -8925,9 +8956,10 @@ $last_login=$val['last_login']=="0000-00-00 00:00:00"?"":date('M d,Y G:i:s',strt
 
                 $this->code = 1;
                 
-                $this->msg = json_encode( $this->data['photo'] ); die();
+//                $this->msg = json_encode( $this->data['photo'] ); 
+                //die();
                 
-//                $this->msg  = Yii::t("default","Setting saved");
+                $this->msg  = Yii::t("default","Setting saved");
             
             }				
 

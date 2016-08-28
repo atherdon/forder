@@ -11,7 +11,9 @@ $gallery_disabled=Yii::app()->functions->getOption("gallery_disabled",$merchant_
 
 
 <div class="uk-form-row"> 
- <label class="uk-form-label"><?php echo Yii::t('default',"Disabled Gallery")?>?</label>
+ <label class="uk-form-label">
+     <?php echo Yii::t('default',"Disabled Gallery")?>?
+ </label>
  <?php 
  echo CHtml::checkBox('gallery_disabled',
  $gallery_disabled=="yes"?true:false
@@ -24,7 +26,9 @@ $gallery_disabled=Yii::app()->functions->getOption("gallery_disabled",$merchant_
 
     <div class="uk-form-row"> 
         <label class="uk-form-label"><?php echo Yii::t('default',"Gallery")?></label>
-        <div style="display:inline-table;margin-left:1px;" class="button uk-button" id="gallery"><?php echo Yii::t('default',"Browse")?></div>	  
+        <div style="display:inline-table;margin-left:1px;" class="button uk-button" id="gallery">
+            <?php echo Yii::t('default',"Browse")?>
+        </div>	  
         <div  style="display:none;" class="gallery_chart_status" >
             <div id="percent_bar" class="gallery_percent_bar"></div>
             <div id="progress_bar" class="gallery_progress_bar">

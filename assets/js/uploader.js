@@ -10,9 +10,12 @@ function createUploader(ids,functions)
 	uploader = new qq.FileUploader({
 		element: document.getElementById(ids),
 		action: ajax_url+"?action=uploadImage&"+params+"&tbl",
-		debug: false,
+		debug: true,
+//                debug: false,
 		onSubmit: function(id, fileName){
 			
+//                            console.log( fileName );
+                        
 			  jQuery("."+ids+"_status_bar").css( { width: "1%" } );
 			  
 			  var ext = fileName.split('.').pop().toLowerCase();
@@ -25,8 +28,8 @@ function createUploader(ids,functions)
 			  
 			  			  
 			  if(jQuery.inArray(ext,filter) == -1) {
-					  alert(fileName + " has invalid extension. Only "+ filtermsg + "are allowed.");					  
-					  return false;
+                            alert(fileName + " has invalid extension. Only "+ filtermsg + "are allowed.");					  
+                            return false;
 			  }
 			  
 			  jQuery(".qq-upload-list").hide();			  
