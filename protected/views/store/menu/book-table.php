@@ -6,8 +6,7 @@
                 <h2 class="inner">
                     <?php echo t("Booking Information")?>
                 </h2>
-                
-                
+                                
                 <form class="forms" id="frm-book" onsubmit="return false;">
                     
                     <?php echo CHtml::hiddenField('action','bookATable')?>
@@ -18,6 +17,7 @@
                         <label>
                             <?php echo t("Number Of Guests")?>
                         </label>
+                        
                         <?php echo CHtml::textField('number_guest', '', array(
                                         'class'       => 'numeric_only form-control',
                                         'required'    => true,
@@ -30,6 +30,7 @@
                         <label>
                             <?php echo t("Date Of Booking")?>
                         </label>
+                        
                         <?php echo CHtml::hiddenField('date_booking')?>
                         <?php echo CHtml::textField('date_booking1', '', array(
                                             'class'    => 'date_booking form-control',
@@ -38,8 +39,6 @@
                                     )); ?>
                         
                     </div>
-                    
-                    
 
                     
                     <hr>
@@ -93,10 +92,7 @@
                                 ))?>
 
                     </div>
-                    
-                    
-               
-                    
+                  
                     <div class="form-group">
                         <label>
                             <?php echo t("Email")?>
@@ -149,16 +145,9 @@
                              
 
                         </div>
-                    </div>
-                    
-                    
-                    
-                </form>
-                
-
-            </div><!-- End box_style_1 -->
-                                
-            
+                    </div>                                                            
+                </form>                
+            </div><!-- End box_style_1 -->                                            
         </div>
     </div>
 </div>

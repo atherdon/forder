@@ -30,6 +30,21 @@ $data=$data[0];
 //dump($data);
 ?>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <form class="frm-fooditem" id="frm-fooditem" method="POST" onsubmit="return false;">
 <?php echo CHtml::hiddenField('action','addToCart')?>
 <?php echo CHtml::hiddenField('item_id',$this->data['item_id'])?>
@@ -398,6 +413,10 @@ if ($data['two_flavors']==2){
   
 </div> <!--view-item-wrap-->
 </form>
+
+
+
+
 <?php else :?>
 <p class="text-danger"><?php echo Yii::t("default","Sorry but we cannot find what you are looking for.")?></p>
 <?php endif;?>
