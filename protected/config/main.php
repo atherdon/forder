@@ -41,7 +41,10 @@ return array(
 		/*'urlManager'=>array(
 			'urlFormat'=>'path',			
 		),*/
-	    'urlManager'=>array(
+            
+            
+            
+	    'urlManager' => array(
 		    'urlFormat'=>'path',
 		    'rules'=>array(
 		        '<controller:\w+>/<id:\d+>'=>'<controller>/view',
@@ -52,7 +55,7 @@ return array(
 		    'showScriptName'=>false,
 		),
 				
-		'db'=>array(	        
+            'db' => array(	        
 		    'class'            => 'CDbConnection' ,
 			'connectionString' => 'mysql:host=localhost;dbname=foodorder',
 			'emulatePrepare'   => true,
@@ -97,8 +100,15 @@ return array(
 	         'redirectUri' => '',
 	         'developerKey' => '',
 	    ),
+            
+            'phpThumb'  => array(
+                    'class'=>'ext.EPhpThumb.EPhpThumb',
+            //            'options'=>array(optional phpThumb specific options are added here)
+            ),
+            
 	),
 );
+
 
 function statusList()
 {
@@ -108,6 +118,7 @@ function statusList()
 	 'draft'=>Yii::t("default",'Draft')
 	);
 }
+
 
 function clientStatus()
 {
@@ -120,6 +131,7 @@ function clientStatus()
 	);
 }
 
+
 function paymentStatus()
 {
 	return array(
@@ -128,6 +140,7 @@ function paymentStatus()
 	 'draft'=>Yii::t("default",'Draft')
 	);
 }
+
 
 function dump($data=''){
     echo '<pre>';print_r($data);echo '</pre>';

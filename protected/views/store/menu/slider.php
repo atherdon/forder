@@ -9,7 +9,7 @@ $gallery = Yii::app()->functions->getOption("merchant_gallery", $merchant_id);
 $gallery= !empty( $gallery ) ? json_decode( $gallery ) : false ;
 
 
-var_dump( $gallery );
+//var_dump( $gallery );
 
 //$this->renderPartial('/front/merchant-photos',array(
 //  'merchant_id'=>$merchant_id,

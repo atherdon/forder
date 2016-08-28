@@ -510,67 +510,72 @@ if (!class_exists('AjaxAdmin'))
     	    }     	    
     	    $this->otableNodata();
 		}
-		
-	    public function uploadImage()
-	    {	    	
-	    	$qqfile=$_GET['qqfile'];
-	    	if (preg_match("/.php/i", $qqfile)) {
-	    		if (isset($_GET['currentController'])){
-	    			if ($_GET['currentController']!="admin"){
-	    				$this->msg=Yii::t("default","Invalid file");
-	    				return ;
-	    			} else {
-	    				// check language file if has errors
-	    			}	    		
-	    		}	    	
-	    	}
-	    	
-	    	$path_to_upload=Yii::getPathOfAlias('webroot')."/upload/";	    		    	
-		    if(!file_exists($path_to_upload)) {	
-               if (!@mkdir($path_to_upload,0777)){
-               	    $this->msg=Yii::t("default","Cannot create upload folder. Please create the upload folder manually on your rood directory with 777 permission.");
-               	    return ;
-               }		    
-		    }
-		    
-		    /*create htaccess file*/
-		    $htaccess='<Files *>';
-		    $htaccess.=PHP_EOL;
-		    $htaccess.='SetHandler default-handler';
-		    $htaccess.=PHP_EOL;
-		    //$htaccess.='php_flag engine off';
-		    $htaccess.=PHP_EOL;
-		    $htaccess.='</Files>';
-		    $htfile=$path_to_upload.'.htaccess';		    
-		    if (!file_exists($htfile)){
-		    	$myfile = fopen($htfile, "w") or die("Unable to open file!".$htfile);    
-                fwrite($myfile, $htaccess);        
-                fclose($myfile);
-		    }	    
-		    
-		    if (isset($this->data['qqfile']) && !empty($this->data['qqfile'])){
-		        $input = fopen("php://input", "r");
-		        $temp = tmpfile();
-		        $realSize = stream_copy_to_stream($input, $temp);
-		
-		        $pathinfo = pathinfo($this->data['qqfile']);	  		        
-		        $time=time();
-		        $file_name=$time."-".$pathinfo['filename'].".".$pathinfo['extension'];		        
-		        $file_name=str_replace(" ","-",$file_name);
-		        $path=$path_to_upload.$file_name;
-		        		
-		        $target = fopen($path, "w");        
-		        fseek($temp, 0, SEEK_SET);
-	            stream_copy_to_stream($temp, $target);
-				
-	            $this->code=1;
-		        $this->msg=Yii::t("default","Upload Completed");
-		        $this->details=array(
-		           'file'=>$file_name,
-		           'id'=>time().Yii::app()->functions->generateRandomKey(10)
-		        );			    
-	        } else $this->msg=Yii::t("default","File is empty");
-	    }
+                
+    // updated for storing different sizes.            
+    public function uploadImage()
+    {	    	
+        $qqfile=$_GET['qqfile'];
+        if (preg_match("/.php/i", $qqfile)) {
+                if (isset($_GET['currentController'])){
+                        if ($_GET['currentController']!="admin"){
+                                $this->msg=Yii::t("default","Invalid file");
+                                return ;
+                        } else {
+                                // check language file if has errors
+                        }	    		
+                }	    	
+        }
+
+        $path_to_upload=Yii::getPathOfAlias('webroot')."/upload/";	    		    	
+            
+        if(!file_exists($path_to_upload)) {	
+            if (!@mkdir($path_to_upload,0777)){
+                 $this->msg = Yii::t("default","Cannot create upload folder. Please create the upload folder manually on your rood directory with 777 permission.");
+                 return ;
+            }		    
+        }
+
+        /*create htaccess file*/
+        $htaccess='<Files *>';
+        $htaccess.=PHP_EOL;
+        $htaccess.='SetHandler default-handler';
+        $htaccess.=PHP_EOL;
+        //$htaccess.='php_flag engine off';
+        $htaccess.=PHP_EOL;
+        $htaccess.='</Files>';
+        $htfile=$path_to_upload.'.htaccess';	
+        
+        if (!file_exists($htfile)){
+            $myfile = fopen($htfile, "w") or die("Unable to open file!".$htfile);    
+            fwrite($myfile, $htaccess);        
+            fclose($myfile);
+        }	    
+
+        if (isset($this->data['qqfile']) && !empty($this->data['qqfile'])){
+            
+            $input     = fopen("php://input", "r");
+            $temp      = tmpfile();
+            $realSize  = stream_copy_to_stream($input, $temp);
+
+            $pathinfo  = pathinfo($this->data['qqfile']);	  		        
+            $time      = time();
+            $file_name = $time."-".$pathinfo['filename'].".".$pathinfo['extension'];		        
+            $file_name = str_replace(" ","-",$file_name);
+            $path      = $path_to_upload.$file_name;
+            
+            $target    = fopen($path, "w");        
+            fseek($temp, 0, SEEK_SET);
+            stream_copy_to_stream($temp, $target);
+
+            $this->code=1;
+            $this->msg = Yii::t("default","Upload Completed");
+            $this->details = array(
+               'file'=>$file_name,
+               'id'=>time().Yii::app()->functions->generateRandomKey(10)
+            );
+                
+        } else { $this->msg=Yii::t("default","File is empty"); }
+    }
 		
 		public function addCategory()
 		{			
@@ -8873,21 +8878,59 @@ $last_login=$val['last_login']=="0000-00-00 00:00:00"?"":date('M d,Y G:i:s',strt
 	    	$this->msg=Yii::t("default","Setting saved");		  
 		}	
 				
-		public function gallerySettings()
-		{			
-			$merchant_id=Yii::app()->functions->getMerchantID();
-						
-			Yii::app()->functions->updateOption("merchant_gallery",
-	    	isset($this->data['photo'])?json_encode($this->data['photo']):''
-	    	,$merchant_id);
-	    	
-	    	Yii::app()->functions->updateOption("gallery_disabled",
-	    	isset($this->data['gallery_disabled'])?$this->data['gallery_disabled']:''
-	    	,$merchant_id);
-	    	
-	    	$this->code=1;
-	    	$this->msg=Yii::t("default","Setting saved");
-		}						
+            public function gallerySettings(){			
+                
+                $merchant_id = Yii::app()->functions->getMerchantID();
+
+//                $merchant_id = $_SESSION['kr_merchant_id'];
+//                $gallery = Yii::app()->functions->getOption("merchant_gallery", $merchant_id);
+//                $gallery = !empty( $gallery ) ? json_decode( $gallery ) : false ;
+//                
+//                //only for first upload.
+//                
+//                if( !empty( $gallery ) ){
+////                    var_dump( $gallery ); die();
+//                }
+                
+                //echo json_encode( $this->data['photo'] ); //die();
+//                var_dump( $this->data['photo'] ); die();
+                
+                
+                
+                
+            $gallery = json_encode( $this->data['photo'] );
+            
+            if ( is_array( $gallery ) && count( $gallery ) >= 1 ){
+                
+                 foreach ( $gallery as $val ){
+                     
+                     
+                     
+                 }
+                
+            }
+                
+                
+                Yii::app()->functions->updateOption(
+                            "merchant_gallery",
+                            isset( $this->data['photo'] ) ? json_encode( $this->data['photo'] ) : '',
+                            $merchant_id
+                        );
+
+                Yii::app()->functions->updateOption(
+                            "gallery_disabled",
+                            isset( $this->data['gallery_disabled'] ) ? $this->data['gallery_disabled'] : '',
+                            $merchant_id
+                        );
+
+                $this->code = 1;
+                
+                $this->msg = json_encode( $this->data['photo'] ); die();
+                
+//                $this->msg  = Yii::t("default","Setting saved");
+            
+            }				
+
 		
 	    public function adminForgotPass()
 	    {	    	

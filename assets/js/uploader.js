@@ -50,21 +50,28 @@ function createUploader(ids,functions)
 		   
 		},
 		onComplete: function(id, fileName, responseJSON){	
+                    
+//                    console.log( responseJSON );
+//                    console.log( functions );
 						
 		    jQuery("."+ids+"_chart_status").hide();
            
-		    ShowHideCancelUpload(ids,false);
+		    ShowHideCancelUpload( ids, false );
 		    		    		   
-			if (responseJSON.code==1) {			
+                    if (responseJSON.code==1) {			
 			   			   			   	
 			   /*var input_html="<input type=\"text\" name=\"photo[]\" value=\""+fileName+"\" > ";
 			   $("#referalphoto").after(input_html);*/	  
-			   if (functions){						
-                    var fn = window[functions];				  
-                    fn(responseJSON);
-                }			  			   
+                        if (functions){						
+                            var fn = window[functions];	
+                            
+//                            console.log( fn );
+                            
+                            fn(responseJSON);
+                        }			  			   
 			   
-			} else alert(responseJSON.msg);
+			} else { alert(responseJSON.msg); }
+                        
 		},
 		onCancel: function(id, fileName){
 	        

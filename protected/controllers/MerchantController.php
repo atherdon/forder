@@ -16,39 +16,39 @@ class MerchantController extends CController
 	}
 	
 	public function beforeAction($action)
-    {    	
-    	$action_name= $action->id ;
-    	$accept_controller=array('login','ajax','autologin');
-	    //if(!Yii::app()->functions->isMerchantLogin() )
-	    if(!Yii::app()->functions->validateMerchantSession() )
-	    {
-	    	if (!in_array($action_name,$accept_controller)){	 	           
-	           if ( Yii::app()->functions->has_session){
-	    	   	    $message_out=t("You were logout because someone login with your account");
-	    	   	    $this->redirect(array('merchant/login/?message='.urlencode($message_out)));
-	    	   } else $this->redirect(array('merchant/login'));	           
-	    	}
-	    }		    
-	    
-	    if ( $action_name=="autologin"){
-	    	return true;
-	    }
-	    /*echo $this->uniqueid;
-	    echo '<br/>';
-	    echo $action_name;*/
-	    if ( $this->uniqueid=="merchant"){
-	    	if ( !Yii::app()->functions->hasMerchantAccess($action_name)){
-	    		if ( $action_name!="login"){
-	    			if ( $action_name!="index"){
-	    				$this->crumbsTitle=Yii::t("default","No Access");		
-	    		        $this->render('noaccess');
-	    		        return ;
-	    			}    
-	    		}
-	    	}
-	    }
-	    return true;	    
-    }	
+        {    	
+            $action_name= $action->id ;
+            $accept_controller=array('login','ajax','autologin');
+                //if(!Yii::app()->functions->isMerchantLogin() )
+                if(!Yii::app()->functions->validateMerchantSession() )
+                {
+                    if (!in_array($action_name,$accept_controller)){	 	           
+                       if ( Yii::app()->functions->has_session){
+                                $message_out=t("You were logout because someone login with your account");
+                                $this->redirect(array('merchant/login/?message='.urlencode($message_out)));
+                       } else $this->redirect(array('merchant/login'));	           
+                    }
+                }		    
+
+                if ( $action_name=="autologin"){
+                    return true;
+                }
+                /*echo $this->uniqueid;
+                echo '<br/>';
+                echo $action_name;*/
+                if ( $this->uniqueid=="merchant"){
+                    if ( !Yii::app()->functions->hasMerchantAccess($action_name)){
+                            if ( $action_name!="login"){
+                                    if ( $action_name!="index"){
+                                            $this->crumbsTitle=Yii::t("default","No Access");		
+                                    $this->render('noaccess');
+                                    return ;
+                                    }    
+                            }
+                    }
+                }
+                return true;	    
+        }	
         	
 	public function init()
 	{		
@@ -784,7 +784,7 @@ class MerchantController extends CController
 		
 	public function actionGallerySettings()
 	{
-		$this->crumbsTitle=Yii::t("default","gallery settings");		
+		$this->crumbsTitle = Yii::t("default","gallery settings");               
 		$this->render('gallery-settings');
 	}
 	
