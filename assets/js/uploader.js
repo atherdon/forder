@@ -10,11 +10,11 @@ function createUploader(ids,functions)
 	uploader = new qq.FileUploader({
 		element: document.getElementById(ids),
 		action: ajax_url+"?action=uploadImage&"+params+"&tbl",
-		debug: true,
-//                debug: false,
+//		debug: true,
+                debug: false,
 		onSubmit: function(id, fileName){
 			
-//                            console.log( fileName );
+
                         
 			  jQuery("."+ids+"_status_bar").css( { width: "1%" } );
 			  

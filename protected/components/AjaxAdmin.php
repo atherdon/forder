@@ -567,26 +567,13 @@ if (!class_exists('AjaxAdmin'))
             $file_name = str_replace(" ","-",$file_name);
             $path      = $path_to_upload.$file_name;
             
-            $path2     = $path_to_upload . $time . "-" . $pathinfo['filename'] . "-bitch." . $pathinfo['extension'];
-            
+
             $target    = fopen($path, "w");        
             fseek($temp, 0, SEEK_SET);
             stream_copy_to_stream($temp, $target);
-            
-            
-            $target    = fopen($path2, "w");        
-            fseek($temp, 0, SEEK_SET);
-            stream_copy_to_stream($temp, $target);
-            
-            $img = resize_image( $path2 , 50, 50 );
-            
-//            echo $target; die();
-//            var_dump( $target ); die();
 
             
-//            $thumb = Yii::app()->phpThumb->create( $path . $file_name );
-//            $thumb->resize( 100, 100);
-//            $thumb->save(  uploadURL() . 'thumb-ja.jpg' );
+
             
             
             
