@@ -19,15 +19,19 @@
             <table class="table table_summary"> 
             <!--<table class="table table_summary item-order-wrap">--> 
             <?php //if( 0 ) { ?>    
-                <tbody>
+                <tbody class="cart-to-change-by-js">
                     <tr>
                         <td>
                             <a href="#0" class="remove_item">
                                 <i class="icon_minus_alt"></i>
-                            </a> <strong>1x</strong> Enchiladas
+                            </a> 
+                            <strong>1x</strong>
+                            Enchiladas
                         </td>
                         <td>
-                            <strong class="pull-right">$11</strong>
+                            <strong class="pull-right">
+                                $11
+                            </strong>
                         </td>
                     </tr>
                     <tr>

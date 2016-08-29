@@ -557,8 +557,7 @@ class ScriptManager
                                     autoplay: false
                             });
                         });
-//                        console.log('init');
-                        console.log(  $( '#Img_carousel' ) );
+
                       ",
                       CClientScript::POS_END
                       );
@@ -599,17 +598,22 @@ class ScriptManager
             $cs = Yii::app()->getClientScript();
             
 //            ARTHUR Comment this lines
-//            $cs->registerCssFile($baseUrl.'/assets/css/store.css?ver=1.0');		
-//            $cs->registerCssFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css');
+            $cs->registerCssFile($baseUrl.'/assets/css/store.css?ver=1.0');		
+            $cs->registerCssFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css');
 
+            
+            
+            
+            
+            
             $cs->registerCssFile("//fonts.googleapis.com/css?family=Open+Sans|Podkova|Rosario|Abel|PT+Sans|Source+Sans+Pro:400,600,300|Roboto|Montserrat:400,700|Lato:400,300,100italic,100,300italic,400italic,700,700italic,900,900italic|Raleway:300,400,600,800");					
 
             //$cs->registerCssFile("//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
-//            $cs->registerCssFile($baseUrl."/assets/vendor/font-awesome/css/font-awesome.min.css");
+            $cs->registerCssFile($baseUrl."/assets/vendor/font-awesome/css/font-awesome.min.css");
 
 
-//            $cs->registerCssFile($baseUrl."/assets/vendor/colorpick/css/colpick.css");
-//            $cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
+            $cs->registerCssFile($baseUrl."/assets/vendor/colorpick/css/colpick.css");
+            $cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
             
             $cs->registerCssFile($baseUrl."/assets/vendor/chosen/chosen.css");
             $cs->registerCssFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.css?ver=1");
@@ -623,20 +627,20 @@ class ScriptManager
             $cs->registerCssFile($baseUrl."/assets/vendor/rupee/rupyaINR.css");			
 
             //$cs->registerCssFile('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');	
-//            $cs->registerCssFile($baseUrl."/assets/vendor/bootstrap/css/bootstrap.min.css");		
+            $cs->registerCssFile($baseUrl."/assets/vendor/bootstrap/css/bootstrap.min.css");		
 
-//            $cs->registerCssFile($baseUrl."/assets/vendor/raty/jquery.raty.css");	
+            $cs->registerCssFile($baseUrl."/assets/vendor/raty/jquery.raty.css");	
 
             //$cs->registerCssFile("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
-//            $cs->registerCssFile($baseUrl."/assets/vendor/ionicons-2.0.1/css/ionicons.min.css");	
+            $cs->registerCssFile($baseUrl."/assets/vendor/ionicons-2.0.1/css/ionicons.min.css");	
 
-//            $cs->registerCssFile("//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.4/css/bootstrap-select.min.css");	
+            $cs->registerCssFile("//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.4/css/bootstrap-select.min.css");	
 
-//            $cs->registerCssFile($baseUrl."/assets/vendor/nprogress/nprogress.css");
+            $cs->registerCssFile($baseUrl."/assets/vendor/nprogress/nprogress.css");
 
-//            $cs->registerCssFile($baseUrl."/assets/vendor/justified-gallery/css/justifiedGallery.min.css");
+            $cs->registerCssFile($baseUrl."/assets/vendor/justified-gallery/css/justifiedGallery.min.css");
 
-//            $cs->registerCssFile($baseUrl."/assets/vendor/EasyAutocomplete/easy-autocomplete.min.css");		
+            $cs->registerCssFile($baseUrl."/assets/vendor/EasyAutocomplete/easy-autocomplete.min.css");		
 
             /*$cs->registerCssFile($baseUrl."/assets/vendor/pickadate.js/lib/themes/default.css");
             $cs->registerCssFile($baseUrl."/assets/vendor/pickadate.js/lib/themes/default.time.css");*/	
@@ -645,8 +649,8 @@ class ScriptManager
               $cs->registerCssFile($baseUrl."/assets/vendor/timepicker.co/jquery.timepicker.min.css");
             }
 
-//            $cs->registerCssFile($baseUrl.'/assets/css/store-v2.css?ver=1.0');
-//            $cs->registerCssFile($baseUrl.'/assets/css/responsive.css?ver=1.0');
+            $cs->registerCssFile($baseUrl.'/assets/css/store-v2.css?ver=1.0');
+            $cs->registerCssFile($baseUrl.'/assets/css/responsive.css?ver=1.0');
             
             
             

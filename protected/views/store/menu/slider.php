@@ -1,5 +1,6 @@
  <!--PHOTOS-->
-<?php if ($photo_enabled):?>
+<?php if ( 0 ):?>
+<?php //if ($photo_enabled):?>
 
 <?php 
 

@@ -688,6 +688,8 @@ jQuery(document).ready(function() {
     		return;
     	} 
     	
+//         console.log('click')        ;return ;
+        
     	/** check if the item is available*/
     	if ( $(this).hasClass("item_not_available")){
     		uk_msg(js_lang.trans_51);

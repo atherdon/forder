@@ -740,12 +740,19 @@ jQuery(document).ready(function() {
     	ul.slideToggle("fast");
     });
     
+    
+    
+    
+    
+    
     $( document ).on( "click", ".menu-item", function() {
     	
     	/*if ( !$(".order-list-wrap").exists()){
     		return;
     	} */
     	    	
+//        console.log('click')        ;return ;
+                
     	/** check if the item is available*/
     	if ( $(this).hasClass("item_not_available")){
     		uk_msg(js_lang.trans_51);
@@ -768,13 +775,15 @@ jQuery(document).ready(function() {
     		if ( $("#website_disbaled_auto_cart").val()!="yes"){		    			
     			if ( $("#disabled_website_ordering").val()=="yes"){    				 		
     				return;
-    			}    	
-	    		single_food_item_add(id, $(this).data("price"), $(this).data("size") );	
+    			}    
+                        
+	    		_updated_single_food_item_add( id, $(this).data("price"), $(this).data("size") );	
+                        
 	    		return;
     		}
     	}
 
-    	    
+    	// @TODO  check stuff on mobile, because it might not work well   
     	if ( $(this).hasClass("mbile")){
     	    var mbile_url=home_url+"/item/?item_id="+id+"&mtid="+ $("#merchant_id").val();
     	    mbile_url+= "&slug="+$("#restaurant_slug").val();
@@ -1780,11 +1789,68 @@ function uk_msg_sucess(msg)
 	});	  
 }
 
+function _updated_load_item_cart()
+{	
+//    loadItemCartNewDesign
+	var params="action=loadItemCartNewDesign&currentController=store&merchant_id="+$("#merchant_id").val();
+	params+="&delivery_type="+$("#delivery_type").val();
+	busy(true);
+        
+//        console.log( params ); return;
+        
+        $.ajax({    
+        type: "POST",
+        url: ajax_url,
+        data: params,
+        dataType: 'json',       
+        success: function(data){ 
+            busy(false);     
+            
+            // @TODO check different code return
+            console.log( data.details.html );
+            console.log( data.details.cart );
+//            console.log( data.details.summary );
+            return;
+            
+            if (data.code==1){
+                
+                    $(".item-order-wrap").html(data.details.html);
+                    $(".checkout").attr("disabled",false);    		
+                    $(".checkout").css({ 'pointer-events' : 'auto' });
+                    //$(".checkout").addClass("uk-button-success");
+                    $(".checkout").removeClass("disabled-button");
+                    $(".voucher_wrap").show();
+                    clearCartButton(1);
+
+                    $(function () {
+                   $('[data-toggle="tooltip"]').tooltip()
+                });
+
+            } else {
+                
+                    $(".item-order-wrap").html('<div class="center">'+data.msg+'</div>');
+                    $(".checkout").attr("disabled",true);
+                    $(".checkout").css({ 'pointer-events' : 'none' });
+                    //$(".checkout").removeClass("uk-button-success");
+                    $(".checkout").addClass("disabled-button");
+                    $(".voucher_wrap").hide();
+                    clearCartButton(2);
+                    
+            }
+        }, 
+        error: function(){	        	    	
+            busy(false); 
+        }		
+        });
+}
+
+
 function load_item_cart()
 {	
 	var params="action=loadItemCart&currentController=store&merchant_id="+$("#merchant_id").val();
 	params+="&delivery_type="+$("#delivery_type").val();
-	busy(true);
+	busy(true); 
+//        console.log( params ); return;
     $.ajax({    
     type: "POST",
     url: ajax_url,
@@ -3007,6 +3073,59 @@ function plotMerchantLocationNew(s)
 		}
 	}
 }
+
+function _updated_single_food_item_add( item_id, price, size ){
+    
+//	dump("item_id:" + item_id);
+        
+//	dump("price:" + price);
+        
+//	dump("size:" + size);
+	
+        
+//        return; 
+        
+	var params='';
+	params="merchant_id="+$("#merchant_id").val();
+	params+="&item_id="+item_id	
+	if ( size==""){
+		params+="&price="+price;
+	} else {
+	    params+="&price="+price+"|"+size;
+	}
+	params+="&qty=1";		
+	params+="&discount=";
+	params+="&notes=";
+	params+="&row=";	
+		
+	busy(true);
+        
+        $.ajax({    
+            type: "POST",
+            url: ajax_url,
+            data: "action=addToCart&currentController=store&"+params,
+            dataType: 'json',     
+            
+            success: function(data){ 
+                
+                console.log( data );
+                
+                busy(false);      		
+                if (data.code==1) {    	   
+                        uk_msg_sucess(data.msg);
+//                        load_item_cart();
+                       _updated_load_item_cart();
+                } else {
+                        uk_msg(data.msg);
+                }	    
+            }, 
+            error: function(){	        	    	
+                busy(false); 
+            }		
+        });   	     	  
+}
+
+
 
 function single_food_item_add(item_id,price,size)
 {

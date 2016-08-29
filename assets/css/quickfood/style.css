@@ -2186,3 +2186,19 @@ a.bt_filters{
 .affix,.affix-top {
    position:static;
 }
+
+
+/* Updates   */
+
+.normal-price {
+    text-decoration:line-through;
+}
+
+.sale-price {
+    color:#D4232B;
+    font-size:13px;
+    font-weight:600;
+}
+p.small {
+    font-size:12px;
+}

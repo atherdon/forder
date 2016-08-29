@@ -22,6 +22,9 @@
 
                 <?php echo Widgets::displaySpicyIconNew($val['dish'],"dish-category")?>   
 
+                    
+                    
+                    
                 <?php if ( is_array( $val['item'] ) && count( $val['item'] ) >= 1 ){ ?>     
 
                         <table class="table table-striped cart-list">
@@ -79,7 +82,8 @@
 
                                              <a href="javascript:;"
                                                 rel="<?php echo $val_item['item_id']?>"
-                                                data-single="<?php echo $val_item['single_item']?>" 
+                                                data-single="<?php echo $val_item['single_item']?>"
+                                                class="menu-item"
                                                 <?php echo $atts;?>
                                              >
 

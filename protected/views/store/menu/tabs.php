@@ -1,8 +1,7 @@
 <div class="container margin_60_35">
     <div class="row">
         <div class="col-md-12">
-            
-            
+                        
             <div class="tabs-wrapper-styles ">
                 
                 <!--  Tabs -->   
@@ -76,10 +75,9 @@
 
                 </div>
         </div>
-            
-            
-
 
         </div><!-- End col-md-12-->
     </div><!-- End row-->         
-</div><!-- End container-->         
+</div><!-- End container-->        
+
+

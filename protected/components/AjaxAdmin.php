@@ -1999,6 +1999,34 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 	    	$this->msg=Yii::app()->functions->msg;
 	    	$this->details=Yii::app()->functions->details;	    	
 	    }	
+            
+            
+            public function loadItemCartNewDesign()
+	    {	    		    		  
+	    	/*dump($this->data);
+	    	dump($_SESSION['kr_item']);*/
+	    	
+	    	if (isset($this->data['merchant_id'])){	    		
+	    		$current_merchant_id=$this->data['merchant_id'];	    
+	    		if (isset($_SESSION['kr_item'])) {		
+		    		if (is_array($_SESSION['kr_item']) && count($_SESSION['kr_item'])>=1){
+		    			foreach ($_SESSION['kr_item'] as $key=>$temp_item) {	    				
+		    				if ( $temp_item['merchant_id']!=$current_merchant_id){
+		    					unset($_SESSION['kr_item'][$key]);
+		    				}	    				    				
+		    			}
+		    		}	    	
+	    		}
+	    	}	    
+	    		    		    		    		    		
+	    	//dump($_SESSION['kr_item']);
+	    	
+	    	Yii::app()->functions->displayOrderHTMLNewDesign($this->data, isset($_SESSION['kr_item'])?$_SESSION['kr_item']:'' );
+                
+	    	$this->code    = Yii::app()->functions->code;
+	    	$this->msg     = Yii::app()->functions->msg;
+	    	$this->details = Yii::app()->functions->details;	    	
+	    }	
 	    
 	    public function deleteItem()
 	    {	    		    		    	    	
