@@ -29,8 +29,8 @@ class Functions extends CApplicationComponent
                         . '</strong>';
 
         $html .= $arr['title'];
-        
-
+//        
+//
          if ( !empty( $arr['size']['words'] ) ){
              
             $html .= "(" . ucwords( qTranslate( $arr['size']['words'], 'size_name', $arr['size']['info'] ) ) . ")";
@@ -69,7 +69,7 @@ class Functions extends CApplicationComponent
                        '</p>';
         }	                
                                   
-        if ( $val['notes'] ){
+        if ( $arr['notes'] ){
               $html .= '<p class="small">' . 
                            $arr['notes'] . 
                        '</p>';
@@ -78,8 +78,6 @@ class Functions extends CApplicationComponent
         }				          
 			          
         /*ingredients*/			         
-//        if ( isset( $arr['ingredients'] ) ){
-//              if ( !empty( $arr['ingredients'] ) ){
         if ( is_array( $arr['ingredients'] ) && count( $arr['ingredients'] ) >= 1 ){
 
                 $html .= "<p class=\"small \">" . 
@@ -94,8 +92,8 @@ class Functions extends CApplicationComponent
 
             }	
         }
-//              }	
-//        }      
+        
+
         
         
         return $html;
@@ -3920,42 +3918,10 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
                                       
                                   ]);
                                 
-//                        }
-                                
-//                        $cartHTML = FunctionsV3::_added_to_cart_item_html(array(
-//                                      
-//                                      'qty'   => $val['qty'],
-//                                      'title' => qTranslate($food_item[$val['item_id']],'item_name',$food_infos),
-//                                      
-//                                      'size'  => [
-//                                          'words' => $size_words,
-//                                          'info'  => $size_info_trans
-//                                      ],
-//                                      
-//                                      
-//////                                      'id'          => $val['item_id'],
-//                                      'id'          => $val['item_id'],
-//                                      
-//                                      'discount'    => $val['discount'],
-//                                      'normal_price'     => $val['price'],
-//                                      'discounted_price' => $price,
-//                                      
-//                                      'cooking_ref' => $val['cooking_ref'],
-//                                      'translation' => $cooking_ref_trans,
-//                                      
-//                                      'notes'       => $val['notes'],
-//                                      
-//                                      'ingredients' => $val['ingredients']
-//                                      
-//                                      
-//                                  ));
-                                  
-//                            echo 
+
                         
-                        
-                                  
-//                                  if( 0 ) {
-                                      
+                         if( 0 ){         
+                               
                                        $htm.='<div class="item-order-list item-row">';
                                         $htm.='<div class="a">'.$val['qty'].'</div>';
                                         $htm.='<div class="b">'.qTranslate($food_item[$val['item_id']],'item_name',$food_infos);
@@ -3964,7 +3930,7 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
                                                $htm.="(".ucwords(qTranslate($size_words,'size_name',$size_info_trans)).")";
                                         }
                                         
-//                                  } // <----- this is if 0, can be removed later
+                        }
                                  
 			          
                                   
@@ -3986,7 +3952,7 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
                                         'non_taxable'      => isset($val['non_taxable']) ? $val['non_taxable']:1
 			          );			          			         
 			          
-//                                  if( 0 ) {
+                                  if( 0 ) {
                                   
 			          $htm.=Widgets::displaySpicyIconByID($val['item_id']);
 			          
@@ -4023,7 +3989,7 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
 			          $htm.='</div>';
                                   
                                   
-//                                  } // <----- this is if 0, can be removed later
+                                  } // <----- this is if 0, can be removed later
                                   
                                   
                                   
