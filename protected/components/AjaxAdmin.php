@@ -2021,7 +2021,10 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 	    		    		    		    		    		
 	    	//dump($_SESSION['kr_item']);
 	    	
-	    	Yii::app()->functions->displayOrderHTMLNewDesign($this->data, isset($_SESSION['kr_item'])?$_SESSION['kr_item']:'' );
+	    	Yii::app()->functions->displayOrderHTMLNewDesign(
+                        $this->data,
+                        isset($_SESSION['kr_item']) ? $_SESSION['kr_item'] : '' 
+                    );
                 
 	    	$this->code    = Yii::app()->functions->code;
 	    	$this->msg     = Yii::app()->functions->msg;

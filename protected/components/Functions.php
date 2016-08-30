@@ -17,6 +17,92 @@ class Functions extends CApplicationComponent
 		$this->db_ext=new DbExt; 		
 	}
 	
+    public function added_to_cart_item_html( $arr ){
+        
+        $html = '<tr>
+                    <td>
+                        <a href="#0" class="remove_item">
+                            <i class="icon_minus_alt"></i>
+                        </a> 
+                        <strong>' . 
+                        $arr['qty'] . 'x'
+                        . '</strong>';
+
+        $html .= $arr['title'];
+        
+
+         if ( !empty( $arr['size']['words'] ) ){
+             
+            $html .= "(" . ucwords( qTranslate( $arr['size']['words'], 'size_name', $arr['size']['info'] ) ) . ")";
+            
+        }
+        
+        $html .= Widgets::displaySpicyIconByID( $arr['id'] );
+        
+        
+        if ( !empty( $arr['discount'] ) ){
+            
+            $html .= '<span class="normal-price">'. 
+                        displayPrice(baseCurrency(), prettyFormat( $arr['normal_price'] )) . 
+                     ' </span>';
+            $html .= '<span class="sale-price">'  . 
+                        displayPrice(baseCurrency(), prettyFormat( $arr['discounted_price'] )) . 
+                    ' </span>';
+            
+                $htm.="<p class=\"uk-text-small\">".
+                "<span class=\"normal-price\">".displayPrice(baseCurrency(),prettyFormat($val['price']))." </span>".
+                "<span class=\"sale-price\">".displayPrice(baseCurrency(),prettyFormat($price))."</span>"
+                ."</p>";			          	  
+                
+        } else {
+            
+            $html .= '<span class="base-price">'. 
+                        displayPrice(baseCurrency(), prettyFormat( $arr['normal_price'] )) . 
+                     ' </span>';
+      }
+      
+      
+       if ( $arr['cooking_ref'] ){
+           
+              $html .= '<p class="small">' . 
+                           qTranslate( $arr['cooking_ref'], 'cooking_name', $arr['translation'] ) . 
+                       '</p>';
+        }	                
+                                  
+        if ( $val['notes'] ){
+              $html .= '<p class="small">' . 
+                           $arr['notes'] . 
+                       '</p>';
+              
+            
+        }				          
+			          
+        /*ingredients*/			         
+//        if ( isset( $arr['ingredients'] ) ){
+//              if ( !empty( $arr['ingredients'] ) ){
+        if ( is_array( $arr['ingredients'] ) && count( $arr['ingredients'] ) >= 1 ){
+
+                $html .= "<p class=\"small \">" . 
+                          t("Ingredients") . 
+                        ":</p>";
+
+            foreach ( $arr['ingredients'] as $val_ingred ) {
+
+               $html .= "<p class=\"small\">" . 
+                          $val_ingred . 
+                       "</p>";
+
+            }	
+        }
+//              }	
+//        }      
+        
+        
+        return $html;
+        
+    }
+    
+        
 	public function isAdminLogin()
 	{						
 		$is_login=FALSE;				
@@ -3708,28 +3794,30 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
         
         public function displayOrderHTMLNewDesign( $data='', $cart_item='', $receipt=false, $new_order_id='' )
 	{
-		$item_array='';
-		$this->code=2;
-		$htm='';	
-                $subtotal=0;
+		$item_array = '';
+		$this->code = 2;
+		$htm        = '';	
+                $subtotal   = 0;
                 
                 
-                $mid=isset($data['merchant_id'])?$data['merchant_id']:'';
+                $mid        = isset($data['merchant_id'])?$data['merchant_id']:'';
                                 
                 $cartHTML    = '';          
                 $summaryHTML = '';
                 
                 
                 
-                if (empty($mid)){
-                        $this->msg=Yii::t("default","Merchant ID is empty");
-                        return ;
+                if ( empty( $mid ) ){
+                    $this->msg=Yii::t("default","Merchant ID is empty");
+                    return ;
                 }	
     	    	        	
                 Yii::app()->functions->data="list";
-                $food_item=Yii::app()->functions->getFoodItemLists($mid);
-                $subcat_list=Yii::app()->functions->getAddOnLists($mid);	    	
+                $food_item   = Yii::app()->functions->getFoodItemLists($mid);
+                $subcat_list = Yii::app()->functions->getAddOnLists($mid);	    	
     	    	    	
+                
+                
     	//dump($cart_item);    	
     	//dump($food_item);
             	    		   
@@ -3797,7 +3885,43 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
 	    				}	
     				}
     				
-//                                
+//                                 $cartHTML .= Yii::app()->functions->added_to_cart_item_html([ 'qty' => 1000 ]);
+                                
+//                                var_dump( $va )
+//                                $cartHTML1 = $val['cooking_ref'];
+                                
+//                             if( 0 ) {    
+                                
+                                $cartHTML .= Yii::app()->functions->added_to_cart_item_html([
+                                      
+                                      'qty'   => $val['qty'],
+                                      'title' => qTranslate($food_item[$val['item_id']],'item_name',$food_infos),
+                                      
+                                      'size'  => [
+                                          'words' => $size_words,
+                                          'info'  => $size_info_trans
+                                      ],
+                                      
+                                      
+
+                                      'id'               => $val['item_id'],
+                                      
+                                      'discount'         => $val['discount'],
+                                      'normal_price'     => $val['price'],
+                                      'discounted_price' => $price,
+                                      
+                                      'cooking_ref'      => array_key_exists( 'cooking_ref', $val )  ? $val['cooking_ref'] : false,
+                                      'translation'      => $cooking_ref_trans,
+                                      
+                                      'notes'            => array_key_exists( 'notes', $val )  ? $val['notes'] : false,
+                                      
+                                      'ingredients'      => array_key_exists( 'ingredients', $val )  ? $val['ingredients'] : false,
+                                      
+                                      
+                                  ]);
+                                
+//                        }
+                                
 //                        $cartHTML = FunctionsV3::_added_to_cart_item_html(array(
 //                                      
 //                                      'qty'   => $val['qty'],

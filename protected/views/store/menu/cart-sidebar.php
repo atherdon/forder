@@ -10,10 +10,7 @@
             <h3>
                 <?php echo t("Your Order")?> <i class="icon_cart_alt pull-right"></i>
             </h3>
-            
-            
-            
-            <!--<div class="item-order-wrap"></div>-->
+
             
             
             <table class="table table_summary"> 
@@ -78,6 +75,8 @@
                     
                     
                     
+                    
+                    
                     <!--add minimum order data to table too-->
                     <tr>
                         <td>
@@ -92,6 +91,7 @@
                     
                     
                     
+                    
                 </tbody>
             <?php //} ?>    
             </table>
@@ -100,17 +100,21 @@
             
            <!--MAX AND MIN ORDR-->
            <?php if ($minimum_order>0):?>
-           <div class="delivery-min">
-              <p class="small center"><?php echo Yii::t("default","Subtotal must exceed")?> 
-              <?php echo displayPrice(baseCurrency(),prettyFormat($minimum_order,$merchant_id))?>
-           </div>
+            <div class="delivery-min">
+               <p class="small center">
+                   <?php echo Yii::t("default","Subtotal must exceed")?> 
+                   <?php echo displayPrice(baseCurrency(),prettyFormat($minimum_order,$merchant_id))?>
+               </p>    
+            </div>
            <?php endif;?>
            
            <?php if ($merchant_minimum_order_pickup>0):?>
-           <div class="pickup-min">
-              <p class="small center"><?php echo Yii::t("default","Subtotal must exceed")?> 
-              <?php echo displayPrice(baseCurrency(),prettyFormat($merchant_minimum_order_pickup,$merchant_id))?>
-           </div>
+            <div class="pickup-min">
+               <p class="small center">
+                 <?php echo Yii::t("default","Subtotal must exceed")?> 
+                 <?php echo displayPrice(baseCurrency(),prettyFormat($merchant_minimum_order_pickup,$merchant_id))?>
+               </p>    
+            </div>
            <?php endif;?>
               
            
@@ -125,14 +129,18 @@
                     <?php if ( $data['service'] == 3 ){ ?>
                       <tr>
                           <td>
-                              <h5><?php echo t("Distance Information")?></h5>
+                              <h5>
+                                  <?php echo t("Distance Information")?>
+                              </h5>
                           </td>
                      </tr>     
                   <?php } else { ?> 
 
                       <tr>
                            <td>
-                                <h5><?php echo t("Delivery Information")?></h5>
+                                <h5>
+                                    <?php echo t("Delivery Information")?>
+                                </h5>
                            </td>
                       </tr>     
 
@@ -236,6 +244,7 @@
             <!--END DELIVERY INFO-->
             <hr>
             
+            
 <!--            <table class="table table_summary">
                 <tbody>
                      </tbody>
@@ -295,7 +304,10 @@
                     </tr>
                     <tr>
                         <td class="total">
-                            TOTAL <span class="pull-right">$66</span>
+                            TOTAL 
+                            <span class="pull-right">
+                                $66
+                            </span>
                         </td>
                     </tr>
                 </tbody>
@@ -304,18 +316,28 @@
             <hr>
             
             <?php if ( $checkout['code']==1):?>
+            
               <a href="javascript:;" class="btn_full">
                   <?php echo $checkout['button']?>
               </a>
+            
             <?php else :?>
               
               <?php if ( $checkout['holiday']==1):?>
+            
                  <?php echo CHtml::hiddenField('is_holiday',$checkout['msg'],array('class'=>'is_holiday'));?>
+            
                  <p class="text-danger"><?php echo $checkout['msg']?></p>
+                 
               <?php else :?>
-                 <p class="text-danger"><?php echo $checkout['msg']?></p>
+                 
+                 <p class="text-danger">
+                     <?php echo $checkout['msg']?>
+                 </p>
                  <p class="small">
-                 <?php echo Yii::app()->functions->translateDate(date('F d l')." @ ".timeFormat(date('c'),true));?></p>
+                    <?php echo Yii::app()->functions->translateDate(date('F d l')." @ ".timeFormat(date('c'),true));?>
+                 </p>
+                 
               <?php endif;?>
                  
            <?php endif;?>
