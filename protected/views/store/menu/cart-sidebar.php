@@ -22,6 +22,12 @@
                             <a href="#0" class="remove_item">
                                 <i class="icon_minus_alt"></i>
                             </a> 
+                            
+                            <a href="#0" class="edit_item">
+                                <i class="icon_pencil"></i>
+                            </a> 
+                            
+                            
                             <strong>1x</strong>
                             Enchiladas
                         </td>

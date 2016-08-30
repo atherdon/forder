@@ -16,14 +16,54 @@ class Functions extends CApplicationComponent
 	{
 		$this->db_ext=new DbExt; 		
 	}
-	
+
+//     <tr>
+//        <td>
+//            <a href="#0" class="remove_item">
+//                <i class="icon_minus_alt"></i>
+//            </a> 
+//            <strong>1x</strong>
+//            Enchiladas
+//        </td>
+//        <td>
+//            <strong class="pull-right">
+//                $11
+//            </strong>
+//        </td>
+//    </tr>
+    
+    
+//    [                                     
+//        'qty'   => $val['qty'],
+//        'title' => qTranslate($food_item[$val['item_id']],'item_name',$food_infos),
+//
+//        'size'  => [
+//            'words' => $size_words,
+//            'info'  => $size_info_trans
+//        ],
+//
+//        'id'          => $val['item_id'],
+//
+//        'discount'    => $val['discount'],
+//        'normal_price'     => $val['price'],
+//        'discounted_price' => $price,
+//
+//        'cooking_ref' => $val['cooking_ref'],
+//        'translation' => $cooking_ref_trans,
+//
+//        'notes'       => $val['notes'],
+//
+//        'ingredients' => $val['ingredients']
+//
+//    ]
+            
     public function added_to_cart_item_html( $arr ){
         
         $html = '<tr>
                     <td>
-                        <a href="#0" class="remove_item">
+                        <!--<a href="#0" class="remove_item">
                             <i class="icon_minus_alt"></i>
-                        </a> 
+                        </a>--> 
                         <strong>' . 
                         $arr['qty'] . 'x'
                         . '</strong>';
@@ -99,6 +139,61 @@ class Functions extends CApplicationComponent
         return $html;
         
     }
+    
+    
+//      <a href="#0" class="remove_item">
+//                                <i class="icon_minus_alt"></i>
+//                            </a> 
+//                            
+//                            <a href="#0" class="edit_item">
+//                                <i class="icon_pencil"></i>
+//                            </a> 
+    
+    public function added_to_cart_item_manage( $arr ){
+        
+        $html = '';
+        
+         if ( $arr['receipt_flag'] ){
+             
+             $html .= '<a href="#" class="edit_item" data-row="' . $arr['key'] . '" rel="' . $arr['id'] . '">
+                           <i class="icon_pencil"></i>
+                       </a> 
+                       
+                      <a href="#" class="remove_item delete_item" data-row="' . $arr['key'] . '" rel="' . $arr['id'] . '">
+                           <i class="icon_minus_alt"></i>
+                       </a> ';
+             
+             
+             
+         }
+
+        $html .= '<td>
+                    <strong class="pull-right">' .  
+                        displayPrice(baseCurrency(),prettyFormat( $arr['total_price'], $arr['mid'] )) .
+                    '</strong>
+                </td>';
+            
+        return $html;
+        
+    }
+    
+    public function added_to_cart_item_summary_footer( $arr ){
+        
+        $html = '';
+        
+            return $html;
+    }
+    
+    
+    public function added_to_cart_item_sub_item( $arr ){
+        
+        $html = '';
+        
+            return $html;
+    }
+    
+    
+    
     
         
 	public function isAdminLogin()
@@ -4000,10 +4095,17 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
                                   
                                   
                                   
+                                  $cartHTML .= Yii::app()->functions->added_to_cart_item_manage([
+                                      'id'           => $val['item_id'],
+                                      'key'          => $key,
+                                      'receipt_flag' => $receipt == false,
+                                      'total_price'  => $total_price,
+                                      'mid'          => $mid
+                                          
+                                  ]);
                                   
                                   
-                                  
-                                  
+                                  if ( 0 ) {
 			          
 			          $htm.='<div class="manage">';
 			            $htm.='<div class="c">';
@@ -4019,6 +4121,14 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
 			             $htm.='<div class="d">'.displayPrice(baseCurrency(),prettyFormat($total_price,$mid)).'</div>';
 			          $htm.='</div>';
 			          $htm.='<div class="clear"></div>';
+                                  
+                                  }
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
 			          
 			          /*SUB ITEM*/
 			          //dump($val);			          
