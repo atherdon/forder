@@ -181,15 +181,23 @@ class Functions extends CApplicationComponent
         
         $html = '';
         
-            return $html;
+        return $html;
     }
+    
+    
+    
+    
     
     
     public function added_to_cart_item_sub_item( $arr ){
         
         $html = '';
         
-            return $html;
+        
+        
+        
+        
+        return $html;
     }
     
     
@@ -4229,6 +4237,14 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
 			          }	    			
 			          
 			          $htm.='</div>';
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
 			          				          
 			          $x++;
 			          $added_item[]=$val['item_id'];  /** fixed addon qty */
@@ -4443,26 +4459,20 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
                         
                         
                         
+                        
+                        
+                        
 		        $htm.='<div class="summary-wrap">';
 		        
 		         if ( $has_voucher==TRUE){		 
 
 		         	 if ( $show_discount==true):
-			         /*$htm.='<div class="a">'.t("Discount")." $merchant_discount_amount%".  ':</div>';
-			         $htm.='<div class="manage manage-ux">';
-			           $htm.='<div class="b">('.displayPrice(baseCurrency(),prettyFormat($discounted_amount,$mid)).')</div>';
-			         $htm.='</div>';*/
+			        
 			           $htm.=FunctionsV3::receiptRowTotal( t("Discount")." $merchant_discount_amount%" ,
 			           displayPrice(baseCurrency(),prettyFormat($discounted_amount,$mid)));
 			         endif;
 
-			         /*$cart_subtotal_raw=$subtotal+$less_voucher;
-			         $htm.="<span class=\"cart_subtotal_raw\" data-value=\"$cart_subtotal_raw\" ></span>";*/
-			         
-			         /*$htm.='<div class="a">'.Yii::t("default","Sub Total").':</div>';
-			         $htm.='<div class="manage">';
-			           $htm.='<div class="b cart_subtotal">'.displayPrice(baseCurrency(),prettyFormat($subtotal+$less_voucher,$mid)).'</div>';
-			         $htm.='</div>';*/
+			        
 			         
 			         $htm.=FunctionsV3::receiptRowTotal("Sub Total",
 			         displayPrice(baseCurrency(),prettyFormat($subtotal+$less_voucher,$mid)),'','cart_subtotal'
@@ -4472,19 +4482,13 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
 			         	$voucher_code=" - ".$order_infos['voucher_code']."";
 			         } else $voucher_code='';
 			         
-			         /*$htm.='<div class="a">'.Yii::t("default","Less Voucher")." ".$voucher_type.':</div>';
-			         $htm.='<div class="manage">';
-			           $htm.='<div class="b">-'.displayPrice(baseCurrency(),prettyFormat($less_voucher,$mid)).'</div>';
-			         $htm.='</div>';*/
+			        
 
 			         $htm.=FunctionsV3::receiptRowTotal( Yii::t("default","Less Voucher")." ".$voucher_type ,
 			         "(".displayPrice(baseCurrency(),prettyFormat($less_voucher,$mid).")" )
 			         );	         
 			         
-			         /*$htm.='<div class="a">'.Yii::t("default","Sub Total").':</div>';
-			         $htm.='<div class="manage">';
-			           $htm.='<div class="b">'.displayPrice(baseCurrency(),prettyFormat($subtotal,$mid)).'</div>';
-			         $htm.='</div>';*/	
+			        	
 			         $htm.=FunctionsV3::receiptRowTotal("Sub Total",
 			         displayPrice(baseCurrency(),prettyFormat($subtotal,$mid))
 			         );
@@ -4492,13 +4496,11 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
 		         } else {			         
 		         	
 			         if ( $show_discount==true):
-			         /*$htm.='<div class="a">'.t("Discount")." $merchant_discount_amount%".  ':</div>';
-			         $htm.='<div class="manage manage-ux">';
-			           $htm.='<div class="b">('.displayPrice(baseCurrency(),prettyFormat($discounted_amount,$mid)).')</div>';
-			         $htm.='</div>';*/
+			         
 			         $htm.=FunctionsV3::receiptRowTotal( t("Discount")." $merchant_discount_amount%",
 			           displayPrice(baseCurrency(),prettyFormat($discounted_amount,$mid))
 			          );
+                                 
 			         endif;
 		         
 			         /*$cart_subtotal_raw=$subtotal;
@@ -4522,10 +4524,7 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
 				         } 	
 			         }
 			         
-			         /*$htm.='<div class="a">'.Yii::t("default","Sub Total").':</div>';
-			         $htm.='<div class="manage">';
-			           $htm.='<div class="b cart_subtotal">'.displayPrice(baseCurrency(),prettyFormat($subtotal,$mid)).'</div>';
-			         $htm.='</div>';*/
+			        
 			         
 			        $htm.=FunctionsV3::receiptRowTotal('Sub Total',
 			        displayPrice(baseCurrency(),prettyFormat($subtotal,$mid)),'','cart_subtotal'
@@ -4610,6 +4609,10 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
                          
                          
                          
+                         
+                         
+                         
+                         
 		       $htm.="<div class=\"row cart_total_wrap bold\">";
 	    	   $htm.="<div class=\"col-md-6 col-xs-6  text-right\">".t("Total")."</div>";
 	    	   $htm.="<div class=\"col-md-6 col-xs-6  text-right cart_total\">".
@@ -4617,6 +4620,14 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
 	    	   $htm.="</div>";
 
 		       
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
 		       
 		       /*POINTS PROGRAM*/
 		       if (FunctionsV3::hasModuleAddon("pointsprogram")){
@@ -4679,6 +4690,7 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
                                         'total' => $item_array_total
                                 )
     			);
+                        
                 } else { $this->msg=Yii::t("default","No Item added yet!"); }
             } else { $this->msg=Yii::t("default","No Item added yet!"); }
 	}
