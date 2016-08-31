@@ -29,47 +29,17 @@
              } ?>  <!--PICKUP GUEST-->
     
     
-        <?php } else { ?>
-    
-             <h2 class="inner"> 
-                 <?php echo Yii::t( "default", "Address" )?> 
-             </h2>
+        <?php } else { 
+            
+              $this->renderPartial('/store/checkout/_form-filled-fields', array(
+            ////           'phone'     => $merchant_info['contact_phone'],
+            ////           'continue' => $continue,
+            ////           's'        => $s,
+            //        //   '' => ,
+            //        //   'restaurant_slug' => $merchant_info['restaurant_slug']
+                    )); 
              
-             
-              <?php if (isset($is_guest_checkout)){ ?>	     
-
-                    <div class="form-group">
-                        <label>First name</label>
-                        <?php echo CHtml::textField('first_name','',array(
-                                'class'=>'form-control',
-                                'placeholder'=>Yii::t("default","First Name"),
-                                'data-validation'=>"required"
-                          ))?>
-                    </div>
-                    <div class="form-group">
-                        <label>Last name</label>
-                        <?php echo CHtml::textField('last_name','',array(
-                                'class'=>'form-control',
-                                'placeholder'=>Yii::t("default","Last Name"),
-                                'data-validation'=>"required"
-                          ))?>
-                    </div>
-              
-             
-	        
-              
-             <?php } ?> <!--$is_guest_checkout-->
-             
-             
-             <?php if ( $website_enabled_map_address==2 ):?>
-	        <div class="form-group">
-                    <?php Widgets::AddressByMap()?>
-                </div>
-            <?php endif;?>
-             
-             
-    
-        <?php } ?>
+             } ?>
     
     
     

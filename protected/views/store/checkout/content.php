@@ -24,10 +24,10 @@
                         ?>
                     
                         <?php                    
-//                            $this->renderPartial('/store/checkout/_form', array(
-//    //                           'restaurant_name' => $merchant_info['restaurant_name'],
-//    //                           'restaurant_slug' => $merchant_info['restaurant_slug']
-//                            ));
+                            $this->renderPartial('/store/checkout/_form', array(
+    //                           'restaurant_name' => $merchant_info['restaurant_name'],
+    //                           'restaurant_slug' => $merchant_info['restaurant_slug']
+                            ));
                         ?>
                     
                     
@@ -50,95 +50,13 @@
         </div><!-- End col-md-6 -->
 
          <?php                    
-//                            $this->renderPartial('/store/checkout/_cart-column', array(
-//    //                           'restaurant_name' => $merchant_info['restaurant_name'],
-//    //                           'restaurant_slug' => $merchant_info['restaurant_slug']
-//                            ));
-                        ?>
+                    $this->renderPartial('/store/checkout/_cart-column', array(
+//                           'restaurant_name' => $merchant_info['restaurant_name'],
+//                           'restaurant_slug' => $merchant_info['restaurant_slug']
+                    ));
+            ?>
         
-        <div class="col-md-3" id="sidebar">
-            <div class="theiaStickySidebar">
-                <div id="cart_box">
-                    <h3>Your order <i class="icon_cart_alt pull-right"></i></h3>
-                    <table class="table table_summary">
-                    <tbody>
-                    <tr>
-                            <td>
-                                    <a href="#0" class="remove_item"><i class="icon_minus_alt"></i></a> <strong>1x</strong> Enchiladas
-                            </td>
-                            <td>
-                                    <strong class="pull-right">$11</strong>
-                            </td>
-                    </tr>
-                    <tr>
-                            <td>
-                                    <a href="#0" class="remove_item"><i class="icon_minus_alt"></i></a> <strong>2x</strong> Burrito
-                            </td>
-                            <td>
-                                    <strong class="pull-right">$14</strong>
-                            </td>
-                    </tr>
-                    <tr>
-                            <td>
-                                    <a href="#0" class="remove_item"><i class="icon_minus_alt"></i></a> <strong>1x</strong> Chicken
-                            </td>
-                            <td>
-                                    <strong class="pull-right">$20</strong>
-                            </td>
-                    </tr>
-                    <tr>
-                            <td>
-                                    <a href="#0" class="remove_item"><i class="icon_minus_alt"></i></a> <strong>2x</strong> Corona Beer
-                            </td>
-                            <td>
-                                    <strong class="pull-right">$9</strong>
-                            </td>
-                    </tr>
-                    <tr>
-                            <td>
-                                    <a href="#0" class="remove_item"><i class="icon_minus_alt"></i></a> <strong>2x</strong> Cheese Cake
-                            </td>
-                            <td>
-                                    <strong class="pull-right">$12</strong>
-                            </td>
-                    </tr>
-                </tbody>
-            </table>
-            <hr>
-            <div class="row" id="options_2">
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                            <label><input type="radio" value="" checked name="option_2" class="icheck">Delivery</label>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                            <label><input type="radio" value="" name="option_2" class="icheck">Take Away</label>
-                    </div>
-            </div><!-- Edn options 2 -->
-            <hr>
-            <table class="table table_summary">
-                <tbody>
-                    <tr>
-                        <td>
-                            Subtotal <span class="pull-right">$56</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Delivery fee <span class="pull-right">$10</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="total">
-                            TOTAL <span class="pull-right">$66</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <hr>
-            <a class="btn_full" href="cart_2.html">Go to checkout</a>
-            <a class="btn_full_outline" href="detail_page.html"><i class="icon-right"></i> Add other items</a>
-        </div><!-- End cart_box -->
-    </div><!-- End theiaStickySidebar -->
-    </div><!-- End col-md-3 -->
+       
 
     </div><!-- End row -->
 </div><!-- End container -->
@@ -185,87 +103,19 @@
          
      <?php if ( $s['kr_delivery_options']['delivery_type']=="pickup"):?> 
      
-          <h3><?php echo Yii::t("default","Pickup information")?></h3>
-          <p class="uk-text-bold"><?php echo $merchant_address;?></p>
-                   
-          <?php if (!isset($is_guest_checkout)):?> 
-          <?php if ( getOptionA('mechant_sms_enabled')==""):?>
-          <?php if ( getOption($merchant_id,'order_verification')==2):?>
-          <?php $sms_balance=Yii::app()->functions->getMerchantSMSCredit($merchant_id);?>
-          <?php if ( $sms_balance>=1):?>
-                    
-            <div class="row top10">
-                <div class="col-md-10">
-              <?php echo CHtml::textField('contact_phone',isIsset($client_info['contact_phone']),array(
-               'class'=>'mobile_inputs grey-fields',
-               'placeholder'=>Yii::t("default","Mobile Number"),
-               'data-validation'=>"required"  
-              ))?>
-             </div>             
-            </div>  
-          
-		  <?php endif;?>
-          <?php endif;?>
-          <?php endif;?>
-          <?php endif;?>
-          
-          
-          <?php if (isset($is_guest_checkout)):?> <!--PICKUP GUEST-->
-          <?php 
-           $this->renderPartial('/front/guest-checkou-form',array(
-		     'merchant_id'=>$merchant_id,		   
-		   ));
-          ?>                     
-          <?php endif;?>  <!--PICKUP GUEST-->
-          
+   
           
      <?php else :?> <!-- DELIVERY-->                          	       	      
           
-		  <?php FunctionsV3::sectionHeader('Delivery information')?>		  
-		  <p>
-	        <?php echo clearString(ucwords($merchant_info['restaurant_name']))?> <?php echo Yii::t("default","Restaurant")?> 
-	        <?php echo "<span class='bold'>".Yii::t("default",ucwords($s['kr_delivery_options']['delivery_type'])) . "</span> ";
-	        if ($s['kr_delivery_options']['delivery_asap']==1){
-	        	$s['kr_delivery_options']['delivery_date']." ".Yii::t("default","ASAP");
-	        } else {
-	          echo '<span class="bold">'.date("M d Y",strtotime($s['kr_delivery_options']['delivery_date'])).
-	          " ".t("at"). " ". $s['kr_delivery_options']['delivery_time']."</span> ".t("to");
-	        }
-	        ?>
-	       </p>	       
+		  
 	       	      	     
 	       <div class="top10">
 	       
-	        <?php FunctionsV3::sectionHeader('Address')?> 
-	        	       
-	        <?php if (isset($is_guest_checkout)):?>	         	        
-	         <div class="row top10">
-                <div class="col-md-10">
-                 <?php echo CHtml::textField('first_name','',array(
-	               'class'=>'grey-fields full-width',
-	               'placeholder'=>Yii::t("default","First Name"),
-	               'data-validation'=>"required"
-	              ))?>
-	             </div> 
-              </div>
-              
-              <div class="row top10">
-                <div class="col-md-10">
-                 <?php echo CHtml::textField('last_name','',array(
-	               'class'=>'grey-fields full-width',
-	               'placeholder'=>Yii::t("default","Last Name"),
-	               'data-validation'=>"required"
-	              ))?>
-	             </div> 
-              </div>
-	        <?php endif;?> <!--$is_guest_checkout-->
 	        
-	        <?php if ( $website_enabled_map_address==2 ):?>
-	        <div class="top10">
-            <?php Widgets::AddressByMap()?>
-            </div>
-            <?php endif;?>
-            
+	        	       
+	        
+                
+                
                 
                 
                 
@@ -290,6 +140,11 @@
               </div>   
             </div> <!--address_book_wrap-->
             <?php endif;?>
+            
+            
+            
+            
+            
             
             
             
