@@ -1,56 +1,22 @@
 <!-- Content ================================================== -->
 <div class="container margin_60_35">
     <div class="row">
-        <div class="col-md-3">
-            
-            <?php if ( $s['kr_delivery_options']['delivery_type']=="pickup") { ?>
-                                
-                <div class="box_style_2 hidden-xs info">
-                    <h4 class="nomargin_top">
-                        <?php echo Yii::t("default","Pickup information")?> 
-                        <i class="icon_clock_alt pull-right"></i>
-                    </h4>
-                    <p>
-                        <?php echo $merchant_address;?>
-                    </p>                
-                </div><!-- End box_style_1 -->
-            
-            <?php } else { ?>
-                           
-                <div class="box_style_2 hidden-xs info">
-                    <h4 class="nomargin_top">
-                        <?php echo Yii::t("default","Delivery information")?> 
-                        <i class="icon_clock_alt pull-right"></i>
-                    </h4>
-                    <p>
-                        <?php echo clearString(ucwords($merchant_info['restaurant_name']))?> <?php echo Yii::t("default","Restaurant")?> 
-                        <?php echo "<span class='bold'>".Yii::t("default",ucwords($s['kr_delivery_options']['delivery_type'])) . "</span> ";
-                        if ($s['kr_delivery_options']['delivery_asap']==1){
-                                $s['kr_delivery_options']['delivery_date']." ".Yii::t("default","ASAP");
-                        } else {
-                          echo '<span class="bold">'.date("M d Y",strtotime($s['kr_delivery_options']['delivery_date'])).
-                          " ".t("at"). " ". $s['kr_delivery_options']['delivery_time']."</span> ".t("to");
-                        }
-                        ?>
-                    </p>                
-                </div><!-- End box_style_1 -->
-                
-            <?php } ?>
-            
-            <?php
-                    $this->renderPartial('/store/menu/_phone-block',array(
-                      'phone' => $phone
-                    ));                     
-            ?>        
-
-        </div><!-- End col-md-3 -->
+        
+        <?php
+            $this->renderPartial('/store/menu/_sidebar',array(
+                    's'                 => $s,
+                    'merchant_address'  => $merchant_address,
+                    'merchant_info'     => $merchant_info,
+                    'phone'             => $phone  
+            ));                     
+        ?>    
+        
 
         <div class="col-md-6">
 
                 <div class="box_style_2" id="order_process">
                     
-                    
-                    
+
                     <?php if ( $continue==TRUE) { ?>
                         <?php 
                         $merchant_id=$s['kr_merchant_id'];
@@ -83,6 +49,13 @@
 
         </div><!-- End col-md-6 -->
 
+         <?php                    
+//                            $this->renderPartial('/store/checkout/_cart-column', array(
+//    //                           'restaurant_name' => $merchant_info['restaurant_name'],
+//    //                           'restaurant_slug' => $merchant_info['restaurant_slug']
+//                            ));
+                        ?>
+        
         <div class="col-md-3" id="sidebar">
             <div class="theiaStickySidebar">
                 <div id="cart_box">
@@ -293,6 +266,12 @@
             </div>
             <?php endif;?>
             
+                
+                
+                
+                
+                
+                
             <?php if ( $address_book):?>
             <div class="address_book_wrap">
             <div class="row top10">
@@ -311,6 +290,9 @@
               </div>   
             </div> <!--address_book_wrap-->
             <?php endif;?>
+            
+            
+            
             
             <div class="address-block">
               <div class="row top10">
