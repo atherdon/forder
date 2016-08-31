@@ -13,22 +13,33 @@
          if (isset($is_guest_checkout)){
             echo CHtml::hiddenField('is_guest_checkout',2);
          }     
-    ?>
+        
+         if ( $s['kr_delivery_options']['delivery_type']=="pickup") { ?>
+    
+    
+             <?php if (isset($is_guest_checkout)){ //<!--PICKUP GUEST-->
+           
+                    $this->renderPartial('/store/checkout/_form-guest-checkout', array(
+            ////           'phone'     => $merchant_info['contact_phone'],
+            ////           'continue' => $continue,
+            ////           's'        => $s,
+            //        //   '' => ,
+            //        //   'restaurant_slug' => $merchant_info['restaurant_slug']
+                    )); 
+             } ?>  <!--PICKUP GUEST-->
+    
+    
+        <?php } else { ?>
     
     
     
+        <?php } ?>
     
     
     
     <?php
 
-        $this->renderPartial('/store/checkout/_form-guest-checkout', array(
-//           'phone'     => $merchant_info['contact_phone'],
-//           'continue' => $continue,
-//           's'        => $s,
-        //   '' => ,
-        //   'restaurant_slug' => $merchant_info['restaurant_slug']
-        )); 
+
     ?>
     
     

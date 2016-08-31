@@ -105,5 +105,4 @@
       'placeholder'=>Yii::t("default","Password"),   
      ))?>
     
-</div>
-   
+</div>   
