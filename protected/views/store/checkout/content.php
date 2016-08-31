@@ -1,115 +1,68 @@
+
+
+
+
 <!-- Content ================================================== -->
 <div class="container margin_60_35">
     <div class="row">
         <div class="col-md-3">
 
             <div class="box_style_2 hidden-xs info">
-                <h4 class="nomargin_top">Delivery time <i class="icon_clock_alt pull-right"></i></h4>
+                <h4 class="nomargin_top">
+                    Delivery time 
+                    <i class="icon_clock_alt pull-right"></i>
+                </h4>
                 <p>
-                        Lorem ipsum dolor sit amet, in pri partem essent. Qui debitis meliore ex, tollit debitis conclusionemque te eos.
+                    Lorem ipsum dolor sit amet, in pri partem essent. Qui debitis meliore ex, tollit debitis conclusionemque te eos.
                 </p>
-                <hr>
-                <h4>Secure payment <i class="icon_creditcard pull-right"></i></h4>
-                <p>
-                        Lorem ipsum dolor sit amet, in pri partem essent. Qui debitis meliore ex, tollit debitis conclusionemque te eos.
-                </p>
-            </div><!-- End box_style_1 -->
+                
 
-            <div class="box_style_2 hidden-xs" id="help">
-                <i class="icon_lifesaver"></i>
-                <h4>Need <span>Help?</span></h4>
-                <a href="tel://004542344599" class="phone">+45 423 445 99</a>
-                <small>Monday to Friday 9.00am - 7.30pm</small>
-            </div>
+            </div><!-- End box_style_1 -->
+            
+            <?php
+                    $this->renderPartial('/store/menu/_phone-block',array(
+                      'phone' => $phone
+                    ));                     
+            ?>        
+            
+
 
         </div><!-- End col-md-3 -->
 
         <div class="col-md-6">
 
                 <div class="box_style_2" id="order_process">
-                        <h2 class="inner">Your order details</h2>
-                        <div class="form-group">
-                                <label>First name</label>
-                                <input type="text" class="form-control" id="firstname_order" name="firstname_order" placeholder="First name">
-                        </div>
-                        <div class="form-group">
-                                <label>Last name</label>
-                                <input type="text" class="form-control" id="lastname_order" name="lastname_order" placeholder="Last name">
-                        </div>
-                        <div class="form-group">
-                                <label>Telephone/mobile</label>
-                                <input type="text" id="tel_order" name="tel_order" class="form-control" placeholder="Telephone/mobile">
-                        </div>
-                        <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="email_booking_2" name="email_order" class="form-control" placeholder="Your email">
-                        </div>
-                        <div class="form-group">
-                                <label>Your full address</label>
-                                <input type="text" id="address_order" name="address_order" class="form-control" placeholder=" Your full address">
-                        </div>
-                        <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                                <label>City</label>
-                                                <input type="text" id="city_order" name="city_order" class="form-control" placeholder="Your city">
-                                        </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                                <label>Postal code</label>
-                                                <input type="text" id="pcode_oder" name="pcode_oder" class="form-control" placeholder=" Your postal code">
-                                        </div>
-                                </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                                <label>Delivery Day</label>
-                                                <select class="form-control" name="delivery_schedule_day" id="delivery_schedule_day">
-                                                        <option value="" selected>Select day</option>
-                                                        <option value="Today">Today</option>
-                                                        <option value="Tomorrow">Tomorrow</option>
-                                                </select>
-                                        </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                                <label>Delivery time</label>
-                                                <select class="form-control" name="delivery_schedule_time" id="delivery_schedule_time">
-                                                        <option value="" selected>Select time</option>
-                                                        <option value="11.30am">11.30am</option>
-                                                        <option value="11.45am">11.45am</option>
-                                                        <option value="12.15am">12.15am</option>
-                                                        <option value="12.30am">12.30am</option>
-                                                        <option value="12.45am">12.45am</option>
-                                                        <option value="01.00pm">01.00pm</option>
-                                                        <option value="01.15pm">01.15pm</option>
-                                                        <option value="01.30pm">01.30pm</option>
-                                                        <option value="01.45pm">01.45pm</option>
-                                                        <option value="02.00pm">02.00pm</option>
-                                                        <option value="07.00pm">07.00pm</option>
-                                                        <option value="07.15pm">07.15pm</option>
-                                                        <option value="07.30pm">07.30pm</option>
-                                                        <option value="07.45pm">07.45pm</option>
-                                                        <option value="08.00pm">08.00pm</option>
-                                                        <option value="08.15pm">08.15pm</option>
-                                                        <option value="08.30pm">08.30pm</option>
-                                                        <option value="08.45pm">08.45pm</option>
-                                                </select>
-                                        </div>
-                                </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                                <div class="col-md-12">
-
-                                                <label>Notes for the restaurant</label>
-                                                <textarea class="form-control" style="height:150px" placeholder="Ex. Allergies, cash change..." name="notes" id="notes"></textarea>
-
-                                </div>
-                        </div>
+                    
+                    
+                    
+                    <?php if ( $continue==TRUE) { ?>
+                        <?php 
+                        $merchant_id=$s['kr_merchant_id'];
+                        echo CHtml::hiddenField('merchant_id',$merchant_id);
+                        ?>
+                    
+                        <?php                    
+//                            $this->renderPartial('/store/checkout/_form', array(
+//    //                           'restaurant_name' => $merchant_info['restaurant_name'],
+//    //                           'restaurant_slug' => $merchant_info['restaurant_slug']
+//                            ));
+                        ?>
+                    
+                    
+                    
+                    <?php } ?>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        
                 </div><!-- End box_style_1 -->
 
         </div><!-- End col-md-6 -->
@@ -201,3 +154,439 @@
     </div><!-- End row -->
 </div><!-- End container -->
 <!-- End Content =============================================== -->
+
+
+
+<?php if ( 0 ) { ?>
+
+<div class="sections section-grey2 section-payment-option">
+   <div class="container">
+           
+       
+       
+       
+       
+       
+       
+       
+       
+     <?php if ( $continue==TRUE):?>
+     <?php 
+     $merchant_id=$s['kr_merchant_id'];
+     echo CHtml::hiddenField('merchant_id',$merchant_id);
+     ?>
+     <div class="col-md-7 border">
+          
+     <div class="box-grey rounded">
+     <form id="frm-delivery" class="frm-delivery" method="POST" onsubmit="return false;">
+     <?php 
+     echo CHtml::hiddenField('action','placeOrder');
+     echo CHtml::hiddenField('country_code',$merchant_info['country_code']);
+     echo CHtml::hiddenField('currentController','store');
+     echo CHtml::hiddenField('delivery_type',$s['kr_delivery_options']['delivery_type']);
+     echo CHtml::hiddenField('cart_tip_percentage','');
+     echo CHtml::hiddenField('cart_tip_value','');
+     echo CHtml::hiddenField('client_order_sms_code');
+     echo CHtml::hiddenField('client_order_session');
+     if (isset($is_guest_checkout)){
+     	echo CHtml::hiddenField('is_guest_checkout',2);
+     }     
+     ?>
+     
+         
+     <?php if ( $s['kr_delivery_options']['delivery_type']=="pickup"):?> 
+     
+          <h3><?php echo Yii::t("default","Pickup information")?></h3>
+          <p class="uk-text-bold"><?php echo $merchant_address;?></p>
+                   
+          <?php if (!isset($is_guest_checkout)):?> 
+          <?php if ( getOptionA('mechant_sms_enabled')==""):?>
+          <?php if ( getOption($merchant_id,'order_verification')==2):?>
+          <?php $sms_balance=Yii::app()->functions->getMerchantSMSCredit($merchant_id);?>
+          <?php if ( $sms_balance>=1):?>
+                    
+            <div class="row top10">
+                <div class="col-md-10">
+              <?php echo CHtml::textField('contact_phone',isIsset($client_info['contact_phone']),array(
+               'class'=>'mobile_inputs grey-fields',
+               'placeholder'=>Yii::t("default","Mobile Number"),
+               'data-validation'=>"required"  
+              ))?>
+             </div>             
+            </div>  
+          
+		  <?php endif;?>
+          <?php endif;?>
+          <?php endif;?>
+          <?php endif;?>
+          
+          
+          <?php if (isset($is_guest_checkout)):?> <!--PICKUP GUEST-->
+          <?php 
+           $this->renderPartial('/front/guest-checkou-form',array(
+		     'merchant_id'=>$merchant_id,		   
+		   ));
+          ?>                     
+          <?php endif;?>  <!--PICKUP GUEST-->
+          
+          
+     <?php else :?> <!-- DELIVERY-->                          	       	      
+          
+		  <?php FunctionsV3::sectionHeader('Delivery information')?>		  
+		  <p>
+	        <?php echo clearString(ucwords($merchant_info['restaurant_name']))?> <?php echo Yii::t("default","Restaurant")?> 
+	        <?php echo "<span class='bold'>".Yii::t("default",ucwords($s['kr_delivery_options']['delivery_type'])) . "</span> ";
+	        if ($s['kr_delivery_options']['delivery_asap']==1){
+	        	$s['kr_delivery_options']['delivery_date']." ".Yii::t("default","ASAP");
+	        } else {
+	          echo '<span class="bold">'.date("M d Y",strtotime($s['kr_delivery_options']['delivery_date'])).
+	          " ".t("at"). " ". $s['kr_delivery_options']['delivery_time']."</span> ".t("to");
+	        }
+	        ?>
+	       </p>	       
+	       	      	     
+	       <div class="top10">
+	       
+	        <?php FunctionsV3::sectionHeader('Address')?> 
+	        	       
+	        <?php if (isset($is_guest_checkout)):?>	         	        
+	         <div class="row top10">
+                <div class="col-md-10">
+                 <?php echo CHtml::textField('first_name','',array(
+	               'class'=>'grey-fields full-width',
+	               'placeholder'=>Yii::t("default","First Name"),
+	               'data-validation'=>"required"
+	              ))?>
+	             </div> 
+              </div>
+              
+              <div class="row top10">
+                <div class="col-md-10">
+                 <?php echo CHtml::textField('last_name','',array(
+	               'class'=>'grey-fields full-width',
+	               'placeholder'=>Yii::t("default","Last Name"),
+	               'data-validation'=>"required"
+	              ))?>
+	             </div> 
+              </div>
+	        <?php endif;?> <!--$is_guest_checkout-->
+	        
+	        <?php if ( $website_enabled_map_address==2 ):?>
+	        <div class="top10">
+            <?php Widgets::AddressByMap()?>
+            </div>
+            <?php endif;?>
+            
+            <?php if ( $address_book):?>
+            <div class="address_book_wrap">
+            <div class="row top10">
+                <div class="col-md-10">
+               <?php 
+               $address_list=Yii::app()->functions->addressBook(Yii::app()->functions->getClientId());
+               echo CHtml::dropDownList('address_book_id',$address_book['id'],
+               (array)$address_list,array(
+                  'class'=>"grey-fields full-width"
+               ));
+               ?>
+               <a href="javascript:;" class="edit_address_book block top10">
+                 <i class="ion-compose"></i> <?php echo t("Edit")?>
+               </a>
+               </div> 
+              </div>   
+            </div> <!--address_book_wrap-->
+            <?php endif;?>
+            
+            <div class="address-block">
+              <div class="row top10">
+                <div class="col-md-10">
+                 <?php echo CHtml::textField('street', isset($client_info['street'])?$client_info['street']:'' ,array(
+	               'class'=>'grey-fields full-width',
+	               'placeholder'=>Yii::t("default","Street"),
+	               'data-validation'=>"required"
+	              ))?>
+	             </div> 
+              </div>
+              
+              <div class="row top10">
+                <div class="col-md-10">
+	             <?php echo CHtml::textField('city',
+	             isset($client_info['city'])?$client_info['city']:''
+	             ,array(
+	               'class'=>'grey-fields full-width',
+	               'placeholder'=>Yii::t("default","City"),
+	               'data-validation'=>"required"
+	              ))?>
+	             </div> 
+              </div>
+              
+            <div class="row top10">
+                <div class="col-md-10">
+                 <?php echo CHtml::textField('state',
+                 isset($client_info['state'])?$client_info['state']:''
+                 ,array(
+                 'class'=>'grey-fields full-width',
+	               'placeholder'=>Yii::t("default","State"),
+	               'data-validation'=>"required"
+	              ))?>
+	             </div> 
+              </div>  
+              
+             <div class="row top10">
+                <div class="col-md-10">
+                  <?php echo CHtml::textField('zipcode',
+                  isset($client_info['zipcode'])?$client_info['zipcode']:''
+                  ,array(
+	               'class'=>'grey-fields full-width',
+	               'placeholder'=>Yii::t("default","Zip code")
+	              ))?>
+	             </div> 
+              </div> 
+              
+             <div class="row top10">
+                <div class="col-md-10">
+                 <?php echo CHtml::textField('location_name',
+                 isset($client_info['location_name'])?$client_info['location_name']:''
+                 ,array(
+	               'class'=>'grey-fields full-width',
+	               'placeholder'=>Yii::t("default","Apartment suite, unit number, or company name")	               
+	              ))?>
+	             </div> 
+              </div> 
+              
+            </div> <!--address-block-->  
+              
+              <div class="row top10">
+                <div class="col-md-10">
+                 <?php echo CHtml::textField('contact_phone',
+                 isset($client_info['contact_phone'])?$client_info['contact_phone']:''
+                 ,array(
+	               'class'=>'grey-fields mobile_inputs full-width',
+	               'placeholder'=>Yii::t("default","Mobile Number"),
+	               'data-validation'=>"required"  
+	              ))?>
+	             </div> 
+              </div>  
+              
+             <div class="row top10">
+                <div class="col-md-10">
+                  <?php echo CHtml::textField('delivery_instruction','',array(
+	               'class'=>'grey-fields full-width',
+	               'placeholder'=>Yii::t("default","Delivery instructions")   
+	              ))?>
+	             </div> 
+              </div> 
+              
+             <div class="row top10">
+                <div class="col-md-10">
+                  <?php
+	              echo CHtml::checkBox('saved_address',false,array('class'=>"icheck",'value'=>2));
+	              echo " ".t("Save to my address book");
+	              ?>
+	             </div> 
+              </div> 
+              
+             <?php if (isset($is_guest_checkout)):?>
+             <div class="row top10">
+                <div class="col-md-10">
+                 <?php echo CHtml::textField('email_address','',array(
+	               'class'=>'grey-fields full-width',
+	               'placeholder'=>Yii::t("default","Email address"),              
+	              ))?>
+	             </div> 
+              </div>
+                                          
+             <?php endif;?> 
+                                      
+            
+             <?php if (isset($is_guest_checkout)):?>
+             <?php FunctionsV3::sectionHeader('Optional')?>		  
+             <div class="row top10">
+                <div class="col-md-10">
+                 <?php echo CHtml::passwordField('password','',array(
+	               'class'=>'grey-fields full-width',
+	               'placeholder'=>Yii::t("default","Password"),               
+	              ))?>
+	             </div> 
+              </div>
+             <?php endif;?>
+             
+	       </div> <!--top10--> 
+	        	        	               
+     <?php endif;?> <!-- ENDIF DELIVERY-->
+     
+     
+     <div class="top25">
+     <?php 
+	 $this->renderPartial('/front/payment-list',array(
+	   'merchant_id'=>$merchant_id,
+	   'payment_list'=>FunctionsV3::getMerchantPaymentList($merchant_id)
+	 ));
+	 ?>
+	 </div>
+     
+     <!--TIPS-->
+     <?php if ( Yii::app()->functions->getOption("merchant_enabled_tip",$merchant_id)==2):?>
+     <?php 
+     $merchant_tip_default=Yii::app()->functions->getOption("merchant_tip_default",$merchant_id);
+     if ( !empty($merchant_tip_default)){
+    	echo CHtml::hiddenField('default_tip',$merchant_tip_default);
+     }        
+     $FunctionsK=new FunctionsK();
+     $tips=$FunctionsK->tipsList();        
+     ?>	   
+	   <div class="section-label top25">
+	    <a class="section-label-a">
+	      <span class="bold">
+	        <?php echo t("Tip Amount")?> (<span class="tip_percentage">0%</span>)
+	      </span>
+	      <b></b>
+	    </a>     
+	   </div>          
+	   
+	    <div class="uk-panel uk-panel-box">
+	     <ul class="tip-wrapper">
+	       <?php foreach ($tips as $tip_key=>$tip_val):?>           
+	       <li>
+	       <a class="tips" href="javascript:;" data-type="tip" data-tip="<?php echo $tip_key?>">
+	       <?php echo $tip_val?>
+	       </a>
+	
+	       </li>
+	       <?php endforeach;?>           
+	       <li><a class="tips" href="javascript:;" data-type="cash" data-tip="0"><?php echo t("Tip cash")?></a></li>
+	       <li><?php echo CHtml::textField('tip_value','',array(
+	         'class'=>"numeric_only grey-fields",
+	         'style'=>"width:70px;"
+	       ));?></li>
+	     </ul>
+	    </div>
+     <?php endif;?>
+     <!--END TIPS-->
+     
+     </form>    
+     
+     <!--CREDIT CART-->
+     <?php 
+     $this->renderPartial('/front/credit-card',array(
+	   'merchant_id'=>$merchant_id	   
+	 ));
+	 ?>     
+     <!--END CREDIT CART-->
+     
+     </div> <!--box rounded-->
+     
+     </div> <!--left content-->
+     
+     <div class="col-md-5 border sticky-div"><!-- RIGHT CONTENT STARTS HERE-->
+     
+       <div class="box-grey rounded  relative top-line-green">
+       
+       <i class="order-icon your-order-icon"></i>
+       
+	       <div class="order-list-wrap">   
+	       
+	         <p class="bold center"><?php echo t("Your Order")?></p>
+	         <div class="item-order-wrap"></div>
+	       
+	         <!--VOUCHER STARTS HERE-->
+            <?php Widgets::applyVoucher($merchant_id);?>
+            <!--VOUCHER STARTS HERE-->
+            
+            <?php 
+            if (FunctionsV3::hasModuleAddon("pointsprogram")){
+            	/*POINTS PROGRAM*/
+                PointsProgram::redeemForm();
+            }
+            ?>
+	         
+	         <?php 
+	         $minimum_order=Yii::app()->functions->getOption('merchant_minimum_order',$merchant_id);
+	         $maximum_order=getOption($merchant_id,'merchant_maximum_order');	         
+	         if ( $s['kr_delivery_options']['delivery_type']=="pickup"){
+	          	  $minimum_order=Yii::app()->functions->getOption('merchant_minimum_order_pickup',$merchant_id);
+	          	  $maximum_order=getOption($merchant_id,'merchant_maximum_order_pickup');	         
+	         }  
+	         ?>
+	         
+	         <?php 
+	         if (!empty($minimum_order)){
+	         	echo CHtml::hiddenField('minimum_order',unPrettyPrice($minimum_order));
+	            echo CHtml::hiddenField('minimum_order_pretty',baseCurrency().prettyFormat($minimum_order));
+	            ?>
+	            <p class="small center"><?php echo t("Subtotal must exceed")?> 
+                 <?php echo baseCurrency().prettyFormat($minimum_order,$merchant_id)?>
+                </p>      
+	            <?php
+	         }
+	         if($maximum_order>0){
+	         	echo CHtml::hiddenField('maximum_order',unPrettyPrice($maximum_order));
+	         	echo CHtml::hiddenField('maximum_order_pretty',baseCurrency().prettyFormat($maximum_order));
+	         }
+	         ?>
+	         
+	         <?php if ( getOptionA('captcha_order')==2 || getOptionA('captcha_customer_signup')==2):?>             
+             <div class="top10 capcha-wrapper">
+             <?php //GoogleCaptcha::displayCaptcha()?>
+             <div id="kapcha-1"></div>
+             </div>
+             <?php endif;?>          
+             
+              <!--SMS Order verification-->
+	          <?php if ( getOptionA('mechant_sms_enabled')==""):?>
+	          <?php if ( getOption($merchant_id,'order_verification')==2):?>
+	          <?php $sms_balance=Yii::app()->functions->getMerchantSMSCredit($merchant_id);?>
+	          <?php if ( $sms_balance>=1):?>
+	          <?php $sms_order_session=Yii::app()->functions->generateCode(50);?>
+	          <p class="top20 center">
+	          <?php echo t("This merchant has required SMS verification")?><br/>
+	          <?php echo t("before you can place your order")?>.<br/>
+	          <?php echo t("Click")?> <a href="javascript:;" class="send-order-sms-code" data-session="<?php echo $sms_order_session;?>">
+	             <?php echo t("here")?></a>
+	          <?php echo t("receive your order sms code")?>
+	          </p>
+	          <div class="top10 text-center">
+	          <?php 
+	          echo CHtml::textField('order_sms_code','',array(	            
+	            'placeholder'=>t("SMS Code"),
+	            'maxlength'=>8,
+	            'class'=>'grey-fields text-center'
+	          ));
+	          ?>
+	          </div>
+	          <?php endif;?>
+	          <?php endif;?>
+	          <?php endif;?>
+	          <!--END SMS Order verification-->
+           
+	          <div class="text-center top25">
+	          <a href="javascript:;" class="place_order green-button medium inline block">
+	          <?php echo t("Place Order")?>
+	          </a>
+	          </div>
+	         
+	       </div> <!-- order-list-wrap-->       
+	   </div> <!--box-grey-->    
+     
+     </div> <!--right content-->
+     
+     <?php else :?>      
+       <div class="box-grey rounded">
+      <p class="text-danger">
+      <?php echo t("Something went wrong Either your visiting the page directly or your session has expired.")?></p>
+      </div>
+     <?php endif;?>
+   
+     
+     
+     
+     
+     
+     
+     
+     
+   </div>  <!--container-->
+</div> <!--section-payment-option-->
+
+
+
+<?php } ?>
