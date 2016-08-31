@@ -209,6 +209,9 @@ $this->renderPartial( '/store/menu/tabs', array(
 
  <?php //} ?>
  
+ 
+ 
+ <?php if ( 0 ) { ?>
  <!--This part can be removed when ordering will be completed-->
  
 <div class="sections section-menu section-grey2">
@@ -528,3 +531,6 @@ $this->renderPartial( '/store/menu/tabs', array(
   </div> <!--row-->
 </div> <!--container-->
 </div> <!--section-menu-->
+
+
+ <?php } ?>
