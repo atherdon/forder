@@ -574,11 +574,16 @@ class ScriptManager
                       " 
                         $(document).ready(function(){
                             'use strict';
-                             $.cookieBar({
-                                    fixed: true,
-                                    message: 'We use cookies to improve your experience on our website. By browsing this website, you agree to our use of cookies.',
-                                    policyURL: '" . $link . "'
-                            });
+                            
+                            if( $('body').hasClass('home') ){
+
+                                $.cookieBar({
+                                       fixed: true,
+                                       message: 'We use cookies to improve your experience on our website. By browsing this website, you agree to our use of cookies.',
+                                       policyURL: '" . $link . "'
+                               });
+                            
+                            }
                         });
                       ",
                       CClientScript::POS_END

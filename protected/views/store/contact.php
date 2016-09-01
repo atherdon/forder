@@ -1,10 +1,21 @@
 <?php
-$this->renderPartial('/front/banner-contact',array(
-   'h1'=>t("Contact Us"),
-   'sub_text'=>$address." ".$country,
-   'contact_phone'=>$contact_phone,
-   'contact_email'=>$contact_email
-));
+//$this->renderPartial('/front/banner-contact',array(
+//   'h1'=>t("Contact Us"),
+//   'sub_text'=>$address." ".$country,
+//   'contact_phone'=>$contact_phone,
+//   'contact_email'=>$contact_email
+//));
+
+
+
+$this->renderPartial('/store/contact/_subheader',array(
+        'h1'            => t("Contact Us"),
+        'sub_text'      => $address." ".$country,
+        'contact_phone' => $contact_phone,
+        'contact_email' => $contact_email 
+));                     
+
+
 
 $fields=yii::app()->functions->getOptionAdmin('contact_field');
 if (!empty($fields)){
@@ -68,10 +79,19 @@ if (!empty($fields)){
                     <?php //echo $contact_content?>
                 </p>
                 
+                
+                
+                
+                
                  <form class="uk-form uk-form-horizontal forms" id="forms" onsubmit="return false;">  
                      
                     <?php echo CHtml::hiddenField('action','contacUsSubmit')?>
                     <?php echo CHtml::hiddenField('currentController','store')?>
+                     
+                     
+                     
+                     
+                     
                     <?php if (is_array($fields) && count($fields)>=1):?>
                     <?php foreach ($fields as $val):?>
                     <?php  
@@ -99,31 +119,50 @@ if (!empty($fields)){
                                  }
                                 ?>			 			 			
                                 <?php if ( $val=="message"):?>
-                    <div class="row top10">
-                    <div class="col-md-12">
-                      <?php echo CHtml::textArea($val,'',array(
-                       'placeholder'=>t($placeholder),
-                       'class'=>'grey-fields full-width'
-                      ))?>
-                    </div>
-                    </div>
+                     
+                     
+                                    <div class="row">
+                                           <div class="col-md-12">
+
+                                               <label>
+                                                   <?php echo t($placeholder); ?>
+                                               </label>
+                                               <?php echo CHtml::textArea($val,'',array(
+                                                    'placeholder'=>t($placeholder),
+                                                    'class'=>'form-control',
+                                                    'style' => 'height:150px'
+                                                   ))?>
+
+
+                                           </div>
+                                   </div>
+                     
+
                     <?php else :?>
-                    <div class="row top10">
-                    <div class="col-md-12">
-                      <?php echo CHtml::textField($val,'',array(
-                       'placeholder'=>t($placeholder),
-                       'class'=>'grey-fields full-width',
-                       'data-validation'=>$validate_default
-                      ))?>
+                     
+                     
+                    <div class="form-group">
+                        <label>
+                            <?php echo t($placeholder); ?>
+                        </label>
+                            <?php echo CHtml::textField($val,'',array(
+                                'placeholder'=>t($placeholder),
+                                'class'=>'form-control',
+                                'data-validation'=>$validate_default
+                           ))?>
+
                     </div>
-                    </div>
+
                     <?php endif;?>
 
                     <?php endforeach;?>
 
+
+                    
+                    <hr />
                     <div class="row top10">
                     <div class="col-md-12 text-center">
-                       <input type="submit" value="<?php echo t("Submit")?>" class="orange-button medium inline rounded">
+                       <input type="submit" value="<?php echo t("Submit")?>" class="btn_full">
                     </div>
                     </div>
                     <?php endif;?>
