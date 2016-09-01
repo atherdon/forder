@@ -3,7 +3,7 @@
     <div class="row">
         
         <?php
-            $this->renderPartial('/store/menu/_sidebar',array(
+            $this->renderPartial('/store/checkout/_sidebar',array(
                     's'                 => $s,
                     'merchant_address'  => $merchant_address,
                     'merchant_info'     => $merchant_info,
@@ -25,6 +25,10 @@
                     
                         <?php                    
                             $this->renderPartial('/store/checkout/_form', array(
+                                'merchant_info'     => $merchant_info,
+                                's'         => $s,
+                                'website_enabled_map_address' => $website_enabled_map_address,
+                                'address_book'      => $address_book
     //                           'restaurant_name' => $merchant_info['restaurant_name'],
     //                           'restaurant_slug' => $merchant_info['restaurant_slug']
                             ));
@@ -86,19 +90,7 @@
           
      <div class="box-grey rounded">
      <form id="frm-delivery" class="frm-delivery" method="POST" onsubmit="return false;">
-     <?php 
-     echo CHtml::hiddenField('action','placeOrder');
-     echo CHtml::hiddenField('country_code',$merchant_info['country_code']);
-     echo CHtml::hiddenField('currentController','store');
-     echo CHtml::hiddenField('delivery_type',$s['kr_delivery_options']['delivery_type']);
-     echo CHtml::hiddenField('cart_tip_percentage','');
-     echo CHtml::hiddenField('cart_tip_value','');
-     echo CHtml::hiddenField('client_order_sms_code');
-     echo CHtml::hiddenField('client_order_session');
-     if (isset($is_guest_checkout)){
-     	echo CHtml::hiddenField('is_guest_checkout',2);
-     }     
-     ?>
+     
      
          
      <?php if ( $s['kr_delivery_options']['delivery_type']=="pickup"):?> 
@@ -107,163 +99,7 @@
           
      <?php else :?> <!-- DELIVERY-->                          	       	      
           
-		  
-	       	      	     
-	       <div class="top10">
-	       
-	        
-	        	       
-	        
-                
-                
-                
-                
-                
-                
-                
-                
-            <?php if ( $address_book):?>
-            <div class="address_book_wrap">
-            <div class="row top10">
-                <div class="col-md-10">
-               <?php 
-               $address_list=Yii::app()->functions->addressBook(Yii::app()->functions->getClientId());
-               echo CHtml::dropDownList('address_book_id',$address_book['id'],
-               (array)$address_list,array(
-                  'class'=>"grey-fields full-width"
-               ));
-               ?>
-               <a href="javascript:;" class="edit_address_book block top10">
-                 <i class="ion-compose"></i> <?php echo t("Edit")?>
-               </a>
-               </div> 
-              </div>   
-            </div> <!--address_book_wrap-->
-            <?php endif;?>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            <div class="address-block">
-              <div class="row top10">
-                <div class="col-md-10">
-                 <?php echo CHtml::textField('street', isset($client_info['street'])?$client_info['street']:'' ,array(
-	               'class'=>'grey-fields full-width',
-	               'placeholder'=>Yii::t("default","Street"),
-	               'data-validation'=>"required"
-	              ))?>
-	             </div> 
-              </div>
-              
-              <div class="row top10">
-                <div class="col-md-10">
-	             <?php echo CHtml::textField('city',
-	             isset($client_info['city'])?$client_info['city']:''
-	             ,array(
-	               'class'=>'grey-fields full-width',
-	               'placeholder'=>Yii::t("default","City"),
-	               'data-validation'=>"required"
-	              ))?>
-	             </div> 
-              </div>
-              
-            <div class="row top10">
-                <div class="col-md-10">
-                 <?php echo CHtml::textField('state',
-                 isset($client_info['state'])?$client_info['state']:''
-                 ,array(
-                 'class'=>'grey-fields full-width',
-	               'placeholder'=>Yii::t("default","State"),
-	               'data-validation'=>"required"
-	              ))?>
-	             </div> 
-              </div>  
-              
-             <div class="row top10">
-                <div class="col-md-10">
-                  <?php echo CHtml::textField('zipcode',
-                  isset($client_info['zipcode'])?$client_info['zipcode']:''
-                  ,array(
-	               'class'=>'grey-fields full-width',
-	               'placeholder'=>Yii::t("default","Zip code")
-	              ))?>
-	             </div> 
-              </div> 
-              
-             <div class="row top10">
-                <div class="col-md-10">
-                 <?php echo CHtml::textField('location_name',
-                 isset($client_info['location_name'])?$client_info['location_name']:''
-                 ,array(
-	               'class'=>'grey-fields full-width',
-	               'placeholder'=>Yii::t("default","Apartment suite, unit number, or company name")	               
-	              ))?>
-	             </div> 
-              </div> 
-              
-            </div> <!--address-block-->  
-              
-              <div class="row top10">
-                <div class="col-md-10">
-                 <?php echo CHtml::textField('contact_phone',
-                 isset($client_info['contact_phone'])?$client_info['contact_phone']:''
-                 ,array(
-	               'class'=>'grey-fields mobile_inputs full-width',
-	               'placeholder'=>Yii::t("default","Mobile Number"),
-	               'data-validation'=>"required"  
-	              ))?>
-	             </div> 
-              </div>  
-              
-             <div class="row top10">
-                <div class="col-md-10">
-                  <?php echo CHtml::textField('delivery_instruction','',array(
-	               'class'=>'grey-fields full-width',
-	               'placeholder'=>Yii::t("default","Delivery instructions")   
-	              ))?>
-	             </div> 
-              </div> 
-              
-             <div class="row top10">
-                <div class="col-md-10">
-                  <?php
-	              echo CHtml::checkBox('saved_address',false,array('class'=>"icheck",'value'=>2));
-	              echo " ".t("Save to my address book");
-	              ?>
-	             </div> 
-              </div> 
-              
-             <?php if (isset($is_guest_checkout)):?>
-             <div class="row top10">
-                <div class="col-md-10">
-                 <?php echo CHtml::textField('email_address','',array(
-	               'class'=>'grey-fields full-width',
-	               'placeholder'=>Yii::t("default","Email address"),              
-	              ))?>
-	             </div> 
-              </div>
-                                          
-             <?php endif;?> 
-                                      
-            
-             <?php if (isset($is_guest_checkout)):?>
-             <?php FunctionsV3::sectionHeader('Optional')?>		  
-             <div class="row top10">
-                <div class="col-md-10">
-                 <?php echo CHtml::passwordField('password','',array(
-	               'class'=>'grey-fields full-width',
-	               'placeholder'=>Yii::t("default","Password"),               
-	              ))?>
-	             </div> 
-              </div>
-             <?php endif;?>
-             
-	       </div> <!--top10--> 
+	
 	        	        	               
      <?php endif;?> <!-- ENDIF DELIVERY-->
      

@@ -32,6 +32,9 @@
         <?php } else { 
             
               $this->renderPartial('/store/checkout/_form-filled-fields', array(
+                  
+                  'website_enabled_map_address' => $website_enabled_map_address,
+                  'address_book'      => $address_book
             ////           'phone'     => $merchant_info['contact_phone'],
             ////           'continue' => $continue,
             ////           's'        => $s,
@@ -49,7 +52,7 @@
     ?>
     
     
-    
+    <?php if ( 0 ) { ?>
     
     <h2 class="inner">Your order details</h2>
     <div class="form-group">
@@ -134,5 +137,11 @@
 
         </div>
     </div>
+    
+    <?php } ?>
+    
+    
+    
+    
     
 </form>

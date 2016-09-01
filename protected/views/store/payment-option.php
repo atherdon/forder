@@ -79,8 +79,15 @@ $this->renderPartial('/store/checkout/breadcrumbs', array(
 //var_dump( $merchant_info );die();
 $this->renderPartial('/store/checkout/content', array(
    'phone'     => $merchant_info['contact_phone'],
-    'continue' => $continue,
-    's'        => $s,
+   'continue'  => $continue,
+   's'         => $s,
+   'merchant_address'  => $merchant_address,
+   'merchant_info'     => $merchant_info,
+   'website_enabled_map_address' => $website_enabled_map_address,
+   'address_book'      => $address_book
+//   'phone'             => $phone 
+    
+    
 //   '' => ,
 //   'restaurant_slug' => $merchant_info['restaurant_slug']
 )); ?>
