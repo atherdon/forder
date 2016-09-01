@@ -2202,3 +2202,10 @@ a.bt_filters{
 p.small {
     font-size:12px;
 }
+
+#sub_content h2, #sub_content h3, #sub_content h4, #sub_content h5 {
+    /*margin: 0 0 10px 0;*/
+    /*font-size: 60px;*/
+    /*font-weight: 300;*/
+    color: #fff;
+}
