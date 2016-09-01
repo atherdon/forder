@@ -22,6 +22,11 @@
 		}else{
 			var doReturn = false;
 		}
+                
+                if( options.remove ){
+                    console.log( options.remove );
+                }
+                
 		var defaults = {
                     
 			message: 'We use cookies to track usage and preferences.', //Message displayed on bar
@@ -51,7 +56,9 @@
 			bottom: true, //Force CSS when fixed, so bar appears at bottom of website
 			zindex: '', //Can be set in CSS, although some may prefer to set here
 			domain: String(window.location.hostname), //Location of privacy policy
-			referrer: String(document.referrer) //Where visitor has come from
+			referrer: String(document.referrer) //Where visitor has come from,
+                        
+                        ,remove: false
 		};
 		var options = $.extend(defaults,options);
 		
