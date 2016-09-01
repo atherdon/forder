@@ -572,16 +572,23 @@ class ScriptManager
             $cs->registerScript(
                       'cookie-bar-init',
                       " 
+                          
+
                         $(document).ready(function(){
                             'use strict';
+                            
+                            if( $('body').hasClass('home') ){
+
+console.log('work');
                              $.cookieBar({
                                     fixed: true,
                                     message: 'We use cookies to improve your experience on our website. By browsing this website, you agree to our use of cookies.',
                                     policyURL: '" . $link . "'
-                                    ,remove: true    
+                                    
                             });
                             
-                            //$.cookieBar(
+                            }
+                            
 
                         });
                       ",
