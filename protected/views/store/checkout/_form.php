@@ -14,15 +14,22 @@
             echo CHtml::hiddenField('is_guest_checkout',2);
          }     
         
-         if ( $s['kr_delivery_options']['delivery_type']=="pickup") { ?>
-    
-    
-             <?php if (isset($is_guest_checkout)){ //<!--PICKUP GUEST-->
+         if ( $s['kr_delivery_options']['delivery_type']=="pickup") { 
+             
+             
+            $this->renderPartial('/store/checkout/_form-guest-checkout', array(
+
+            )); 
+            
+            
+             if (isset($is_guest_checkout)){ //<!--PICKUP GUEST-->
            
                     $this->renderPartial('/store/checkout/_form-guest-checkout', array(
 
                     )); 
-             } ?>  <!--PICKUP GUEST-->
+             } 
+             
+        ?>  <!--PICKUP GUEST-->
     
     
         <?php } else { 

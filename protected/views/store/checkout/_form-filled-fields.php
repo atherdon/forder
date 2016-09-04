@@ -30,14 +30,16 @@
              
              
 <?php if ( $website_enabled_map_address==2 ):?>
+
    <div class="form-group">
        <?php Widgets::AddressByMap()?>
    </div>
+
 <?php endif;?>
 
+<?php //var_dump( $address_book ); die();  ?>
 
-
- <?php if ( $address_book ): ?>
+ <?php if ( $address_book ) { ?>
 
 
     <div class="row">
@@ -61,6 +63,9 @@
 
         </div>
     </div>
+
+<?php } ?>
+
 
 
     <div class="form-group">
@@ -147,12 +152,13 @@
 
     <div class="form-group">
         <label>
-            <?php echo Yii::t("default","Save to my address book") ?>
-        </label>
-         <?php
+            <?php //echo Yii::t("default","Save to my address book") ?>
+            <?php
             echo CHtml::checkBox('saved_address',false,array('class'=>"icheck",'value'=>2));
             echo " ".t("Save to my address book");
             ?>        
+        </label>
+         
     </div>
 
 
@@ -190,4 +196,4 @@
            
 
 
-<?php endif; ?>
+<?php //endif; ?>

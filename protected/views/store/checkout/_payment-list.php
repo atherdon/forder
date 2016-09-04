@@ -1,9 +1,68 @@
 
 <?php FunctionsV3::sectionHeader('Payment Information')?>
 
+
+<?php  //var_dump( $payment_list ); die();  ?>
+
 <?php if (is_array($payment_list) && count($payment_list)>=1):?>
 <?php foreach ($payment_list as $key => $val):?>
   
+
+    <div class="payment_select" id="<?php echo $key; ?>">
+        <label>
+<!--            <input type="radio" value="" checked name="payment_method" class="icheck">
+            Credit card-->
+            <?php echo CHtml::radioButton('payment_opt',false,
+         array('class'=>"icheck payment_option",'value'=>$key))?> <?php echo $val?>
+        </label>
+        
+        
+        <?php if ( $key == 'cod') { //Cash on Delivery?> 
+            <i class="icon_wallet"></i>
+        <?php } ?>
+
+        <?php if ( $key == 'ccr') { ?>
+            <i class="icon_wallet"></i>
+        <?php } ?>
+
+        <?php if ( $key == 'stp') { ?>
+            <i class="icon_creditcard"></i>
+        <?php } ?>
+
+        
+        <?php if ( $key == 'mcd') { ?>
+            <i class="icon_creditcard"></i>
+        <?php } ?>
+
+        
+        <?php if ( $key == 'pyl') { ?>
+            <i class="icon_creditcard"></i>
+        <?php } ?>
+
+        
+        <?php if ( $key == 'sow') { ?>
+            <i class="icon_creditcard"></i>
+        <?php } ?>
+
+        
+        <?php if ( $key == 'ocr') { // offline Credit Card Payment?>
+            <i class="icon_creditcard"></i>
+        <?php } ?>
+        
+        
+        <?php if ( $key == 'paypal') { // Paypal ?>
+            <!-- removed icon because for paypal we use custom image --> 
+        <?php } ?>
+            
+            
+
+        
+        
+        <!--<i class="icon_creditcard"></i>-->
+    </div>
+
+
+<?php if ( 0 ) { ?>
   <div class="row top10">
     <div class="col-md-9">
         
@@ -12,6 +71,7 @@
         
      </div> 
   </div>
+<?php } ?>
   
 
 
@@ -70,7 +130,8 @@
 <?php else:?>
   
   
-    <p class="text-danger"><?php echo t("No payment option available")?></p>
+   <h3><?php echo t("No payment option available")?></h3>
+
 
     
 <?php endif;?>

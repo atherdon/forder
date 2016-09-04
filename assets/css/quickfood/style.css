@@ -488,7 +488,7 @@ footer .styled-select {
 	border:0;
 	width:25px;
 	height:25px;
-	background: url(../img/search.svg) no-repeat center right;
+	background: url(../../images/quickfood/search.svg) no-repeat center right;
 	cursor:pointer;
 }
 #custom-search-input input.btn_search:focus, #custom-search-input .search-query:focus{outline:none;}
@@ -1824,7 +1824,7 @@ footer .form-group {
 	font-size:24px;
 }
 .payment_select#paypal{
-	background:#f0f0f0 url(../img/paypal.svg) center right no-repeat;
+	background:#f0f0f0 url(../../images/quickfood/paypal.svg) center right no-repeat;
 }
 
 /*3.9 Collapse*/   

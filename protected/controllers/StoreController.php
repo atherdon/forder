@@ -873,10 +873,12 @@ class StoreController extends CController
 	
 	public function actionCheckout()
 	{
-		if ( Yii::app()->functions->isClientLogin()){	       
- 	       $this->redirect(Yii::app()->createUrl('/store/PaymentOption')); 
- 	       die();
-        }
+	       if ( Yii::app()->functions->isClientLogin()){	       
+                    $this->redirect(Yii::app()->createUrl('/store/PaymentOption')); 
+                    die();
+               }
+               
+               
         
         $cs = Yii::app()->getClientScript();
 		$baseUrl = Yii::app()->baseUrl; 

@@ -25,8 +25,10 @@
                 if ($s['kr_delivery_options']['delivery_asap']==1){
                         $s['kr_delivery_options']['delivery_date']." ".Yii::t("default","ASAP");
                 } else {
+                    
                   echo '<span class="bold">'.date("M d Y",strtotime($s['kr_delivery_options']['delivery_date'])).
-                  " ".t("at"). " ". $s['kr_delivery_options']['delivery_time']."</span> ".t("to");
+                  " ".t("at"). " ". $s['kr_delivery_options']['delivery_time']."</span> " ;
+//                          . t("to");
                 }
                 ?>
             </p>                
