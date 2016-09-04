@@ -59,8 +59,8 @@
         
         <?php if ( Yii::app()->functions->getOption("merchant_enabled_tip",$merchant_id)==2) { 
 
-                $this->renderPartial('/store/checkout/_tips',array(
-//                              'merchant_id'  => $merchant_id,
+                $this->renderPartial('/store/menu/_tips',array(
+                              'merchant_id'  => $merchant_id,
 //                              'payment_list' => FunctionsV3::getMerchantPaymentList( $merchant_id )
                 ));
 
