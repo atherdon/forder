@@ -70,5 +70,4 @@ $merchant_tip_default=Yii::app()->functions->getOption("merchant_tip_default", $
         
     </div>
 
-
 <!--END TIPS-->

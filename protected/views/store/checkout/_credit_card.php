@@ -34,7 +34,7 @@
                     'placeholder'     => Yii::t("default","Card name"),
                     'data-validation' => "required"  
               ))?>
-            <!--<input type="text" class="form-control" id="name_card_order" name="name_card_order" placeholder="First and last name">-->
+
         </div>
 
         <div class="form-group">
@@ -46,10 +46,8 @@
                         'placeholder'     => Yii::t("default","Credit Card Number"),
                         'data-validation' => "required",
                         'maxlength'       => 16
-            ))?>   
+            ));?>   
 
-
-            <!--<input type="text" id="card_number" name="card_number" class="form-control" placeholder="Card number">-->
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -69,7 +67,6 @@
                                     ))
                             ?>  
 
-                            <!--<input type="text" id="expire_month" name="expire_month" class="form-control" placeholder="mm">-->
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
@@ -82,7 +79,7 @@
                                                 'data-validation' => "required"  
                                             ))
                             ?> 
-                            <!--<input type="text" id="expire_year" name="expire_year" class="form-control" placeholder="yyyy">-->
+                            
                         </div>
                     </div>
                 </div>
@@ -127,14 +124,10 @@
                         'data-validation' => "required"  
                     ));
              ?> 
-            <!--<input type="text" class="form-control" id="name_card_order" name="name_card_order" placeholder="First and last name">-->
+            
         </div>
         <input type="submit" value="<?php echo t("Add Credit Card")?>" class="btn_full">
 
-
-
-
-
-
+        
     </form>
 </div> <!--credit_card_wrap-->
