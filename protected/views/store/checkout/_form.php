@@ -16,7 +16,7 @@
         
          if ( $s['kr_delivery_options']['delivery_type']=="pickup") { 
              
-             
+//            @TODO check this partials
             $this->renderPartial('/store/checkout/_form-guest-checkout', array(
 
             )); 

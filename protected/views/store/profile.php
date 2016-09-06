@@ -12,6 +12,18 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
   <div class="row">
   <div class="col-md-8 ">
   
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
   <div class="tabs-wrapper">
      <ul id="tabs">
        <li class="<?php echo $tabs==""?"active":''?>">
@@ -39,11 +51,26 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
      </ul>
      
      <ul id="tab">
+         
+         
+         
+         
+         
+         
+         
        <li class="<?php echo $tabs==""?"active":''?>">
           <?php $this->renderPartial('/front/profile',array(
             'data'=>$info           
           ));?>
        </li>
+       
+       
+       
+       
+       
+       
+       
+       
        <li class="<?php echo $tabs==2?"active":''?>">
          <?php $this->renderPartial('/front/address-book',array(
            'client_id'=>Yii::app()->functions->getClientId(),
@@ -51,12 +78,26 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
            'tabs'=>$tabs
          ));?>
        </li>
+       
+       
+       
+       
+       
+       
+       
        <li>
          <?php $this->renderPartial('/front/order-history',array(           
            'data'=>Yii::app()->functions->clientHistyOrder( Yii::app()->functions->getClientId() )
          ));?>
                 
        </li>
+       
+       
+       
+       
+       
+       
+       
        
        <?php if ( $disabled_cc != "yes"):?>
        <li class="<?php echo $tabs==4?"active":''?>" >
@@ -75,32 +116,66 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
        </li>
        <?php endif;?>
        
+       
+       
+       
+       
+       
+       
+       
+       
      </ul>
   </div> <!--tabs-wrapper--> 
+  
+  
+  
+  
+  
+  
+  
+  
   
       
     </div> <!--col-->
     
     <div class="col-md-4 avatar-section">
        <div class="box-grey rounded" style="margin-top:0;">
-                        
+                  
+           
+           
+           
           <div class="avatar-wrap">
-          <img src="<?php echo $avatar;?>" class="img-circle">
+            <img src="<?php echo $avatar;?>" class="img-circle">
           </div> <!--center-->
           
           <div class="center top10">
-          <a href="javascript:;" id="uploadavatar"><?php echo t("Browse")?></a>          
+          <a href="javascript:;" id="uploadavatar">
+              <?php echo t("Browse")?>
+          </a>          
           </div>
+          
+          
+          
+          
+          
+          
           <DIV  style="display:none;" class="uploadavatar_chart_status" >
 			<div id="percent_bar" class="uploadavatar_percent_bar"></div>
 			<div id="progress_bar" class="uploadavatar_progress_bar">
 			  <div id="status_bar" class="uploadavatar_status_bar"></div>
 			</div>
-		  </DIV>		  
+		  </DIV>	
+          
+          
+          
+          
           
           <div class="line-top line-bottom center">
           <?php echo t("Update your profile picture")?>
           </div>
+          
+          
+          
           
           <?php if ( $info['social_strategy']=="web"):?>
           <div class="connected-wrap">
@@ -116,6 +191,9 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
           </div> <!--connected-wrap-->
           <?php endif;?>
           
+          
+          
+          
           <?php if ( $info['social_strategy']=="fb"):?>
           <div class="connected-wrap">
             <div class="mytable fb">
@@ -129,6 +207,11 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
             </div>
           </div> <!--connected-wrap-->
           <?php endif;?>
+          
+          
+          
+          
+          
           
           <?php if ( $info['social_strategy']=="google"):?>
           <div class="connected-wrap">
@@ -144,6 +227,13 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
           </div> <!--connected-wrap-->
           <?php endif;?>
        
+          
+          
+          
+          
+          
+          
+          
        </div>
     </div> <!--col-->
     

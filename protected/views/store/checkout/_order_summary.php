@@ -2,7 +2,25 @@
 
         
 
-        
+        <?php if( true ) { 
+                
+                $this->renderPartial('/store/checkout/_item', array(
+                  
+//                  'website_enabled_map_address' => $website_enabled_map_address,
+//                  'address_book'      => $address_book
+
+                    )); 
+            
+              } else {
+                  
+                  $this->renderPartial('/store/checkout/_item_complex', array(
+                  
+//                  'website_enabled_map_address' => $website_enabled_map_address,
+//                  'address_book'      => $address_book
+
+                    )); 
+                  
+              } ?>
 
 
 <!--qty-->

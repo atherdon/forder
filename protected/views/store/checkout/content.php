@@ -56,17 +56,6 @@
                 <?php } ?>        
 
 
-
-
-
-
-
-
-
-
-
-
-
             </div><!-- End box_style_1 -->
 
         </div><!-- End col-md-6 -->
