@@ -2,7 +2,7 @@
       <td>
           <strong>
               <?php echo $value['qty'] . 'x';  ?>
-              <!--1x-->
+              
           </strong> 
           <?php echo $value['item_name']; ?>
           
@@ -25,7 +25,7 @@
           
           <?php echo $value['notes'] ?>
           
-          <!--Enchiladas-->
+          
       </td>
       <td>
           
@@ -45,8 +45,7 @@
           <?php } ?>
           
           
-<!--          <strong class="pull-right">
-              $11-->
+
               
               <?php $this->renderPartial('/store/checkout/_price', array(
                   
@@ -55,8 +54,7 @@
                         'discounted_price' => false,
 
                     )); ?>
-              
-          <!--</strong>-->
+
           
           
           
