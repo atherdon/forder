@@ -8,9 +8,10 @@
 
 
 
+
 $this->renderPartial('/store/contact/_subheader',array(
         'h1'            => t("Contact Us"),
-        'sub_text'      => $address." ".$country,
+        'sub_text'      => $address . " " . $country,
         'contact_phone' => $contact_phone,
         'contact_email' => $contact_email 
 ));                     

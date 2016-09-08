@@ -297,9 +297,11 @@ $placholder_search=Yii::t("default",$placholder_search);
                                         </div>
                                         
                                         
+                                        <!--<div class="col-md-6">-->
+                                            <?php echo Widgets::ratingHTML(  $ratings, false, true, $val['merchant_id'] ); ?>
+                                            <?php //echo FunctionsV3::merchantOpenTag( $val['merchant_id'] )?>   
                                         
-                                        <?php echo Widgets::ratingHTML(  $ratings ); ?>
-                                        
+                                        <!--</div>-->
                                         
                                         
 
@@ -379,35 +381,35 @@ $placholder_search=Yii::t("default",$placholder_search);
 <?php if ($theme_hide_cuisine<>2):?>
 <!--CUISINE SECTIONS-->
 <?php if ( $list=FunctionsV3::getCuisine() ): ?>
-<div class="sections section-cuisine">
+<div class="sections section-cuisine form-group">
 <div class="container  nopad">
 
 <!--<div class="col-md-3 nopad">
 <img src="<?php //echo assetsURL()."/images/cuisine.png"?>" class="img-cuisine">
 </div>-->
 
-<div class="col-md-12  nopad">
-    
-    <h1>
+<h1>
         Browse delivery restaurants
-    </h1>  
+    </h1>
+
+<div class="col-md-6  nopad">
     
-  <h2>Browse delivery & takeout by cuisines</h2>
+      
+  <p class="sub-text center">Browse delivery & takeout by cuisines</p>
   
-  <p class="sub-text center"><?php echo t("choose from your favorite cuisine")?></p>
+  
+  
   
   <div class="row">
     <?php $x=1;?>
-    <?php foreach ($list as $val): ?>
-    <div class="col-md-4 col-sm-4 indent-5percent nopad">
+    <?php foreach ( array_slice($list, 20, 36) as $val): ?>
+    <div class="col-md-6 col-sm-6 indent-5percent nopad">
       <a href="<?php echo Yii::app()->createUrl('/store/cuisine',array("category"=>$val['cuisine_id']))?>" 
      class="<?php echo ($x%2)?"even":'odd'?>">
       <?php 
       $cuisine_json['cuisine_name_trans']=!empty($val['cuisine_name_trans'])?json_decode($val['cuisine_name_trans'],true):'';	 
       echo qTranslate($val['cuisine_name'],'cuisine_name',$cuisine_json);
-      if($val['total']>0){
-      	echo "<span>(".$val['total'].")</span>";
-      }
+    
       ?>
       </a>
     </div>   
@@ -417,32 +419,36 @@ $placholder_search=Yii::t("default",$placholder_search);
 
 </div>
 
-<div class="col-md-12  nopad">
+<div class="col-md-6  nopad">
 
-  <h2>Browse by cities </h2>
-  
+  <p class="sub-text center">Browse by cities</p>
   
   
   <div class="row">
     <?php $x=1;?>
-    <?php foreach ($list as $val): ?>
-    <div class="col-md-4 col-sm-4 indent-5percent nopad">
+    <?php foreach ( array_slice($list, 36) as $val): ?>
+    <div class="col-md-6 col-sm-6 indent-5percent nopad">
       <a href="<?php echo Yii::app()->createUrl('/store/cuisine',array("category"=>$val['cuisine_id']))?>" 
      class="<?php echo ($x%2)?"even":'odd'?>">
       <?php 
       $cuisine_json['cuisine_name_trans']=!empty($val['cuisine_name_trans'])?json_decode($val['cuisine_name_trans'],true):'';	 
       echo qTranslate($val['cuisine_name'],'cuisine_name',$cuisine_json);
-      if($val['total']>0){
-      	echo "<span>(".$val['total'].")</span>";
-      }
+    
       ?>
       </a>
     </div>   
     <?php $x++;?>
     <?php endforeach;?>
+      
+      
+    <a href="<?php echo Yii::app()->createUrl('/store/browse/' )?>" class="clean">Show more</a>  
+      
   </div> 
 
 </div>
+
+
+
 
 
 

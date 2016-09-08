@@ -9,7 +9,7 @@
             Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
         </p>
         
-        <form method="post" action="list_page.html">
+        <form method="post" action="#">
             <div id="custom-search-input">
                 <div class="input-group">
                     <input type="text" class=" search-query" placeholder="Your Address or postal code">

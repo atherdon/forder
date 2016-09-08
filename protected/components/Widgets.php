@@ -1976,7 +1976,7 @@ class Widgets extends CApplicationComponent
                         
 	}
         
-        public static function ratingHTML( $ratingAr, $extended = false ){
+        public static function ratingHTML( $ratingAr, $extended = false, $tags = false, $id = false ){
             
             $html   = '<div class="rating">';
 //            var_dump( $ratingAr );
@@ -2045,6 +2045,11 @@ class Widgets extends CApplicationComponent
                                 '</a>
                            </small> )';
             }
+            
+            if( $tags ){
+                $html .= FunctionsV3::merchantOpenTag( $id );
+            }
+            
             
             $html .= '</div>';
             

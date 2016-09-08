@@ -2209,3 +2209,11 @@ p.small {
     /*font-weight: 300;*/
     color: #fff;
 }
+
+.section-cuisine .row a {
+    color: black;
+}
+.section-cuisine .row a.clean {
+    color:blue;
+    margin-left: 15px;
+}
