@@ -20,6 +20,9 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-6 col-sm-push-6">
+              
+              
+              
             <form id="merchant-apply-form" action="#" role="form" method="POST" class="info-card info-card-padding roundify form-horizontal bv-form" 
                   data-bv-message="This value is not valid" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" 
                   data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" 
@@ -172,6 +175,12 @@
                 </div>
               </div>
             </form>
+              
+              
+              
+              
+              
+              
             <br>
           </div>
 
@@ -221,6 +230,8 @@
       </div>
     </div>
 
+      
+    <?php if ( 0 ) { ?>  
     <div class="content-section content-section-alternate">
       <div class="container">
         <div class="content-section-headings">
@@ -275,6 +286,9 @@
       </div>
     </div>
 
+      
+      
+      
     <div class="content-section content-section-alternate">
       <div class="container">
         <div class="content-section-headings">
@@ -289,6 +303,11 @@
         </p>
       </div>
     </div>
+     <?php } ?> 
+      
+      
+      
+      
   </div>
 </div>
 
