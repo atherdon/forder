@@ -20,6 +20,20 @@ $placholder_search=Yii::t("default",$placholder_search);
 ?>
 
 
+
+<?php 
+        $this->renderPartial('/store/home/_header', array(
+//                  'home_search_text'    => $home_search_text,
+//                  'kr_search_adrress'   => $kr_search_adrress,
+//                  'placholder_search'   => $placholder_search,
+//                  'home_search_subtext' => $home_search_subtext
+        ));
+?>
+
+
+
+<?php if ( 0 ) { ?>
+
 <!-- SubHeader =============================================== -->
 <section class="parallax-window" id="home" data-parallax="scroll" 
          data-image-src="<?php echo Widgets::quickImagesPath(); ?>sub_header_home.jpg" data-natural-width="1400" data-natural-height="550">
@@ -74,13 +88,25 @@ $placholder_search=Yii::t("default",$placholder_search);
             ));
             
         }
+        
+        
+        
 ?>
+        
+        
+        
+        
         
         
         
         
     </div><!-- End sub_content -->
 </div><!-- End subheader -->
+
+
+
+
+
 <div id="count" class="hidden-xs">
     <ul>
         <li>
@@ -96,6 +122,10 @@ $placholder_search=Yii::t("default",$placholder_search);
 </div>
 </section><!-- End section -->
 <!-- End SubHeader ============================================ -->
+
+
+
+<?php } ?>
 
 
 <?php if ( $theme_hide_how_works <> 2 ):?>
@@ -210,7 +240,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                             
                             <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>" class="strip_list">
                                                                                            
-                                <div class="ribbon_1">Popular</div>
+                                <!--<div class="ribbon_1">Popular</div>-->
                                     <div class="desc">
                                         <div class="thumb_strip">
                                             <img src="<?php echo FunctionsV3::getMerchantLogo($val['merchant_id']);?>" alt="">
@@ -259,13 +289,19 @@ $placholder_search=Yii::t("default",$placholder_search);
                             <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>" class="strip_list">
                                 
                               
-                                <div class="ribbon_1">Popular</div>
+                                
+                                
                                     <div class="desc">
                                         <div class="thumb_strip">
                                             <img src="<?php echo FunctionsV3::getMerchantLogo($val['merchant_id']);?>" alt="">
                                         </div>
                                         
+                                        
+                                        
                                         <?php echo Widgets::ratingHTML(  $ratings ); ?>
+                                        
+                                        
+                                        
 
                                         <h3>
                                             <?php echo clearString($val['restaurant_name'])?>
@@ -332,60 +368,9 @@ $placholder_search=Yii::t("default",$placholder_search);
 
 
 
-<?php if ($theme_hide_cuisine<>2):?>
-<!--CUISINE SECTIONS-->
-<?php if ( $list=FunctionsV3::getCuisine() ): ?>
 
 
 
-
-<div class="high_light">
-    <div class="container">
-        <h3>Choose from over 2,000 Restaurants</h3>
-        <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
-        <a href="#">View all Restaurants</a>
-    </div><!-- End container -->
-</div><!-- End hight_light -->
-
-<section class="parallax-window" data-parallax="scroll" data-image-src="<?php echo Widgets::quickImagesPath(); ?>bg_office.jpg" data-natural-width="1200" data-natural-height="600">
-    <div class="parallax-content">
-        <div class="sub_content">
-            <i class="icon_mug"></i>
-            
-            
-            <h3>
-                <?php echo t("Browse by cuisine")?>
-            </h3>
-            <p>
-                <?php echo t("choose from your favorite cuisine")?>
-            </p>
-            <div class="row">
-                <?php $x=1;?>
-                <?php foreach ($list as $val): ?>
-                <div class="col-md-4 col-sm-4 indent-5percent nopad">
-                  <a href="<?php echo Yii::app()->createUrl('/store/cuisine',array("category"=>$val['cuisine_id']))?>" 
-                 class="<?php echo ($x%2)?"even":'odd'?> clean-up-link ">
-                  <?php 
-                  $cuisine_json['cuisine_name_trans']=!empty($val['cuisine_name_trans'])?json_decode($val['cuisine_name_trans'],true):'';	 
-                  echo qTranslate($val['cuisine_name'],'cuisine_name',$cuisine_json);
-                  if($val['total']>0){
-                    echo "<span>(".$val['total'].")</span>";
-                  }
-                  ?>
-                  </a>
-                </div>   
-                <?php $x++;?>
-                <?php endforeach;?>
-              </div> 
-            
-        </div><!-- End sub_content -->
-    </div><!-- End subheader -->
-</section><!-- End section -->
-
-
-
-<?php endif;?>
-<?php endif;?>
 
 
 
@@ -397,13 +382,18 @@ $placholder_search=Yii::t("default",$placholder_search);
 <div class="sections section-cuisine">
 <div class="container  nopad">
 
-<div class="col-md-3 nopad">
-<img src="<?php echo assetsURL()."/images/cuisine.png"?>" class="img-cuisine">
-</div>
+<!--<div class="col-md-3 nopad">
+<img src="<?php //echo assetsURL()."/images/cuisine.png"?>" class="img-cuisine">
+</div>-->
 
-<div class="col-md-9  nopad">
-
-  <h2><?php echo t("Browse by cuisine")?></h2>
+<div class="col-md-12  nopad">
+    
+    <h1>
+        Browse delivery restaurants
+    </h1>  
+    
+  <h2>Browse delivery & takeout by cuisines</h2>
+  
   <p class="sub-text center"><?php echo t("choose from your favorite cuisine")?></p>
   
   <div class="row">
@@ -426,6 +416,36 @@ $placholder_search=Yii::t("default",$placholder_search);
   </div> 
 
 </div>
+
+<div class="col-md-12  nopad">
+
+  <h2>Browse by cities </h2>
+  
+  
+  
+  <div class="row">
+    <?php $x=1;?>
+    <?php foreach ($list as $val): ?>
+    <div class="col-md-4 col-sm-4 indent-5percent nopad">
+      <a href="<?php echo Yii::app()->createUrl('/store/cuisine',array("category"=>$val['cuisine_id']))?>" 
+     class="<?php echo ($x%2)?"even":'odd'?>">
+      <?php 
+      $cuisine_json['cuisine_name_trans']=!empty($val['cuisine_name_trans'])?json_decode($val['cuisine_name_trans'],true):'';	 
+      echo qTranslate($val['cuisine_name'],'cuisine_name',$cuisine_json);
+      if($val['total']>0){
+      	echo "<span>(".$val['total'].")</span>";
+      }
+      ?>
+      </a>
+    </div>   
+    <?php $x++;?>
+    <?php endforeach;?>
+  </div> 
+
+</div>
+
+
+
   
 </div> <!--container-->
 </div> <!--section-cuisine-->

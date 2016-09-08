@@ -1920,6 +1920,15 @@ class Widgets extends CApplicationComponent
                         
 	}
         
+        public static function quickVideoPath()
+	{
+            $path = Yii::app()->request->baseUrl . '/assets/video/';
+            if ( empty( $path ) ){ return ; }
+            
+            return $path;
+                        
+	}
+        
         public static function driverImagesPath()
 	{
             $path = Yii::app()->request->baseUrl . '/assets/images/driver/';

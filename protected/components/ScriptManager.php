@@ -590,8 +590,27 @@ class ScriptManager
                       );
               
             
-           
+           $cs->registerScriptFile(
+                    Widgets::quickScriptPath() . 'video_header.js',
+                    CClientScript::POS_END
+                    ); 
             
+            $cs->registerScript(
+                      'video-header-init',
+                      " 
+                        $(document).ready(function() {
+                                'use strict';
+                            HeaderVideo.init({
+                              container: $('.header-video'),
+                              header: $('.header-video--media'),
+                              videoTrigger: $('#video-trigger'),
+                              autoPlayVideo: true
+                            });    
+
+                        });
+                      ",
+                      CClientScript::POS_END
+                      );
             
             
             
