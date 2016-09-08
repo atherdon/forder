@@ -1,0 +1,65 @@
+// this file is the central point of tracking for all non-react components. if changes are made here you may need to mirror them in /static/src/shared/client/Tracking.js for all the react apps.
+
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+    
+  if (window.segmentKey) {
+    analytics.load(window.segmentKey);
+    analytics.page();
+  } else {
+    console.log('Set window.segmentKey before loading segment stuff.');
+  }
+
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+  function segmentTrack(str, obj, callback) {
+    try {
+      obj.dd_device_id = getCookie('dd_device_id');
+      obj.dd_login_id = getCookie('dd_login_id');
+      obj.dd_session_id = getCookie('dd_session_id');
+      window.analytics.track(str, obj, callback);
+    } catch (error) {
+      console.log('segment error', str, obj)
+    }
+  }
+
+  function ingestTrack(str, obj) {
+    try {
+      $.ajax({
+        url: window.view.PRODUCTION ? 'https://ingest.doordash.com/js_events' : 'https://ingest.doorcrawl.com/js_events',
+        method: 'POST',
+        contentType: 'application/json',
+        xhrFields: {
+          withCredentials: true
+        },
+        data: JSON.stringify({
+          Eventname: str,
+          properties: obj,
+          // User_id: 'unknown',
+        })
+      }).fail(function(){
+        //
+      })
+    } catch(error) {
+      //
+    }
+  }
+
+  window.trackEvent = function(str, obj, callback) {
+    segmentTrack(str, obj, callback);
+    ingestTrack(str, obj);
+  }
+}}();

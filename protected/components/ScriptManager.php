@@ -319,8 +319,8 @@ class ScriptManager
             
             // @TODO from old code, need to decide what to do with it
             // OLD CODE STARTS
-            $cs->registerScriptFile("//code.jquery.com/ui/1.10.3/jquery-ui.js"
-                    ,CClientScript::POS_END); 
+//            $cs->registerScriptFile("//code.jquery.com/ui/1.10.3/jquery-ui.js"
+//                    ,CClientScript::POS_END); 
             
             
 
@@ -389,122 +389,122 @@ class ScriptManager
               CClientScript::POS_HEAD
             );		
 		
-            $cs->registerScriptFile($baseUrl."/assets/vendor/DataTables/jquery.dataTables.min.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/DataTables/fnReloadAjax.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/JQV/form-validator/jquery.form-validator.min.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.ui.timepicker-0.0.8.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/js/uploader.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/ajaxupload/fileuploader.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/iCheck/icheck.js"
-            ,CClientScript::POS_END); 
-            
-            $cs->registerScriptFile($baseUrl."/assets/vendor/chosen/chosen.jquery.min.js"
-            ,CClientScript::POS_END); 
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/DataTables/jquery.dataTables.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/DataTables/fnReloadAjax.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/JQV/form-validator/jquery.form-validator.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.ui.timepicker-0.0.8.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/js/uploader.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/ajaxupload/fileuploader.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/iCheck/icheck.js"
+//            ,CClientScript::POS_END); 
+//            
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/chosen/chosen.jquery.min.js"
+//            ,CClientScript::POS_END); 
 
             /*$cs->registerScriptFile("//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclusterer/1.0/src/markerclusterer.js"
             ,CClientScript::POS_END);*/
 
-            $cs->registerScriptFile($baseUrl."/assets/vendor/markercluster.js"
-            ,CClientScript::POS_END); 
-
-            $google_key=getOptionA('google_geo_api_key');
-            if (!empty($google_key)){
-                    $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=".$google_key
-                    ,CClientScript::POS_END); 
-            } else {
-                    $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"
-                ,CClientScript::POS_END); 
-            }
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.geocomplete.min.js"
-            ,CClientScript::POS_END); 
-
-            if ( Yii::app()->functions->getOptionAdmin('fb_flag')=="" ){
-                    $cs->registerScriptFile($baseUrl."/assets/js/fblogin.js?ver=1"
-                ,CClientScript::POS_END); 
-            }
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.printelement.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.appear.js"
-            ,CClientScript::POS_END); 
-            
-            $cs->registerScriptFile($baseUrl."/assets/vendor/magnific-popup/jquery.magnific-popup.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/imagesloaded.pkgd.js"
-            ,CClientScript::POS_END); 
-            
-            $cs->registerScriptFile($baseUrl."/assets/vendor/intel/build/js/intlTelInput.js?ver=2.1.5"
-            ,CClientScript::POS_END); 
-		
-            $cs->registerScriptFile($baseUrl."/assets/vendor/bootstrap/js/bootstrap.min.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/parallax.js/parallax.min.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/raty/jquery.raty.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile("//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.4/js/bootstrap-select.min.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/waypoints/jquery.waypoints.min.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/waypoints/shortcuts/infinite.min.js"
-            ,CClientScript::POS_END); 
-
-            
-            $cs->registerScriptFile($baseUrl."/assets/vendor/gmaps.js"
-            ,CClientScript::POS_END); 
-
-            
-            $cs->registerScriptFile($baseUrl."/assets/vendor/noty-2.3.7/js/noty/packaged/jquery.noty.packaged.min.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/nprogress/nprogress.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/theia-sticky-sidebar.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/readmore.min.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/justified-gallery/js/jquery.justifiedGallery.min.js"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/vendor/EasyAutocomplete/jquery.easy-autocomplete.min.js"
-            ,CClientScript::POS_END); 
-
-            if ( Yii::app()->functions->getOptionAdmin('theme_time_pick') == 2 ){
-                    $cs->registerScriptFile($baseUrl."/assets/vendor/timepicker.co/jquery.timepicker.js"
-                    ,CClientScript::POS_END);
-            }
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/markercluster.js"
+//            ,CClientScript::POS_END); 
+//
+//            $google_key=getOptionA('google_geo_api_key');
+//            if (!empty($google_key)){
+//                    $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=".$google_key
+//                    ,CClientScript::POS_END); 
+//            } else {
+//                    $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"
+//                ,CClientScript::POS_END); 
+//            }
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.geocomplete.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            if ( Yii::app()->functions->getOptionAdmin('fb_flag')=="" ){
+//                    $cs->registerScriptFile($baseUrl."/assets/js/fblogin.js?ver=1"
+//                ,CClientScript::POS_END); 
+//            }
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.printelement.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.appear.js"
+//            ,CClientScript::POS_END); 
+//            
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/magnific-popup/jquery.magnific-popup.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/imagesloaded.pkgd.js"
+//            ,CClientScript::POS_END); 
+//            
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/intel/build/js/intlTelInput.js?ver=2.1.5"
+//            ,CClientScript::POS_END); 
+//		
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/bootstrap/js/bootstrap.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/parallax.js/parallax.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/raty/jquery.raty.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile("//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.4/js/bootstrap-select.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/waypoints/jquery.waypoints.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/waypoints/shortcuts/infinite.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/gmaps.js"
+//            ,CClientScript::POS_END); 
+//
+//            
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/noty-2.3.7/js/noty/packaged/jquery.noty.packaged.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/nprogress/nprogress.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/theia-sticky-sidebar.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/readmore.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/justified-gallery/js/jquery.justifiedGallery.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/vendor/EasyAutocomplete/jquery.easy-autocomplete.min.js"
+//            ,CClientScript::POS_END); 
+//
+//            if ( Yii::app()->functions->getOptionAdmin('theme_time_pick') == 2 ){
+//                    $cs->registerScriptFile($baseUrl."/assets/vendor/timepicker.co/jquery.timepicker.js"
+//                    ,CClientScript::POS_END);
+//            }
 
 //            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery-cookie.js"
 //            ,CClientScript::POS_END); 
 
-            $cs->registerScriptFile($baseUrl."/assets/js/store.js?ver=3"
-            ,CClientScript::POS_END); 
-
-            $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
-            ,CClientScript::POS_END);
+//            $cs->registerScriptFile($baseUrl."/assets/js/store.js?ver=3"
+//            ,CClientScript::POS_END); 
+//
+//            $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
+//            ,CClientScript::POS_END);
             //OLD CODE ENDS
             
             
@@ -630,51 +630,51 @@ class ScriptManager
             
             
             
-            $cs->registerCssFile("//fonts.googleapis.com/css?family=Open+Sans|Podkova|Rosario|Abel|PT+Sans|Source+Sans+Pro:400,600,300|Roboto|Montserrat:400,700|Lato:400,300,100italic,100,300italic,400italic,700,700italic,900,900italic|Raleway:300,400,600,800");					
-
-            //$cs->registerCssFile("//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
-            $cs->registerCssFile($baseUrl."/assets/vendor/font-awesome/css/font-awesome.min.css");
-
-
-            $cs->registerCssFile($baseUrl."/assets/vendor/colorpick/css/colpick.css");
-            $cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
-            
-            $cs->registerCssFile($baseUrl."/assets/vendor/chosen/chosen.css");
-            $cs->registerCssFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.css?ver=1");
-            $cs->registerCssFile($baseUrl."/assets/vendor/animate.min.css");
-            
-            //$cs->registerCssFile($baseUrl."/assets/vendor/flexslider/flexslider.css");
-            $cs->registerCssFile($baseUrl."/assets/vendor/magnific-popup/magnific-popup.css");
-
-            //$cs->registerCssFile($baseUrl."/assets/vendor/bxslider/jquery.bxslider.css");
-            $cs->registerCssFile($baseUrl."/assets/vendor/intel/build/css/intlTelInput.css");
-            $cs->registerCssFile($baseUrl."/assets/vendor/rupee/rupyaINR.css");			
-
-            //$cs->registerCssFile('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');	
-            $cs->registerCssFile($baseUrl."/assets/vendor/bootstrap/css/bootstrap.min.css");		
-
-            $cs->registerCssFile($baseUrl."/assets/vendor/raty/jquery.raty.css");	
-
-            //$cs->registerCssFile("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
-            $cs->registerCssFile($baseUrl."/assets/vendor/ionicons-2.0.1/css/ionicons.min.css");	
-
-            $cs->registerCssFile("//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.4/css/bootstrap-select.min.css");	
-
-            $cs->registerCssFile($baseUrl."/assets/vendor/nprogress/nprogress.css");
-
-            $cs->registerCssFile($baseUrl."/assets/vendor/justified-gallery/css/justifiedGallery.min.css");
-
-            $cs->registerCssFile($baseUrl."/assets/vendor/EasyAutocomplete/easy-autocomplete.min.css");		
-
-            /*$cs->registerCssFile($baseUrl."/assets/vendor/pickadate.js/lib/themes/default.css");
-            $cs->registerCssFile($baseUrl."/assets/vendor/pickadate.js/lib/themes/default.time.css");*/	
-
-            if (Yii::app()->functions->getOptionAdmin('theme_time_pick')==2){
-              $cs->registerCssFile($baseUrl."/assets/vendor/timepicker.co/jquery.timepicker.min.css");
-            }
-
-            $cs->registerCssFile($baseUrl.'/assets/css/store-v2.css?ver=1.0');
-            $cs->registerCssFile($baseUrl.'/assets/css/responsive.css?ver=1.0');
+//            $cs->registerCssFile("//fonts.googleapis.com/css?family=Open+Sans|Podkova|Rosario|Abel|PT+Sans|Source+Sans+Pro:400,600,300|Roboto|Montserrat:400,700|Lato:400,300,100italic,100,300italic,400italic,700,700italic,900,900italic|Raleway:300,400,600,800");					
+//
+//            //$cs->registerCssFile("//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+//            $cs->registerCssFile($baseUrl."/assets/vendor/font-awesome/css/font-awesome.min.css");
+//
+//
+//            $cs->registerCssFile($baseUrl."/assets/vendor/colorpick/css/colpick.css");
+//            $cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
+//            
+//            $cs->registerCssFile($baseUrl."/assets/vendor/chosen/chosen.css");
+//            $cs->registerCssFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.css?ver=1");
+//            $cs->registerCssFile($baseUrl."/assets/vendor/animate.min.css");
+//            
+//            //$cs->registerCssFile($baseUrl."/assets/vendor/flexslider/flexslider.css");
+//            $cs->registerCssFile($baseUrl."/assets/vendor/magnific-popup/magnific-popup.css");
+//
+//            //$cs->registerCssFile($baseUrl."/assets/vendor/bxslider/jquery.bxslider.css");
+//            $cs->registerCssFile($baseUrl."/assets/vendor/intel/build/css/intlTelInput.css");
+//            $cs->registerCssFile($baseUrl."/assets/vendor/rupee/rupyaINR.css");			
+//
+//            //$cs->registerCssFile('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');	
+//            $cs->registerCssFile($baseUrl."/assets/vendor/bootstrap/css/bootstrap.min.css");		
+//
+//            $cs->registerCssFile($baseUrl."/assets/vendor/raty/jquery.raty.css");	
+//
+//            //$cs->registerCssFile("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
+//            $cs->registerCssFile($baseUrl."/assets/vendor/ionicons-2.0.1/css/ionicons.min.css");	
+//
+//            $cs->registerCssFile("//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.4/css/bootstrap-select.min.css");	
+//
+//            $cs->registerCssFile($baseUrl."/assets/vendor/nprogress/nprogress.css");
+//
+//            $cs->registerCssFile($baseUrl."/assets/vendor/justified-gallery/css/justifiedGallery.min.css");
+//
+//            $cs->registerCssFile($baseUrl."/assets/vendor/EasyAutocomplete/easy-autocomplete.min.css");		
+//
+//            /*$cs->registerCssFile($baseUrl."/assets/vendor/pickadate.js/lib/themes/default.css");
+//            $cs->registerCssFile($baseUrl."/assets/vendor/pickadate.js/lib/themes/default.time.css");*/	
+//
+//            if (Yii::app()->functions->getOptionAdmin('theme_time_pick')==2){
+//              $cs->registerCssFile($baseUrl."/assets/vendor/timepicker.co/jquery.timepicker.min.css");
+//            }
+//
+//            $cs->registerCssFile($baseUrl.'/assets/css/store-v2.css?ver=1.0');
+//            $cs->registerCssFile($baseUrl.'/assets/css/responsive.css?ver=1.0');
             
             
             

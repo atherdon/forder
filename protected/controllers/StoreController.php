@@ -403,10 +403,12 @@ class StoreController extends CController
         }
         
         public function actionPrivacy(){
+            $this->layout = 'partner';
             $this->render('//store/privacy/index');
         }
         
         public function actionTerms(){
+            $this->layout = 'partner';
             $this->render('//store/terms/index');
         }
         

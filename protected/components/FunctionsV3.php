@@ -165,7 +165,7 @@ class FunctionsV3
         $top_menu[] = array( 
                         'tag'   => "Privacy & Terms",
                         'label' => '' . Yii::t("default", "Privacy"),
-                        'url'   => array('/store/page/privacy-amp-terms') 
+                        'url'   => array('/store/privacy') 
             );
         
         $top_menu[] = array( 
@@ -214,7 +214,7 @@ class FunctionsV3
         $top_menu[] = array( 
                         'tag'   => "Registration",
                         'label' => '' . Yii::t("default", "Terms & Conditions"),
-                        'url'   => array('/store/page/terms-and-conditions') 
+                        'url'   => array('/store/terms') 
             );
         
         

@@ -58,15 +58,20 @@ if (!empty($fields)){
                 <p class="nopadding"><a href="mailto:customercare@quickfood.com"><i class="icon-mail-3"></i> customercare@quickfood.com</a></p>
             </div>
                         
-             <div class="box_style_2">
+             
+            
+    	</div>
+        <div class="col-md-6 col-sm-6">
+            <div class="box_style_2">
             	<h2 class="inner">Restaurant Support</h2>
                 <p class="add_bottom_30">Quo ex rebum petentium, cum alia illud molestiae in, pro ea paulo gubergren. Ne case constituto pro, ex vis delenit complectitur, per ad <strong>everti timeam</strong> conclusionemque. Quis voluptaria id per, an nibh atqui vix.</p>
                 <p><a href="tel://004542344599" class="phone"><i class="icon-phone-circled"></i>  +45 423 445 99</a></p>
                 <p class="nopadding"><a href="mailto:customercare@quickfood.com"><i class="icon-mail-3"></i> support@quickfood.com</a></p>
             </div>
-            
-    	</div>
-            
+        </div>    
+        
+        
+        <?php if ( 0 ) { ?>
         <div class="col-md-6 col-sm-6">
         	<div class="box_style_2">
             	<h2 class="inner">
@@ -172,6 +177,8 @@ if (!empty($fields)){
                 
             </div>
     	</div>
+        <?php } ?>
+        
         
             
     </div><!-- End row -->
