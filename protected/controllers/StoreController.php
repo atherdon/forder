@@ -209,7 +209,7 @@ class StoreController extends CController
             if (Yii::app()->functions->isClientLogin()){
 
 
-                    echo '123'; die();
+//                    echo '123'; die();
                     $this->redirect(Yii::app()->createUrl('/store')); 
                     die();
             }
