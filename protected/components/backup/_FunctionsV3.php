@@ -92,6 +92,32 @@ class FunctionsV3
                         'url'   => array('/store/#') 
             );
         
+          if ( Yii::app()->functions->isClientLogin()){
+              
+        	$top_menu[] = array(
+                    'tag'    => "profile",
+                    'url'    => array('/store/profile'),
+                    'label'  => ''.ucwords(Yii::app()->functions->getClientName()),
+    	  
+        	);
+        	
+               if( Yii::app()->controller->action->id == 'profile' ){
+                   
+                   $top_menu[]=array(
+                        'tag'   => "logout",
+                        'url'=>array('/store/logout'),
+                        'label'=>t("Sign Out"),
+
+                      );
+                   
+               }  
+                
+                
+                
+        }
+       
+        
+        
          return array(  		    
 		    'id'             => 'menu',
 		    'activeCssClass' => 'active', 

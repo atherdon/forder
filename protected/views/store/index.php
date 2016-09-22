@@ -378,24 +378,28 @@ $placholder_search=Yii::t("default",$placholder_search);
 
 
 
+
+
+
+
 <?php if ($theme_hide_cuisine<>2):?>
 <!--CUISINE SECTIONS-->
 <?php if ( $list=FunctionsV3::getCuisine() ): ?>
 <div class="sections section-cuisine form-group">
 <div class="container  nopad">
 
-<!--<div class="col-md-3 nopad">
-<img src="<?php //echo assetsURL()."/images/cuisine.png"?>" class="img-cuisine">
-</div>-->
+
 
 <h1>
-        Browse delivery restaurants
-    </h1>
+    Browse delivery restaurants
+</h1>
 
 <div class="col-md-6  nopad">
     
       
-  <p class="sub-text center">Browse delivery & takeout by cuisines</p>
+  <p class="sub-text center">
+      Browse delivery & takeout by cuisines
+  </p>
   
   
   
@@ -457,6 +461,11 @@ $placholder_search=Yii::t("default",$placholder_search);
 </div> <!--section-cuisine-->
 <?php endif;?>
 <?php endif;?>
+
+
+
+
+
 
 
 

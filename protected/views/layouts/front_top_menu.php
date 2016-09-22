@@ -14,12 +14,7 @@
                 </a>        
             
             <?php endif;?>
-            
-<!--            <a href="index.html" id="logo">
-            <img src="img/logo.png" width="190" height="23" alt="" data-retina="true" class="hidden-xs">
-            <img src="img/logo_mobile.png" width="59" height="23" alt="" data-retina="true" class="hidden-lg hidden-md hidden-sm">
-            </a>-->
-            
+           
         </div>
         <nav class="col-md-8 col-sm-8 col-xs-8">
         <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);">
@@ -47,8 +42,9 @@
     </div><!-- End row -->
 </div><!-- End container -->
 </header>
-    <!-- End Header =============================================== -->
+<!-- End Header =============================================== -->
     
+
 <?php if ( 0 ) { ?>
 
 <div class="top-menu-wrapper <?php echo "top-".$action;?>">
@@ -63,8 +59,6 @@
     <?php endif;?>
   </div>
   
-    
-    
   <div class="col-xs-1 menu-nav-mobile border relative">
      <a href="#"><i class="ion-android-menu"></i></a>
   </div> <!--menu-nav-mobile-->
@@ -76,21 +70,17 @@
   <?php endif;?>
   
   
-  
-  
   <div class="col-md-9 border col-b">
-    <?php $this->widget('zii.widgets.CMenu', FunctionsV3::getMenu() );?> 
+    <?php $this->widget('zii.widgets.CMenu', FunctionsV3::_OldgetMenu() );?> 
     <div class="clear"></div>
   </div>
-  
-  
   
 </div> <!--container-->
 
 </div> <!--END top-menu-->
 
 <div class="menu-top-menu">
-    <?php $this->widget('zii.widgets.CMenu', FunctionsV3::getMenu('mobile-menu') );?> 
+    <?php $this->widget('zii.widgets.CMenu', FunctionsV3::_OldgetMenu('mobile-menu') );?> 
     <div class="clear"></div>
 </div> <!--menu-top-menu-->
 

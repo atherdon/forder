@@ -58,6 +58,20 @@
             </div>
         </div><!-- End row -->
         <div class="row">
+            <div class="col-md-4">
+                
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-12">
                 <div id="social_footer">
                        <?php if ( $social_flag <> 1 ):?>
@@ -111,6 +125,10 @@
             </div>
         </div><!-- End row -->
     </div><!-- End container -->
+    
+    
+    
+    
     </footer>
     <!-- End Footer =============================================== -->
     

@@ -74,7 +74,33 @@ class FunctionsV3
     public static function getMenu( $class = "menu" )
     {
         
-        $top_menu[] = array( 
+     
+        
+        if ( Yii::app()->functions->isClientLogin()){
+              
+        	$top_menu[] = array(
+                    'tag'    => "profile",
+                    'url'    => array('/store/profile'),
+                    'label'  => ''.ucwords(Yii::app()->functions->getClientName()),
+    	  
+        	);
+        	
+               if( Yii::app()->controller->action->id == 'profile' ){
+                   
+                   $top_menu[] = array(
+                        'tag'   => "logout",
+                        'url'   => array('/store/logout'),
+                        'label' => t("Sign Out"),
+
+                      );
+                   
+               }  
+                
+                
+                
+        } else {
+            
+               $top_menu[] = array( 
                         'tag'   => "Login",
                         'label' => '' . Yii::t("default", "Login"),
                         'url'   => array('#'),
@@ -84,6 +110,9 @@ class FunctionsV3
                                             'data-toggle' => 'modal',
                                         ),
             );
+            
+        }
+        
                
         $top_menu[] = array( 
                 'tag'   => "Registration",
@@ -226,6 +255,81 @@ class FunctionsV3
          );       
 
     }
+    
+    public static function getFooterMenuTowns( $class = "menu" )
+    {
+        
+        $top_menu[] = array( 
+                        'tag'   => "contact",
+                        'label' => '' . Yii::t("default", "Contact"),
+                        'url'   => array('/store/contact') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "Privacy & Terms",
+                        'label' => '' . Yii::t("default", "Privacy"),
+                        'url'   => array('/store/privacy') 
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "Registration",
+                        'label' => '' . Yii::t("default", "Registration"),
+                        'url'   => array('#'),
+                        'linkOptions' => array(
+                                            'data-target' => '#register',
+                                            'data-toggle' => 'modal',
+                                        ),
+//                        [ 'vaja' => 'ja-ja' ]
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "Login",
+                        'label' => '' . Yii::t("default", "Login"),
+                        'url'   => array('#'),
+                        'linkOptions' => array(
+                                            'data-target' => '#login_2',
+                                            'data-toggle' => 'modal',
+                                        ),
+            );
+        
+        $top_menu[] = array( 
+                        'tag'   => "driver-registration",
+                        'label' => '' . Yii::t("default", "Become a Driver"),
+                        'url'   => array('/store/page/become-a-driver'),
+//                        'linkOptions' => array(
+//                                            'data-target' => '#login_2',
+//                                            'data-toggle' => 'modal',
+//                                        ), 
+            );
+        
+        
+        $top_menu[] = array( 
+                        'tag'   => "partner-registration",
+                        'label' => '' . Yii::t("default", "Become a Partner"),
+                        'url'   => array('/store/page/become-a-partner-restaurant-signup'),
+//                        'linkOptions' => array(
+//                                            'data-target' => '#login_2',
+//                                            'data-toggle' => 'modal',
+//                                        ), 
+            );        
+        
+        
+        $top_menu[] = array( 
+                        'tag'   => "Registration",
+                        'label' => '' . Yii::t("default", "Terms & Conditions"),
+                        'url'   => array('/store/terms') 
+            );
+        
+        
+            return array(  		    
+		    'id'             => 'menu2',
+		    'activeCssClass' => 'active', 
+		    'encodeLabel'    => false,
+		    'items'          => $top_menu                      
+         );       
+
+    }
+    
     
     
     
