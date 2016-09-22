@@ -775,12 +775,12 @@ class FunctionsV3
         }
         
         if ($is_merchant_open){
-        	$tag='<span class="label label-success">'.t("Open").'</span>';
+        	$tag='<span class="label label-success label-custom-wrapper">'.t("Open").'</span>';
         } else {
         	if ($merchant_preorder){
-        		$tag='<span class="label label-info">'.t("Pre-Order").'</span>';
+        		$tag='<span class="label label-info label-custom-wrapper">'.t("Pre-Order").'</span>';
         	} else {
-        		$tag='<span class="label label-danger">'.t("Closed").'</span>';
+        		$tag='<span class="label label-danger label-custom-wrapper">'.t("Closed").'</span>';
         	}
         }      
         return $tag;  

@@ -2230,3 +2230,6 @@ p.small {
 .row-delivery-links ul li {
     line-height: 30px;
 }
+.label-custom-wrapper {
+    margin-left:60px;
+}
