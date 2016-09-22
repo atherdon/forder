@@ -595,17 +595,25 @@ class ScriptManager
                     CClientScript::POS_END
                     ); 
             
-            $cs->registerScript(
+           
+           $cs->registerScript(
                       'video-header-init',
                       " 
                         $(document).ready(function() {
                                 'use strict';
-                            HeaderVideo.init({
-                              container: $('.header-video'),
-                              header: $('.header-video--media'),
-                              videoTrigger: $('#video-trigger'),
-                              autoPlayVideo: true
-                            });    
+                                
+                             if( $('body').hasClass('home') ) {
+                             
+                                HeaderVideo.init({
+                                 container: $('.header-video'),
+                                 header: $('.header-video--media'),
+                                 videoTrigger: $('#video-trigger'),
+                                 autoPlayVideo: true
+                               });   
+
+                             }   
+
+                             
 
                         });
                       ",

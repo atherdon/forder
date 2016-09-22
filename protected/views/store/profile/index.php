@@ -1,28 +1,11 @@
 <?php
-//$this->renderPartial('/front/banner-receipt',array(
-//   'h1'=>t("Profile"),
-//   'sub_text'=>t("Manage your profile,address book, credit card and more")
-//));
 
-$this->renderPartial('/store/profile/header',array(
-   
-));
+    $this->renderPartial('/store/profile/header',array(
 
-//$this->renderPartial( '/front/quickfood/menu-header', array() );
+    ));
 
-
-
-
-echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCountrySet(true));
-?>
-
-
-
-
-
-<?php
-
-$this->renderPartial( '/store/profile/tabs', array() );
+    echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCountrySet(true));
+    $this->renderPartial( '/store/profile/tabs', array() );
 
 ?>
 

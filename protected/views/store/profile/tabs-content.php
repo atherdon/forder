@@ -3,7 +3,7 @@
     <div class="tab-pane active" id="profile" role="tabpanel">
 
          <?php $this->renderPartial('/front/profile',array(
-            'data'=>$info           
+            'data' => $info           
           ));?>
         
         <?php //$this->renderPartial('/store/menu/details-content', array(
@@ -20,29 +20,13 @@
      
     <div class="tab-pane" id="addressbook" role="tabpanel">
 
-         <?php $this->renderPartial('/front/address-book',array(
+         <?php $this->renderPartial('/front/address-book', array(
            'client_id'=>Yii::app()->functions->getClientId(),
            'data'=>Yii::app()->functions->getAddressBookByID( isset($_GET['id'])?$_GET['id']:'' ),
            'tabs'=>$tabs
          ));?>
         
         
-         <?php //$this->renderPartial('/store/menu/restaurant-menu', array(
-//                                    'merchant_id'      => $merchant_id,
-//                                    'menu'             => $menu,
-//                                    'disabled_addcart' => $disabled_addcart,
-//                                    'tc'               => $tc,
-//
-//                                    'data'             => $data,          
-//                                    'distance'         => $distance,
-//
-//                                    'delivery_fee'     => $delivery_fee,
-//                                    'checkout'          => $checkout,
-//                                    'now'               => $now,
-//                                    'now_time'          => $now_time,
-//                                    'minimum_order'     => $minimum_order,
-//                                    'merchant_minimum_order_pickup' => $merchant_minimum_order_pickup,
-        //) ); ?>  
 
 
     </div>
@@ -80,27 +64,6 @@
   
 
    </div>
-
-    
-    <?php if ( 0 ) { ?> 
-    <div class="tab-pane" id="mypoints" role="tabpanel">
-
-       <!--BOOK A TABLE-->
-       <?php if ($booking_enabled):?>
-       <!--<li>-->
-           <?php $this->renderPartial('/store/menu/book-table',array(
-//                                            'merchant_id' => $merchant_id
-                   ));
-           ?>        
-       <!--</li>-->
-       <?php endif;?>
-       <!--END BOOK A TABLE-->
-
-   </div>
-    <?php } ?> 
-     
-     
                     
 </div>
-
 <!-- @TODO move picture upload to this section -->

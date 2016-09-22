@@ -75,7 +75,6 @@ class FunctionsV3
     {
         
      
-        
         if ( Yii::app()->functions->isClientLogin()){
               
         	$top_menu[] = array(
@@ -110,11 +109,8 @@ class FunctionsV3
                                             'data-toggle' => 'modal',
                                         ),
             );
-            
-        }
-        
                
-        $top_menu[] = array( 
+            $top_menu[] = array( 
                 'tag'   => "Registration",
                 'label' => '' . Yii::t("default", "Register"),
                 'url'   => array('#'),
@@ -122,13 +118,19 @@ class FunctionsV3
                                     'data-target' => '#register',
                                     'data-toggle' => 'modal',
                                 ),
-        );  
+            );     
+            
+        }
+        
+               
+        
         
         $top_menu[] = array( 
                         'tag'   => "help",
                         'label' => '' . Yii::t("default", "Help"),
                         'url'   => array('/store/#') 
             );
+        
         
          return array(  		    
 		    'id'             => 'menu-new',

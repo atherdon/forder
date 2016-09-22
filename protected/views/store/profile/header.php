@@ -1,7 +1,9 @@
 <!-- SubHeader =============================================== -->
 <section class="parallax-window" id="short" data-parallax="scroll" 
          data-image-src="<?php echo Widgets::quickImagesPath(); ?>sub_header_cart.jpg" 
-         data-natural-width="1400" data-natural-height="350">
+         data-natural-width="1400" 
+         data-natural-height="350"
+         >
     <div id="subheader">
     	<div id="sub_content">
     	 <h1>

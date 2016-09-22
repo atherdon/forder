@@ -1011,16 +1011,23 @@ class StoreController extends CController
 	
 	public function actionProfile()
 	{
-		if (Yii::app()->functions->isClientLogin()){		   
-		   $this->render('profile',array(
-		     'tabs'=>isset($_GET['tab'])?$_GET['tab']:'',
-		     'disabled_cc'=>getOptionA('disabled_cc_management'),
-		     'info'=>Yii::app()->functions->getClientInfo( Yii::app()->functions->getClientId()),
-		     'avatar'=>FunctionsV3::getAvatar( Yii::app()->functions->getClientId() )
+		if (Yii::app()->functions->isClientLogin()){
+                    
+//                    $this->render('//store/about/index'); 
+                    
+		   $this->render('//store/profile/index', array(
+		     'tabs'        => isset($_GET['tab'])?$_GET['tab']:'',
+		     'disabled_cc' => getOptionA('disabled_cc_management'),
+		     'info'        => Yii::app()->functions->getClientInfo( Yii::app()->functions->getClientId()),
+		     'avatar'      => FunctionsV3::getAvatar( Yii::app()->functions->getClientId() )
 		   ));
-		} else $this->render('404-page',array(
-		   'header'=>true
-		));
+                   
+                } else {
+                    
+                    $this->render('404-page',array(
+                        'header'=>true
+                    ));
+                } 
 	}
 	
 	/*public function actionCards()

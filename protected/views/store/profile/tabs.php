@@ -3,8 +3,7 @@
         <div class="col-md-12">
                         
             <div class="tabs-wrapper-styles ">
-                
-                
+                               
                 <!--  Tabs -->   
                 <ul class="nav nav-tabs nav-justified nav-tabs-line" role="tablist">
                     <li class="active" role="presentation">
@@ -27,28 +26,13 @@
                             <?php echo t("Credit Cards")?>
                         </a>
                     </li>
-                     <?php if ( 0 ) { ?>
-                     <?php //if (FunctionsV3::hasModuleAddon("pointsprogram")) { ?>
-                    
-                        <li role="presentation">
-                            <a href="#mypoints"    data-toggle="tab">
-                                My Points
-                            </a>
-                        </li>
-                    
-                         
-                     <?php } ?>
-                    
-                    
-                   
-                    
                     
                 </ul>
 
                 
                 
                 
-                <?php $this->renderPartial('/store/menu/tabs-content', array(
+                <?php  $this->renderPartial('/store/profile/tabs-content', array(
 //                            'merchant_id'       => $merchant_id,    
 //                            'theme_hours_tab'   => $theme_hours_tab,
 //                            'theme_reviews_tab' => $theme_reviews_tab,
