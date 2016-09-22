@@ -40,6 +40,9 @@
 //                            'ratings'           => $ratings,
 //                            'photo_enabled'     => $photo_enabled,
 //                            'theme_info_tab'    => $theme_info_tab,
+                    'info' => $info,
+                    'tabs' => $tabs,
+                    'disabled_cc' => $disabled_cc
                         ) ); ?> 
 
                

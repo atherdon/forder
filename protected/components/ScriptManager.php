@@ -630,8 +630,8 @@ class ScriptManager
             $cs = Yii::app()->getClientScript();
             
 //            ARTHUR Comment this lines
-            $cs->registerCssFile($baseUrl.'/assets/css/store.css?ver=1.0');		
-            $cs->registerCssFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css');
+//            $cs->registerCssFile($baseUrl.'/assets/css/store.css?ver=1.0');		
+//            $cs->registerCssFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css');
 
             
             
@@ -686,6 +686,27 @@ class ScriptManager
             
             
             
+            
+    if ( 0 ) {
+    $cs->registerCssFile("//fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,300,300italic", CClientScript::POS_HEAD);					
+//    BASE CSS
+    $cs->registerCssFile( Widgets::quickStylesPath() . 'base.css', CClientScript::POS_HEAD);
+    
+//    SPECIFIC CSS 
+    $cs->registerCssFile( Widgets::quickStylesPath() . 'base.css', CClientScript::POS_HEAD);
+    $cs->registerCssFile( Widgets::quickStylesPath() . 'jquery.cookiebar.css', CClientScript::POS_HEAD);
+    $cs->registerCssFile( Widgets::quickStylesPath() . 'slider-pro.min.css', CClientScript::POS_HEAD);
+    
+//    Modernizr
+     $cs->registerScriptFile(
+                    Widgets::quickScriptPath() . 'modernizr.js',
+                    CClientScript::POS_HEAD
+                    );
+
+     $cs->registerScriptFile('/js/html5shiv.min.js', CClientScript::POS_HEAD, array('media' => 'lt IE 9'));
+     $cs->registerScriptFile('js/respond.min.js',    CClientScript::POS_HEAD, array('media' => 'lt IE 9'));
+    
+        }
             
             
 	}	

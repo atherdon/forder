@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--[if IE 9]><html class="ie ie9"> <![endif]-->
 <html>
 <head>
     <meta charset="utf-8">
@@ -19,6 +18,9 @@
     <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="<?php echo Widgets::quickImagesPath(); ?>apple-touch-icon-114x114-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="<?php echo Widgets::quickImagesPath(); ?>apple-touch-icon-144x144-precomposed.png">
     
+    
+    
+    <?php //if ( 0 ) { ?>
     <!-- GOOGLE WEB FONT -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,300,300italic' rel='stylesheet' type='text/css'>
 
@@ -31,11 +33,15 @@
     
     <!-- Modernizr -->
     <script src="<?php echo Widgets::quickScriptPath(); ?>modernizr.js"></script> 
-
+    <?php //} ?>
+    
+    
     <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+    
+    
     
     <?php 
     /*add the analytic codes */

@@ -418,6 +418,3 @@ $placholder_search=Yii::t("default",$placholder_search);
 </div> <!--container-->
 <!--END MOBILE APP SECTION-->
 <?php endif;?>
-
-
- 

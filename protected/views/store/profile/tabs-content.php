@@ -2,7 +2,7 @@
      
     <div class="tab-pane active" id="profile" role="tabpanel">
 
-         <?php $this->renderPartial('/front/profile',array(
+         <?php $this->renderPartial('/store/profile/form',array(
             'data' => $info           
           ));?>
         

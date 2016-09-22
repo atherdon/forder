@@ -1013,7 +1013,6 @@ class StoreController extends CController
 	{
 		if (Yii::app()->functions->isClientLogin()){
                     
-//                    $this->render('//store/about/index'); 
                     
 		   $this->render('//store/profile/index', array(
 		     'tabs'        => isset($_GET['tab'])?$_GET['tab']:'',
