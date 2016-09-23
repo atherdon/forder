@@ -1,143 +1,149 @@
-
-<!--<div class="margin_60_35">
-    <div class="row">
-        
-        
-        
-    </div>
-</div>-->
-
-
 <div class="box-grey rounded" style="margin-top:0;">
-
     
-    
-<form class="profile-forms forms" id="forms" onsubmit="return false;">
-<?php echo CHtml::hiddenField('action','updateClientProfile')?>
-<?php echo CHtml::hiddenField('currentController','store')?>
+    <div class="row">
+    <div class="col-md-6 col-lg-offset-3">
 
-<?php //FunctionsV3::sectionHeader('Profile');?>
+        <form class="profile-forms forms" id="forms" onsubmit="return false;">
 
-<div class="row bottom10">
-  <div class="col-md-6">
-    <p class="text-small"><?php echo t("First Name")?></p>
-    <?php 
-	  echo CHtml::textField('first_name',$data['first_name'],
-	  array(
-	    'class'=>'grey-fields full-width',
-	    'data-validation'=>"required"
-	  ));
-	  ?>     
-  </div>
-  <div class="col-md-6">
-    <p class="text-small"><?php echo t("Last Name")?></p>
-	<?php 
-	echo CHtml::textField('last_name',$data['last_name'],
-	array(
-	'class'=>'grey-fields full-width',
-	'data-validation'=>"required"
-	));
-	?>
-  </div>
-</div> <!--row-->
+        <?php echo CHtml::hiddenField('action','updateClientProfile')?>
+        <?php echo CHtml::hiddenField('currentController','store')?>
 
 
-<div class="row bottom10">
-  <div class="col-md-6">
-    <p class="text-small"><?php echo t("Email address")?></p>
-    <?php 
-	  echo CHtml::textField('email',$data['email_address'],
-	  array(
-	    'class'=>'grey-fields full-width',
-	    'data-validation'=>"required",
-	    'disabled'=>true
-	  ));
-	  ?>     
-  </div>
-  <div class="col-md-6">
-    <p class="text-small"><?php echo t("Contact phone")?></p>
-	 <?php 
-  echo CHtml::textField('contact_phone',$data['contact_phone'],
-  array(
-    'class'=>'grey-fields full-width mobile_inputs',
-    'data-validation'=>"required"
-  ));
-  ?>	  
-  </div>
-</div> <!--row-->
+            <div class="form-group">
+                <label><?php echo t("First Name")?></label>
+                <?php 
+                      echo CHtml::textField('first_name',$data['first_name'],
+                      array(
+                        'class'           => 'form-control',
+                        'data-validation' => "required"
+                      ));
+                ?>   
 
-<?php 
-$one=Yii::app()->functions->getOptionAdmin('client_custom_field_name1');
-$two=Yii::app()->functions->getOptionAdmin('client_custom_field_name2');
-?>
+            </div>
 
-<?php if (!empty($one) || !empty($two)):?>
-<div class="row bottom10">
+            <div class="form-group">
+                <label><?php echo t("Last Name")?></label>
+                <?php 
+                    echo CHtml::textField('last_name',$data['last_name'],
+                    array(
+                     'class'           => 'form-control',
+                    'data-validation'=>"required"
+                    ));
+                    ?>
 
-  <?php if (!empty($one)):?>
-  <div class="col-md-6">
-    <p class="text-small"><?php echo t($one)?></p>
-     <?php 
-  echo CHtml::textField('custom_field1',$data['custom_field1'],
-  array(
-    'class'=>'grey-fields full-width',
-    'data-validation'=>"required"
-  ));
-  ?>
-  </div>
-  <?php endif;?>
-  
-  <?php if (!empty($two)):?>
-  <div class="col-md-6">
-    <p class="text-small"><?php echo t($two)?></p>
-	 <?php 
-  echo CHtml::textField('custom_field2',$data['custom_field2'],
-  array(
-    'class'=>'grey-fields full-width',
-    'data-validation'=>"required"
-  ));
-  ?>
-  </div>
-  <?php endif;?>
-  
-</div> <!--row-->
-<?php endif;?>
+            </div>
+
+
+            <div class="form-group">
+                <label><?php echo t("Email address")?></label>
+                 <?php 
+                      echo CHtml::textField('email',$data['email_address'],
+                      array(
+                         'class'           => 'form-control',
+                        'data-validation'=>"required",
+                        'disabled'=>true
+                      ));
+                      ?> 
+
+            </div>    
+
+            <div class="form-group">
+                <label><?php echo t("Contact phone")?></label>
+                 <?php 
+              echo CHtml::textField('contact_phone',$data['contact_phone'],
+              array(
+                'class'=>'form-control mobile_inputs',
+
+                'data-validation'=>"required"
+              ));
+              ?>	  
+
+            </div>    
 
 
 
 
-<div class="row bottom10">
-  <div class="col-md-6">
-    <p class="text-small"><?php echo t("Password")?></p>
-  <?php 
-  echo CHtml::passwordField('password','',
-  array(
-    'class'=>'grey-fields full-width',
-  ));
-  ?>
-  </div>
-  <div class="col-md-6">
-    <p class="text-small"><?php echo t("Confirm Password")?></p>
-	<?php 
-  echo CHtml::passwordField('cpassword','',
-  array(
-    'class'=>'grey-fields full-width',
-  ));
-  ?>
-  </div>
-</div> <!--row-->
 
-<div class="row">  
-  <div class="col-md-6">
-	<input type="submit" value="<?php echo t("Save")?>" class="green-button medium">  
- </div>	
-</div>
+            <?php 
+            $one=Yii::app()->functions->getOptionAdmin('client_custom_field_name1');
+            $two=Yii::app()->functions->getOptionAdmin('client_custom_field_name2');
+            ?>
+
+            <?php if (!empty($one) || !empty($two)):?>
 
 
-</form>
-    
-    
-    
-    
+
+
+              <?php if (!empty($one)):?>
+
+                <div class="form-group">
+                    <label><?php echo t($one)?></label>
+                    <?php 
+                        echo CHtml::textField('custom_field1',$data['custom_field1'],
+                        array(
+                          'class'           => 'form-control',
+                          'data-validation'=>"required"
+                        ));
+                    ?>
+
+                </div>  
+
+
+
+              <?php endif;?>
+
+              <?php if (!empty($two)):?>
+
+                <div class="form-group">
+                    <label><?php echo t($two)?></label>
+                    <?php 
+                        echo CHtml::textField('custom_field2',$data['custom_field2'],
+                        array(
+                         'class'           => 'form-control',
+                          'data-validation'=>"required"
+                        ));
+                    ?>
+
+                </div>    
+
+
+              <?php endif;?>
+
+
+            <?php endif;?>
+
+
+
+            <div class="form-group">
+                <label><?php echo t("Password")?></label>
+                  <?php 
+              echo CHtml::passwordField('password','',
+              array(
+                'class'           => 'form-control',
+              ));
+              ?>
+
+            </div>    
+
+            <div class="form-group">
+                <label><?php echo t("Confirm Password")?></label>
+                    <?php 
+              echo CHtml::passwordField('cpassword','',
+              array(
+                'class'           => 'form-control',
+              ));
+              ?>
+
+            </div>    
+
+            <input class="btn_full" type="submit" value="<?php echo t("Save")?>">
+
+
+
+        </form>
+
+
+    </div>
+    </div>
     
 </div> <!-- box -->

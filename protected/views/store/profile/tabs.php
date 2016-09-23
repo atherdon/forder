@@ -1,3 +1,12 @@
+<?php 
+if( isset($_GET['tab']) ) {
+    $tab_active = $_GET['tab'] ;  
+    
+} else {
+    
+    $tab_active = 1 ;   
+}
+?>
 <div class="container margin_60_35">
     <div class="row">
         <div class="col-md-12">
@@ -6,12 +15,15 @@
                                
                 <!--  Tabs -->   
                 <ul class="nav nav-tabs nav-justified nav-tabs-line" role="tablist">
-                    <li class="active" role="presentation">
+                    
+                    <li <?php if( $tab_active == '2' ) { echo '  '; } else { echo ' class="active" '; } ; ?>
+                        role="presentation">
                         <a href="#profile"     data-toggle="tab">
                            <?php echo t("Profile")?>
                         </a>
                     </li>
-                    <li role="presentation">
+                    <li role="presentation" 
+                        <?php if( $tab_active == '2' ) { echo ' class="active" '; } else { echo '  '; } ; ?>>
                         <a href="#addressbook" data-toggle="tab">
                             <?php echo t("Address Book")?>
                         </a>
@@ -33,16 +45,12 @@
                 
                 
                 <?php  $this->renderPartial('/store/profile/tabs-content', array(
-//                            'merchant_id'       => $merchant_id,    
-//                            'theme_hours_tab'   => $theme_hours_tab,
-//                            'theme_reviews_tab' => $theme_reviews_tab,
-//                            'phone'             => $phone,
-//                            'ratings'           => $ratings,
-//                            'photo_enabled'     => $photo_enabled,
-//                            'theme_info_tab'    => $theme_info_tab,
-                    'info' => $info,
-                    'tabs' => $tabs,
-                    'disabled_cc' => $disabled_cc
+
+                            'info'        => $info,
+                            'tabs'        => $tabs,
+                            'disabled_cc' => $disabled_cc,
+                            'tab_active'  => $tab_active
+                        
                         ) ); ?> 
 
                
