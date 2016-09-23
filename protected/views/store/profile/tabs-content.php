@@ -1,6 +1,6 @@
  <div class="tab-content">
      
-    <div class="tab-pane <?php if( $tab_active == '2' ) { echo '  '; } else { echo ' active '; } ; ?>" id="profile" role="tabpanel">
+    <div class="tab-pane <?php if( $tabs != '' ) { echo '  '; } else { echo ' active '; } ; ?>" id="profile" role="tabpanel">
 
          <?php $this->renderPartial('/store/profile/form',array(
                     'data' => $info           
@@ -9,7 +9,7 @@
 
     </div>
      
-    <div class="tab-pane <?php if( $tab_active != '2' ) { echo '  '; } else { echo ' active '; } ; ?>" id="addressbook" role="tabpanel">
+    <div class="tab-pane <?php if( $tabs != '2' ) { echo '  '; } else { echo ' active '; } ; ?>" id="addressbook" role="tabpanel">
 
          <?php $this->renderPartial('/store/profile/address-book', array(
                     'client_id' => Yii::app()->functions->getClientId(),
@@ -24,7 +24,7 @@
      
     <div class="tab-pane" id="orderhistory" role="tabpanel">
         
-        <?php $this->renderPartial('/front/order-history',array(           
+        <?php $this->renderPartial('/store/profile/order-history',array(           
            'data'=>Yii::app()->functions->clientHistyOrder( Yii::app()->functions->getClientId() )
          ));?>
         
@@ -38,14 +38,16 @@
        
        <?php 
          if (isset($_GET['do']) && $tabs == 4){
-         	 $this->renderPartial('/front/manage-credit-card-add',array(
+             
+         	 $this->renderPartial('/store/profile/manage-credit-card-add',array(
                     'data' => Yii::app()->functions->getCreditCardInfo(isset($_GET['id'])?$_GET['id']:''),
                     'tabs' => $tabs
          	 ));
+                 
          } else {
-		     $this->renderPartial('/front/manage-credit-card',array(
-                        'tabs' => $tabs
-		     ));
+                    $this->renderPartial('/store/profile/manage-credit-card',array(
+                       'tabs' => $tabs
+                    ));
          }
 		 ?>     
        

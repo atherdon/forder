@@ -123,8 +123,8 @@
             <div class="row">
                 <div class="col-md-11 col-lg-offset-1">
 
-                    <div class="col-md-2">
-                        <a class="btn_full_outline" href="<?php echo Yii::app()->createUrl('/store/profile/?tab=2&do=add')?>">
+                    <div class="col-md-2 btn_padding0">
+                        <a class="btn_full_outline " href="<?php echo Yii::app()->createUrl('/store/profile/?tab=2&do=add')?>">
                             <i class="icon-plus"></i>
                             <?php echo t("Add New")?>   
                         </a>

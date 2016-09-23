@@ -2233,3 +2233,9 @@ p.small {
 .label-custom-wrapper {
     margin-left:60px;
 }
+.btn_padding0 {
+    padding-left:0px !important;
+}
+.btn_padding0 a {
+    margin-left: 0px !important;
+}

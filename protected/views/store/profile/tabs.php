@@ -1,4 +1,6 @@
 <?php 
+//var_dump( $tabs );
+//die();
 if( isset($_GET['tab']) ) {
     $tab_active = $_GET['tab'] ;  
     
@@ -16,14 +18,14 @@ if( isset($_GET['tab']) ) {
                 <!--  Tabs -->   
                 <ul class="nav nav-tabs nav-justified nav-tabs-line" role="tablist">
                     
-                    <li <?php if( $tab_active == '2' ) { echo '  '; } else { echo ' class="active" '; } ; ?>
+                    <li <?php if( $tabs != '' ) { echo '  '; } else { echo ' class="active" '; } ; ?>
                         role="presentation">
                         <a href="#profile"     data-toggle="tab">
                            <?php echo t("Profile")?>
                         </a>
                     </li>
                     <li role="presentation" 
-                        <?php if( $tab_active == '2' ) { echo ' class="active" '; } else { echo '  '; } ; ?>>
+                        <?php if( $tabs == '2' ) { echo ' class="active" '; } else { echo '  '; } ; ?>>
                         <a href="#addressbook" data-toggle="tab">
                             <?php echo t("Address Book")?>
                         </a>
@@ -33,7 +35,9 @@ if( isset($_GET['tab']) ) {
                             <?php echo t("Order History")?>
                         </a>
                     </li>
-                     <li role="presentation">
+                     <li role="presentation"
+                         <?php if( $tabs == '4' ) { echo ' class="active" '; } else { echo '  '; } ; ?>
+                         >
                         <a href="#creditcards" data-toggle="tab">
                             <?php echo t("Credit Cards")?>
                         </a>
@@ -49,7 +53,7 @@ if( isset($_GET['tab']) ) {
                             'info'        => $info,
                             'tabs'        => $tabs,
                             'disabled_cc' => $disabled_cc,
-                            'tab_active'  => $tab_active
+//                            'tab_active'  => $tab_active
                         
                         ) ); ?> 
 
