@@ -7,6 +7,7 @@
         <?php echo FunctionsV3::format_phone( $phone ); ?>
     </a>
     <small>
-        Monday to Friday 9.00am - 7.30pm
+        Monday to Friday 
+        9.00am - 7.30pm
     </small>
 </div>

@@ -528,3 +528,14 @@ $this->renderPartial( '/store/menu/tabs', array(
   </div> <!--row-->
 </div> <!--container-->
 </div> <!--section-menu-->
+
+<?php
+
+$this->renderPartial('/store/menu/_details_popup', [
+//        'google_login_enabled'   => $google_login_enabled,
+//        'fb_flag'                => $fb_flag,
+//        'captcha_customer_login' => $captcha_customer_login,
+        //'do-action'              => $_GET['do-action'],
+     ] ); ?>
+
+?>

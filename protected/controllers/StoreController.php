@@ -485,14 +485,14 @@ class StoreController extends CController
 		  ',
 		  CClientScript::POS_HEAD
 		);
-			
-		$this->render('contact',array(
-		  'address'=>$address,
-		  'website_title'=>getOptionA('website_title'),
-		  'contact_phone'=>getOptionA('website_contact_phone'),
-		  'contact_email'=>getOptionA('website_contact_email'),
-		  'contact_content'=>getOptionA('contact_content'),
-		  'country'=>Yii::app()->functions->adminCountry()		  
+
+		$this->render('//store/contact/contact',array(
+                    'address'         => $address,
+                    'website_title'   => getOptionA('website_title'),
+                    'contact_phone'   => getOptionA('website_contact_phone'),
+                    'contact_email'   => getOptionA('website_contact_email'),
+                    'contact_content' => getOptionA('contact_content'),
+                    'country'         => Yii::app()->functions->adminCountry()		  
 		));
 	}
 	
@@ -871,16 +871,20 @@ class StoreController extends CController
                         }
                         
                         
-                        $this->render('menu', $variables );	
+                        $this->render('//store/menu/index', $variables );	
 								
-			}  else  $this->render(
+                        }  else {
+                             $this->render(
                                     'error', 
                                     array( 'message' => t("Sorry but this merchant is no longer available") )
                                  );
+                        } 
 			
-		} else $this->render('error',array(
+                } else {
+                    $this->render('error',array(
 		  'message'=>t("merchant is not available")
 		));
+                }
 	}
 	
 	public function actionCheckout()

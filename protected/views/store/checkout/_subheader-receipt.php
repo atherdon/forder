@@ -31,13 +31,17 @@
 
 
 
-<!-- @TODO update breadcrumbs -->
 <div id="position">
     <div class="container">
         <ul>
-            <li><a href="#0">Home</a></li>
-            <li><a href="#0">Category</a></li>
-            <li>Page active</li>
+            <li><a href="<?php echo Yii::app()->getHomeUrl(); ?>">
+                    Home
+                </a>
+            </li>
+            <!--<li><a href="#0">Category</a></li>-->
+            <li>
+                Checkout
+            </li>
         </ul>
     </div>
 </div><!-- Position -->
