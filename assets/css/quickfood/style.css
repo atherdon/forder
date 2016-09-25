@@ -2239,3 +2239,48 @@ p.small {
 .btn_padding0 a {
     margin-left: 0px !important;
 }
+
+button.btn_full_outline.login-button-signup{
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color:#85c99d;
+    background:none;
+    border:2px solid #85c99d;
+    cursor: pointer;
+    padding: 10px 20px;
+    display: inline-block;
+    outline: none;
+    font-size:12px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-transform:uppercase;
+    font-weight:bold;
+    display:block;
+    text-align:center;
+}
+button.btn_full_outline.login-button-signup:hover{
+    border:2px solid #333;
+    color:#333;
+}
+
+button.btn_full_outline.login-button-signup{
+	color:#ec008c;
+	background:none;
+	border:2px solid #ec008c;
+}
+button.btn_full_outline.login-button-signup:hover{
+	color:#333;
+	background:none;
+	border:2px solid #333;
+}
+.mb-45 {
+    margin-bottom: 45px;
+}
+.pb-28{
+    padding-bottom: 28px;
+}
