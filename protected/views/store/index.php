@@ -297,11 +297,9 @@ $placholder_search=Yii::t("default",$placholder_search);
                                         </div>
                                         
                                         
-                                        <!--<div class="col-md-6">-->
-                                            <?php echo Widgets::ratingHTML(  $ratings, false, true, $val['merchant_id'] ); ?>
-                                            <?php //echo FunctionsV3::merchantOpenTag( $val['merchant_id'] )?>   
                                         
-                                        <!--</div>-->
+                                        <?php echo Widgets::ratingHTML(  $ratings, false, true, $val['merchant_id'] ); ?>
+                                        
                                         
                                         
 

@@ -6,7 +6,7 @@
 
 <?php 
 $ratings  = Yii::app()->functions->getRatings( $merchant_id );
-echo Widgets::ratingHTML( $ratings, true  ); 
+echo Widgets::ratingHTML( $ratings, true, true, $merchant_id, $slug  ); 
 ?>
 
 <h3>
@@ -17,8 +17,8 @@ echo Widgets::ratingHTML( $ratings, true  );
 </div>
 <div class="location">
     <?php echo $address; ?>
-    <?php echo FunctionsV3::merchantOpenTag2( $merchant_id )?>
+    <?php // echo FunctionsV3::merchantOpenTag2( $merchant_id )?>
     
-    <!--Minimum order: $15-->
+    
 </div>
 <?php echo FunctionsV3::displayServicesList2( $service )?>

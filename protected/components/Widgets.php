@@ -1976,7 +1976,7 @@ class Widgets extends CApplicationComponent
                         
 	}
         
-        public static function ratingHTML( $ratingAr, $extended = false, $tags = false, $id = false ){
+        public static function ratingHTML( $ratingAr, $extended = false, $tags = false, $id = false, $slug = false ){
             
             $html   = '<div class="rating">';
 //            var_dump( $ratingAr );
@@ -2039,11 +2039,22 @@ class Widgets extends CApplicationComponent
             
             
             if( $extended ){
-                $html .=  '( <small>
-                                <a href="#0">' . 
+                $html .=  '<small style="padding-right:25px;">( '.
+                                '<a href="' ;
+                
+                if( $slug ){
+                    $html .= Yii::app()->createUrl( 'store/menu/merchant/' . $slug . '#summary_review' );
+                } else {
+                    $html .= '#0';
+                }
+                
+                                   
+                $html .=        '">' . 
                                     $ratingAr['votes'] . " " . t("Reviews") . 
                                 '</a>
-                           </small> )';
+                           ) </small>';
+                
+                
             }
             
             if( $tags ){
