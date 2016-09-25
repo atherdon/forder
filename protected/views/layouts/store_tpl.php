@@ -18,7 +18,7 @@
 
 <!--TOP MENU-->
 <?php $this->renderPartial('/layouts/front_top_menu', array(
-  'action' => Yii::app()->controller->action->id,
+  'action' => !empty( Yii::app()->controller->action->id ) ? Yii::app()->controller->action->id : 'error',
   'theme_hide_logo' => getOptionA('theme_hide_logo')
 ));?>
 

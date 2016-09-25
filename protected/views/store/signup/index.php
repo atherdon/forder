@@ -1,13 +1,9 @@
 <?php 
-//$this->renderPartial('/front/banner-receipt',array(
-//   'h1'=>t("Login & Signup"),
-//   'sub_text'=>t("sign up to start ordering")
-//));
 
- $this->renderPartial('/store/signup/header', array(
+$this->renderPartial('/store/signup/header', array(
         'h1'       => t("Login & Signup"),
         'sub_text' => t("sign up to start ordering")
- ));
+));
 
 
 echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCountrySet(true));

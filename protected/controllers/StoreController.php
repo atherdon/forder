@@ -216,7 +216,9 @@ class StoreController extends CController
 
             $act_menu=FunctionsV3::getTopMenuActivated();
             if (!in_array('signup',(array)$act_menu)){
-                    $this->render('404-page',array('header'=>true));
+                    $this->render('//store/404/index', array(
+                        'header' => true
+                    ));
                     return ;
             }	
 
@@ -251,7 +253,9 @@ class StoreController extends CController
 		
 		$act_menu=FunctionsV3::getTopMenuActivated();
 		if (!in_array('resto_signup',(array)$act_menu)){
-			$this->render('404-page',array('header'=>true));
+			$this->render('//store/404/index', array(
+                        'header' => true
+                    ));
 			return ;
 		}
 		
@@ -382,7 +386,9 @@ class StoreController extends CController
 		} else {
 			$disabled_membership_signup=getOptionA('admin_disabled_membership_signup');
 			if($disabled_membership_signup==1){				
-				$this->render('404-page',array('header'=>true));
+				$this->render('//store/404/index', array(
+                        'header' => true
+                    ));
 			} else {
 				$this->render('merchant-signup',array(
 			      'list'=>Yii::app()->functions->getPackagesList(),
@@ -442,7 +448,9 @@ class StoreController extends CController
 		
 		$act_menu=FunctionsV3::getTopMenuActivated();
 		if (!in_array('contact',(array)$act_menu)){
-			$this->render('404-page',array('header'=>true));
+			$this->render('//store/404/index', array(
+                        'header' => true
+                    ));
 			return ;
 		}	
 		
@@ -1025,9 +1033,12 @@ class StoreController extends CController
                    
                 } else {
                     
-                    $this->render('404-page',array(
-                        'header'=>true
+                    $this->render('//store/404/index', array(
+                        'header' => true
                     ));
+//                    $this->render('404-page',array(
+//                        'header'=>true
+//                    ));
                 } 
 	}
 	
@@ -1080,7 +1091,10 @@ class StoreController extends CController
         	  'data'=>$data
         	));
         } else {
-        	$this->render('404-page',array('header'=>true));
+//        	$this->render('404-page',array('header'=>true));
+                $this->render('//store/404/index', array(
+                        'header' => true
+                    ));
         }
 	}
 	
@@ -1121,7 +1135,10 @@ class StoreController extends CController
 	{
 		$act_menu=FunctionsV3::getTopMenuActivated();
 		if (!in_array('browse',(array)$act_menu)){
-			$this->render('404-page',array('header'=>true));
+                    $this->render('//store/404/index', array(
+                        'header' => true
+                    ));
+//			$this->render('404-page',array('header'=>true));
 			return ;
 		}
 		
@@ -1672,13 +1689,19 @@ class StoreController extends CController
 		
 		$act_menu=FunctionsV3::getTopMenuActivated();
 		if (!in_array('resto_signup',(array)$act_menu)){
-			$this->render('404-page',array('header'=>true));
+//			$this->render('404-page',array('header'=>true));
+                        $this->render('//store/404/index', array(
+                        'header' => true
+                    ));
 			return ;
 		}	
 
 		if ( Yii::app()->functions->getOptionAdmin("merchant_disabled_registration")=="yes"){
 			//$this->render('error',array('message'=>t("Sorry but merchant registration is disabled by admin")));
-			$this->render('404-page',array('header'=>true));
+//			$this->render('404-page',array('header'=>true));
+                        $this->render('//store/404/index', array(
+                        'header' => true
+                    ));
 		} else $this->render('merchant-signup-selection',array(
 		  'percent'=>getOptionA('admin_commision_percent'),
 		  'commision_type'=>getOptionA('admin_commision_type'),
@@ -1761,9 +1784,9 @@ class StoreController extends CController
 		ScriptManager::RegisterAllJSFileQuickFood();
 		ScriptManager::registerAllCSSFilesQuickFood();
                 
-		$this->render('404-page', array(
-		  'header'=>true
-		));
+		$this->render('//store/404/index', array(
+                        'header' => true
+                    ));
 	}
 	
 	public function actionGoogleLogin()
