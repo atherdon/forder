@@ -1,14 +1,4 @@
 <?php
-//$this->renderPartial('/front/banner-contact',array(
-//   'h1'=>t("Contact Us"),
-//   'sub_text'=>$address." ".$country,
-//   'contact_phone'=>$contact_phone,
-//   'contact_email'=>$contact_email
-//));
-
-
-
-
 $this->renderPartial('/store/contact/_subheader',array(
         'h1'            => t("Contact Us"),
         'sub_text'      => $address . " " . $country,
@@ -24,19 +14,12 @@ if (!empty($fields)){
 }
 ?>
 
-
-
 <div id="position">
     <div class="container">
         <ul>
             <li>
-                <a href="#0">
+                <a href="<?php echo Yii::app()->getHomeUrl(); ?>">
                     Home
-                </a>
-            </li>
-            <li>
-                <a href="#0">
-                    Category
                 </a>
             </li>
             <li>

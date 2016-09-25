@@ -6,11 +6,6 @@
                     Home
                 </a>
             </li>
-<!--            <li>
-                <a href="#0">
-                    Category
-                </a>
-            </li>-->
             <li>
                 About us
             </li>

@@ -12,7 +12,7 @@
 </section><!-- End section -->
 <!-- End SubHeader ============================================ -->
 
-<?php $this->renderPartial('/store/faq/breadcrumb'); ?>
+<?php $this->renderPartial('/store/about/breadcrumb'); ?>
 
 <!-- Content ================================================== -->
 <div class="container margin_60_35">

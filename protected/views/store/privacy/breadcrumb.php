@@ -2,17 +2,13 @@
     <div class="container">
         <ul>
             <li>
-                <a href="#0">
+                <a href="<?php echo Yii::app()->getHomeUrl(); ?>">
                     Home
                 </a>
             </li>
+            
             <li>
-                <a href="#0">
-                    Category
-                </a>
-            </li>
-            <li>
-                Contact us
+                Privacy
             </li>
         </ul>
     </div>
