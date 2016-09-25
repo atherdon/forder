@@ -50,7 +50,7 @@
                    $FunctionsK->clientRegistrationCustomFields();
                ?> 
                 
-               
+              
                 
                    
                 <div id="pass-info" class="clearfix"></div>

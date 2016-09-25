@@ -539,3 +539,14 @@ $this->renderPartial('/store/menu/_details_popup', [
      ] ); ?>
 
 ?>
+
+<?php
+
+$this->renderPartial('/store/menu/_address_form', [
+//        'google_login_enabled'   => $google_login_enabled,
+//        'fb_flag'                => $fb_flag,
+//        'captcha_customer_login' => $captcha_customer_login,
+        //'do-action'              => $_GET['do-action'],
+     ] ); ?>
+
+?>
