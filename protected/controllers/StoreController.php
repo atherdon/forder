@@ -228,15 +228,17 @@ class StoreController extends CController
             if ( $fb_flag=="" && $fb_app_id<>""){
                     $fb=2;
             }
-
-            $this->render('signup',array(
-               'terms_customer'          => getOptionA('website_terms_customer'),
-               'terms_customer_url'      => Yii::app()->functions->prettyLink(getOptionA('website_terms_customer_url')),
-               'fb_flag'                 => $fb,
-               'google_login_enabled'    => getOptionA('google_login_enabled'),
-               'captcha_customer_login'  => getOptionA('captcha_customer_login'),
-               'captcha_customer_signup' => getOptionA('captcha_customer_signup')
-            ));
+            
+            $this->render('//store/signup/index',
+                    array(
+                        'terms_customer'          => getOptionA('website_terms_customer'),
+                        'terms_customer_url'      => Yii::app()->functions->prettyLink(getOptionA('website_terms_customer_url')),
+                        'fb_flag'                 => $fb,
+                        'google_login_enabled'    => getOptionA('google_login_enabled'),
+                        'captcha_customer_login'  => getOptionA('captcha_customer_login'),
+                        'captcha_customer_signup' => getOptionA('captcha_customer_signup')
+                    ));
+            
     }
 	
 	public function actionSignin()
