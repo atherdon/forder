@@ -18,9 +18,6 @@
     </div>
     <div class="location">
         <?php echo $address; ?>
-        <?php // echo FunctionsV3::merchantOpenTag2( $merchant_id )?>
-
-
     </div>
     <?php echo FunctionsV3::displayServicesList2( $service )?>
 </div>
