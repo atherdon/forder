@@ -1068,10 +1068,11 @@ ul#cat_nav li a:hover, ul#cat_nav li a.active{
 .rating{
 	color:#fff;
 	padding-top:10px;
+        margin-right:3px;
 }
 .rating .voted{
 	color: #FC0;
-	margin-right:3px;
+	/*margin-right:3px;*/
 }
 ul.additional_links{
 	list-style:none;
@@ -2283,4 +2284,7 @@ button.btn_full_outline.login-button-signup:hover{
 }
 .pb-28{
     padding-bottom: 28px;
+}
+.star-padding {    
+    padding-right: 60px;
 }

@@ -6,9 +6,8 @@
             <img src="<?php echo FunctionsV3::getMerchantLogo( $merchant_id );?>" alt="">
         </div>
 
-        <?php 
-        $ratings  = Yii::app()->functions->getRatings( $merchant_id );
-        echo Widgets::ratingHTML( $ratings  ); 
+        <?php $ratings = Yii::app()->functions->getRatings( $merchant_id );
+              echo Widgets::ratingHTML( $ratings, false, true, $merchant_id ); 
         ?>
 
         <h3>
@@ -20,7 +19,7 @@
         <div class="location">
             <?php echo $address; ?>
 
-            <?php echo FunctionsV3::merchantOpenTag2( $merchant_id )?> 
+            <?php //echo FunctionsV3::merchantOpenTag2( $merchant_id )?> 
 
         </div>
         <?php echo FunctionsV3::displayServicesList2( $service )?>

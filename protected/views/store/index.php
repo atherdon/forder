@@ -197,7 +197,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                                         
                                         
                                         
-                                        <?php echo Widgets::ratingHTML(  $ratings, false, true, $val['merchant_id'] ); ?>
+                                        <?php echo Widgets::ratingHTML( $ratings, false, true, $val['merchant_id'] ); ?>
                                         
                                         
                                         

@@ -196,6 +196,70 @@ class StoreController extends CController
               'category'=>$category
             ));
     }
+
+    public function actionTowns()
+    {
+
+            /*update merchant if expired and sponsored*/
+            Yii::app()->functions->updateMerchantSponsored();
+            Yii::app()->functions->updateMerchantExpired();
+
+            /*$category='';
+            $getdata=isset($_GET)?$_GET:'';
+            if(is_array($getdata) && count($getdata)>=1){
+                    $category=$getdata['category'];
+                    $category=str_replace("-"," ",$category);
+            }
+
+            if ( $cat_res=Yii::app()->functions->GetCuisineByName($category)){
+                    $cuisine_id=$cat_res['cuisine_id'];
+             } else $cuisine_id="-1";
+             $filter_cuisine[]=$cuisine_id;*/
+
+            $cuisine_id=isset($_GET['category'])?$_GET['category']:'';
+
+             if (!isset($_GET['filter_cuisine'])){
+                    $_GET['filter_cuisine']='';
+             }
+
+            $_GET['filter_cuisine']=$_GET['filter_cuisine'].",$cuisine_id";
+
+        $res=FunctionsV3::searchByMerchant(
+               'kr_search_category',
+               isset($_GET['st'])?$_GET['st']:'',
+               isset($_GET['page'])?$_GET['page']:0,
+               FunctionsV3::getPerPage(),
+               $_GET			  
+            );
+
+            $country_list=Yii::app()->functions->CountryList();
+            $country=getOptionA('merchant_default_country');  
+            if (array_key_exists($country,(array)$country_list)){
+                    $country_name = $country_list[$country];
+            } else $country_name="United states";
+
+            if ($lat_res=Yii::app()->functions->geodecodeAddress($country_name)){    		
+            $lat_res=array(
+              'lat'=>$lat_res['lat'],
+              'lng'=>$lat_res['long'],
+            );
+    } else {
+            $lat_res=array();
+    } 
+
+    $cs = Yii::app()->getClientScript();
+    $cs->registerScript(
+              'country_coordinates',
+              'var country_coordinates = '.json_encode($lat_res).'
+              ',
+              CClientScript::POS_HEAD
+            );
+
+            $this->render('merchant-list-cuisine',array(
+              'list'=>$res,
+              'category'=>$category
+            ));
+    }
 	
         
         
@@ -1137,41 +1201,43 @@ class StoreController extends CController
 	
 	public function actionBrowse()
 	{
-		$act_menu=FunctionsV3::getTopMenuActivated();
-		if (!in_array('browse',(array)$act_menu)){
-                    $this->render('//store/404/index', array(
-                        'header' => true
-                    ));
+            $act_menu=FunctionsV3::getTopMenuActivated();
+            if ( !in_array( 'browse',(array)$act_menu ) ){
+
+                $this->render('//store/404/index', array(
+                    'header' => true
+                ));
 //			$this->render('404-page',array('header'=>true));
-			return ;
-		}
+                return ;
+            }
 		
         /*update merchant if expired and sponsored*/
-		Yii::app()->functions->updateMerchantSponsored();
-		Yii::app()->functions->updateMerchantExpired();
+            Yii::app()->functions->updateMerchantSponsored();
+            Yii::app()->functions->updateMerchantExpired();
 		
-		if (!isset($_GET['tab'])){
-			$_GET['tab']='';
-		}
-		switch ($_GET['tab']){			
-			case 2:
-			  $tabs=2;
-		      $list=Yii::app()->functions->getAllMerchantNewest();		
-		      break;
-		      
-		    case 3:
-			  $tabs=3;
-			  $list=Yii::app()->functions->getFeaturedMerchant();	      
-		      break;  
-		    
-		    case "4":
-		       break;  
-		    	  
-			default:
-			  $tabs=1;
-			  $list=Yii::app()->functions->getAllMerchant();		
-			  break;
-		}
+            if (!isset($_GET['tab'])){
+                    $_GET['tab']='';
+            }
+            
+            switch ($_GET['tab']){			
+                    case 2:
+                      $tabs=2;
+                  $list=Yii::app()->functions->getAllMerchantNewest();		
+                  break;
+
+                case 3:
+                      $tabs=3;
+                      $list=Yii::app()->functions->getFeaturedMerchant();	      
+                  break;  
+
+                case "4":
+                   break;  
+
+                    default:
+                      $tabs=1;
+                      $list=Yii::app()->functions->getAllMerchant();		
+                      break;
+            }
 
 		$country_list=Yii::app()->functions->CountryList();
 		$country=getOptionA('merchant_default_country');  
@@ -1196,10 +1262,11 @@ class StoreController extends CController
 		  CClientScript::POS_HEAD
 		);
 					
-		$this->render('browse-resto',array(
-		  'list'=>$list,
-		  'tabs'=>$tabs
-		));
+		$this->render('//store/browse/browse-resto',
+                    array(
+                        'list' => $list,
+                        'tabs' => $tabs
+                    ));
 	}
 	
 	public function actionPaylineInit()

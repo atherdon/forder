@@ -1988,7 +1988,7 @@ class Widgets extends CApplicationComponent
                             <i class="icon_star"></i>
                             <i class="icon_star"></i>
                             <i class="icon_star"></i>
-                            <i class="icon_star"></i>
+                            <i class="icon_star
                          ';
             }
             
@@ -1997,7 +1997,7 @@ class Widgets extends CApplicationComponent
                             <i class="icon_star "></i>
                             <i class="icon_star "></i>
                             <i class="icon_star "></i>
-                            <i class="icon_star"></i>
+                            <i class="icon_star
                           ';
             }
             
@@ -2006,7 +2006,7 @@ class Widgets extends CApplicationComponent
                             <i class="icon_star voted"></i>
                             <i class="icon_star "></i>
                             <i class="icon_star "></i>
-                            <i class="icon_star"></i>
+                            <i class="icon_star
                           ';
             }
             
@@ -2015,7 +2015,7 @@ class Widgets extends CApplicationComponent
                             <i class="icon_star voted"></i>
                             <i class="icon_star voted"></i>
                             <i class="icon_star "></i>
-                            <i class="icon_star"></i>
+                            <i class="icon_star
                          ';
             }
             
@@ -2024,7 +2024,7 @@ class Widgets extends CApplicationComponent
                             <i class="icon_star voted"></i>
                             <i class="icon_star voted"></i>
                             <i class="icon_star voted"></i>
-                            <i class="icon_star"></i>
+                            <i class="icon_star
                          ';
             }
             
@@ -2033,13 +2033,19 @@ class Widgets extends CApplicationComponent
                             <i class="icon_star voted"></i>
                             <i class="icon_star voted"></i>
                             <i class="icon_star voted"></i>
-                            <i class="icon_star voted"></i>
+                            <i class="icon_star voted
                          ';
+            }
+            
+            if( !$extended ){
+                $html .= ' star-padding"></i>';
+            } else {
+                $html .= ' "></i>';
             }
             
             
             if( $extended ){
-                $html .=  '<small style="padding-right:25px;">( '.
+                $html .=  '<small class="star-padding">( '.
                                 '<a href="' ;
                 
                 if( $slug ){
