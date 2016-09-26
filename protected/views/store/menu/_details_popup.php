@@ -1,9 +1,43 @@
+<!--
+
+<a href="#complexModalHtml" data-toggle="modal" id="1" 
+   data-id="1" 
+   data-target="#complex-modal">Add +</a>
+
+    $('#complex-modal').on('show.bs.modal', function(e) {
+
+        var $modal = $(this),
+            esseyId = e.relatedTarget.id,
+            item = {
+                'id' : $(this).data().id
+            };
+
+        console.log(item);    
+            
+
+        $.ajax({
+            cache: false,
+            type: 'POST',
+            url: 'backend.php',
+            data: 'EID=' + essayId,
+            success: function(data) {
+                $modal.find('.edit-content').html(data);
+            }
+        });
+    })
+
+-->
+
+
+   
+
+
 <!-- Complex item modal -->   
-<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myRegister" aria-hidden="true">
+<div class="modal fade" id="complexModalHtml" tabindex="-1" role="dialog" aria-labelledby="complexModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content modal-popup">
             <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-            <form id="form-signup" class="popup-form" id="myRegister" method="POST">
+            <form id="form-signup" class="popup-form" id="complexModal" method="POST">
                 
                 <?php echo CHtml::hiddenField('action','clientRegistrationModal')?>
                 <?php echo CHtml::hiddenField('currentController','store')?>

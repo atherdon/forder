@@ -37,19 +37,17 @@
                     
                     <div class="row">
                         <div class="col-md-9 col-sm-9">
-                            <div class="desc">
-                                                                
-                                 <?php $this->renderPartial('/store/browse/_item-single-list', [
-                                            
-                                            'slug'            => $val['restaurant_slug'],
-                                            'merchant_id'     => $merchant_id ,
-                                            'restaurant_name' => $val['restaurant_name'],
-                                            'cuisine'         => $val['cuisine'],
-                                            'address'         => $address,
-                                            'service'         => $val['service'],
-                                ]); ?>
+                                                                                            
+                            <?php $this->renderPartial('/store/browse/_item-single-list', [
 
-                            </div>
+                                       'slug'            => $val['restaurant_slug'],
+                                       'merchant_id'     => $merchant_id ,
+                                       'restaurant_name' => $val['restaurant_name'],
+                                       'cuisine'         => $val['cuisine'],
+                                       'address'         => $address,
+                                       'service'         => $val['service'],
+                           ]); ?>
+
                         </div>
                         <div class="col-md-3 col-sm-3">
                             <div class="go_to">

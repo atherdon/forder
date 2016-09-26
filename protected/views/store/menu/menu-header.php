@@ -10,7 +10,7 @@
             <img src="<?php echo $merchant_logo;?>" alt="">
         </div>
             
-        <?php echo Widgets::ratingHTML( $ratings, true ); ?>     
+        <?php echo Widgets::ratingHTML( $ratings, true, false, $merchant_id, $slug ); ?>     
             
         <h1>
             <?php echo clearString($restaurant_name)?>
@@ -36,25 +36,3 @@
 </div><!-- End subheader -->
 </section><!-- End section -->
 <!-- End SubHeader ============================================ -->
-
-
-
-
-<div id="position">
-    <div class="container">
-        <ul>
-            <li>
-                <a href="<?php echo Yii::app()->getHomeUrl(); ?>">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo Yii::app()->createUrl('/store/browse' )?>">
-                    Restaurant List</a>
-            </li>
-            <li>
-                <?php echo clearString($restaurant_name) ?>
-            </li>
-        </ul>
-    </div>
-</div><!-- Position -->

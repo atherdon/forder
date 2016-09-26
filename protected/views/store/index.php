@@ -32,102 +32,6 @@ $placholder_search=Yii::t("default",$placholder_search);
 
 
 
-<?php if ( 0 ) { ?>
-
-<!-- SubHeader =============================================== -->
-<section class="parallax-window" id="home" data-parallax="scroll" 
-         data-image-src="<?php echo Widgets::quickImagesPath(); ?>sub_header_home.jpg" data-natural-width="1400" data-natural-height="550">
-<div id="subheader">
-    <div id="sub_content">
-        
-        <h1><?php //echo $home_search_text;?></h1>
-        <p> <?php //echo $home_search_subtext;?></p>
-        
-        <h1>Order Takeaway or Delivery Food</h1>
-        <p>
-            Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
-        </p>
-        
-        
-        
-        
-<?php  if ( $home_search_mode == "address" || $home_search_mode == "") { 
-    
-            if ( $enabled_advance_search=="yes"){
-
-                    $this->renderPartial('/front/quickfood/advanced_search', array(
-                        
-                      'home_search_text'    => $home_search_text,
-                      'kr_search_adrress'   => $kr_search_adrress,
-                      'placholder_search'   => $placholder_search,
-                      'home_search_subtext' => $home_search_subtext,
-                      'theme_search_merchant_name'     => getOptionA('theme_search_merchant_name'),
-                      'theme_search_street_name'       => getOptionA('theme_search_street_name'),
-                      'theme_search_cuisine'           => getOptionA('theme_search_cuisine'),
-                      'theme_search_foodname'          => getOptionA('theme_search_foodname'),
-                      'theme_search_merchant_address'  => getOptionA('theme_search_merchant_address'),
-                    ));
-
-            } else { 
-
-                $this->renderPartial('/front/quickfood/single_search', array(
-                  'home_search_text'    => $home_search_text,
-                  'kr_search_adrress'   => $kr_search_adrress,
-                  'placholder_search'   => $placholder_search,
-                  'home_search_subtext' => $home_search_subtext
-                ));
-
-            }
-        
-        } else {
-            
-            $this->renderPartial('/front/quickfood/search_postcode',array(
-                  'home_search_text'    => $home_search_text,
-                  'placholder_search'   => $placholder_search,
-                  'home_search_subtext' => t("Enter your post code")
-            ));
-            
-        }
-        
-        
-        
-?>
-        
-        
-        
-        
-        
-        
-        
-        
-    </div><!-- End sub_content -->
-</div><!-- End subheader -->
-
-
-
-
-
-<div id="count" class="hidden-xs">
-    <ul>
-        <li>
-            <span class="number">2650</span> Restaurant
-        </li>
-        <li>
-            <span class="number">5350</span> People Served
-        </li>
-        <li>
-            <span class="number">12350</span> Registered Users
-        </li>
-    </ul>
-</div>
-</section><!-- End section -->
-<!-- End SubHeader ============================================ -->
-
-
-
-<?php } ?>
-
-
 <?php if ( $theme_hide_how_works <> 2 ):?>
 
 
@@ -204,9 +108,11 @@ $placholder_search=Yii::t("default",$placholder_search);
     <div class="container margin_60">
         
         <div class="main_title">
-           <h2 class="nomargin_top">Choose from Most Popular </h2><?php //echo t("Featured Restaurants")?>
+           <h2 class="nomargin_top">Choose from Most Popular </h2>
+               <?php //echo t("Featured Restaurants")?>
             <p>
-                Cum doctus civibus efficiantur in imperdiet deterruisset. <?php //echo t("Featured Restaurants")?>
+                Cum doctus civibus efficiantur in imperdiet deterruisset. 
+                    <?php //echo t("Featured Restaurants")?>
             </p>
         </div>
         
@@ -234,37 +140,20 @@ $placholder_search=Yii::t("default",$placholder_search);
                         $address  = $val['street'] . ", " . $val['city'];
                         $address .= ", " . $val['state'] . ", " . $val['post_code'];
         
-                        $ratings  = Yii::app()->functions->getRatings( $val['merchant_id'] );
-
                         ?>
                             
-                            <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>" class="strip_list">
-                                                                                           
-                                <!--<div class="ribbon_1">Popular</div>-->
-                                    <div class="desc">
-                                        <div class="thumb_strip">
-                                            <img src="<?php echo FunctionsV3::getMerchantLogo($val['merchant_id']);?>" alt="">
-                                        </div>
-                                        
-                                        <?php echo Widgets::ratingHTML( $ratings  ); ?>
+  
+                            <?php $this->renderPartial('/store/home/_item-single-list', [
 
-                                        <h3>
-                                            <?php echo clearString( $val['restaurant_name'] )?>
-                                        </h3>
-                                        <div class="type">
-                                            <?php echo FunctionsV3::displayCuisine2($val['cuisine']);?>
-                                        </div>
-                                        <div class="location">
-                                            <?php echo $address; ?>
-                                            
-                                            <?php echo FunctionsV3::merchantOpenTag2($val['merchant_id'])?> 
-                                                                                       
-                                        </div>
-                                        <?php echo FunctionsV3::displayServicesList2($val['service'])?>
+                                   'merchant_id'     => $val['merchant_id'] ,
+                                   'restaurant_name' => $val['restaurant_name'],
+                                   'cuisine'         => $val['cuisine'],
+                                   'address'         => $address,
+                                   'service'         => $val['service'],
+                                
+                                    'slug'            => $val['restaurant_slug']
 
-                                    </div><!-- End desc-->
-
-                            </a><!-- End strip_list-->
+                            ]); ?>
                             
                         <?php
                         
@@ -284,13 +173,23 @@ $placholder_search=Yii::t("default",$placholder_search);
         
                         $ratings  = Yii::app()->functions->getRatings( $val['merchant_id'] );
 
-                        ?>
-                            
-                            <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>" class="strip_list">
+                        ?>                            
+                             
+                            <?php $this->renderPartial('/store/home/_item-single-list', [
+
+                                    'merchant_id'     => $val['merchant_id'] ,
+                                    'restaurant_name' => $val['restaurant_name'],
+                                    'cuisine'         => $val['cuisine'],
+                                    'address'         => $address,
+                                    'service'         => $val['service'],
+
+                                    'slug'            => $val['restaurant_slug']
+
+                             ]); ?>
                                 
-                              
-                                
-                                
+                                    <?php if ( 0 ) { ?>
+                                <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>" class="strip_list">
+                               
                                     <div class="desc">
                                         <div class="thumb_strip">
                                             <img src="<?php echo FunctionsV3::getMerchantLogo($val['merchant_id']);?>" alt="">
@@ -318,8 +217,10 @@ $placholder_search=Yii::t("default",$placholder_search);
                                         <?php echo FunctionsV3::displayServicesList2($val['service'])?>
 
                                     </div><!-- End desc-->
+                                     </a><!-- End strip_list-->
+                                    <?php } ?>
 
-                            </a><!-- End strip_list-->
+                           
                             
                             
                     <?php
@@ -354,7 +255,9 @@ $placholder_search=Yii::t("default",$placholder_search);
             
 
 
-<section class="parallax-window" data-parallax="scroll" data-image-src="<?php echo Widgets::quickImagesPath(); ?>bg_office.jpg" data-natural-width="1200" data-natural-height="600">
+<section class="parallax-window" data-parallax="scroll" 
+         data-image-src="<?php echo Widgets::quickImagesPath(); ?>bg_office.jpg" 
+         data-natural-width="1200" data-natural-height="600">
     <div class="parallax-content">
         <div class="sub_content">
             <i class="icon_mug"></i>

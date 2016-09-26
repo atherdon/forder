@@ -1,9 +1,9 @@
-<!-- Complex item modal -->   
-<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myRegister" aria-hidden="true">
+<!-- Address modal -->   
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="addressModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content modal-popup">
             <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-            <form id="form-signup" class="popup-form" id="myRegister" method="POST">
+            <form id="form-signup" class="popup-form" id="addressModal" method="POST">
                 
                 <?php echo CHtml::hiddenField('action','clientRegistrationModal')?>
                 <?php echo CHtml::hiddenField('currentController','store')?>

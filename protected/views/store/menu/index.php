@@ -14,8 +14,8 @@ if ( !file_exists(FunctionsV3::uploadPath()."/$merchant_photo_bg")){
 $ratings = Yii::app()->functions->getRatings($merchant_id);   
 
 
-
-$merchant_info = array(   
+$merchant_info = array( 
+    
   'merchant_id'      => $merchant_id ,
   'minimum_order'    => $data['minimum_order'],
   'ratings'          => $ratings,
@@ -25,15 +25,18 @@ $merchant_info = array(
   'background'       => $merchant_photo_bg,
   'merchant_website' => $merchant_website,
   'merchant_logo'    => FunctionsV3::getMerchantLogo($merchant_id),
+  'slug'             => $data['restaurant_slug'],
         
   
 );
 
 //var_dump( $booking_enabled ); die();
 
-$this->renderPartial( '/front/quickfood/menu-header', $merchant_info );
+$this->renderPartial( '/store/menu/menu-header', $merchant_info );
 
-
+$this->renderPartial( '/store/menu/_breadcrumbs', [
+    'restaurant_name'  => $data['restaurant_name'],
+] );
 
 
 /*ADD MERCHANT INFO AS JSON */
@@ -210,6 +213,8 @@ $this->renderPartial( '/store/menu/tabs', array(
  <?php //} ?>
  
  <!--This part can be removed when ordering will be completed-->
+ 
+<?php //if ( 0 ) { ?> 
  
 <div class="sections section-menu section-grey2">
 <div class="container">
@@ -529,24 +534,18 @@ $this->renderPartial( '/store/menu/tabs', array(
 </div> <!--container-->
 </div> <!--section-menu-->
 
+
+<?php //} ?>
+
 <?php
 
 $this->renderPartial('/store/menu/_details_popup', [
 //        'google_login_enabled'   => $google_login_enabled,
-//        'fb_flag'                => $fb_flag,
-//        'captcha_customer_login' => $captcha_customer_login,
-        //'do-action'              => $_GET['do-action'],
-     ] ); ?>
 
-?>
+     ] ); 
 
-<?php
 
 $this->renderPartial('/store/menu/_address_form', [
 //        'google_login_enabled'   => $google_login_enabled,
-//        'fb_flag'                => $fb_flag,
-//        'captcha_customer_login' => $captcha_customer_login,
-        //'do-action'              => $_GET['do-action'],
-     ] ); ?>
 
-?>
+     ] ); 
