@@ -140,10 +140,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                         $address  = $val['street'] . ", " . $val['city'];
                         $address .= ", " . $val['state'] . ", " . $val['post_code'];
         
-                        ?>
-                            
-  
-                            <?php $this->renderPartial('/store/home/_item-single-list', [
+                        $this->renderPartial('/store/home/_item-single-list', [
 
                                    'merchant_id'     => $val['merchant_id'] ,
                                    'restaurant_name' => $val['restaurant_name'],
@@ -153,9 +150,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                                 
                                     'slug'            => $val['restaurant_slug']
 
-                            ]); ?>
-                            
-                        <?php
+                            ]); 
                         
                     }
                 ?>
@@ -166,66 +161,26 @@ $placholder_search=Yii::t("default",$placholder_search);
                 
                     if( $use_second_row ){
                 
-                    foreach ( $pieces[1] as $key => $val){ 
+                        foreach ( $pieces[1] as $key => $val){ 
 
-                        $address  = $val['street'] . ", " . $val['city'];
-                        $address .= ", " . $val['state'] . ", " . $val['post_code'];
-        
-                        $ratings  = Yii::app()->functions->getRatings( $val['merchant_id'] );
+                            $address  = $val['street'] . ", " . $val['city'];
+                            $address .= ", " . $val['state'] . ", " . $val['post_code'];
 
-                        ?>                            
-                             
-                            <?php $this->renderPartial('/store/home/_item-single-list', [
+                            $ratings  = Yii::app()->functions->getRatings( $val['merchant_id'] );
 
-                                    'merchant_id'     => $val['merchant_id'] ,
-                                    'restaurant_name' => $val['restaurant_name'],
-                                    'cuisine'         => $val['cuisine'],
-                                    'address'         => $address,
-                                    'service'         => $val['service'],
+                             $this->renderPartial('/store/home/_item-single-list', [
 
-                                    'slug'            => $val['restaurant_slug']
+                                        'merchant_id'     => $val['merchant_id'] ,
+                                        'restaurant_name' => $val['restaurant_name'],
+                                        'cuisine'         => $val['cuisine'],
+                                        'address'         => $address,
+                                        'service'         => $val['service'],
 
-                             ]); ?>
-                                
-                                    <?php if ( 0 ) { ?>
-                                <a href="<?php echo Yii::app()->createUrl('/store/menu/merchant/'. trim($val['restaurant_slug']) )?>" class="strip_list">
-                               
-                                    <div class="desc">
-                                        <div class="thumb_strip">
-                                            <img src="<?php echo FunctionsV3::getMerchantLogo($val['merchant_id']);?>" alt="">
-                                        </div>
-                                        
-                                        
-                                        
-                                        <?php echo Widgets::ratingHTML( $ratings, false, true, $val['merchant_id'] ); ?>
-                                        
-                                        
-                                        
+                                        'slug'            => $val['restaurant_slug']
 
-                                        <h3>
-                                            <?php echo clearString($val['restaurant_name'])?>
-                                        </h3>
-                                        <div class="type">
-                                            <?php echo FunctionsV3::displayCuisine2($val['cuisine']);?>
-                                        </div>
-                                        <div class="location">
-                                            
-                                            <?php echo $address; ?>
-                                            
-                                            <?php echo FunctionsV3::merchantOpenTag2($val['merchant_id'])?> 
-                                        </div>
-                                        <?php echo FunctionsV3::displayServicesList2($val['service'])?>
+                                 ]); 
 
-                                    </div><!-- End desc-->
-                                     </a><!-- End strip_list-->
-                                    <?php } ?>
-
-                           
-                            
-                            
-                    <?php
-
-                    } 
+                        } 
                     
                     }
                     
