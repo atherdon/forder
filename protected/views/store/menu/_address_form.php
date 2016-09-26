@@ -1,9 +1,40 @@
 <!-- Address modal -->   
-<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="addressModal" aria-hidden="true">
+<div class="modal fade" id="addressForm" 
+     tabindex="-1" role="dialog" 
+     aria-labelledby="addressModal" 
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content modal-popup">
             <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-            <form id="form-signup" class="popup-form" id="addressModal" method="POST">
+            
+            <form id="addressModal"                  
+                  class="frm-modal-enter-address popup-form" 
+                  method="POST" 
+                  onsubmit="return false;"
+                  >
+                  <!--id="frm-modal-enter-address" -->
+                <?php echo CHtml::hiddenField('action','setAddress');?> 
+                <?php echo CHtml::hiddenField('web_session_id',
+                    isset( $this->data['web_session_id'] ) ? $this->data['web_session_id'] : ''
+                );?>
+                
+                  
+                <?php echo CHtml::textField('client_address',
+                                isset($_SESSION['kr_search_address']) ? $_SESSION['kr_search_address'] : ''
+                                ,array(
+                                    'class'           => "form-control form-white",
+                                    'data-validation' => "required"
+                            ));
+                ?> 
+                  
+                <button type="submit" class="btn btn-submit">
+                    <?php echo t("Submit")?>
+                </button>
+                
+                
+                <?php //echo t("Enter your address below")?>
+                
+                
                 
                 <?php echo CHtml::hiddenField('action','clientRegistrationModal')?>
                 <?php echo CHtml::hiddenField('currentController','store')?>
@@ -53,7 +84,7 @@
               
                 
                    
-                <div id="pass-info" class="clearfix"></div>
+<!--                <div id="pass-info" class="clearfix"></div>
                 <div class="checkbox-holder text-left">
                     <div class="checkbox">
                         <?php 
@@ -70,11 +101,10 @@
                             </span>
                         </label>
                     </div>
-                </div>
+                </div>-->
                     
-                <button type="submit" class="btn btn-submit">
-                    <?php echo t("Create Account")?>
-                </button>
+               
+                
             </form>
         </div>
     </div>

@@ -8,6 +8,7 @@
     </a>
     <small>
         Monday to Friday 
-        9.00am - 7.30pm
+        9.00am - 7.30pm 
+        <!-- @TODO fix time -->
     </small>
 </div>

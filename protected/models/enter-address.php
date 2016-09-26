@@ -4,7 +4,8 @@
 <div class="section-label">
     <a class="section-label-a">
       <span class="bold">
-      <?php echo t("Enter your address below")?></span>
+      <?php echo t("Enter your address below")?>
+      </span>
       <b></b>
     </a>     
 </div>  
@@ -35,6 +36,10 @@ isset($this->data['web_session_id'])?$this->data['web_session_id']:''
  </form>
 
 </div> <!--container-->
+
+
+
+
 
 <script type="text/javascript">
     

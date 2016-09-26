@@ -2550,7 +2550,7 @@ jQuery(document).ready(function() {
     	}    	
     });
     
-    
+//    @TODO enable edit address.
     //if( $('.rating-wrapper').is(':visible') ) {	
     if ( $(".menu-left-content").exists() ) {
     	if ( $("#from_address").val()=="" ){
@@ -2560,6 +2560,8 @@ jQuery(document).ready(function() {
     		}	
     	}
     }	    
+    
+    
     
     $( document ).on( "click", ".change-address", function() {    	
     	var params="action=enterAddress&currentController=store&tbl=enterAddress";

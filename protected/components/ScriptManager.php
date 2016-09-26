@@ -395,6 +395,7 @@ class ScriptManager
 //            $cs->registerScriptFile($baseUrl."/assets/vendor/DataTables/fnReloadAjax.js"
 //            ,CClientScript::POS_END); 
 //
+//            validation  
 //            $cs->registerScriptFile($baseUrl."/assets/vendor/JQV/form-validator/jquery.form-validator.min.js"
 //            ,CClientScript::POS_END); 
 //
@@ -500,11 +501,12 @@ class ScriptManager
 //            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery-cookie.js"
 //            ,CClientScript::POS_END); 
 
+//            enable it
 //            $cs->registerScriptFile($baseUrl."/assets/js/store.js?ver=3"
 //            ,CClientScript::POS_END); 
-//
-//            $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
-//            ,CClientScript::POS_END);
+
+            $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
+            ,CClientScript::POS_END);
             //OLD CODE ENDS
             
             
@@ -619,6 +621,35 @@ class ScriptManager
                       ",
                       CClientScript::POS_END
                       );
+           
+           
+        $cs->registerScript(
+                'address-form',
+                " 
+                $(document).ready(function() {
+                    'use strict';
+
+                     $.validate({ 	
+                            language : jsLanguageValidator,
+                            language : jsLanguageValidator,
+                        form : '#addressModal',    
+                        onError : function() {      
+                        },
+                        onSuccess : function() {     
+                          form_submit('addressModal');
+                          return false;
+                        }  
+                    })  
+
+                    console.log('validation');
+
+                });
+                ",
+                CClientScript::POS_END
+            );
+           
+           
+           
             
             
             
