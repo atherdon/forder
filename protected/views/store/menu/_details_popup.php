@@ -132,23 +132,33 @@
                                 </p>
                             </h4>
                             
-            <?php
-                $this->renderPartial('/store/menu/complex_item_elements/photo-gallery', [
-                        //        'data'    => $data,
-                        'item_id' => 1 
-                ] ); ?>
+                            <?php
+                                $this->renderPartial('/store/menu/complex_item_elements/photo-gallery', [
+                                        'data'    => $data,
+                                        'item_id' => 1 
+                                ] ); ?>
                         
-            <?php
-                $this->renderPartial('/store/menu/complex_item_elements/price', [
-                        //        'data'    => $data,
-                        'item_id' => 1 
-                ] ); ?>            
-             <hr /> 
-             <div class="form-group">
-                    <label>First name</label>
-                    <input type="text" class="form-control" id="firstname_order" name="firstname_order" placeholder="First name">
-            </div>           
+                            <?php
+                                $this->renderPartial('/store/menu/complex_item_elements/price', [
+                                        'data'        => $data,
+                                        'item_id'     => 1,
+                                        'size_select' => $size_select
+                                ] ); ?>            
+                      
                         
+                            <?php
+                                $this->renderPartial('/store/menu/complex_item_elements/qty', [
+                                        'data'        => $data,
+                                        'item_id'     => 1,
+                                        'size_select' => $size_select
+                                ] ); ?>      
+                        
+                             <?php
+                                $this->renderPartial('/store/menu/complex_item_elements/cooking-ref', [
+                                        'data'        => $data,
+                                        'item_id'     => 1,
+                                        'size_select' => $size_select
+                                ] ); ?>  
                         
 <!--                            <h4 class="nomargin_top">
                                 Delivery time 
@@ -178,6 +188,7 @@
                 <br />
                 <br />
                 <br />
+                
                 
                 
                 

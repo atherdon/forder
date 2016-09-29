@@ -181,7 +181,7 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 <?php //if ( 0 ) { ?>
 
  
- <a data-target="#complexModalHtml" data-toggle="modal" href="/food2/store/#">
+ <a data-target="#complexModalHtml" data-toggle="modal" href="/food2/store/#" style="padding-left: 150px;margin-top: 200px;">
      Food Item
  </a>
  
