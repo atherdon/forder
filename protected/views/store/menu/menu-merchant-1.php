@@ -20,7 +20,7 @@
                     </p>
                 <?php endif;?>
 
-                <?php echo Widgets::displaySpicyIconNew($val['dish'],"dish-category")?>   
+                <?php echo Widgets::displaySpicyIconNew($val['dish'], "dish-category")?>   
 
                     
                     

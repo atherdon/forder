@@ -395,10 +395,17 @@ class ScriptManager
 //            $cs->registerScriptFile($baseUrl."/assets/vendor/DataTables/fnReloadAjax.js"
 //            ,CClientScript::POS_END); 
 //
+
+
+
+
+
 //            validation  
-//            $cs->registerScriptFile($baseUrl."/assets/vendor/JQV/form-validator/jquery.form-validator.min.js"
-//            ,CClientScript::POS_END); 
-//
+            $cs->registerScriptFile($baseUrl."/assets/vendor/JQV/form-validator/jquery.form-validator.min.js"
+            ,CClientScript::POS_END); 
+
+
+            
 //            $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.ui.timepicker-0.0.8.js"
 //            ,CClientScript::POS_END); 
 //
@@ -505,8 +512,8 @@ class ScriptManager
 //            $cs->registerScriptFile($baseUrl."/assets/js/store.js?ver=3"
 //            ,CClientScript::POS_END); 
 
-            $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
-            ,CClientScript::POS_END);
+//            $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
+//            ,CClientScript::POS_END);
             //OLD CODE ENDS
             
             
@@ -648,7 +655,14 @@ class ScriptManager
                 CClientScript::POS_END
             );
            
-           
+        
+        
+//           $cs->registerScriptFile($baseUrl."/assets/js/store.js?ver=3"
+//           ,CClientScript::POS_END); 
+//
+//           $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
+//            ,CClientScript::POS_END);
+//           
            
             
             

@@ -180,6 +180,13 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 
 <?php //if ( 0 ) { ?>
 
+ 
+ <a data-target="#complexModalHtml" data-toggle="modal" href="/food2/store/#">
+     Food Item
+ </a>
+ 
+
+ 
 <?php 
 
 // @TODO check cases with $disabled_addcart variable not empty.
@@ -214,7 +221,7 @@ $this->renderPartial( '/store/menu/tabs', array(
  
  <!--This part can be removed when ordering will be completed-->
  
-<?php //if ( 0 ) { ?> 
+<?php if ( 0 ) { ?> 
  
 <div class="sections section-menu section-grey2">
 <div class="container">
@@ -223,61 +230,87 @@ $this->renderPartial( '/store/menu/tabs', array(
      <div class="col-md-8 border menu-left-content">
          
         <div class="tabs-wrapper" id="menu-tab-wrapper">
+            
+
+            
 	    <ul id="tabs">
-		    <li class="active">
-		       <span><?php echo t("Menu")?></span>
-		       <i class="ion-fork"></i>
-		    </li>
+                <li class="active">
+                   <span>
+                       <?php echo t("Menu")?>
+                   </span>
+                   <i class="ion-fork"></i>
+                </li>
 		    
-		    <?php if ($theme_hours_tab==""):?>
-		    <li>
-		       <span><?php echo t("Opening Hours")?></span>
-		       <i class="ion-clock"></i>
-		    </li>
-		    <?php endif;?>
+                <?php if ($theme_hours_tab==""):?>
+                <li>
+                   <span>
+                       <?php echo t("Opening Hours")?>
+                   </span>
+                   <i class="ion-clock"></i>
+                </li>
+                <?php endif;?>
 		    
-		    <?php if ($theme_reviews_tab==""):?>
-		    <li class="view-reviews">
-		       <span><?php echo t("Reviews")?></span>
-		       <i class="ion-ios-star-half"></i>
-		    </li>
-		    <?php endif;?>
+                <?php if ($theme_reviews_tab==""):?>
+                <li class="view-reviews">
+                   <span>
+                       <?php echo t("Reviews")?>
+                   </span>
+                   <i class="ion-ios-star-half"></i>
+                </li>
+                <?php endif;?>
 		    
-		    <?php if ($theme_map_tab==""):?>
-		    <li class="view-merchant-map">
-		       <span><?php echo t("Map")?></span>
-		       <i class="ion-ios-navigate-outline"></i>
-		    </li>
-		    <?php endif;?>
+                <?php if ($theme_map_tab==""):?>
+                <li class="view-merchant-map">
+                   <span>
+                       <?php echo t("Map")?>
+                   </span>
+                   <i class="ion-ios-navigate-outline"></i>
+                </li>
+                <?php endif;?>
 		    
-		    <?php if ($booking_enabled):?>
-		      <li>
-		      <span><?php echo t("Book a Table")?></span>
-		      <i class="ion-coffee"></i>
-		      </li>
-		    <?php endif;?>
+                <?php if ($booking_enabled):?>
+                  <li>
+                  <span>
+                      <?php echo t("Book a Table")?>
+                  </span>
+                  <i class="ion-coffee"></i>
+                  </li>
+                <?php endif;?>
 		    
-		    <?php if ($photo_enabled):?>
-		      <li class="view-merchant-photos">
-		       <span><?php echo t("Photos")?></span>
-		       <i class="ion-images"></i>
-		      </li>
-		    <?php endif;?>
+                <?php if ($photo_enabled):?>
+                  <li class="view-merchant-photos">
+                   <span>
+                       <?php echo t("Photos")?>
+                   </span>
+                   <i class="ion-images"></i>
+                  </li>
+                <?php endif;?>
 		    
-		    <?php if ($theme_info_tab==""):?>
-		    <li>
-		      <span><?php echo t("Information")?></span>
-		      <i class="ion-ios-information-outline"></i>
-		    </li>
-		    <?php endif;?>
+                <?php if ($theme_info_tab==""):?>
+                <li>
+                  <span>
+                      <?php echo t("Information")?>
+                  </span>
+                  <i class="ion-ios-information-outline"></i>
+                </li>
+                <?php endif;?>
 		    
-		    <?php if ( $promo['enabled']==2 && $theme_promo_tab==""):?>
-		      <li>
-		       <span><?php echo t("Promos")?></span>
-		       <i class="ion-pizza"></i>
-		      </li>
-		    <?php endif;?>
-		</ul>
+                <?php if ( $promo['enabled']==2 && $theme_promo_tab==""):?>
+                  <li>
+                   <span>
+                       <?php echo t("Promos")?>
+                   </span>
+                   <i class="ion-pizza"></i>
+                  </li>
+                <?php endif;?>
+                  
+            </ul>
+            
+            
+            
+            
+            
+            
 		
 		<ul id="tab">
 		
@@ -535,13 +568,13 @@ $this->renderPartial( '/store/menu/tabs', array(
 </div> <!--section-menu-->
 
 
-<?php //} ?>
+<?php } ?>
 
 <?php
 
 $this->renderPartial('/store/menu/_details_popup', [
-//        'google_login_enabled'   => $google_login_enabled,
-
+//        'data'    => $data,
+        'item_id' => 1 
      ] ); 
 
 

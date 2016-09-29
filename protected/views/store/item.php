@@ -37,14 +37,31 @@ $hide_foodprice=Yii::app()->functions->getOptionAdmin('website_hide_foodprice');
 echo CHtml::hiddenField('hide_foodprice',$hide_foodprice);
 ?>
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 <form class="frm-fooditem" id="frm-fooditem" method="POST" onsubmit="return false;">
+    
+    
 <?php echo CHtml::hiddenField('action','addToCart')?>
 <?php echo CHtml::hiddenField('item_id',$this_data['item_id'])?>
 <?php echo CHtml::hiddenField('row',isset($row)?$row:"")?>
 <?php echo CHtml::hiddenField('merchant_id',isset($data['merchant_id'])?$data['merchant_id']:'')?>
 <?php echo CHtml::hiddenField('discount',isset($data['discount'])?$data['discount']:"" )?>
 <?php echo CHtml::hiddenField('currentController','store')?>
+    
+    
 <?php 
 if ($data['two_flavors']==2){
 	$data['prices'][0]=array(

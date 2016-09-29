@@ -37,6 +37,7 @@
                         ) ); ?>    
                         
                     </div>
+                    
                     <div class="tab-pane" id="menu" role="tabpanel">
                         
                          <?php $this->renderPartial('/store/menu/restaurant-menu', array(
@@ -58,17 +59,18 @@
                   
                          
                     </div>
+                    
                     <div class="tab-pane" id="booking" role="tabpanel">
 
                         <!--BOOK A TABLE-->
-                        <?php if ($booking_enabled):?>
-                        <!--<li>-->
-                            <?php $this->renderPartial('/store/menu/book-table',array(
+                        <?php 
+                            if ($booking_enabled){ 
+                                
+                                $this->renderPartial('/store/menu/book-table', array(
                                             'merchant_id' => $merchant_id
-                                    ));
-                            ?>        
-                        <!--</li>-->
-                        <?php endif;?>
+                                ));
+                            }
+                        ?>
                         <!--END BOOK A TABLE-->
                         
                     </div>
