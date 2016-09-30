@@ -99,11 +99,13 @@
                 //dump($data);
                 /** two flavores */
                 if ($data['two_flavors']==2){
-                            $data['prices'][0]=array(
-                              'price'=>0,
-                              'size'=>''
-                            );	
-                            echo CHtml::hiddenField('two_flavors',$data['two_flavors']);
+                    
+                    $data['prices'][0]=array(
+                      'price'=>0,
+                      'size'=>''
+                    );	
+                    
+                    echo CHtml::hiddenField('two_flavors',$data['two_flavors']);
                 }
                     //dump($data);
                 ?>
@@ -160,105 +162,55 @@
                                         'size_select' => $size_select
                                 ] ); ?>  
                         
-<!--                            <h4 class="nomargin_top">
-                                Delivery time 
-                                <i class="icon_clock_alt pull-right"></i>
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, in pri partem essent. Qui debitis meliore ex, tollit debitis conclusionemque te eos.
-                            </p>
-                            <hr>-->
-                            
-                            
-                            
-                            
-<!--                            <h4>
-                                Secure payment 
-                                <i class="icon_creditcard pull-right"></i>
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, in pri partem essent. Qui debitis meliore ex, tollit debitis conclusionemque te eos.
-                            </p>-->
-                        <!--</div>-->
+                             <?php
+                                $this->renderPartial('/store/menu/complex_item_elements/ingredients', [
+                                        'data'        => $data,
+                                        'item_id'     => 1,
+                                        'size_select' => $size_select
+                                ] ); ?>  
+                        
+                                
+
                     </div>
                 </div>
                 
                 <br />
                 <br />
-                <br />
-                <br />
-                <br />
-                
-                
-                
-                
-                
-                
-                
-<!--                <div class="login_icon">
-                    <i class="icon_lock_alt"></i>
-                </div>-->
-
-                <?php echo CHtml::textField('first_name', '', array(
-                           'class'       => 'form-control form-white',
-                           'placeholder' => t("First Name"),
-                           'required'    => true               
-                  ))?>
-                    
-                <?php echo CHtml::textField('last_name', '', array(
-                                'class'       => 'form-control form-white',
-                                'placeholder' => t("Last Name"),
-                                'required'    => true
-                           ))?>
-                <?php echo CHtml::textField('contact_phone','', array(
-                                'class'       => 'form-control form-white mobile_inputs',
-                                'placeholder' => t("Mobile"),
-                                'required'    => true
-               ))?>
-                <?php echo CHtml::textField('email_address','',array(
-                                'class'       => 'form-control form-white',
-                                'placeholder' => t("Email address"),
-                                'required'    => true
-               ))?>
-                 <?php echo CHtml::passwordField('password','', array(
-                                'class'       => 'form-control form-white',
-                                'placeholder' => t("Password"),
-                                'required'    => true
-               ))?>
-               <?php echo CHtml::passwordField('cpassword','', array(
-                                'class'       => 'form-control form-white',
-                                'placeholder' => t("Confirm Password"),
-                                'required'    => true
-               )); 
-                   $FunctionsK=new FunctionsK();
-                   $FunctionsK->clientRegistrationCustomFields();
-               ?> 
+              
                 
                
                 
                    
                 <div id="pass-info" class="clearfix"></div>
-                <div class="checkbox-holder text-left">
-                    <div class="checkbox">
-                        <?php 
-                            echo CHtml::checkBox('terms_n_condition', false, array(
-                             'value'    => 2,
-                             'class'    => "icheck",
-                             'required' => true
-                           ));?>
-                        
-                        <label for="terms_n_condition">
-                            <span>
-                                I Agree to the 
-                                <strong>Terms &amp; Conditions</strong>
-                            </span>
-                        </label>
-                    </div>
-                </div>
-                    
-                <button type="submit" class="btn btn-submit">
-                    <?php echo t("Create Account")?>
-                </button>
+                
+                <?php if ($disabled_website_ordering==""):?>
+                
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="" class="btn" data-dismiss="modal" >
+                                <?php echo t("Close")?>
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                             <button type="submit" class="btn btn-submit">
+                                <?php echo empty($row)?Yii::t("default","add to cart"):Yii::t("default","update cart");?>
+                            </button>
+                        </div>
+                    </div>    
+
+                <?php endif;?>
+                
+                
+                
+                
+                
+                
+                
+                
+               
+                
+                
+                
             </form>
         </div>
     </div>
