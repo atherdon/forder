@@ -134,11 +134,15 @@
                                 </p>
                             </h4>
                             
+                        <?php if ( 0 ) { ?>
+                        
                             <?php
                                 $this->renderPartial('/store/menu/complex_item_elements/photo-gallery', [
                                         'data'    => $data,
 //                                        'item_id' => 1 
                                 ] ); ?>
+                                
+                        <?php } ?>
                         
                             <?php
                                 $this->renderPartial('/store/menu/complex_item_elements/price', [

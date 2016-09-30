@@ -786,6 +786,12 @@ class StoreController extends CController
 	public function actionMenu()
 	{		
                 
+             $this->render(
+                                    'error', 
+                                    array( 'message' => t("Sorry but this merchant is no longer available"), 'viewName' => 'error'  )
+                                 );
+            
+            
             $data=$_GET;		
             $current_merchant='';
             if (isset($_SESSION['kr_merchant_id'])){
@@ -940,13 +946,13 @@ class StoreController extends CController
                         }  else {
                              $this->render(
                                     'error', 
-                                    array( 'message' => t("Sorry but this merchant is no longer available") )
+                                    array( 'message' => t("Sorry but this merchant is no longer available"), 'viewName' => 'error' )
                                  );
                         } 
 			
                 } else {
                     $this->render('error',array(
-		  'message'=>t("merchant is not available")
+		  'message'=>t("merchant is not available"), 'viewName' => 'error'
 		));
                 }
 	}
@@ -1114,7 +1120,7 @@ class StoreController extends CController
 	{
 		if ( getOptionA('disabled_cc_management')=="yes"){
 			$this->render('error',array(
-			  'message'=>t("Sorry but we cannot find what you are looking for.")
+			  'message'=>t("Sorry but we cannot find what you are looking for."), 'viewName' => 'error'
 			));
 		} else {
 			if (isset($_GET['Do'])){
@@ -1134,7 +1140,7 @@ class StoreController extends CController
 	{
             if ($res=Yii::app()->functions->getLostPassToken($_GET['token']) ){
                     $this->render('forgot-pass');
-            } else $this->render('error',array('message'=>t("ERROR: Invalid token.")));
+            } else $this->render('error',array('message'=>t("ERROR: Invalid token."), 'viewName' => 'error' ));
 	}
 	
 	public function actionPage()
@@ -1493,9 +1499,9 @@ class StoreController extends CController
 				$_SESSION['kr_item']=$order;								
 				$redirect=Yii::app()->getBaseUrl(true)."/store/checkout";
 				header("Location: ".$redirect);
-				$this->render('error',array('message'=>t("Please wait while we redirect you")));
-			} else $this->render('error',array('message'=>t("Token not found")));
-		} else $this->render('error',array('message'=>t("Token is missing")));
+				$this->render('error',array('message'=>t("Please wait while we redirect you"), 'viewName' => 'error'));
+			} else $this->render('error',array('message'=>t("Token not found"), 'viewName' => 'error'));
+		} else $this->render('error',array('message'=>t("Token is missing"), 'viewName' => 'error'));
 	}
 	
 	public function actionPaymentbcy()
@@ -1605,16 +1611,16 @@ class StoreController extends CController
 							break;
 					}				
 				} elseif ( $data['do']=="decline"){
-					$this->render("error",array('message'=>t("Your payment has been decline")));
+					$this->render("error",array('message'=>t("Your payment has been decline"), 'viewName' => 'error'));
 				} elseif ( $data['do']=="exception"){
-					$this->render("error",array('message'=>t("Your Payment transactions is uncertain")));
+					$this->render("error",array('message'=>t("Your Payment transactions is uncertain"), 'viewName' => 'error'));
 				} elseif ( $data['do']=="cancel"){
-					$this->render("error",array('message'=>t("Your transaction has been cancelled")));
+					$this->render("error",array('message'=>t("Your transaction has been cancelled"), 'viewName' => 'error'));
 				} else {
-					$this->render("error",array('message'=>t("Unknow request")));
+					$this->render("error",array('message'=>t("Unknow request"), 'viewName' => 'error'));
 				}	
-			} else $this->render("error",array('message'=>t("Cannot find order id")));
-		} else $this->render("error",array('message'=>t("Something went wrong")));
+			} else $this->render("error",array('message'=>t("Cannot find order id"), 'viewName' => 'error'));
+		} else $this->render("error",array('message'=>t("Something went wrong"), 'viewName' => 'error'));
 	}
 	
 	public function actionBcyinit()
@@ -1731,7 +1737,7 @@ class StoreController extends CController
 		}
 		
 		if (!empty($msg)){
-			$this->render('error',array('message'=>$msg));
+			$this->render('error',array('message'=>$msg, 'viewName' => 'error'));
 		}
 	}
 	
@@ -1768,7 +1774,7 @@ class StoreController extends CController
 		}	
 
 		if ( Yii::app()->functions->getOptionAdmin("merchant_disabled_registration")=="yes"){
-			//$this->render('error',array('message'=>t("Sorry but merchant registration is disabled by admin")));
+			//$this->render('error',array('message'=>t("Sorry but merchant registration is disabled by admin"), 'viewName' => error));
 //			$this->render('404-page',array('header'=>true));
                         $this->render('//store/404/index', array(
                         'header' => true
@@ -1834,14 +1840,14 @@ class StoreController extends CController
 		
 		if ( $continue==true){
 		   $this->render('mobile-verification');
-		} else $this->render('error',array('message'=>$msg));
+		} else $this->render('error',array('message'=>$msg, 'viewName' => 'error'));
 	}
 
 	public function actionMap()
 	{
 		if ( getOptionA('view_map_disabled')==2){
 			$this->render('error',array(
-			  'message'=>t("Sorry but we cannot find what you are looking for.")
+			  'message'=>t("Sorry but we cannot find what you are looking for."), 'viewName' => 'error'
 			));
 		} else {	
 			$this->layout='_store';
@@ -1928,7 +1934,7 @@ class StoreController extends CController
 		         'data'=>$data
 		       ));
 		 	} else $this->render('address-book');
-		 } else $this->render('error',array('message'=>t("Sorry but we cannot find what you are looking for.")));
+		 } else $this->render('error',array('message'=>t("Sorry but we cannot find what you are looking for."), 'viewName' => 'error'));
 	}
 	
 	public function actionAutoZipcode()
@@ -2142,7 +2148,7 @@ class StoreController extends CController
 		   $this->render('email-verification',array(
 		     'data'=>$res
 		   ));
-		} else $this->render('error',array('message'=>$msg));
+		} else $this->render('error',array('message'=>$msg, 'viewName' => 'error'));
 	}
 	
 	public function actionMyPoints()
@@ -2167,11 +2173,11 @@ class StoreController extends CController
 				 'points_expirint'=>$points_expirint
 				));
 			} else $this->render('error',array(
-			  'message'=>t("Sorry but you need to login first.")
+			  'message'=>t("Sorry but you need to login first."), 'viewName' => 'error'
 			));		
 		} else {
 			$this->render('error',array(
-			  'message'=>t("Sorry but we cannot find what you are looking for.")
+			  'message'=>t("Sorry but we cannot find what you are looking for."), 'viewName' => 'error'
 			));		
 		}
 	}

@@ -21,6 +21,7 @@ $placholder_search=Yii::t("default",$placholder_search);
 
 
 
+
 <?php 
         $this->renderPartial('/store/home/_header', array(
 //                  'home_search_text'    => $home_search_text,
