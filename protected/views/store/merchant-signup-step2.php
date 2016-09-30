@@ -10,6 +10,20 @@ $this->renderPartial('/front/progress-merchantsignup',array(
    'show_bar'=>true
 ));
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCountrySet(true));
 ?>
 
@@ -325,6 +339,24 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
       <p class="text-danger"><?php echo t("Sorry but we cannot find what you are looking for.")?></p>
       <?php endif;?>
        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
     </div> <!--box-grey-->
     
    </div> <!--col-->
@@ -356,9 +388,21 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
           </div>
            
            <div class="top25">
+               
+               
+               
+               
+               
            <a href="<?php echo Yii::app()->createUrl('/store/merchantsignup')?>" class="black-button inline medium">
            <i class="ion-ios-arrow-thin-left"></i> <?php echo t("Back")?>
            </a>
+               
+               
+               
+               
+               
+               
+               
            </div>
            
        </div> <!--box-->

@@ -1,19 +1,4 @@
-<?php 
-
-$array = array(
-                'data'               => Yii::app()->functions->getPackagesById($_GET['package_id']),
-                'limit_post'         => Yii::app()->functions->ListlimitedPost(),
-                'terms_merchant'     => getOptionA('website_terms_merchant'),
-                'terms_merchant_url' => getOptionA('website_terms_merchant_url'),
-                'package_list'       => Yii::app()->functions->getPackagesList(),
-                'kapcha_enabled'     => getOptionA('captcha_merchant_signup')
-            );
-
-
-
-?>    
-
-
+    
     
 <div id="merchant-apply-container">
   <div class="media-cover-container merchant-apply-jumbotron">
@@ -42,7 +27,7 @@ $array = array(
               
               
               
-            <?php if ( is_array( $data ) && count( $data ) >= 1 ){?>  
+              
               
             <form id="merchant-apply-form" action="#" role="form" method="POST" class="info-card info-card-padding roundify form-horizontal bv-form" 
                   data-bv-message="This value is not valid" 
@@ -51,7 +36,7 @@ $array = array(
                   data-bv-feedbackicons-validating="glyphicon glyphicon-refresh" 
                   novalidate="novalidate">
 
-           <?php echo CHtml::hiddenField('mobile_country_code', Yii::app()->functions->getAdminCountrySet( true ) ); ?>   
+              
 
 <!--              <input type="hidden" name="oid" value="00D1a000000KEiH">
               <input type="hidden" name="retURL" value="https://www.doordash.com/merchant/apply_success/">
@@ -209,7 +194,7 @@ $array = array(
                 </div>
               </div>
             </form>
-            <?php } ?>  
+              
               
               
               
