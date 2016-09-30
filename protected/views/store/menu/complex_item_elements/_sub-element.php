@@ -35,9 +35,14 @@
 
             <?php
                 $this->renderPartial('/store/menu/complex_item_elements/_sub-sub-element', [
-                        'data'        => $data,
-                        'item_id'     => 1,
-                        'size_select' => $size_select
+//                        'data'        => $data,
+//                        'item_id'     => 1,
+//                        'size_select' => $size_select,
+                        'val'                   => $val,
+                        'sub_item_name'         => $sub_item_name,
+                        'sub_item_id'           => $sub_item_id,
+                        'sub_addon_selected_id' => $sub_addon_selected_id,
+                        'val_addon'   => $val_addon,
                 ] );  
             ?>
 

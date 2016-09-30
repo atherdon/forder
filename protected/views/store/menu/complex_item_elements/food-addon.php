@@ -10,7 +10,8 @@
             $this->renderPartial('/store/menu/complex_item_elements/single-addon', [
                     'data'        => $data,
                     'item_id'     => 1,
-                    'size_select' => $size_select
+//                    'size_select' => $size_select,
+                    'val'         => $val,
             ] ); ?> 
     
           

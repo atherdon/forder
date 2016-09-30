@@ -137,13 +137,13 @@
                             <?php
                                 $this->renderPartial('/store/menu/complex_item_elements/photo-gallery', [
                                         'data'    => $data,
-                                        'item_id' => 1 
+//                                        'item_id' => 1 
                                 ] ); ?>
                         
                             <?php
                                 $this->renderPartial('/store/menu/complex_item_elements/price', [
                                         'data'        => $data,
-                                        'item_id'     => 1,
+//                                        'item_id'     => 1,
                                         'size_select' => $size_select
                                 ] ); ?>            
                       
@@ -151,24 +151,30 @@
                             <?php
                                 $this->renderPartial('/store/menu/complex_item_elements/qty', [
                                         'data'        => $data,
-                                        'item_id'     => 1,
-                                        'size_select' => $size_select
+//                                        'item_id'     => 1,
+//                                        'size_select' => $size_select
                                 ] ); ?>      
                         
                              <?php
                                 $this->renderPartial('/store/menu/complex_item_elements/cooking-ref', [
                                         'data'        => $data,
-                                        'item_id'     => 1,
-                                        'size_select' => $size_select
+//                                        'item_id'     => 1,
+//                                        'size_select' => $size_select
                                 ] ); ?>  
                         
                              <?php
                                 $this->renderPartial('/store/menu/complex_item_elements/ingredients', [
                                         'data'        => $data,
-                                        'item_id'     => 1,
-                                        'size_select' => $size_select
+//                                        'item_id'     => 1,
+//                                        'size_select' => $size_select
                                 ] ); ?>  
                         
+                             <?php
+                                $this->renderPartial('/store/menu/complex_item_elements/food-addon', [
+                                        'data'        => $data,
+//                                        'item_id'     => 1,
+//                                        'size_select' => $size_select
+                                ] ); ?>      
                                 
 
                     </div>

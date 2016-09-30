@@ -20,7 +20,9 @@
                 $this->renderPartial('/store/menu/complex_item_elements/_sub-element', [
                         'data'        => $data,
                         'item_id'     => 1,
-                        'size_select' => $size_select
+//                        'size_select' => $size_select,
+                        'val'         => $val,
+                        'val_addon'   => $val_addon,
                 ] );  
                 $x++; 
 
