@@ -323,36 +323,41 @@ class StoreController extends CController
 			return ;
 		}
 		
-		$seo_title=Yii::app()->functions->getOptionAdmin('seo_merchantsignup');
-		$seo_meta=Yii::app()->functions->getOptionAdmin('seo_merchantsignup_meta');
-		$seo_key=Yii::app()->functions->getOptionAdmin('seo_merchantsignup_keywords');
+		$seo_title = Yii::app()->functions->getOptionAdmin('seo_merchantsignup');
+		$seo_meta  = Yii::app()->functions->getOptionAdmin('seo_merchantsignup_meta');
+		$seo_key   = Yii::app()->functions->getOptionAdmin('seo_merchantsignup_keywords');
 		
 		if (!empty($seo_title)){
-		   $seo_title=smarty('website_title',getWebsiteName(),$seo_title);
-		   $this->pageTitle=$seo_title;
+		   $seo_title       = smarty('website_title',getWebsiteName(),$seo_title);
+		   $this->pageTitle = $seo_title;
 		   Yii::app()->functions->setSEO($seo_title,$seo_meta,$seo_key);
 		}
 		
 		if(isset($_GET['package_id'])){
-			$_GET['id']=$_GET['package_id'];
+                    $_GET['id']=$_GET['package_id'];
 		}	
 		
 		if (isset($_GET['Do'])){
-			$_GET['do']=$_GET['Do'];
+                    $_GET['do']=$_GET['Do'];
 		}	
 		
 		if (isset($_GET['do'])){
 			switch ($_GET['do']) {
+                            
+                            
 				case 'step2':
+                                    
 					$this->render('merchant-signup-step2',array(
-					  'data'=>Yii::app()->functions->getPackagesById($_GET['package_id']),
-					  'limit_post'=>Yii::app()->functions->ListlimitedPost(),
-					  'terms_merchant'=>getOptionA('website_terms_merchant'),
-					  'terms_merchant_url'=>getOptionA('website_terms_merchant_url'),
-					  'package_list'=>Yii::app()->functions->getPackagesList(),
-					  'kapcha_enabled'=>getOptionA('captcha_merchant_signup')
+                                            'data'               => Yii::app()->functions->getPackagesById($_GET['package_id']),
+                                            'limit_post'         => Yii::app()->functions->ListlimitedPost(),
+                                            'terms_merchant'     => getOptionA('website_terms_merchant'),
+                                            'terms_merchant_url' => getOptionA('website_terms_merchant_url'),
+                                            'package_list'       => Yii::app()->functions->getPackagesList(),
+                                            'kapcha_enabled'     => getOptionA('captcha_merchant_signup')
 					));		
 					break;
+                                    
+                                    
 				case "step3":
 					 $renew=false;
 					 $package_id=isset($_GET['package_id'])?$_GET['package_id']:'';  
@@ -365,9 +370,13 @@ class StoreController extends CController
 					    'renew'=>$renew					    
 					 ));		
 					break;
+                                        
+                                        
 				case "step3a":
 					 $this->render('merchant-signup-step3a');		
 					break;	
+                                    
+                                    
 				case "step3b":					    
 					if (isset($_GET['gateway'])){
 						if ($_GET['gateway']=="mcd"){
@@ -386,6 +395,7 @@ class StoreController extends CController
 					} else $this->render('merchant-signup-step3b');
 					break;		
 					
+                                        
 				case "step4":					     
 				     $disabled_verification=Yii::app()->functions->getOptionAdmin('merchant_email_verification');
 				     if ( $disabled_verification=="yes"){
@@ -425,29 +435,39 @@ class StoreController extends CController
 				     }
 					break;	
 					
+                                        
 				case "thankyou1":
 					 $this->render('merchant-signup-thankyou1',array(
 					   'data'=>Yii::app()->functions->getMerchantByToken($_GET['token'])
 					 ));		
-					break;		
+					break;	
+                                    
+                                    
 				case "thankyou2":
 					$this->render('merchant-signup-thankyou2',array(
 					  'data'=>Yii::app()->functions->getMerchantByToken($_GET['token'])
 					));		
-					break;		
+					break;	
+                                    
+                                    
 				case "thankyou3":
 					$this->render('merchant-signup-thankyou3',array(
 					  'data'=>Yii::app()->functions->getMerchantByToken($_GET['token'])
 					));		
-					break;			
+					break;	
+                                    
+                                    
 				default:
 					$this->render('merchant-signup',array(
 					    'list'=>Yii::app()->functions->getPackagesList(),
 		               'limited_post'=>Yii::app()->functions->ListlimitedPost()
 					));		
 					break;
+                                    
+                                    
 			}
 		} else {
+                    
 			$disabled_membership_signup=getOptionA('admin_disabled_membership_signup');
 			if($disabled_membership_signup==1){				
 				$this->render('//store/404/index', array(
@@ -459,6 +479,7 @@ class StoreController extends CController
 			      'limited_post'=>Yii::app()->functions->ListlimitedPost()
 			    ));						
 			}
+                        
 		}
 	}
 	
@@ -786,10 +807,10 @@ class StoreController extends CController
 	public function actionMenu()
 	{		
                 
-             $this->render(
-                                    'error', 
-                                    array( 'message' => t("Sorry but this merchant is no longer available"), 'viewName' => 'error'  )
-                                 );
+//             $this->render(
+//                                    'error', 
+//                                    array( 'message' => t("Sorry but this merchant is no longer available"), 'viewName' => 'error'  )
+//                                 );
             
             
             $data=$_GET;		
@@ -1789,6 +1810,7 @@ class StoreController extends CController
 	
 	public function actionMerchantSignupinfo()
 	{
+            
 		$this->render('merchant-signup-info',array(
 		  'terms_merchant'=>getOptionA('website_terms_merchant'),
 		  'terms_merchant_url'=>getOptionA('website_terms_merchant_url'),
