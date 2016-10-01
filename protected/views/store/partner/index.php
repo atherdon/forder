@@ -251,6 +251,7 @@ $array = array(
                 </div>
               </div> 
                 
+                
                <div class="form-group has-feedback">
                     <label for="street" class="col-xs-4 control-label">
                         <?php echo t("Street address")?>
