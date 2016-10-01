@@ -1,7 +1,7 @@
 <?php 
 
 $array = array(
-                'data'               => Yii::app()->functions->getPackagesById($_GET['package_id']),
+                'data'               => Yii::app()->functions->getPackagesById( $_GET['package_id'] ),
                 'limit_post'         => Yii::app()->functions->ListlimitedPost(),
                 'terms_merchant'     => getOptionA('website_terms_merchant'),
                 'terms_merchant_url' => getOptionA('website_terms_merchant_url'),
@@ -44,267 +44,276 @@ $array = array(
               
             <?php if ( is_array( $data ) && count( $data ) >= 1 ){?>  
               
-            <form id="merchant-apply-form" action="#" role="form" method="POST" class="info-card info-card-padding roundify form-horizontal bv-form" 
+            <form id="merchant-apply-form" action="#" role="form" method="POST" 
+                  class="info-card info-card-padding roundify form-horizontal bv-form" 
                   data-bv-message="This value is not valid" 
                   data-bv-feedbackicons-valid="glyphicon glyphicon-ok" 
                   data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" 
                   data-bv-feedbackicons-validating="glyphicon glyphicon-refresh" 
                   novalidate="novalidate">
 
-            <?php echo CHtml::hiddenField('mobile_country_code', Yii::app()->functions->getAdminCountrySet( true ) ); ?>   
+                <?php echo CHtml::hiddenField('mobile_country_code', Yii::app()->functions->getAdminCountrySet( true ) ); ?>   
 
-                
-            <?php echo CHtml::hiddenField('action','merchantSignUp')?>
-            <?php echo CHtml::hiddenField('currentController','store')?>
-            <?php echo CHtml::hiddenField('package_id',$data['package_id'])?>
-                
-<!--              <input type="hidden" name="oid" value="00D1a000000KEiH">
-              <input type="hidden" name="retURL" value="https://www.doordash.com/merchant/apply_success/">
-              <input type="hidden" name="lead_source" value="Merchant Inbound">-->
 
-              <div class="content-section-headings">
-                <h3 class="content-section-header merchant-title">
-                    Become a Partner
-                </h3>
-                <h5 class="content-section-subheader">
-                  A member of our Partnerships team will be in touch shortly after you submit this form.
-                </h5>
-              </div>
+                <?php echo CHtml::hiddenField('action','merchantSignUp')?>
+                <?php echo CHtml::hiddenField('currentController','store')?>
+                <?php echo CHtml::hiddenField('package_id',$data['package_id'])?>
                 
-              <div class="content-section-headings">
-                <h3 class="content-section-header merchant-title">
-                    <?php echo t("Selected Package")?>
-                </h3>
-                <h5 class="content-section-subheader">
-                    <?php echo $data['title']?>
-                </h5>
-              </div>  
-              
-              <div class="content-section-headings">
-                <h3 class="content-section-header merchant-title">
-                    <?php echo t("Price")?>
-                </h3>
-                <h5 class="content-section-subheader">
-                    <?php if ( $data['promo_price']>=1):?>
-                    
-                        <span class="strike-price"><?php echo FunctionsV3::prettyPrice($data['price'])?></span>
-                        <?php echo FunctionsV3::prettyPrice($data['promo_price'])?> 
-                        
-                     <?php else :?>
-                        
-                        <?php echo FunctionsV3::prettyPrice($data['price'])?> 
-                        
-                     <?php endif;?>
-                </h5>
-              </div>    
-              
-              <div class="content-section-headings">
-                <h3 class="content-section-header merchant-title">
-                    <?php echo t("Membership Limit")?>
-                </h3>
-                <h5 class="content-section-subheader">
-                    <?php if ( $data['expiration_type']=="year"):?>
-                    
-                        <?php echo $data['expiration']/365?> <?php echo Yii::t("default",ucwords($data['expiration_type']))?>
-                    
-                     <?php else :?>
-                    
-                        <?php echo $data['expiration']?> <?php echo Yii::t("default",ucwords($data['expiration_type']))?>
-                    
-                     <?php endif;?>
-                </h5>
-              </div> 
+
+                <div class="content-section-headings">
+                  <h3 class="content-section-header merchant-title">
+                      Become a Partner
+                  </h3>
+                  <h5 class="content-section-subheader">
+                    A member of our Partnerships team will be in touch shortly after you submit this form.
+                  </h5>
+                </div>
                 
-              <div class="content-section-headings">
-                <h3 class="content-section-header merchant-title">
-                    <?php echo t("Usage")?>
-                </h3>
-                <h5 class="content-section-subheader">
-                    <?php if ( $data['unlimited_post']==2):?>
-                        <?php echo $limit_post[$data['unlimited_post']]?>
-                     <?php else :?>
-                        <?php echo $limit_post[$data['unlimited_post']] . " (".$data['post_limit']." item )"?>
-                     <?php endif;?>
-                </h5>
-              </div>    
+                <div class="content-section-headings">
+                  <h3 class="content-section-header merchant-title">
+                      <?php echo t("Selected Package")?>
+                  </h3>
+                  <h5 class="content-section-subheader">
+                      <?php echo $data['title']?>
+                  </h5>
+                </div>  
+              
+                <div class="content-section-headings">
+                  <h3 class="content-section-header merchant-title">
+                      <?php echo t("Price")?>
+                  </h3>
+                  <h5 class="content-section-subheader">
+                      <?php if ( $data['promo_price']>=1):?>
+
+                          <span class="strike-price"><?php echo FunctionsV3::prettyPrice($data['price'])?></span>
+                          
+                          <?php echo FunctionsV3::prettyPrice($data['promo_price'])?> 
+
+                       <?php else :?>
+
+                          <?php echo FunctionsV3::prettyPrice($data['price'])?> 
+
+                       <?php endif;?>
+                  </h5>
+                </div>    
+              
+                <div class="content-section-headings">
+                  <h3 class="content-section-header merchant-title">
+                      <?php echo t("Membership Limit")?>
+                  </h3>
+                  <h5 class="content-section-subheader">
+                      <?php if ( $data['expiration_type']=="year"):?>
+
+                          <?php echo $data['expiration']/365?> <?php echo Yii::t("default",ucwords($data['expiration_type']))?>
+
+                       <?php else :?>
+
+                          <?php echo $data['expiration']?> <?php echo Yii::t("default",ucwords($data['expiration_type']))?>
+
+                       <?php endif;?>
+                  </h5>
+                </div> 
+                
+                <div class="content-section-headings">
+                  <h3 class="content-section-header merchant-title">
+                      <?php echo t("Usage")?>
+                  </h3>
+                  <h5 class="content-section-subheader">
+                      <?php if ( $data['unlimited_post']==2):?>
+                          <?php echo $limit_post[$data['unlimited_post']]?>
+                       <?php else :?>
+                          <?php echo $limit_post[$data['unlimited_post']] . " (".$data['post_limit']." item )"?>
+                       <?php endif;?>
+                  </h5>
+                </div>    
                 
              
-            <div class="form-group has-feedback">
-                <label for="restaurant_name" class="col-xs-4 control-label">
-                    <?php echo t("Restaurant name")?>
-                </label>
-                <div class="col-xs-8">
-                  <?php echo CHtml::textField('restaurant_name',
-			  isset($data['restaurant_name'])?$data['restaurant_name']:""
-			  ,array(
-			  'class'=>'grey-fields full-width',
-			  'data-validation'=>"required"
-			  ))?>  
-                  <!--<input type="text" class="form-control" id="company" name="company" placeholder="Restaurant name" required="" data-bv-field="company">-->
-                  <i class="form-control-feedback" data-bv-icon-for="company" style="display: none;"></i>
-                  <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="restaurant_name" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
-              </div>   
+                <div class="form-group has-feedback">
+                    <label for="restaurant_name" class="col-xs-4 control-label">
+                        <?php echo t("Restaurant name")?>
+                    </label>
+                    <div class="col-xs-8">
+                      <?php echo CHtml::textField('restaurant_name',
+                              isset($data['restaurant_name'])?$data['restaurant_name']:""
+                              ,array(
+                                    'class'=>'form-control',
+                                    'data-validation'=>"required",
+                                    'placeholder'=>'Restaurant name'
+                              ))?>  
+                      
+                      <i class="form-control-feedback" data-bv-icon-for="company" style="display: none;"></i>
+                      <span class="help-block"></span>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="restaurant_name" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
+                  </div>   
                 
                 
-            <?php if ( getOptionA('merchant_reg_abn')=="yes"):?>
-            <div class="form-group has-feedback">
-                <label for="abn" class="col-xs-4 control-label">
-                    <?php echo t("ABN")?>
-                </label>
-                <div class="col-xs-8">
-                    <?php echo CHtml::textField('abn',
-			  isset($data['restaurant_name'])?$data['abn']:""
-			  ,array(
-			  'class'=>'grey-fields full-width',
-			  'data-validation'=>"required"
-			  ))?>
-                  <!--<input type="text" class="form-control" id="company" name="company" placeholder="Restaurant name" required="" data-bv-field="company"><i class="form-control-feedback" data-bv-icon-for="company" style="display: none;"></i>-->
-                  <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="abn" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
-              </div>   
-              <?php endif;?>  
+                <?php if ( getOptionA('merchant_reg_abn')=="yes"):?>
+                <div class="form-group has-feedback">
+                    <label for="abn" class="col-xs-4 control-label">
+                        <?php echo t("ABN")?>
+                    </label>
+                    <div class="col-xs-8">
+                        <?php echo CHtml::textField('abn',
+                              isset($data['restaurant_name'])?$data['abn']:""
+                              ,array(
+                                    'class'=>'grey-fields full-width',
+                                    'data-validation'=>"required",
+                                    'placeholder'=>'ABN'    
+                              ))?>
+                      
+                      <span class="help-block"></span>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="abn" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
+                    </div>
+                  </div>   
+                  <?php endif;?>  
                 
-              <div class="form-group has-feedback">
-                <label for="restaurant_phone" class="col-xs-4 control-label">
-                    <?php echo t("Restaurant phone")?>
-                </label>
-                <div class="col-xs-8">
-                    <?php echo CHtml::textField('restaurant_phone',
-		  isset($data['restaurant_phone'])?$data['restaurant_phone']:""
-		  ,array(
-		  'class'=>'grey-fields full-width',
-		  ))?>
-                  <!--<input type="text" class="form-control" id="phone" name="phone" placeholder="(XXX) XXX-XXXX" data-bv-phone="true" data-bv-phone-country="US" required="" data-bv-field="phone">-->
-                  <i class="form-control-feedback" data-bv-icon-for="phone" style="display: none;"></i>
-                  <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small>
-                <small class="help-block" data-bv-validator="phone" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid phone number</small>
-                </div>
-              </div>  
+                <div class="form-group has-feedback">
+                  <label for="restaurant_phone" class="col-xs-4 control-label">
+                      <?php echo t("Restaurant phone")?>
+                  </label>
+                  <div class="col-xs-8">
+                      <?php echo CHtml::textField('restaurant_phone',
+                    isset($data['restaurant_phone'])?$data['restaurant_phone']:""
+                    ,array(
+                        'class'=>'form-control',
+                        'placeholder'=>'(XXX) XXX-XXXX',
+                        'data-validation'=>"required",
+                    ))?>
+                    
+                    <i class="form-control-feedback" data-bv-icon-for="phone" style="display: none;"></i>
+                    <span class="help-block"></span>
+                  <small class="help-block" data-bv-validator="notEmpty" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small>
+                  <small class="help-block" data-bv-validator="phone" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid phone number</small>
+                  </div>
+                </div>  
 
                 
-            <div class="form-group has-feedback">
-                <label for="first_name" class="col-xs-4 control-label"><?php echo t("Contact name")?></label>
-                <div class="col-xs-8">
-                    <?php echo CHtml::textField('contact_name',
-		  isset($data['contact_name'])?$data['contact_name']:""
-		  ,array(
-		  'class'=>'grey-fields full-width',
-		  'data-validation'=>"required"
-		  ))?>  
-                  <!--<input type="text" class="form-control" id="first_name" name="first_name" placeholder="John Doe" required="" data-bv-field="first_name">-->
-                  <i class="form-control-feedback" data-bv-icon-for="first_name" style="display: none;"></i>
-                  <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="first_name" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
-              </div>
+                <div class="form-group has-feedback">
+                    <label for="contact_name" class="col-xs-4 control-label"><?php echo t("Contact name")?></label>
+                    <div class="col-xs-8">
+                        <?php echo CHtml::textField('contact_name',
+                      isset($data['contact_name'])?$data['contact_name']:""
+                      ,array(
+                            'class'=>'form-control',
+                            'data-validation'=>"required",
+                            'placeholder'=>'John Doe',
+                      ))?>  
+                      
+                      <i class="form-control-feedback" data-bv-icon-for="first_name" style="display: none;"></i>
+                      <span class="help-block"></span>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="first_name" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
+                  </div>
                 
-               <div class="form-group has-feedback">
-                <label for="contact_phone" class="col-xs-4 control-label">
-                    <?php echo t("Contact phone")?>
-                </label>
-                <div class="col-xs-8">
-                    <?php echo CHtml::textField('contact_phone',
-                                isset($data['contact_phone'])?$data['contact_phone']:""
-                                ,array(
-                                'class'=>'grey-fields full-width mobile_inputs',
-                                'data-validation'=>"required"
-                                ));
-                    ?>   
-                  <!--<input type="text" class="form-control" id="phone" name="phone" placeholder="(XXX) XXX-XXXX" data-bv-phone="true" data-bv-phone-country="US" required="" data-bv-field="phone">-->
-                  <i class="form-control-feedback" data-bv-icon-for="contact_phone" style="display: none;"></i>
-                  <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small>
-                <small class="help-block" data-bv-validator="phone" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid phone number</small>
-                </div>
-              </div>               
+                <div class="form-group has-feedback">
+                 <label for="contact_phone" class="col-xs-4 control-label">
+                     <?php echo t("Contact phone")?>
+                 </label>
+                 <div class="col-xs-8">
+                     <?php echo CHtml::textField('contact_phone',
+                                 isset($data['contact_phone'])?$data['contact_phone']:""
+                                 ,array(
+                                        'class'=>'form-control mobile_inputs',
+                                        'data-validation'=>"required",
+                                        'placeholder'=>'(XXX) XXX-XXXX',
+                                 ));
+                     ?>   
+                   
+                   <i class="form-control-feedback" data-bv-icon-for="contact_phone" style="display: none;"></i>
+                   <span class="help-block"></span>
+                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small>
+                 <small class="help-block" data-bv-validator="phone" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid phone number</small>
+                 </div>
+               </div>               
                 
             
-            <div class="form-group has-feedback">
-                <label for="contact_email" class="col-xs-4 control-label">
-                    <?php echo t("Contact email")?>
-                </label>
-                <div class="col-xs-8">
-                    <?php echo CHtml::textField('contact_email',
-		  isset($data['contact_email'])?$data['contact_email']:""
-		  ,array(
-		  'class'=>'grey-fields full-width',
-		  'data-validation'=>"email"
-		  ))?>   
-                  <!--<input type="email" class="form-control" id="email" name="email" placeholder="jdoe@gmail.com" required="" data-bv-field="email">-->
-                  <i class="form-control-feedback" data-bv-icon-for="contact_email" style="display: none;"></i>
-                  <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="emailAddress" data-bv-for="contact_email" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid email address</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
-              </div>
-                
-              <div class="form-group has-feedback">
-                <!--<label for="company" class="col-xs-4 control-label">-->
-                    <!--Store Name-->
-                <!--</label>-->
-                <div class="col-xs-8">
-                  <!--<input type="text" class="form-control" id="company" name="company" placeholder="Restaurant name" required="" data-bv-field="company"><i class="form-control-feedback" data-bv-icon-for="company" style="display: none;"></i>-->
-                  <!--<span class="help-block"></span>-->
-                <small class="help-block" data-bv-validator="notEmpty" 
-                       data-bv-for="company" data-bv-result="NOT_VALIDATED" style="display: none;">
-                    <?php echo t("Important: Please enter your correct email. we will sent an activation code to your email")?>
-                </small>
-                </div>
-              </div> 
-                
-                
-               <div class="form-group has-feedback">
-                    <label for="street" class="col-xs-4 control-label">
-                        <?php echo t("Street address")?>
+                <div class="form-group has-feedback">
+                    <label for="contact_email" class="col-xs-4 control-label">
+                        <?php echo t("Contact email")?>
                     </label>
-                <div class="col-xs-8">
-                     <?php echo CHtml::textField('street',
-		  isset($data['street'])?$data['street']:""
-		  ,array(
-		  'class'=>'grey-fields full-width',
-		  'data-validation'=>"required"
-		  ))?>    
-                  <!--<input type="text" class="form-control" id="street" name="street" placeholder="123 Main St" required="" data-bv-field="street"><i class="form-control-feedback" data-bv-icon-for="street" style="display: none;"></i>-->
-                  <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="street" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
-              </div>               
-              
-            <div class="form-group has-feedback">
-                <label for="city" class="col-xs-4 control-label">
-                    <?php echo t("City")?>
-                </label>
-                <div class="col-xs-8">
-                    <?php echo CHtml::textField('city',
-		  isset($data['city'])?$data['city']:""
-		  ,array(
-		  'class'=>'grey-fields full-width',
-		  'data-validation'=>"required"
-		  ))?>   
-                  <!--<input type="text" class="form-control" id="city" name="city" placeholder="Palo Alto" required="" data-bv-field="city"><i class="form-control-feedback" data-bv-icon-for="city" style="display: none;"></i>-->
-                  <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="city" data-bv-result="NOT_VALIDATED" style="display: none;">
-                    Please enter a value
-                </small></div>
-              </div>  
+                    <div class="col-xs-8">
+                        <?php echo CHtml::textField('contact_email',
+                      isset($data['contact_email'])?$data['contact_email']:""
+                      ,array(
+                            'class'=>'form-control',
+                            'data-validation'=>"email",
+                            'placeholder'=>'jdoe@gmail.com',
+                      ))?>   
+                      
+                      <i class="form-control-feedback" data-bv-icon-for="contact_email" style="display: none;"></i>
+                      <span class="help-block"></span>
+                    <small class="help-block" data-bv-validator="emailAddress" data-bv-for="contact_email" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid email address</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
+                  </div>
                 
-              <div class="form-group has-feedback">
-                <label for="post_code" class="col-xs-4 control-label">
-                    <?php echo t("Post code/Zip code")?>
-                </label>
-                <div class="col-xs-8">
-                    <?php echo CHtml::textField('post_code',
-                            isset($data['post_code'])?$data['post_code']:""
-                            ,array(
-                            'class'=>'grey-fields full-width',
-                            'data-validation'=>"required"
-                          ));
-                    ?>  
-                  <!--<input type="text" class="form-control" id="city" name="city" placeholder="Palo Alto" required="" data-bv-field="city"><i class="form-control-feedback" data-bv-icon-for="city" style="display: none;"></i>-->
-                  <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="post_code" data-bv-result="NOT_VALIDATED" style="display: none;">
-                    Please enter a value
-                </small>
-                </div>
-              </div>   
+                <div class="form-group has-feedback">
+                  
+                  <div class="col-xs-8">
+                    
+                  <small class="help-block" data-bv-validator="notEmpty" 
+                         data-bv-for="company" data-bv-result="NOT_VALIDATED" style="display: none;">
+                      <?php echo t("Important: Please enter your correct email. we will sent an activation code to your email")?>
+                  </small>
+                  </div>
+                </div> 
+
+                
+                <div class="form-group has-feedback">
+                     <label for="street" class="col-xs-4 control-label">
+                         <?php echo t("Street address")?>
+                     </label>
+                 <div class="col-xs-8">
+                      <?php echo CHtml::textField('street',
+                   isset($data['street'])?$data['street']:""
+                   ,array(
+                        'class'=>'form-control',
+                        'data-validation'=>"required",
+                        'placeholder'=>'123 Main St',
+                   ))?>    
+                   
+                   <span class="help-block"></span>
+                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="street" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
+               </div>               
+              
+                <div class="form-group has-feedback">
+                    <label for="city" class="col-xs-4 control-label">
+                        <?php echo t("City")?>
+                    </label>
+                    <div class="col-xs-8">
+                        <?php echo CHtml::textField('city',
+                      isset($data['city'])?$data['city']:""
+                      ,array(
+                            'class'=>'form-control',
+                            'data-validation'=>"required",
+                            'placeholder'=>'Palo Alto',
+                      ))?>   
+                      
+                      <span class="help-block"></span>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="city" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small></div>
+                  </div>  
+                
+                <div class="form-group has-feedback">
+                  <label for="post_code" class="col-xs-4 control-label">
+                      <?php echo t("Post code/Zip code")?>
+                  </label>
+                  <div class="col-xs-8">
+                      <?php echo CHtml::textField('post_code',
+                              isset($data['post_code'])?$data['post_code']:""
+                              ,array(
+                                    'class'=>'form-control',
+                                    'data-validation'=>"required",
+                                    'placeholder'=>'94022',
+                            ));
+                      ?>  
+                    
+                    <span class="help-block"></span>
+                  <small class="help-block" data-bv-validator="notEmpty" data-bv-for="post_code" data-bv-result="NOT_VALIDATED" style="display: none;">
+                      Please enter a value
+                  </small>
+                  </div>
+                </div>   
 
               <div class="form-group has-feedback">
                 <label for="country_code" class="col-xs-4 control-label">
@@ -316,35 +325,11 @@ $array = array(
                                 getOptionA('merchant_default_country'),
                                 (array)Yii::app()->functions->CountryListMerchant(),          
                                 array(
-                                'class'=>'grey-fields full-width',
-                                'data-validation'=>"required"
+                                        'class'=>'form-control',
+                                        'data-validation'=>"required"
                             ));
                      ?> 
                     
-                  <select id="00N1a000006s8Mz" name="00N1a000006s8Mz" class="form-control" required="" data-bv-field="00N1a000006s8Mz">
-                    <option selected="" disabled="" hidden="" value=""></option>
-                    
-                    <option value="Atlanta">Atlanta</option>
-                    
-                    <option value="Austin">Austin</option>
-                    
-                    <option value="Bellevue">Bellevue</option>
-                    
-                    <option value="Boston">Boston</option>
-                    
-                    <option value="Brooklyn">Brooklyn</option>
-                   
-                    <option value="Juneau">Juneau</option>
-                    
-                    <option value="LA Valley">LA Valley</option>
-                    
-                    <option value="Los Angeles">Los Angeles</option>
-                    
-                    
-                    <option value="Washington, D.C.">Washington, D.C.</option>
-                    
-                    <option value="OTHER">OTHER</option>
-                  </select>
                     
                     
                     <i class="form-control-feedback" data-bv-icon-for="00N1a000006s8Mz" style="display: none;">
@@ -368,39 +353,11 @@ $array = array(
                      <?php echo CHtml::textField('state',
 		  isset($data['state'])?$data['state']:""
 		  ,array(
-		  'class'=>'grey-fields full-width',
-		  'data-validation'=>"required"
+                        'class'=>'form-control',
+                        'data-validation'=>"required",
+                        'placeholder'=>'California',
 		  ))?> 
                     
-                  <select id="00N1a000006s8Mz" name="00N1a000006s8Mz" class="form-control" required="" data-bv-field="00N1a000006s8Mz">
-                    <option selected="" disabled="" hidden="" value=""></option>
-                    
-                    <option value="Atlanta">Atlanta</option>
-                    
-                    <option value="Austin">Austin</option>
-                    
-                    <option value="Bellevue">Bellevue</option>
-                    
-                    <option value="Boston">Boston</option>
-                    
-                    <option value="Brooklyn">Brooklyn</option>
-                    
-                    <option value="Charlotte">Charlotte</option>
-                    
-                    <option value="Chicago">Chicago</option>
-                    
-                    <option value="Columbus">Columbus</option>
-                    
-                    
-                    
-                    
-                    
-                    <option value="Vancouver">Vancouver</option>
-                    
-                    <option value="Washington, D.C.">Washington, D.C.</option>
-                    
-                    <option value="OTHER">OTHER</option>
-                  </select>
                     
                     
                     <i class="form-control-feedback" data-bv-icon-for="state" style="display: none;">
@@ -435,17 +392,17 @@ $array = array(
                             isset($data['cuisine'])?(array)json_decode($data['cuisine']):"",
                             (array)$cuisine_list,          
                             array(
-                            'class'=>'full-width chosen',
-                            'multiple'=>true,
-                            'data-validation'=>"required"  
+                                    'class'=>'form-control chosen',
+                                    'multiple'=>true,
+                                    'data-validation'=>"required"  
                         ));
                     ?>   
-                  <input type="text" class="form-control" id="street" name="cuisine" placeholder="123 Main St" required="" data-bv-field="street">
+                  
                   <i class="form-control-feedback" data-bv-icon-for="cuisine" style="display: none;"></i>
                   <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="cuisine" data-bv-result="NOT_VALIDATED" style="display: none;">
-                    Please enter a value
-                </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="cuisine" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
                 </div>
               </div>  
             
@@ -458,11 +415,11 @@ $array = array(
                                 isset($data['service'])?$data['service']:"",
                                 (array)Yii::app()->functions->Services(),          
                                 array(
-                                'class'=>'grey-fields full-width',
-                                'data-validation'=>"required"
+                                        'class'=>'form-control',
+                                        'data-validation'=>"required"
                             ));
                      ?>  
-                  <input type="text" class="form-control" id="company" name="company" placeholder="Restaurant name" required="" data-bv-field="company">
+                  
                   <i class="form-control-feedback" data-bv-icon-for="company" style="display: none;"></i>
                   <span class="help-block"></span>
                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="service" data-bv-result="NOT_VALIDATED" style="display: none;">
@@ -488,11 +445,12 @@ $array = array(
                     <?php echo CHtml::textField('username',
                             ''
                             ,array(
-                            'class'=>'grey-fields full-width',
-                            'data-validation'=>"required"
+                                    'class'=>'form-control',
+                                    'data-validation'=>"required",
+                                    'placeholder'=>'Jon Doe',
                           ));
                     ?>
-                  <!--<input type="text" class="form-control" id="company" name="company" placeholder="Restaurant name" required="" data-bv-field="company"><i class="form-control-feedback" data-bv-icon-for="company" style="display: none;"></i>-->
+                  
                   <span class="help-block"></span>
                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="username" data-bv-result="NOT_VALIDATED" style="display: none;">
                     Please enter a value
@@ -508,11 +466,12 @@ $array = array(
                     <?php echo CHtml::passwordField('password',
                                 ''
                                 ,array(
-                                'class'=>'grey-fields full-width',
-                                'data-validation'=>"required"
+                                        'class'=>'form-control',
+                                        'data-validation'=>"required",
+                                        'placeholder'=>'Password',
                                 ));
                     ?>
-                  <!--<input type="text" class="form-control" id="company" name="company" placeholder="Restaurant name" required="" data-bv-field="company"><i class="form-control-feedback" data-bv-icon-for="company" style="display: none;"></i>-->
+                  
                   <span class="help-block"></span>
                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="password" data-bv-result="NOT_VALIDATED" style="display: none;">
                     Please enter a value
@@ -529,10 +488,11 @@ $array = array(
                     <?php echo CHtml::passwordField('cpassword',
 		  ''
 		  ,array(
-		  'class'=>'grey-fields full-width',
-		  'data-validation'=>"required"
+                        'class'=>'form-control',
+                        'data-validation'=>"required",
+                        'placeholder'=>'Confirm Password',
 		  ))?>    
-                  <!--<input type="text" class="form-control" id="company" name="company" placeholder="Restaurant name" required="" data-bv-field="company"><i class="form-control-feedback" data-bv-icon-for="company" style="display: none;"></i>-->
+                  
                   <span class="help-block"></span>
                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="cpassword" data-bv-result="NOT_VALIDATED" style="display: none;">
                     Please enter a value
@@ -558,31 +518,31 @@ $array = array(
                     <?php 
                         echo CHtml::checkBox('terms_n_condition',false,array(
                                 'value'=>2,
-                                'class'=>"",
+                                'class'=>"icheck",
                                 'data-validation'=>"required"
                         ));
                         echo " " . t("I Agree To") . " <a href=\"$terms_link\" target=\"_blank\">".t("The Terms & Conditions") . "</a>";
 		  ?>
                 </label>
                 
-                <?php if ( 0 ) { ?>
+                <?php //if ( 0 ) { ?>
                 <div class="col-xs-8">
                     <?php 
 		  echo CHtml::checkBox('terms_n_condition',false,array(
-		   'value'=>2,
-		   'class'=>"",
-		   'data-validation'=>"required"
+                        'value'=>2,
+                        'class'=>"",
+                        'data-validation'=>"required"
 		  ));
 		  echo " ". t("I Agree To")." <a href=\"$terms_link\" target=\"_blank\">".t("The Terms & Conditions")."</a>";
 		  ?> 
-                  <!--<input type="text" class="form-control" id="first_name" name="first_name" placeholder="John Doe" required="" data-bv-field="first_name">-->
+                  
                   <i class="form-control-feedback" data-bv-icon-for="first_name" style="display: none;"></i>
                   <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="first_name" data-bv-result="NOT_VALIDATED" style="display: none;">
-                    Please enter a value
-                </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="first_name" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
                 </div>
-                <?php } ?>
+                <?php //} ?>
                 
             </div>
             <?php endif;?>
