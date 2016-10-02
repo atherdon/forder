@@ -266,7 +266,7 @@ class StoreController extends CController
     public function actionSignup()
     {
 
-            $cs = Yii::app()->getClientScript();
+            $cs      = Yii::app()->getClientScript();
             $baseUrl = Yii::app()->baseUrl; 
             $cs->registerScriptFile($baseUrl."/assets/js/fblogin.js?ver=1"); 
 
@@ -279,7 +279,7 @@ class StoreController extends CController
             }
 
             $act_menu=FunctionsV3::getTopMenuActivated();
-            if (!in_array('signup',(array)$act_menu)){
+            if ( !in_array('signup', (array)$act_menu) ){
                     $this->render('//store/404/index', array(
                         'header' => true
                     ));

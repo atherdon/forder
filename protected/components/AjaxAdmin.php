@@ -2953,15 +2953,19 @@ $params['cart_tip_value']=isset($this->data['cart_tip_value'])?$this->data['cart
 	    {	    		    		    	
 	    	$DbExt=new DbExt;
 	    	if ( Yii::app()->functions->isClientLogin()){
-		    	$client_id=Yii::app()->functions->getClientId();  		    	
-		    	$params=array(
-		    	  'merchant_id'=>$this->data['merchant-id'],
-		    	  'client_id'=>$client_id,
-		    	  'review'=>$this->data['review_content'],
-		    	  'date_created'=>date('c'),
-		    	  'rating'=>$this->data['initial_review_rating']
+                    
+		    	$client_id = Yii::app()->functions->getClientId();  		    	
+		    	$params    = array(
+                                'merchant_id'  => $this->data['merchant-id'],
+                                'client_id'    => $client_id,
+                                'review'       => $this->data['review_content'],
+                                'date_created' => date('c'),
+                                'rating'       => $this->data['initial_review_rating']
 		    	);		    	
 		    	
+                        
+                        var_dump( $params ); die();
+                        
 		    	/** check if user has bought from the merchant*/		    	
 		    	if ( Yii::app()->functions->getOptionAdmin('website_reviews_actual_purchase')=="yes"){
 		    		$functionk=new FunctionsK();
