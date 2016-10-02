@@ -535,10 +535,11 @@ class ScriptManager
                     ); 
             
             //restaurant menu details page
-            $cs->registerScriptFile(
-                    Widgets::quickScriptPath() . 'infobox.js',
-                    CClientScript::POS_END
-                    ); 
+//            @TODO enable and fix an issue
+//            $cs->registerScriptFile(
+//                    Widgets::quickScriptPath() . 'infobox.js',
+//                    CClientScript::POS_END
+//                    ); 
             
             $cs->registerScriptFile(
                     Widgets::quickScriptPath() . 'jquery.sliderPro.min.js',

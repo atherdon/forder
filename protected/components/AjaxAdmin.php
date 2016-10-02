@@ -2318,24 +2318,25 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 	    {	
 	    		    		    	
 	    	/** check if admin has enabled the google captcha*/    	    	
-	    	if ( $this->data['action']=="clientLogin" || $this->data['action']=="clientLoginModal"){
-		    	if ( getOptionA('captcha_customer_login')==2){
-		    		if ( GoogleCaptcha::checkCredentials()){
-		    			if ( !GoogleCaptcha::validateCaptcha()){	    				
+	    	if ( $this->data['action']=="clientLogin" || $this->data['action'] == "clientLoginModal" ){
+		    	if ( getOptionA('captcha_customer_login') == 2){
+		    		if ( GoogleCaptcha::checkCredentials() ){
+		    			if ( !GoogleCaptcha::validateCaptcha() ){	    				
 		    				$this->msg=GoogleCaptcha::$message;
 		    				return false;
 		    			}	    		
 		    		}	    	
 		    	}
 	    	}
-	    		    	
+	    	var_dump( $this->data ); die();	    	
 	    	/*check if email address is blocked by admin*/	    	
-	    	if ( FunctionsK::emailBlockedCheck($this->data['username'])){
-	    		$this->msg=t("Sorry but your email address is blocked by website admin");
-	    		return ;
+	    	if ( FunctionsK::emailBlockedCheck($this->data['username']) ){
+                    
+                    $this->msg = t("Sorry but your email address is blocked by website admin");
+                    return ;
 	    	}	    	
 	    		    	
-	    	if (!isset($this->data['password_md5'])){
+	    	if ( !isset($this->data['password_md5']) ){
 	    		$this->data['password_md5']='';
 	    	}	    
 	    	if ( Yii::app()->functions->clientAutoLogin($this->data['username'],

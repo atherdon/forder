@@ -176,7 +176,8 @@ function clear_elements(ele) {
 }
 
 $.validate({ 	
-	language : jsLanguageValidator,
+    
+    language : jsLanguageValidator,
     form : '#forms',    
     onError : function() {      
     },
@@ -184,6 +185,7 @@ $.validate({
       form_submit();
       return false;
     }  
+    
 });
 
 $.validate({ 	
@@ -299,6 +301,8 @@ function rm_notices()
 
 function form_submit(formid)
 {		
+        console.log
+    
 	rm_notices();
 	if ( formid ) {
 		var form_id=formid;
@@ -312,7 +316,9 @@ function form_submit(formid)
     btn.val(js_lang.processing);
     busy(true);    
     
-    var params=$("#"+form_id).serialize();	
+    var params = $("#"+form_id).serialize();
+    
+    console.log( params );
     
     var action=$('#'+form_id).find("#action").val(); 
     if ( action == "placeOrder" ){

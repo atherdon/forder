@@ -2,16 +2,18 @@
 <div class="modal fade" id="login_2" tabindex="-1" role="dialog" aria-labelledby="myLogin" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content modal-popup">
-            <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+            <a href="#" class="close-link">
+                <i class="icon_close_alt2"></i>
+            </a>
             
             
-            <?php echo CHtml::hiddenField('mobile_country_code', 
+            
+            
+            <form class="popup-form" id="forms">
+                
+                <?php echo CHtml::hiddenField('mobile_country_code', 
                         Yii::app()->functions->getAdminCountrySet(true)
-                    ); ?>
-            
-            <form action="#" class="popup-form" id="forms">
-                
-                
+                    ); ?>   
                 
                 <?php echo CHtml::hiddenField('action', 'clientLogin')?>
                 <?php echo CHtml::hiddenField('currentController', 'store')?>   
