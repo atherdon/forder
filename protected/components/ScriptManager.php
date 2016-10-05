@@ -640,11 +640,12 @@ class ScriptManager
                      $.validate({ 	
                             language : jsLanguageValidator,
                             language : jsLanguageValidator,
-                        form : '#addressModal',    
+                        form : '#forms',    
                         onError : function() {      
                         },
-                        onSuccess : function() {     
-                          form_submit('addressModal');
+                        onSuccess : function() {   
+                          console.log('123');
+                          form_submit('forms');
                           return false;
                         }  
                     })  
@@ -658,8 +659,8 @@ class ScriptManager
            
         
         
-//           $cs->registerScriptFile($baseUrl."/assets/js/store.js?ver=3"
-//           ,CClientScript::POS_END); 
+           $cs->registerScriptFile($baseUrl . "/assets/js/quickfood/test.js", 
+                   CClientScript::POS_END); 
 //
 //           $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
 //            ,CClientScript::POS_END);

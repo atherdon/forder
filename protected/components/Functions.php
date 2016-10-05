@@ -648,12 +648,14 @@ class Functions extends CApplicationComponent
     
     public function jsLanguageValidator()
     {
-    	$js_lang=array(
-		  'requiredFields'=>Yii::t("default","You have not answered all required fields"),
-		  'groupCheckedTooFewStart'=>Yii::t("default","Please choose at least"),
-		  'badEmail'=>Yii::t("default","You have not given a correct e-mail address"),
+    	$js_lang = 
+                array(
+		  'requiredFields'          => Yii::t("default","You have not answered all required fields"),
+		  'groupCheckedTooFewStart' => Yii::t("default","Please choose at least"),
+		  'badEmail'                => Yii::t("default","You have not given a correct e-mail address"),
 		);
-		return $js_lang;
+        
+        return $js_lang;
     }
     
     public function getCategory($cat_id='')

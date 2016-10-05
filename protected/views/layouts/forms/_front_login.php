@@ -9,7 +9,7 @@
             
             
             
-            <form class="popup-form" id="forms">
+            <form class="popup-form" id="forms" method="POST" onsubmit="return false;">
                 
                 <?php echo CHtml::hiddenField('mobile_country_code', 
                         Yii::app()->functions->getAdminCountrySet(true)

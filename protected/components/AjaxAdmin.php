@@ -50,17 +50,18 @@ if (!class_exists('AjaxAdmin'))
     	  die();
         }
     
-		public function output($debug=FALSE)
-		{
-    	    $resp=array('code'=>$this->code,'msg'=>$this->msg,'details'=>$this->details);
-    	    if ($debug){
-    		    dump($resp);
+        public function output($debug=FALSE){
+            
+    	    $resp = array('code'=>$this->code,'msg'=>$this->msg,'details'=>$this->details);
+            
+    	    if ( $debug ){
+                dump($resp);
     	    }
     	    return json_encode($resp);    	    
-		}
+            
+        }
 		
-		public function login()
-		{			
+        public function login(){			
 								
             /** check if admin has enabled the google captcha*/    	    	
 	    	if ( getOptionA('captcha_admin_login')==2){
@@ -2316,7 +2317,9 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 	    
 	    public function clientLogin()
 	    {	
-	    		    		    	
+	    	echo '123'; die();
+                
+                
 	    	/** check if admin has enabled the google captcha*/    	    	
 	    	if ( $this->data['action']=="clientLogin" || $this->data['action'] == "clientLoginModal" ){
 		    	if ( getOptionA('captcha_customer_login') == 2){

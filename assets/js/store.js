@@ -177,7 +177,8 @@ function clear_elements(ele) {
 $.validate({ 	
 	language : jsLanguageValidator,
     form : '#forms',    
-    onError : function() {      
+    onError : function() {  
+        console.log('123');
     },
     onSuccess : function() {     
       form_submit();
@@ -298,7 +299,26 @@ function rm_notices()
 	$(".uk-alert").remove();		    
 }
 
-function form_submit(formid)
+function form_submit( formid ){
+    rm_notices();
+	if ( formid ) {
+		var form_id=formid;
+	} else {
+		var form_id=$("form").attr("id");    
+	}    	
+    
+	var btn=$('#'+form_id+' input[type="submit"]');   	
+    var btn_cap=btn.val();
+    btn.attr("disabled", true );
+    btn.val(js_lang.processing);
+    busy(true);    
+    
+    var params=$("#"+form_id).serialize();	
+    console.log( params );
+}
+
+
+function form_submit2(formid)
 {		
 	rm_notices();
 	if ( formid ) {
@@ -314,6 +334,8 @@ function form_submit(formid)
     busy(true);    
     
     var params=$("#"+form_id).serialize();	
+    console.log( params );
+    
     
     var action=$('#'+form_id).find("#action").val(); 
     if ( action == "placeOrder" ){
