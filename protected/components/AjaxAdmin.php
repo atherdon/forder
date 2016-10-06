@@ -2101,9 +2101,12 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 	       $this->code=1;$this->msg=Yii::t("default","OK");	       
 	    }
 	    
+            
+            
+            
 	    public function clientRegistration()
 	    {	    	
-	    	
+//	    	
 	    	/** check if admin has enabled the google captcha*/    	    	
 	    	if ( getOptionA('captcha_customer_signup')==2){
                     if ( GoogleCaptcha::checkCredentials()){
@@ -2153,7 +2156,8 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
                       'ip_address'    => $_SERVER['REMOTE_ADDR'],
                       'contact_phone' => $this->data['contact_phone']
                     );
-	    		
+//	    		echo 'before';
+//                        die();
 	    		/** send verification code */
                     $verification = Yii::app()->functions->getOptionAdmin("website_enabled_mobile_verification");	    
                     if ( $verification=="yes"){
@@ -2169,44 +2173,56 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
                     if ($email_verification == 2){
                         $params['email_verification_code'] = $email_code;
                         $params['status']                  = 'pending';
+                        
                         FunctionsV3::sendEmailVerificationCode( $params['email_address'], $email_code, $params );
                     }
-	    	
-		    	/** update 2.3*/
-		    	if (isset($this->data['custom_field1'])){
-		    		$params['custom_field1']=!empty($this->data['custom_field1'])?$this->data['custom_field1']:'';
-		    	}
-		    	if (isset($this->data['custom_field2'])){
-		    		$params['custom_field2']=!empty($this->data['custom_field2'])?$this->data['custom_field2']:'';
-		    	}
-		    			    	
-	    		if ( $this->insertData("{{client}}",$params)){
-                            
-	    			$this->details=Yii::app()->db->getLastInsertID();	    		
-	    			$this->code=1;
-	    			$this->msg=Yii::t("default","Registration successful");
-
-	    			if ( $verification=="yes"){	    				
-	    				$this->msg=t("We have sent verification code to your mobile number");
-	    			} elseif ( $email_verification ==2 ){ 
-	    				$this->msg=t("We have sent verification code to your email address");
-	    			} else {
-	    			   Yii::app()->functions->clientAutoLogin($this->data['email_address'],$this->data['password']);
-	    			}	    			
-	    			
-	    			/*sent welcome email*/
-	    			FunctionsK::sendCustomerWelcomeEmail($this->data);
-	    				    			
-	    			/*POINTS PROGRAM*/	    			
-	    			if (FunctionsV3::hasModuleAddon("pointsprogram")){
-	    			   PointsProgram::signupReward($this->details);
-	    			}
-	    			
-                        } else { 
-                            
-                            $this->msg=Yii::t("default","Something went wrong during processing your request. Please try again later."); 
+                    
                         
+                    /** update 2.3*/
+                    if (isset($this->data['custom_field1'])){
+                            $params['custom_field1']=!empty($this->data['custom_field1'])?$this->data['custom_field1']:'';
+                    }
+                    if (isset($this->data['custom_field2'])){
+                            $params['custom_field2']=!empty($this->data['custom_field2'])?$this->data['custom_field2']:'';
+                    }
+           
+                        
+                    if ( $this->insertData("{{client}}",$params)){
+
+                        $this->details = Yii::app()->db->getLastInsertID();
+                        $this->code    = 1;
+                        $this->msg     = Yii::t("default","Registration successful");
+
+                        if ( $verification=="yes" ){	    				
+                            $this->msg=t("We have sent verification code to your mobile number");
+                        } elseif ( $email_verification ==2 ){ 
+                            $this->msg=t("We have sent verification code to your email address");
+                        } else {
+                           Yii::app()->functions->clientAutoLogin($this->data['email_address'],$this->data['password']);
+                        }	    			
+
+//                       echo 'before';
+                        
+                        
+                        
+                        /* @TODO enable when SMTP will be configured well
+                        /*sent welcome email*/
+                        FunctionsK::sendCustomerWelcomeEmail( $this->data );
+
+                        /*POINTS PROGRAM*/	    			
+                        if (FunctionsV3::hasModuleAddon( "pointsprogram" )){
+                           PointsProgram::signupReward($this->details);
                         }
+                        
+                        /**/
+                        
+                        
+
+                    } else { 
+
+                        $this->msg=Yii::t("default","Something went wrong during processing your request. Please try again later."); 
+
+                    }
                         
 	    	} else {	    	
                     
@@ -6228,31 +6244,55 @@ $params['cart_tip_value']=isset($this->data['cart_tip_value'])?$this->data['cart
 	    public function forgotPassword()
 	    {
 	    	
-	    	$Validator=new Validator;
-			$req=array(
-			  'username-email'=>Yii::t("default","Email is required")
-			);		
-			$Validator->required($req,$this->data);
-			if ($Validator->validate()){
-				if ( $res=yii::app()->functions->isClientExist($this->data['username-email']) ){					
-					$token=md5(date('c'));
-					$params=array('lost_password_token'=>$token);					
-					if ($this->updateData("{{client}}",$params,'client_id',$res['client_id'])){
-						$this->code=1;						
-						$this->msg=Yii::t("default","We sent your forgot password link, Please follow that link. Thank You.");
-												
-						//send email					
-						$tpl=EmailTPL::forgotPass($res,$token);
-					    //$sender=Yii::app()->functions->getOptionAdmin('website_contact_email');
-					    $sender='';
-		                $to=$res['email_address'];		                
-		                if (!sendEmail($to,$sender,Yii::t("default","Forgot Password"),$tpl)){		    			                	
-		                	$this->details="failed";
-		                } else $this->details="mail ok";		
-						
-					} else $this->msg=Yii::t("default","ERROR: Cannot update records");				
-				} else $this->msg=Yii::t("default","Sorry but your Email address does not exist in our records.");
-			} else $this->msg=$Validator->getErrorAsHTML();
+	    	$Validator = new Validator;
+                
+                $req       = array(
+                                'username-email'=>Yii::t("default","Email is required")
+                            );		
+                
+                $Validator->required($req,$this->data);
+                
+                if ($Validator->validate()){
+                    
+                        if ( $res=yii::app()->functions->isClientExist($this->data['username-email']) ){					
+                                $token=md5(date('c'));
+                                $params=array('lost_password_token'=>$token);					
+                                if ($this->updateData("{{client}}",$params,'client_id',$res['client_id'])){
+                                    
+                                        $this->code=1;						
+                                        $this->msg=Yii::t("default","We sent your forgot password link, Please follow that link. Thank You.");
+
+                                        //send email					
+                                        $tpl=EmailTPL::forgotPass($res,$token);
+                                        
+                                    //$sender=Yii::app()->functions->getOptionAdmin('website_contact_email');
+                                    $sender='';
+                                    
+                        $to=$res['email_address'];		                
+                        
+                        if (!sendEmail($to,$sender,Yii::t("default","Forgot Password"),$tpl)){		    			                	
+                            
+                            $this->details="failed";
+                            
+                        } else {
+                            $this->details="mail ok";	
+                            
+                        }	
+
+                        } else { $this->msg=Yii::t("default","ERROR: Cannot update records");				}
+                        
+                        } else { 
+                            $this->msg=Yii::t("default","Sorry but your Email address does not exist in our records.");
+                        
+                        } 
+                        
+                        
+                } else { 
+                    $this->msg=$Validator->getErrorAsHTML();
+                
+                }
+                
+                
 	    }
 	    
 	    public function changePassword()

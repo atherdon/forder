@@ -431,9 +431,11 @@ HTML;
 <br/><br/>
 HTML;
 	}			
-	
-	public static function signupEmailVerification()
-	{
+
+        
+        
+public static function signupEmailVerification(){
+    
 		return <<<HTML
 <p>hi {firstname},</p>
 <br/><br/>
@@ -443,6 +445,11 @@ HTML;
 <br/><br/>
 <p> Kind Regards</p>
 HTML;
-	}				
+}				
+
+
+
+
+
 		
 } /*END CLASS*/

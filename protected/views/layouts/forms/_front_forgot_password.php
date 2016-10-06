@@ -3,7 +3,8 @@
     <div class="modal-dialog">
         <div class="modal-content modal-popup">
             <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-            <form action="#" class="popup-form" id="forms" method="POST" onsubmit="return false;">
+            
+            <form action="#" class="popup-form" id="ForgotPassword" method="POST" onsubmit="return false;">
                 
                 <?php echo CHtml::hiddenField('mobile_country_code', 
                       Yii::app()->functions->getAdminCountrySet(true)

@@ -670,6 +670,20 @@ class ScriptManager
 
                     //console.log('validation');
 
+                     $.validate({ 	
+                        language : jsLanguageValidator,
+                        language : jsLanguageValidator,
+                        form     : '#ForgotPassword',    //form-signup
+                        onError  : function() {    
+                            
+                        },
+                        onSuccess : function() {   
+                          console.log('forgot submit');
+                          form_submit3('ForgotPassword');
+                          return false;
+                        }  
+                    })  
+
                 });
                 ",
                 CClientScript::POS_END

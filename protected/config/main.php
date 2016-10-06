@@ -80,19 +80,21 @@ return array(
 	    ),
 	    	    
 	    'Smtpmail'=>array(
-	        'class'=>'application.extension.smtpmail.PHPMailer',
+	        'class'   =>'application.extension.smtpmail.PHPMailer',
                 
-	        'Host'=>"smtp.gmail.com",
-                'Username'=>'arthur@netweightit.com',
-                'Password'=>'biBcf1K8r4Yn',
-                'Mailer'=>'smtp',
+	        'Host'       =>"smtp.gmail.com",
+                'Username'   =>'arthur@netweightit.com',
+                'Password'   =>'biBcf1K8r4Yn',
+                'Mailer'     =>'smtp',
                 'SMTPSecure' => 'tls',
             // 'Host'=>"YOUR HOST",
             // 'Username'=>'YOUR USERNAME',
             // 'Password'=>'YOUR PASSWORD',
             // 'Mailer'=>'smtp',
             
+//            'Port'   => 25, // change this port according to your mail server
             'Port'=>587, // change this port according to your mail server
+                
             'SMTPAuth'=>true,   
             'ContentType'=>'UTF-8'
 	    ), 
