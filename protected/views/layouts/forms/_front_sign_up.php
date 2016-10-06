@@ -3,15 +3,16 @@
     <div class="modal-dialog">
         <div class="modal-content modal-popup">
             <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-            <form id="form-signup" class="popup-form" id="myRegister" method="POST">
+            
+            <form class="popup-form" id="myRegister" method="POST">
                 
-                <?php echo CHtml::hiddenField('action','clientRegistrationModal')?>
-                <?php echo CHtml::hiddenField('currentController','store')?>
-                <?php echo CHtml::hiddenField('single_page',2)?>   
+                <?php echo CHtml::hiddenField('action', 'clientRegistrationModal')?>
+                <?php echo CHtml::hiddenField('currentController', 'store')?>
+                <?php echo CHtml::hiddenField('single_page', 2)?>   
                 
                  <?php 
                         $verification = Yii::app()->functions->getOptionAdmin("website_enabled_mobile_verification");	    
-                        if ( $verification=="yes"){
+                        if ( $verification == "yes"){
                            echo CHtml::hiddenField('verification', $verification);
                         }
                         if (getOptionA('theme_enabled_email_verification') == 2){
@@ -54,7 +55,7 @@
                                 'placeholder' => t("Confirm Password"),
                                 'required'    => true
                )); 
-                   $FunctionsK=new FunctionsK();
+                   $FunctionsK = new FunctionsK();
                    $FunctionsK->clientRegistrationCustomFields();
                ?> 
                 
@@ -71,7 +72,7 @@
                         <?php 
                             echo CHtml::checkBox('terms_n_condition', false, array(
                              'value'    => 2,
-                             'class'    => "icheck",
+//                             'class'    => "icheck",
                              'required' => true
                            ));?>
                         

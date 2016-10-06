@@ -2106,70 +2106,71 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 	    	
 	    	/** check if admin has enabled the google captcha*/    	    	
 	    	if ( getOptionA('captcha_customer_signup')==2){
-	    		if ( GoogleCaptcha::checkCredentials()){
-	    			if ( !GoogleCaptcha::validateCaptcha()){
-	    				$this->msg=GoogleCaptcha::$message;
-	    				return false;
-	    			}	    		
-	    		}	    	
+                    if ( GoogleCaptcha::checkCredentials()){
+                        if ( !GoogleCaptcha::validateCaptcha()){
+                            $this->msg=GoogleCaptcha::$message;
+                            return false;
+                        }	    		
+                    }	    	
 	    	} 
 	    	
 	    	/*add confirm password */
 	    	if (isset($this->data['cpassword'])){
-	    		if ($this->data['cpassword'] != $this->data['password']){
-	    			$this->msg=t("Confirm password does not match");
-	    			return ;
-	    		}	    	
+                    if ($this->data['cpassword'] != $this->data['password']){
+                        $this->msg=t("Confirm password does not match");
+                        return ;
+                    }	    	
 	    	}	    	
 	    	
 	    	/*check if email address is blocked*/
 	    	if ( FunctionsK::emailBlockedCheck($this->data['email_address'])){
-	    		$this->msg=t("Sorry but your email address is blocked by website admin");
-	    		return ;
+                    $this->msg=t("Sorry but your email address is blocked by website admin");
+                    return ;
 	    	}	    
 	    	
 	    	if ( FunctionsK::mobileBlockedCheck($this->data['contact_phone'])){
-	    		$this->msg=t("Sorry but your mobile number is blocked by website admin");
-	    		return ;
+                    $this->msg=t("Sorry but your mobile number is blocked by website admin");
+                    return ;
 	    	}	    	
 	    		    	
 	    	/*check if mobile number already exist*/
-	        $functionk=new FunctionsK();
+	        $functionk = new FunctionsK();
 	        if ( !$res=Yii::app()->functions->isClientExist($this->data['email_address']) ){
-		        if ( $functionk->CheckCustomerMobile($this->data['contact_phone'])){
-		        	$this->msg=t("Sorry but your mobile number is already exist in our records");
-		        	return ;
-		        }	  
+                    if ( $functionk->CheckCustomerMobile($this->data['contact_phone'])){
+                        $this->msg=t("Sorry but your mobile number is already exist in our records");
+                        return ;
+                    }	  
 	        }
 	        	        
 	    	if ( !$res=Yii::app()->functions->isClientExist($this->data['email_address']) ){
-	    		$params=array(
-	    		  'first_name'=>$this->data['first_name'],
-	    		  'last_name'=>$this->data['last_name'],
-	    		  'email_address'=>$this->data['email_address'],
-	    		  'password'=>md5($this->data['password']),
-	    		  'date_created'=>date('c'),
-	    		  'ip_address'=>$_SERVER['REMOTE_ADDR'],
-	    		  'contact_phone'=>$this->data['contact_phone']
-	    		);
+                    
+                    $params = array(
+                      'first_name'    => $this->data['first_name'],
+                      'last_name'     => $this->data['last_name'],
+                      'email_address' => $this->data['email_address'],
+                      'password'      => md5($this->data['password']),
+                      'date_created'  => date('c'),
+                      'ip_address'    => $_SERVER['REMOTE_ADDR'],
+                      'contact_phone' => $this->data['contact_phone']
+                    );
 	    		
 	    		/** send verification code */
-                $verification=Yii::app()->functions->getOptionAdmin("website_enabled_mobile_verification");	    
-		    	if ( $verification=="yes"){
-		    		$code=Yii::app()->functions->generateRandomKey(5);
-		    		Yii::app()->functions->sendVerificationCode($this->data['contact_phone'],$code);
-		    		$params['mobile_verification_code']=$code;
-		    		$params['status']='pending';
-		    	}	    	  
+                    $verification = Yii::app()->functions->getOptionAdmin("website_enabled_mobile_verification");	    
+                    if ( $verification=="yes"){
+                            $code=Yii::app()->functions->generateRandomKey(5);
+                            Yii::app()->functions->sendVerificationCode($this->data['contact_phone'],$code);
+                            $params['mobile_verification_code']=$code;
+                            $params['status']='pending';
+                    }	    	  
 		    	
-		    	/*send email verification added on version 3*/
-		    	$email_code=Yii::app()->functions->generateCode(10);
-		    	$email_verification=getOptionA('theme_enabled_email_verification');
-		    	if ($email_verification==2){
-		    		$params['email_verification_code']=$email_code;
-		    		$params['status']='pending';
-		    		FunctionsV3::sendEmailVerificationCode($params['email_address'],$email_code,$params);
-		    	}
+                    /*send email verification added on version 3*/
+                    $email_code         = Yii::app()->functions->generateCode(10);
+                    $email_verification = getOptionA('theme_enabled_email_verification');
+                    if ($email_verification == 2){
+                        $params['email_verification_code'] = $email_code;
+                        $params['status']                  = 'pending';
+                        FunctionsV3::sendEmailVerificationCode( $params['email_address'], $email_code, $params );
+                    }
 	    	
 		    	/** update 2.3*/
 		    	if (isset($this->data['custom_field1'])){
@@ -2180,6 +2181,7 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 		    	}
 		    			    	
 	    		if ( $this->insertData("{{client}}",$params)){
+                            
 	    			$this->details=Yii::app()->db->getLastInsertID();	    		
 	    			$this->code=1;
 	    			$this->msg=Yii::t("default","Registration successful");
@@ -2200,17 +2202,24 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 	    			   PointsProgram::signupReward($this->details);
 	    			}
 	    			
-	    		} else $this->msg=Yii::t("default","Something went wrong during processing your request. Please try again later.");
-	    	} else {	    			    		
-	    		$verification=Yii::app()->functions->getOptionAdmin("website_enabled_mobile_verification");	    
-		    	if ( $verification=="yes"){
-		    		if (strlen($res['mobile_verification_code'])>=2 && $res['status']=='pending'){
-		    			$this->msg=t("Found existing registration");
-		    			$this->code=1;
-		    			$this->details=$res['client_id'];
-		    			return ;
-		    		}		    	
-		    	}
+                        } else { 
+                            
+                            $this->msg=Yii::t("default","Something went wrong during processing your request. Please try again later."); 
+                        
+                        }
+                        
+	    	} else {	    	
+                    
+                    $verification=Yii::app()->functions->getOptionAdmin("website_enabled_mobile_verification");	    
+                    if ( $verification=="yes"){
+                            if (strlen($res['mobile_verification_code'])>=2 && $res['status']=='pending'){
+                                    $this->msg=t("Found existing registration");
+                                    $this->code=1;
+                                    $this->details=$res['client_id'];
+                                    return ;
+                            }		    	
+                    }
+                    
 	    	   $this->msg=Yii::t("default","Sorry but your email address already exist in our records.");
 	    	}
 	    }		    	 
@@ -2317,9 +2326,7 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 	    
 	    public function clientLogin()
 	    {	
-	    	echo '123'; die();
-                
-                
+
 	    	/** check if admin has enabled the google captcha*/    	    	
 	    	if ( $this->data['action']=="clientLogin" || $this->data['action'] == "clientLoginModal" ){
 		    	if ( getOptionA('captcha_customer_login') == 2){
@@ -2331,7 +2338,7 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 		    		}	    	
 		    	}
 	    	}
-	    	var_dump( $this->data ); die();	    	
+   	
 	    	/*check if email address is blocked by admin*/	    	
 	    	if ( FunctionsK::emailBlockedCheck($this->data['username']) ){
                     

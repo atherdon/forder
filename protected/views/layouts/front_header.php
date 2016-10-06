@@ -65,7 +65,7 @@
             <div class="sk-rect5"></div>
         </div>
     </div> 
-    End Preload
+    <!--End Preload-->
     
  <?php //} 
 // var_dump( $this->layout ); die();?>

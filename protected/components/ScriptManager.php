@@ -641,16 +641,34 @@ class ScriptManager
                             language : jsLanguageValidator,
                             language : jsLanguageValidator,
                         form : '#forms',    
-                        onError : function() {      
+                        onError : function() {    
+                            
                         },
                         onSuccess : function() {   
-                          console.log('123');
+//                          console.log('123');
                           form_submit('forms');
                           return false;
                         }  
                     })  
 
-                    console.log('validation');
+                    //console.log('validation');
+                    
+
+                     $.validate({ 	
+                            language : jsLanguageValidator,
+                            language : jsLanguageValidator,
+                        form : '#myRegister',    //form-signup
+                        onError : function() {    
+                            
+                        },
+                        onSuccess : function() {   
+                          console.log('sign-up submit');
+                          form_submit2('myRegister');
+                          return false;
+                        }  
+                    })  
+
+                    //console.log('validation');
 
                 });
                 ",
