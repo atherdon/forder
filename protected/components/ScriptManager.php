@@ -613,6 +613,25 @@ class ScriptManager
                       CClientScript::POS_END
                       );
             
+            
+            
+            $cs->registerScriptFile( Widgets::quickScriptPath() . "jquery-asSpinner/jquery-asSpinner.min.js", 
+                   CClientScript::POS_END
+            );    
+            $cs->registerScript(
+                    'spinner-init',
+                    " 
+                      $( document ).ready(function( $ ) {
+
+                           $( '.spinner' ).asSpinner({
+                                
+                           });
+                      });
+
+                    ",
+                    CClientScript::POS_END
+                );
+            
             // Restaurant Details page
             $cs->registerScript(
                       'image-slider-init',

@@ -11,12 +11,12 @@ $array = array(
             );
 
 
-                $data               = Yii::app()->functions->getPackagesById( 1 ); //free package
-                $limit_post         =  Yii::app()->functions->ListlimitedPost();
-                $terms_merchant     = getOptionA('website_terms_merchant');
-                $terms_merchant_url = getOptionA('website_terms_merchant_url');
-                $package_list       = Yii::app()->functions->getPackagesList();
-                $kapcha_enabled     = getOptionA('captcha_merchant_signup');
+$data               = Yii::app()->functions->getPackagesById( 1 ); //free package
+$limit_post         =  Yii::app()->functions->ListlimitedPost();
+$terms_merchant     = getOptionA('website_terms_merchant');
+$terms_merchant_url = getOptionA('website_terms_merchant_url');
+$package_list       = Yii::app()->functions->getPackagesList();
+$kapcha_enabled     = getOptionA('captcha_merchant_signup');
 
 ?>    
 
@@ -204,12 +204,12 @@ $array = array(
                     
                     <i class="form-control-feedback" data-bv-icon-for="phone" style="display: none;"></i>
                     <span class="help-block"></span>
-                  <small class="help-block" data-bv-validator="notEmpty" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
-                      Please enter a value
-                  </small>
-                  <small class="help-block" data-bv-validator="phone" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
-                      Please enter a valid phone number
-                  </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
+                    <small class="help-block" data-bv-validator="phone" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a valid phone number
+                    </small>
                   </div>
                 </div>  
 
@@ -227,9 +227,9 @@ $array = array(
                       
                       <i class="form-control-feedback" data-bv-icon-for="first_name" style="display: none;"></i>
                       <span class="help-block"></span>
-                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="first_name" data-bv-result="NOT_VALIDATED" style="display: none;">
-                        Please enter a value
-                    </small>
+                        <small class="help-block" data-bv-validator="notEmpty" data-bv-for="first_name" data-bv-result="NOT_VALIDATED" style="display: none;">
+                            Please enter a value
+                        </small>
                     </div>
                   </div>
                 
@@ -249,12 +249,12 @@ $array = array(
                    
                    <i class="form-control-feedback" data-bv-icon-for="contact_phone" style="display: none;"></i>
                    <span class="help-block"></span>
-                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
-                     Please enter a value
-                 </small>
-                 <small class="help-block" data-bv-validator="phone" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
-                     Please enter a valid phone number
-                 </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
+                    <small class="help-block" data-bv-validator="phone" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a valid phone number
+                    </small>
                  </div>
                </div>               
                 
@@ -274,11 +274,11 @@ $array = array(
                       
                       <i class="form-control-feedback" data-bv-icon-for="contact_email" style="display: none;"></i>
                       <span class="help-block"></span>
-                    <small class="help-block" data-bv-validator="emailAddress" data-bv-for="contact_email" data-bv-result="NOT_VALIDATED" style="display: none;">
-                        Please enter a valid email address</small>
-                      <small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">
-                          Please enter a value
-                      </small>
+                        <small class="help-block" data-bv-validator="emailAddress" data-bv-for="contact_email" data-bv-result="NOT_VALIDATED" style="display: none;">
+                            Please enter a valid email address</small>
+                        <small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">
+                            Please enter a value
+                        </small>
                     </div>
                   </div>
                 
@@ -308,9 +308,9 @@ $array = array(
                    ))?>    
                    
                    <span class="help-block"></span>
-                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="street" data-bv-result="NOT_VALIDATED" style="display: none;">
-                     Please enter a value
-                 </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="street" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
                  </div>
                </div>               
               
@@ -328,9 +328,9 @@ $array = array(
                       ))?>   
                       
                       <span class="help-block"></span>
-                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="city" data-bv-result="NOT_VALIDATED" style="display: none;">
-                        Please enter a value
-                    </small>
+                        <small class="help-block" data-bv-validator="notEmpty" data-bv-for="city" data-bv-result="NOT_VALIDATED" style="display: none;">
+                            Please enter a value
+                        </small>
                     </div>
                   </div>  
                 
@@ -349,9 +349,9 @@ $array = array(
                       ?>  
                     
                     <span class="help-block"></span>
-                  <small class="help-block" data-bv-validator="notEmpty" data-bv-for="post_code" data-bv-result="NOT_VALIDATED" style="display: none;">
-                      Please enter a value
-                  </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="post_code" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
                   </div>
                 </div>   
 
@@ -377,9 +377,9 @@ $array = array(
                         
                     </i>
                   <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="00N1a000006s8Mz" data-bv-result="NOT_VALIDATED" style="display: none;">
-                    Please enter a value
-                </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="00N1a000006s8Mz" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
                 </div>
               </div>  
               
@@ -405,9 +405,9 @@ $array = array(
                         
                     </i>
                   <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="state" data-bv-result="NOT_VALIDATED" style="display: none;">
-                    Please enter a value
-                </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="state" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
                 </div>
               </div>    
                
@@ -463,9 +463,9 @@ $array = array(
                   
                   <i class="form-control-feedback" data-bv-icon-for="company" style="display: none;"></i>
                   <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="service" data-bv-result="NOT_VALIDATED" style="display: none;">
-                    Please enter a value
-                </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="service" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
                 </div>
               </div>
                 
@@ -493,9 +493,9 @@ $array = array(
                     ?>
                   
                   <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="username" data-bv-result="NOT_VALIDATED" style="display: none;">
-                    Please enter a value
-                </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="username" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
                 </div>
               </div>   
                 
@@ -514,9 +514,9 @@ $array = array(
                     ?>
                   
                   <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="password" data-bv-result="NOT_VALIDATED" style="display: none;">
-                    Please enter a value
-                </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="password" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
                 </div>
               </div>                   
                 
@@ -535,9 +535,9 @@ $array = array(
 		  ))?>    
                   
                   <span class="help-block"></span>
-                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="cpassword" data-bv-result="NOT_VALIDATED" style="display: none;">
-                    Please enter a value
-                </small>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="cpassword" data-bv-result="NOT_VALIDATED" style="display: none;">
+                        Please enter a value
+                    </small>
                 </div>
               </div>   
               
@@ -603,11 +603,13 @@ $array = array(
               </div>
               
                 <?php if ( 0 ) { ?>  
+                
                 <br>
                 <a id="continue-existing-application-button" data-toggle="modal" class="modal-button" data-target="#continue-application-modal">
                     Already started signing up?
                 </a>
                 <hr>
+                
                 <div class="terms">
                     By clicking the “Become a Dasher” button above, I consent to receive emails, calls, 
                     or SMS messages including by automated telephone dialing system from DoorDash to my
@@ -617,6 +619,7 @@ $array = array(
                         Privacy Statement.
                     </a> 
                 </div>
+                
                 <?php } ?>  
               
               

@@ -12,6 +12,23 @@
         
         <div class="col-md-12">
             
+            <?php echo CHtml::textField('qty',
+                   isset($item_data['qty']) ? $item_data['qty'] : 1,
+                    array(
+                        'class'     => " spinner ", 
+                        'maxlength' => 5     
+                   ));
+            ?>
+            
+        </div>
+        
+        <br />
+        <br />
+        <br />
+        <br />
+        
+        <div class="col-md-12">
+            
             
             
             <!-- @TODO check javascript plugin +- for quantity --> 
