@@ -39,39 +39,6 @@
     }
     
 ?>
-<!--
-
-<a href="#complexModalHtml" data-toggle="modal" id="1" 
-   data-id="1" 
-   data-target="#complex-modal">Add +</a>
-
-    $('#complex-modal').on('show.bs.modal', function(e) {
-
-        var $modal = $(this),
-            esseyId = e.relatedTarget.id,
-            item = {
-                'id' : $(this).data().id
-            };
-
-        console.log(item);    
-            
-
-        $.ajax({
-            cache: false,
-            type: 'POST',
-            url: 'backend.php',
-            data: 'EID=' + essayId,
-            success: function(data) {
-                $modal.find('.edit-content').html(data);
-            }
-        });
-    })
-
--->
-
-
-   
-
 
 <!-- Complex item modal -->   
 <div class="modal fade" id="complexModalHtml" tabindex="-1" 

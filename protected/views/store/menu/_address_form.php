@@ -5,7 +5,10 @@
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content modal-popup">
-            <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+            
+            <a href="#" class="close-link">
+                <i class="icon_close_alt2"></i>
+            </a>
             
             <form id="addressModal"                  
                   class="frm-modal-enter-address popup-form" 

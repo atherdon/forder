@@ -20,7 +20,8 @@
 		          $size_select==$price['size']?true:false
 		          ,array(
 		            'value'=>$price['price']."|".$price['size'],
-		            'class'=>"price_cls item_price icheck"
+//		            'class'=>"price_cls item_price icheck"
+                            'class'=>"price_cls item_price popup-check"
 		          ))?>
 		          <?php echo qTranslate($price['size'],'size',$price)?>
                
