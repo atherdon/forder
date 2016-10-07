@@ -10,13 +10,15 @@ $array = array(
                 'kapcha_enabled'     => getOptionA('captcha_merchant_signup')
             );
 
-
+//$array = array(
                 $data               = Yii::app()->functions->getPackagesById( 1 ); //free package
+//                'data'               => Yii::app()->functions->getPackagesById( $_GET['package_id'] ),
                 $limit_post         =  Yii::app()->functions->ListlimitedPost();
                 $terms_merchant     = getOptionA('website_terms_merchant');
                 $terms_merchant_url = getOptionA('website_terms_merchant_url');
                 $package_list       = Yii::app()->functions->getPackagesList();
                 $kapcha_enabled     = getOptionA('captcha_merchant_signup');
+//            );
 
 ?>    
 
@@ -51,24 +53,20 @@ $array = array(
               
             <?php if ( is_array( $data ) && count( $data ) >= 1 ){?>  
               
-            <form id="merchant-apply-form" 
-                  role="form" 
-                  method="POST" 
+            <form id="merchant-apply-form" action="#" role="form" method="POST" 
                   class="info-card info-card-padding roundify form-horizontal bv-form" 
                   data-bv-message="This value is not valid" 
                   data-bv-feedbackicons-valid="glyphicon glyphicon-ok" 
                   data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" 
                   data-bv-feedbackicons-validating="glyphicon glyphicon-refresh" 
-                  novalidate="novalidate"
-                  onsubmit="return false;"
-                  >
+                  novalidate="novalidate">
 
                 <?php echo CHtml::hiddenField('mobile_country_code', Yii::app()->functions->getAdminCountrySet( true ) ); ?>   
 
 
-                <?php echo CHtml::hiddenField('action', 'merchantSignUp'); ?>
-                <?php echo CHtml::hiddenField('currentController', 'store'); ?>
-                <?php echo CHtml::hiddenField('package_id', $data['package_id']); ?>
+                <?php echo CHtml::hiddenField('action','merchantSignUp')?>
+                <?php echo CHtml::hiddenField('currentController','store')?>
+                <?php echo CHtml::hiddenField('package_id',$data['package_id'])?>
                 
 
                 <div class="content-section-headings">
@@ -82,19 +80,19 @@ $array = array(
                 
                 <div class="content-section-headings">
                   <h5 class="content-section-header merchant-title">
-                      <?php echo t("Selected Package")?> 
-                      <span class="content-section-subheader">
-                          <?php echo $data['title'];?>
-                      </span>
+                      <?php echo t("Selected Package")?> - <?php echo $data['title']?>
                   </h5>
-                   
+                   <h5 class="content-section-subheader">
+                      <?php echo $data['title']; ?>
+                  </h5>                                  
                 </div>  
               
                 <div class="content-section-headings">
                   <h5 class="content-section-header merchant-title">
-                      <?php echo t("Price")?> 
-                      <span class="content-section-subheader">
-                          <?php if ( $data['promo_price']>=1):?>
+                      <?php echo t("Price")?>
+                  </h5>
+                  <h5 class="content-section-subheader">
+                      <?php if ( $data['promo_price']>=1):?>
 
                           <span class="strike-price"><?php echo FunctionsV3::prettyPrice($data['price'])?></span>
                           
@@ -105,42 +103,37 @@ $array = array(
                           <?php echo FunctionsV3::prettyPrice($data['price'])?> 
 
                        <?php endif;?>
-                      </span>
                   </h5>
-
                 </div>    
               
                 <div class="content-section-headings">
                   <h5 class="content-section-header merchant-title">
                       <?php echo t("Membership Limit")?>
-                      <span class="content-section-subheader">
-                        <?php if ( $data['expiration_type']=="year"):?>
-
-                                <?php echo $data['expiration']/365?> <?php echo Yii::t("default",ucwords($data['expiration_type']))?>
-
-                          <?php else :?>
-
-                                <?php echo $data['expiration']?> <?php echo Yii::t("default",ucwords($data['expiration_type']))?>
-
-                        <?php endif;?>
-                      </span>
                   </h5>
+                  <h5 class="content-section-subheader">
+                      <?php if ( $data['expiration_type']=="year"):?>
 
+                          <?php echo $data['expiration']/365?> <?php echo Yii::t("default",ucwords($data['expiration_type']))?>
+
+                       <?php else :?>
+
+                          <?php echo $data['expiration']?> <?php echo Yii::t("default",ucwords($data['expiration_type']))?>
+
+                       <?php endif;?>
+                  </h5>
                 </div> 
                 
                 <div class="content-section-headings">
                   <h5 class="content-section-header merchant-title">
                       <?php echo t("Usage")?>
-                      <span class="content-section-subheader">
-                          <?php //echo $data['title'];?>
-                            <?php if ( $data['unlimited_post']==2):?>
-                                <?php echo $limit_post[$data['unlimited_post']]?>
-                             <?php else :?>
-                                <?php echo $limit_post[$data['unlimited_post']] . " (".$data['post_limit']." item )"?>
-                             <?php endif;?>                          
-                      </span>
                   </h5>
-
+                  <h5 class="content-section-subheader">
+                      <?php if ( $data['unlimited_post']==2):?>
+                          <?php echo $limit_post[$data['unlimited_post']]?>
+                       <?php else :?>
+                          <?php echo $limit_post[$data['unlimited_post']] . " (".$data['post_limit']." item )"?>
+                       <?php endif;?>
+                  </h5>
                 </div>    
                 
              
@@ -150,19 +143,16 @@ $array = array(
                     </label>
                     <div class="col-xs-8">
                       <?php echo CHtml::textField('restaurant_name',
-                              isset($data['restaurant_name']) ? $data['restaurant_name'] : ""
+                              isset($data['restaurant_name'])?$data['restaurant_name']:""
                               ,array(
-                                    'class' => 'form-control',
-                                    'data-validation' => "required",
-                                    'placeholder' => 'Restaurant name'
+                                    'class'=>'form-control',
+                                    'data-validation'=>"required",
+                                    'placeholder'=>'Restaurant name'
                               ))?>  
                       
                       <i class="form-control-feedback" data-bv-icon-for="company" style="display: none;"></i>
                       <span class="help-block"></span>
-                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="restaurant_name" data-bv-result="NOT_VALIDATED" style="display: none;">
-                        Please enter a value
-                    </small>
-                    </div>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="restaurant_name" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
                   </div>   
                 
                 
@@ -173,11 +163,11 @@ $array = array(
                     </label>
                     <div class="col-xs-8">
                         <?php echo CHtml::textField('abn',
-                              isset($data['restaurant_name']) ? $data['abn'] : ""
+                              isset($data['restaurant_name'])?$data['abn']:""
                               ,array(
-                                    'class' => 'form-control',
-                                    'data-validation' => "required",
-                                    'placeholder' => 'ABN'    
+                                    'class'=>'grey-fields full-width',
+                                    'data-validation'=>"required",
+                                    'placeholder'=>'ABN'    
                               ))?>
                       
                       <span class="help-block"></span>
@@ -194,22 +184,17 @@ $array = array(
                   </label>
                   <div class="col-xs-8">
                       <?php echo CHtml::textField('restaurant_phone',
-                                isset($data['restaurant_phone']) ? $data['restaurant_phone'] : ""
-                                ,array(
-                                    'class' => 'form-control mobile_inputs',
-                                    'placeholder' => '(XXX) XXX-XXXX',
-                                    'data-validation' => "required",
-                                ));
-                      ?>
+                    isset($data['restaurant_phone'])?$data['restaurant_phone']:""
+                    ,array(
+                        'class'=>'form-control',
+                        'placeholder'=>'(XXX) XXX-XXXX',
+                        'data-validation'=>"required",
+                    ))?>
                     
                     <i class="form-control-feedback" data-bv-icon-for="phone" style="display: none;"></i>
                     <span class="help-block"></span>
-                  <small class="help-block" data-bv-validator="notEmpty" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
-                      Please enter a value
-                  </small>
-                  <small class="help-block" data-bv-validator="phone" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
-                      Please enter a valid phone number
-                  </small>
+                  <small class="help-block" data-bv-validator="notEmpty" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small>
+                  <small class="help-block" data-bv-validator="phone" data-bv-for="restaurant_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid phone number</small>
                   </div>
                 </div>  
 
@@ -218,19 +203,16 @@ $array = array(
                     <label for="contact_name" class="col-xs-4 control-label"><?php echo t("Contact name")?></label>
                     <div class="col-xs-8">
                         <?php echo CHtml::textField('contact_name',
-                      isset($data['contact_name']) ? $data['contact_name'] : ""
+                      isset($data['contact_name'])?$data['contact_name']:""
                       ,array(
-                            'class' => 'form-control ',
-                            'data-validation' => "required",
-                            'placeholder' => 'John Doe',
+                            'class'=>'form-control',
+                            'data-validation'=>"required",
+                            'placeholder'=>'John Doe',
                       ))?>  
                       
                       <i class="form-control-feedback" data-bv-icon-for="first_name" style="display: none;"></i>
                       <span class="help-block"></span>
-                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="first_name" data-bv-result="NOT_VALIDATED" style="display: none;">
-                        Please enter a value
-                    </small>
-                    </div>
+                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="first_name" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
                   </div>
                 
                 <div class="form-group has-feedback">
@@ -241,20 +223,16 @@ $array = array(
                      <?php echo CHtml::textField('contact_phone',
                                  isset($data['contact_phone'])?$data['contact_phone']:""
                                  ,array(
-                                        'class' => 'form-control mobile_inputs',
-                                        'data-validation' => "required",
-                                        'placeholder' => '(XXX) XXX-XXXX',
+                                        'class'=>'form-control mobile_inputs',
+                                        'data-validation'=>"required",
+                                        'placeholder'=>'(XXX) XXX-XXXX',
                                  ));
                      ?>   
                    
                    <i class="form-control-feedback" data-bv-icon-for="contact_phone" style="display: none;"></i>
                    <span class="help-block"></span>
-                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
-                     Please enter a value
-                 </small>
-                 <small class="help-block" data-bv-validator="phone" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">
-                     Please enter a valid phone number
-                 </small>
+                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small>
+                 <small class="help-block" data-bv-validator="phone" data-bv-for="contact_phone" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid phone number</small>
                  </div>
                </div>               
                 
@@ -267,19 +245,14 @@ $array = array(
                         <?php echo CHtml::textField('contact_email',
                       isset($data['contact_email'])?$data['contact_email']:""
                       ,array(
-                            'class' => 'form-control',
-                            'data-validation' => "email",
-                            'placeholder' => 'jdoe@gmail.com',
+                            'class'=>'form-control',
+                            'data-validation'=>"email",
+                            'placeholder'=>'jdoe@gmail.com',
                       ))?>   
                       
                       <i class="form-control-feedback" data-bv-icon-for="contact_email" style="display: none;"></i>
                       <span class="help-block"></span>
-                    <small class="help-block" data-bv-validator="emailAddress" data-bv-for="contact_email" data-bv-result="NOT_VALIDATED" style="display: none;">
-                        Please enter a valid email address</small>
-                      <small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">
-                          Please enter a value
-                      </small>
-                    </div>
+                    <small class="help-block" data-bv-validator="emailAddress" data-bv-for="contact_email" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid email address</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
                   </div>
                 
                 <div class="form-group has-feedback">
@@ -302,16 +275,13 @@ $array = array(
                       <?php echo CHtml::textField('street',
                    isset($data['street'])?$data['street']:""
                    ,array(
-                        'class' => 'form-control',
-                        'data-validation' => "required",
-                        'placeholder' => '123 Main St',
+                        'class'=>'form-control',
+                        'data-validation'=>"required",
+                        'placeholder'=>'123 Main St',
                    ))?>    
                    
                    <span class="help-block"></span>
-                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="street" data-bv-result="NOT_VALIDATED" style="display: none;">
-                     Please enter a value
-                 </small>
-                 </div>
+                 <small class="help-block" data-bv-validator="notEmpty" data-bv-for="street" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value</small></div>
                </div>               
               
                 <div class="form-group has-feedback">
@@ -322,16 +292,15 @@ $array = array(
                         <?php echo CHtml::textField('city',
                       isset($data['city'])?$data['city']:""
                       ,array(
-                            'class' => 'form-control',
-                            'data-validation' => "required",
-                            'placeholder' => 'Palo Alto',
+                            'class'=>'form-control',
+                            'data-validation'=>"required",
+                            'placeholder'=>'Palo Alto',
                       ))?>   
                       
                       <span class="help-block"></span>
                     <small class="help-block" data-bv-validator="notEmpty" data-bv-for="city" data-bv-result="NOT_VALIDATED" style="display: none;">
                         Please enter a value
-                    </small>
-                    </div>
+                    </small></div>
                   </div>  
                 
                 <div class="form-group has-feedback">
@@ -342,9 +311,9 @@ $array = array(
                       <?php echo CHtml::textField('post_code',
                               isset($data['post_code'])?$data['post_code']:""
                               ,array(
-                                    'class' => 'form-control',
-                                    'data-validation' => "required",
-                                    'placeholder' => '94022',
+                                    'class'=>'form-control',
+                                    'data-validation'=>"required",
+                                    'placeholder'=>'94022',
                             ));
                       ?>  
                     
@@ -362,12 +331,11 @@ $array = array(
                 <div class="col-xs-8">
                     
                      <?php echo CHtml::dropDownList('country_code',
-                                'US',
-//                                'United States', //getOptionA('merchant_default_country'),
+                                getOptionA('merchant_default_country'),
                                 (array)Yii::app()->functions->CountryListMerchant(),          
-                                 array(
-                                        'class'    => 'form-control',
-                                        'data-validation' => "required"
+                                array(
+                                        'class'=>'form-control',
+                                        'data-validation'=>"required"
                             ));
                      ?> 
                     
@@ -394,9 +362,9 @@ $array = array(
                      <?php echo CHtml::textField('state',
 		  isset($data['state'])?$data['state']:""
 		  ,array(
-                        'class' => 'form-control',
-                        'data-validation' => "required",
-                        'placeholder' => 'California',
+                        'class'=>'form-control',
+                        'data-validation'=>"required",
+                        'placeholder'=>'California',
 		  ))?> 
                     
                     
@@ -433,9 +401,9 @@ $array = array(
                             isset($data['cuisine'])?(array)json_decode($data['cuisine']):"",
                             (array)$cuisine_list,          
                             array(
-                                    'class' => 'form-control chosen',
-                                    'multiple' => true,
-                                    'data-validation' => "required"  
+                                    'class'=>'form-control chosen',
+                                    'multiple'=>true,
+                                    'data-validation'=>"required"  
                         ));
                     ?>   
                   
@@ -456,8 +424,8 @@ $array = array(
                                 isset($data['service'])?$data['service']:"",
                                 (array)Yii::app()->functions->Services(),          
                                 array(
-                                        'class' => 'form-control',
-                                        'data-validation' => "required"
+                                        'class'=>'form-control',
+                                        'data-validation'=>"required"
                             ));
                      ?>  
                   
@@ -486,9 +454,9 @@ $array = array(
                     <?php echo CHtml::textField('username',
                             ''
                             ,array(
-                                    'class' => 'form-control',
-                                    'data-validation' => "required",
-                                    'placeholder' => 'Jon Doe',
+                                    'class'=>'form-control',
+                                    'data-validation'=>"required",
+                                    'placeholder'=>'Jon Doe',
                           ));
                     ?>
                   
@@ -507,9 +475,9 @@ $array = array(
                     <?php echo CHtml::passwordField('password',
                                 ''
                                 ,array(
-                                        'class' => 'form-control',
-                                        'data-validation' => "required",
-                                        'placeholder' => 'Password',
+                                        'class'=>'form-control',
+                                        'data-validation'=>"required",
+                                        'placeholder'=>'Password',
                                 ));
                     ?>
                   
@@ -529,9 +497,9 @@ $array = array(
                     <?php echo CHtml::passwordField('cpassword',
 		  ''
 		  ,array(
-                        'class' => 'form-control',
-                        'data-validation' => "required",
-                        'placeholder' => 'Confirm Password',
+                        'class'=>'form-control',
+                        'data-validation'=>"required",
+                        'placeholder'=>'Confirm Password',
 		  ))?>    
                   
                   <span class="help-block"></span>
@@ -558,9 +526,9 @@ $array = array(
                     <!--Contact Name-->
                     <?php 
                         echo CHtml::checkBox('terms_n_condition',false,array(
-                                'value' => 2,
-                                'class' => "icheck",
-                                'data-validation' => "required"
+                                'value'=>2,
+                                'class'=>"icheck",
+                                'data-validation'=>"required"
                         ));
                         echo " " . t("I Agree To") . " <a href=\"$terms_link\" target=\"_blank\">".t("The Terms & Conditions") . "</a>";
 		  ?>
@@ -570,9 +538,9 @@ $array = array(
                 <div class="col-xs-8">
                     <?php 
 		  echo CHtml::checkBox('terms_n_condition',false,array(
-                        'value' => 2,
-                        'class' => "",
-                        'data-validation' => "required"
+                        'value'=>2,
+                        'class'=>"",
+                        'data-validation'=>"required"
 		  ));
 		  echo " ". t("I Agree To")." <a href=\"$terms_link\" target=\"_blank\">".t("The Terms & Conditions")."</a>";
 		  ?> 
@@ -604,9 +572,7 @@ $array = array(
               
                 <?php if ( 0 ) { ?>  
                 <br>
-                <a id="continue-existing-application-button" data-toggle="modal" class="modal-button" data-target="#continue-application-modal">
-                    Already started signing up?
-                </a>
+                <a id="continue-existing-application-button" data-toggle="modal" class="modal-button" data-target="#continue-application-modal">Already started signing up?</a>
                 <hr>
                 <div class="terms">
                     By clicking the “Become a Dasher” button above, I consent to receive emails, calls, 

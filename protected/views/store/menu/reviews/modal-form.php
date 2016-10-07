@@ -39,7 +39,7 @@
                 <!--End Row-->  
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         
                         
 <!--                        <select class="form-control form-white" 

@@ -247,3 +247,46 @@ function form_submit4( formid ){
     
     
 }
+
+
+function form_submit5( formid ){
+//    rm_notices();
+    
+    if ( formid ) {
+        var form_id=formid;
+    } else {
+        var form_id=$("form").attr("id");    
+    } 
+
+    var params = $( "#" + form_id ).serialize();	
+//    console.log( params );
+    var action = $('#'+form_id).find("#action").val();
+    //we don't have recapcha right now, so we not cover this in js
+    
+    console.log( params );
+    console.log( action );
+    
+//    $.ajax({    
+//        type     : "POST",
+//        url      : ajax_url,
+//        data     : params,
+//        dataType : 'json',       
+//        success  : function(data){ 
+//                
+//            console.log(data);
+//                
+//            if ( data.code==1 ){
+//        		
+//        		        		
+//            }
+// 	
+//        	
+//        }, 
+//        error: function(){	        	
+//
+//        }		
+//    });
+ 
+    
+    
+}

@@ -545,7 +545,74 @@ class ScriptManager
                     Widgets::quickScriptPath() . 'jquery.sliderPro.min.js',
                     CClientScript::POS_END
                     );      
-             
+            
+            
+            // merchant registration + modal registration
+            $cs->registerScriptFile( $baseUrl . "/assets/vendor/intel/build/js/intlTelInput.js?ver=2.1.5",
+                    CClientScript::POS_END
+                    );
+            
+            $cs->registerScript(
+                      'registration-phone-plugin-init',
+                      '  
+                        $( document ).ready(function( $ ) {
+            
+                            if ( $(".mobile_inputs").length ){
+                                if ( $("#mobile_country_code").length ){
+                                
+                                    $(".mobile_inputs").intlTelInput({      
+                                        autoPlaceholder: false,
+                                        defaultCountry: $("#mobile_country_code").val(),    
+                                        autoHideDialCode:true,    
+                                        nationalMode:false,
+                                        autoFormat:false,
+                                        utilsScript: sites_url+"/assets/vendor/intel/lib/libphonenumber/build/utils.js"
+                                     });
+                                     
+                                } else {
+                                
+                                    $(".mobile_inputs").intlTelInput({      
+                                        autoPlaceholder: false,		        
+                                        autoHideDialCode:true,    
+                                        nationalMode:false,
+                                        autoFormat:false,
+                                        utilsScript: sites_url+"/assets/vendor/intel/lib/libphonenumber/build/utils.js"
+                                     });
+                                     
+                                }
+                            }
+
+                        });
+
+                      ',
+                      CClientScript::POS_END
+                      );
+            
+            $cs->registerScriptFile( $baseUrl . "/assets/vendor/chosen/chosen.jquery.min.js", 
+                               CClientScript::POS_END
+                        );            
+            
+            $cs->registerScript(
+                      'chosen-init',
+                      '  
+                        $( document ).ready(function( $ ) {
+            
+                            if( $(".chosen").is(":visible") ) {     
+                                //$(".chosen").chosen(); 
+                                $(".chosen").chosen({
+                                   allow_single_deselect:true,
+                                   no_results_text: js_lang.trans_33,
+                                   placeholder_text_single: js_lang.trans_32, 
+                                   placeholder_text_multiple: js_lang.trans_32
+                                });     
+                             } 
+                             
+                        });
+
+                      ' ,
+                      CClientScript::POS_END
+                      );
+            
             // Restaurant Details page
             $cs->registerScript(
                       'image-slider-init',
@@ -571,6 +638,7 @@ class ScriptManager
                       ",
                       CClientScript::POS_END
                       );
+            
             
             // SPECIFIC SCRIPTS -->
             $cs->registerScriptFile(
@@ -697,6 +765,20 @@ class ScriptManager
                           return false;
                         }  
                     })  
+                    
+                    $.validate({ 	
+                        language : jsLanguageValidator,
+                        language : jsLanguageValidator,
+                        form     : '#merchant-apply-form',    //form-signup
+                        onError  : function() {    
+                            
+                        },
+                        onSuccess : function() {   
+                          console.log('forgot submit');
+                          form_submit5('merchant-apply-form');
+                          return false;
+                        }  
+                    })  
 
                 });
                 ",
@@ -740,7 +822,11 @@ class ScriptManager
 //            $cs->registerCssFile($baseUrl."/assets/vendor/colorpick/css/colpick.css");
 //            $cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
 //            
-//            $cs->registerCssFile($baseUrl."/assets/vendor/chosen/chosen.css");
+            
+            
+            $cs->registerCssFile( $baseUrl . "/assets/vendor/chosen/chosen.css" );
+            
+            
 //            $cs->registerCssFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.css?ver=1");
 //            $cs->registerCssFile($baseUrl."/assets/vendor/animate.min.css");
 //            
@@ -748,7 +834,9 @@ class ScriptManager
 //            $cs->registerCssFile($baseUrl."/assets/vendor/magnific-popup/magnific-popup.css");
 //
 //            //$cs->registerCssFile($baseUrl."/assets/vendor/bxslider/jquery.bxslider.css");
-//            $cs->registerCssFile($baseUrl."/assets/vendor/intel/build/css/intlTelInput.css");
+            
+            $cs->registerCssFile( $baseUrl . "/assets/vendor/intel/build/css/intlTelInput.css" );
+            
 //            $cs->registerCssFile($baseUrl."/assets/vendor/rupee/rupyaINR.css");			
 //
 //            //$cs->registerCssFile('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');	

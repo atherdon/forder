@@ -2984,7 +2984,7 @@ $params['cart_tip_value']=isset($this->data['cart_tip_value'])?$this->data['cart
 	    	if ( Yii::app()->functions->isClientLogin()){
                     
 		    	$client_id = Yii::app()->functions->getClientId();  
-                         die();
+
 		    	$params    = array(
                                 'merchant_id'  => $this->data['merchant-id'],
                                 'client_id'    => $client_id,
@@ -2992,14 +2992,12 @@ $params['cart_tip_value']=isset($this->data['cart_tip_value'])?$this->data['cart
                                 'date_created' => date('c'),
                                 'rating'       => $this->data['initial_review_rating']
 		    	);	
-                        die();	    	
-//		    	$this->msg = $params; 
-//                        return ;
-//                        return json_encode($params); die();
-;//                        var_dump( $params ); die();
+//                     
                         
 		    	/** check if user has bought from the merchant*/		    	
 		    	if ( Yii::app()->functions->getOptionAdmin('website_reviews_actual_purchase')=="yes"){
+                            
+//                            die();
                             
 		    		$functionk=new FunctionsK();
 		    	    if (!$functionk->checkIfUserCanRateMerchant($client_id,$this->data['merchant-id'])){
@@ -3013,7 +3011,7 @@ $params['cart_tip_value']=isset($this->data['cart_tip_value'])?$this->data['cart
 		    	    }	  		   
 		    	    
 		    	    if ( $ref_orderid=$functionk->reviewByLastOrderRef($client_id,$this->data['merchant-id'])){
-		    	    	$params['order_id']=$ref_orderid;
+		    	    	$params['order_id'] = $ref_orderid;
 		    	    }
 		    	}
 		    	
