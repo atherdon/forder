@@ -22,8 +22,8 @@
                           $item_data['cooking_ref']==$val?true:false
                           ,array(
                             'value' => $val,
-//                            'class' => 'icheck'  
-                              'class' => 'popup-check'  
+                            'class' => 'icheck'  
+
                           ))?>&nbsp;  
 
                     <?php 

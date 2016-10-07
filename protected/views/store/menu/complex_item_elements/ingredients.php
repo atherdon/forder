@@ -37,8 +37,8 @@ if (!isset($item_data['ingredients'])){
                       in_array( $val,(array)$item_data['ingredients'] ) ? true : false
                       ,array(
                           'value' => $val,
-//                          'class' => 'icheck'
-                          'class' => 'popup-check'  
+                          'class' => 'icheck'
+
                       ))?>&nbsp;             
 
                       <?php echo qTranslate($val, 'ingredients_name', $ingredients_name_trans);?>

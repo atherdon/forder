@@ -613,7 +613,9 @@ class ScriptManager
                       CClientScript::POS_END
                       );
             
-            
+            $cs->registerScriptFile( $baseUrl . "/assets/vendor/iCheck/icheck.js",
+                    CClientScript::POS_END
+            ); 
             
             $cs->registerScriptFile( Widgets::quickScriptPath() . "jquery-asSpinner/jquery-asSpinner.min.js", 
                    CClientScript::POS_END
@@ -638,7 +640,11 @@ class ScriptManager
                       $( document ).ready(function( $ ) {
                             
                            if( $('body').hasClass('menu') ){
-                                $('#addressForm').modal('show');
+                                $('#addressForm').modal({
+                                    //backdrop: 'static',
+                                    //keyboard: false,
+                                    show    : true
+                                });
                            }
                       });
 
@@ -854,7 +860,7 @@ class ScriptManager
 //
 //
 //            $cs->registerCssFile($baseUrl."/assets/vendor/colorpick/css/colpick.css");
-//            $cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
+            $cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
 //            
             
             

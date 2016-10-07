@@ -14,16 +14,17 @@
            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
                
                <label>
-                <?php if ( !empty($price['size'])):?>
-               
-                 <?php echo CHtml::radioButton('price',
-		          $size_select==$price['size']?true:false
-		          ,array(
+                <?php if ( !empty($price['size'])):
+                    
+                    echo CHtml::radioButton('price',
+		         $size_select == $price['size'] ? true : false,
+                         array(
 		            'value'=>$price['price']."|".$price['size'],
-//		            'class'=>"price_cls item_price icheck"
-                            'class'=>"price_cls item_price popup-check"
-		          ))?>
-		          <?php echo qTranslate($price['size'],'size',$price)?>
+		            'class'=>"price_cls item_price icheck"
+
+		          ));
+                      echo qTranslate($price['size'],'size',$price);
+                ?>
                
               <?php else :?>
                
@@ -38,12 +39,14 @@
              
              <?php if (isset($price['price'])):?>  
                 <?php if (is_numeric($data['discount'])):?>
+                   
                     <span class="line-tru">
                         <?php echo FunctionsV3::prettyPrice($price['price'])?>
                     </span>
                     <span class="text-danger">
                         <?php echo FunctionsV3::prettyPrice($price['price']-$data['discount'])?>
                     </span>
+                   
                 <?php else :?>
                
                     <?php echo FunctionsV3::prettyPrice($price['price'])?>
