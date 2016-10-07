@@ -50,12 +50,10 @@
             <?php $this->renderPartial('/store/browse/_tools', []); ?>
 
 
-            <?php 
-            
-//            var_dump( $list );
-            $this->renderPartial('/store/browse/_items-list', [
+            <?php $this->renderPartial('/store/browse/_items-list', [
                         'list' => $list
-            ]); ?>
+                  ]); 
+            ?>
             
 
             
@@ -64,6 +62,7 @@
                data-wow-delay="0.2s">
                 Load more...
             </a>  
+            
             
         </div><!-- End col-md-9-->
 
@@ -91,30 +90,30 @@
 
     <div class="tabs-wrapper">
       <ul id="tabs">
-		  <li class="<?php echo $tabs==1?"active":''?> noclick"  >
-		    <a href="<?php echo Yii::app()->createUrl('/store/browse')?>">
-		    <i class="ion-coffee"></i>
-		     <span><?php echo t("Restaurant List")?></span>
-		    </a>
-		  </li>
-		  <li class="<?php echo $tabs==2?"active":''?> noclick">
-		    <a href="<?php echo Yii::app()->createUrl('/store/browse/?tab=2')?>">
-		    <i class="ion-pizza"></i>
-		     <span><?php echo t("Newest")?></span>
-		    </a>
-		  </li>
-		  <li class="<?php echo $tabs==3?"active":''?> noclick" >
-		    <a href="<?php echo Yii::app()->createUrl('/store/browse/?tab=3')?>">
-		    <i class="ion-fork"></i>
-		      <span><?php echo t("Featured")?></span>
-		    </a>
-		  </li>
-		  <li class="full-maps nounderline">				  
-		    <a href="javascript:;" >
-		    <i class="ion-android-globe"></i>    
-		     <span><?php echo t("View Restaurant by map")?></span>	    
-		  </li>
-		   </a>
+            <li class="<?php echo $tabs==1?"active":''?> noclick"  >
+              <a href="<?php echo Yii::app()->createUrl('/store/browse')?>">
+              <i class="ion-coffee"></i>
+               <span><?php echo t("Restaurant List")?></span>
+              </a>
+            </li>
+            <li class="<?php echo $tabs==2?"active":''?> noclick">
+              <a href="<?php echo Yii::app()->createUrl('/store/browse/?tab=2')?>">
+              <i class="ion-pizza"></i>
+               <span><?php echo t("Newest")?></span>
+              </a>
+            </li>
+            <li class="<?php echo $tabs==3?"active":''?> noclick" >
+              <a href="<?php echo Yii::app()->createUrl('/store/browse/?tab=3')?>">
+              <i class="ion-fork"></i>
+                <span><?php echo t("Featured")?></span>
+              </a>
+            </li>
+            <li class="full-maps nounderline">				  
+              <a href="javascript:;" >
+              <i class="ion-android-globe"></i>    
+               <span><?php echo t("View Restaurant by map")?></span>	    
+            </li>
+        </a>
       </ul>		    
       
       <ul id="tab">
@@ -159,8 +158,12 @@
           
           <li>
             <div class="full-map-wrapper" >
+                
                <div id="full-map"></div>
-               <a href="javascript:;" class="view-full-map green-button"><?php echo t("View in fullscreen")?></a>
+               
+               <a href="javascript:;" class="view-full-map green-button">
+                   <?php echo t("View in fullscreen")?>
+               </a>
             </div> <!--full-map-->
           </li>          
       </ul>     

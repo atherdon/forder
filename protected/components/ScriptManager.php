@@ -632,6 +632,21 @@ class ScriptManager
                     CClientScript::POS_END
                 );
             
+            $cs->registerScript(
+                    'address-form-init',
+                    " 
+                      $( document ).ready(function( $ ) {
+                            
+                           if( $('body').hasClass('menu') ){
+                                $('#addressForm').modal('show');
+                           }
+                      });
+
+                    ",
+                    CClientScript::POS_END
+                );
+            
+            
             // Restaurant Details page
             $cs->registerScript(
                       'image-slider-init',

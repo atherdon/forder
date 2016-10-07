@@ -405,9 +405,12 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 	        ?>
 	        </p>
 	        
-	        <a href="javascript:;" class="top10 green-color change-address block text-center">
-	        [<?php echo t("Change Your Address here")?>]
-	        </a>
+                <a href="#" 
+                    class="text-center" 
+                    data-target="#addressForm" 
+                    data-toggle="modal">
+                     [<?php echo t("Change Your Address here")?>]
+                 </a> 
 	        
         </div>
         <!--END DELIVERY INFO-->

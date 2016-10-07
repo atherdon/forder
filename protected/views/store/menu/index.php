@@ -478,8 +478,11 @@ $this->renderPartial( '/store/menu/tabs', array(
 	        ?>
 	        </p>
 	        
-	        <a href="javascript:;" class="top10 green-color change-address block text-center">
-	        [<?php echo t("Change Your Address here")?>]
+	        <a href="#" 
+                   class="text-center" 
+                   data-target="#addressForm" 
+                   data-toggle="modal">
+                    [<?php echo t("Change Your Address here")?>]
 	        </a>
 	        
         </div>

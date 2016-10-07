@@ -138,6 +138,7 @@
             </div><!-- End box_style_1 -->
         </div><!-- End col-md-6 -->
 
+        
             <div class="col-md-3" id="sidebar">
                 <div class="theiaStickySidebar">
                     <div id="cart_box">

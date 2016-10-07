@@ -3,7 +3,8 @@
         <div id="cart_box">
             
             <h3>
-                <?php echo t("Your Order")?> <i class="icon_cart_alt pull-right"></i>
+                <?php echo t("Your Order")?> 
+                <i class="icon_cart_alt pull-right"></i>
             </h3>
             
             
