@@ -2288,6 +2288,10 @@ button.btn_full_outline.login-button-signup:hover{
 .star-padding {    
     padding-right: 60px;
 }
+#complexModal {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .modal-popup.modal-details {
     background: white;
     text-align: left;
@@ -2296,5 +2300,13 @@ button.btn_full_outline.login-button-signup:hover{
     margin-right: 30px;
 }
 .modal-popup.modal-details a.close-link {
-    color:black;
+    color: black;
+}
+.modal-popup.modal-details a {
+    color: black;
+}
+.modal-popup.modal-details .btn_1 {
+    height: 40px;
+    width: 100%;
+    
 }

@@ -108,7 +108,7 @@
                       
                         
                             <?php
-                                $this->renderPartial('/store/menu/complex_item_elements/qty', [
+                                $this->renderPartial('/store/menu/complex_item_elements/instructions', [
                                         'data'        => $data,
 //                                        'item_id'     => 1,
 //                                        'size_select' => $size_select
@@ -147,14 +147,16 @@
                 
                     <div class="row">
                         <div class="col-md-6">
-                            <button type="" class="btn" data-dismiss="modal" >
+                            <a href="#" class="btn_full_outline" data-dismiss="modal" >
                                 <?php echo t("Close")?>
-                            </button>
+                            </a>
                         </div>
                         <div class="col-md-6">
-                             <button type="submit" class="btn btn-submit">
-                                <?php echo empty($row)?Yii::t("default","add to cart"):Yii::t("default","update cart");?>
-                            </button>
+                            
+                             <input type="submit" class="btn btn_1" 
+                                    value="<?php echo empty( $row ) ? Yii::t("default","add to cart") : Yii::t("default","update cart"); ?>" />
+                                
+                            <!--</input>-->
                         </div>
                     </div>    
 

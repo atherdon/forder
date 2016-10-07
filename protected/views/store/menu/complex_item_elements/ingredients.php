@@ -15,6 +15,8 @@ if (!isset($item_data['ingredients'])){
                 <?php echo t("Ingredients")?>
             </h5>
         </div>
+        
+        
         <div class="col-md-12">
 
             <?php 
@@ -30,6 +32,8 @@ if (!isset($item_data['ingredients'])){
                 <?php $item_data['ingredients_id'] = 
                         isset( $item_data['ingredients_id']) ? $item_data['ingredients_id'] : ''; ?>
 
+            
+            
                 <label>
                     <?php echo CHtml::checkbox('ingredients[]',
                       in_array( $val,(array)$item_data['ingredients'] ) ? true : false
@@ -43,10 +47,13 @@ if (!isset($item_data['ingredients'])){
 
                 </label>        
 
+            
 
             <?php } ?>
 
         </div>
+        
+        
     </div>
 
 
