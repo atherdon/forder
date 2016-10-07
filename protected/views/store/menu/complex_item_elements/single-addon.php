@@ -7,9 +7,9 @@
 
 <div class="row" id="options_2">
     <div class="col-md-12">
-        <label>
+        <h5>
             <?php echo qTranslate($val['subcat_name'],'subcat_name',$val)?>
-        </label>
+        </h5>
     </div>
 
 

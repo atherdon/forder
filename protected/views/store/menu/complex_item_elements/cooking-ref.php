@@ -1,14 +1,12 @@
-<hr />
-
 <!--COOKING REF-->
 <?php if (isset($data['cooking_ref'])){ ?>
     <?php if (is_array($data['cooking_ref']) && count($data['cooking_ref'])>=1){ ?>
 
     <div class="row" id="options_2">
         <div class="col-md-12">
-            <label>
+            <h5>
                 <?php echo t("Cooking Preference")?>
-            </label>
+            </h5>
         </div>
         
         

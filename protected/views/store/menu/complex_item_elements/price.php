@@ -1,12 +1,11 @@
-<hr /> 
-
 <div class="row" id="options_2">
     <div class="col-md-12">
-        <label>
+        <h5>
             <?php echo t("Price")?>
-        </label>
+        </h5>
     </div>
     
+   
     <?php if ( is_array( $data['prices'] ) && count( $data['prices'] ) >=1 ){ ?>  
       <?php foreach ( $data['prices'] as $price ){ ?>
             <?php $price['price']=Yii::app()->functions->unPrettyPrice($price['price'])?>
@@ -29,10 +28,10 @@
               <?php else :?>
                
                   <?php echo CHtml::radioButton('price',
-		            count($price['price'])==1?true:false
-		            ,array(
-		            'value'=>$price['price'],
-		            'class'=>"item_price icheck"
+		            count($price['price'])==1?true:false,
+                          array(
+		            'value' => $price['price'],
+		            'class' => "item_price icheck"
 		          ))?>
                
              <?php endif;?>

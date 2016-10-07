@@ -1,5 +1,3 @@
-<hr />
-
 <!--Ingredients-->  
 <?php 
 if (!isset($item_data['ingredients'])){
@@ -13,9 +11,9 @@ if (!isset($item_data['ingredients'])){
 
     <div class="row" id="options_2">
         <div class="col-md-12">
-            <label>
+            <h5>
                 <?php echo t("Ingredients")?>
-            </label>
+            </h5>
         </div>
         <div class="col-md-12">
 

@@ -643,8 +643,17 @@ class ScriptManager
                                 $('#addressForm').modal({
                                     //backdrop: 'static',
                                     //keyboard: false,
-                                    show    : true
+                                    //show    : true
+                                    show    : false
                                 });
+                                
+                                $('#complexModalHtml').modal({
+                                    //backdrop: 'static',
+                                    //keyboard: false,
+                                    show    : true
+                                    
+                                });
+                                
                            }
                       });
 
@@ -860,7 +869,8 @@ class ScriptManager
 //
 //
 //            $cs->registerCssFile($baseUrl."/assets/vendor/colorpick/css/colpick.css");
-            $cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
+            
+//            $cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
 //            
             
             
