@@ -73,7 +73,8 @@
  </div> <!--section2-->
  
  <div class="section-forgotpass">
-    <form id="frm-modal-forgotpass" class="frm-modal-forgotpass uk-panel uk-panel-box uk-form" method="POST" onsubmit="return false;">
+    <form id="frm-modal-forgotpass" class="frm-modal-forgotpass uk-panel uk-panel-box uk-form" 
+          method="POST" onsubmit="return false;">
     <?php echo CHtml::hiddenField('action','forgotPassword')?>
      <?php echo CHtml::hiddenField('do-action',$_GET['do-action'])?>     
      <h3><?php echo Yii::t("default","Forgot Password")?></h3>

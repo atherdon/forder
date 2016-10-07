@@ -683,6 +683,20 @@ class ScriptManager
                           return false;
                         }  
                     })  
+                    
+                    $.validate({ 	
+                        language : jsLanguageValidator,
+                        language : jsLanguageValidator,
+                        form     : '#review',    //form-signup
+                        onError  : function() {    
+                            
+                        },
+                        onSuccess : function() {   
+                          console.log('forgot submit');
+                          form_submit4('review');
+                          return false;
+                        }  
+                    })  
 
                 });
                 ",

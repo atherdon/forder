@@ -35,6 +35,7 @@
                 <button type="submit" class="btn btn-submit">
                     <?php echo t("Retrieve Password")?>
                 </button>
+                
             </form>
         </div>
     </div>
