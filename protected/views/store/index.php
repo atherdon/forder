@@ -1,33 +1,30 @@
 <?php
 $kr_search_adrress = FunctionsV3::getSessionAddress();
 
-$home_search_text=Yii::app()->functions->getOptionAdmin('home_search_text');
+$home_search_text  = Yii::app()->functions->getOptionAdmin('home_search_text');
 if (empty($home_search_text)){
 	$home_search_text=Yii::t("default","Find restaurants near you");
 }
 
-$home_search_subtext=Yii::app()->functions->getOptionAdmin('home_search_subtext');
+$home_search_subtext = Yii::app()->functions->getOptionAdmin('home_search_subtext');
 if (empty($home_search_subtext)){
-	$home_search_subtext=Yii::t("default","Order Delivery Food Online From Local Restaurants");
+    $home_search_subtext = Yii::t("default","Order Delivery Food Online From Local Restaurants");
 }
 
-$home_search_mode=Yii::app()->functions->getOptionAdmin('home_search_mode');
-$placholder_search=Yii::t("default","Street Address,City,State");
-if ( $home_search_mode=="postcode" ){
+$home_search_mode  = Yii::app()->functions->getOptionAdmin('home_search_mode');
+$placholder_search = Yii::t("default","Street Address,City,State");
+if ( $home_search_mode == "postcode" ){
 	$placholder_search=Yii::t("default","Enter your postcode");
 }
-$placholder_search=Yii::t("default",$placholder_search);
-?>
+$placholder_search = Yii::t("default",$placholder_search);
 
 
-
-
-<?php 
-        $this->renderPartial('/store/home/_header', array(
-//                  'home_search_text'    => $home_search_text,
-//                  'kr_search_adrress'   => $kr_search_adrress,
-//                  'placholder_search'   => $placholder_search,
-//                  'home_search_subtext' => $home_search_subtext
+$this->renderPartial('/store/home/_header', 
+        array(
+              'home_search_text'    => $home_search_text,
+              'kr_search_adrress'   => $kr_search_adrress,
+              'placholder_search'   => $placholder_search,
+              'home_search_subtext' => $home_search_subtext
         ));
 ?>
 

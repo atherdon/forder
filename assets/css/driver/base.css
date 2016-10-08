@@ -10,3 +10,9 @@ nav .doordash-logo {line-height: 25px; margin-top: 24px; margin-bottom: 7px;}.do
     padding-top: 7px !important;
     padding-left: 5px !important;
 }
+.intl-tel-input {
+    width: 100%;
+}
+.intl-tel-input.has-error .flag-dropdown {
+    height: 38px;
+}

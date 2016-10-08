@@ -9,37 +9,49 @@
             Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
         </p>
         
-        <form method="post" action="#">
-            <div id="custom-search-input">
-                <div class="input-group">
-                    <input type="text" class=" search-query" placeholder="Your Address or postal code">
-                    <span class="input-group-btn">
-                    <input type="submit" class="btn_search" value="submit">
-                    </span>
-                </div>
-            </div>
-        </form>
         
+        <?php $this->renderPartial('/store/home/search-form', array(
+                      'home_search_text'    => $home_search_text,
+                      'kr_search_adrress'   => $kr_search_adrress,
+                      'placholder_search'   => $placholder_search,
+                      'home_search_subtext' => $home_search_subtext,
+                      'theme_search_merchant_name'     => getOptionA('theme_search_merchant_name'),
+                      'theme_search_street_name'       => getOptionA('theme_search_street_name'),
+                      'theme_search_cuisine'           => getOptionA('theme_search_cuisine'),
+                      'theme_search_foodname'          => getOptionA('theme_search_foodname'),
+                      'theme_search_merchant_address'  => getOptionA('theme_search_merchant_address'),
+
+              ));        
+        ?>
+
     </div><!-- End sub_content -->
 </div>
+    
 <img src="<?php echo Widgets::quickImagesPath(); ?>video_fix.png" alt="" 
      class="header-video--media" 
      data-video-src="<?php echo Widgets::quickVideoPath(); ?>intro" 
      data-teaser-source="<?php echo Widgets::quickVideoPath(); ?>intro" 
      data-provider="Vimeo" 
-     data-video-width="1920" data-video-height="960">
+     data-video-width="1920" data-video-height="960" />
+
 <div id="count" class="hidden-xs">
     <ul>
-        <li><span class="number">
-                2650</span> 
+        <li>
+            <span class="number">
+                2650
+            </span> 
             Restaurant
         </li>
-        <li><span class="number">
-                5350</span> 
+        <li>
+            <span class="number">
+                5350
+            </span> 
             People Served
         </li>
-        <li><span class="number">
-                12350</span> 
+        <li>
+            <span class="number">
+                12350
+            </span> 
             Registered Users
         </li>
     </ul>
