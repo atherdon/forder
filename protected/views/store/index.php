@@ -37,7 +37,9 @@ $this->renderPartial('/store/home/_header',
 <div class="container margin_60">
         
     <div class="main_title">
-       <h2 class="nomargin_top" style="padding-top:0">How it works</h2>
+       <h2 class="nomargin_top" style="padding-top:0">
+           How it works
+       </h2>
        <p>
            Cum doctus civibus efficiantur in imperdiet deterruisset.
        </p>
@@ -45,8 +47,12 @@ $this->renderPartial('/store/home/_header',
     <div class="row">
         <div class="col-md-3">
             <div class="box_home" id="one">
-                <span>1</span>
-                <h3>Search by address</h3>
+                <span>
+                    1
+                </span>
+                <h3>
+                    Search by address
+                </h3>
                 <p>
                     Find all restaurants available in your zone.
                 </p>
@@ -54,8 +60,12 @@ $this->renderPartial('/store/home/_header',
         </div>
         <div class="col-md-3">
             <div class="box_home" id="two">
-                <span>2</span>
-                <h3>Choose a restaurant</h3>
+                <span>
+                    2
+                </span>
+                <h3>
+                    Choose a restaurant
+                </h3>
                 <p>
                     We have more than 1000s of menus online.
                 </p>
@@ -63,8 +73,12 @@ $this->renderPartial('/store/home/_header',
         </div>
         <div class="col-md-3">
             <div class="box_home" id="three">
-                <span>3</span>
-                <h3>Pay by card or cash</h3>
+                <span>
+                    3
+                </span>
+                <h3>
+                    Pay by card or cash
+                </h3>
                 <p>
                     It's quick, easy and totally secure.
                 </p>
@@ -72,8 +86,12 @@ $this->renderPartial('/store/home/_header',
         </div>
         <div class="col-md-3">
             <div class="box_home" id="four">
-                <span>4</span>
-                <h3>Delivery or takeaway</h3>
+                <span>
+                    4
+                </span>
+                <h3>
+                    Delivery or takeaway
+                </h3>
                 <p>
                     You are lazy? Are you backing home?
                 </p>
@@ -82,8 +100,17 @@ $this->renderPartial('/store/home/_header',
     </div><!-- End row -->
         
     <div id="delivery_time" class="hidden-xs">
-        <strong><span>2</span><span>5</span></strong>
-        <h4>The minutes that usually takes to deliver!</h4>
+        <strong>
+            <span>
+                2
+            </span>
+            <span>
+                5
+            </span>
+        </strong>
+        <h4>
+            The minutes that usually takes to deliver!
+        </h4>
     </div>
 </div><!-- End container -->
 
@@ -200,9 +227,15 @@ $this->renderPartial('/store/home/_header',
 
 <div class="high_light">
     <div class="container">
-        <h3>Choose from over 2,000 Restaurants</h3>
-        <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
-        <a href="<?php echo Yii::app()->createUrl('/store/browse/' )?>">View all Restaurants</a>
+        <h3>
+            Choose from over 2,000 Restaurants
+        </h3>
+        <p>
+            Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
+        </p>
+        <a href="<?php echo Yii::app()->createUrl('/store/browse/' )?>">
+            View all Restaurants
+        </a>
     </div><!-- End container -->
 </div><!-- End hight_light -->
             
@@ -214,7 +247,9 @@ $this->renderPartial('/store/home/_header',
     <div class="parallax-content">
         <div class="sub_content">
             <i class="icon_mug"></i>
-            <h3>We also deliver to your office</h3>
+            <h3>
+                We also deliver to your office
+            </h3>
             <p>
                 Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
             </p>
