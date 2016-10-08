@@ -11,7 +11,7 @@ unset($_SESSION['pts_redeem_amt']);
 //));
 
 
-$this->renderPartial('/store/checkout/_subheader-receipt',array(
+$this->renderPartial('/store/receipt/_subheader-receipt',array(
     
 ));
 

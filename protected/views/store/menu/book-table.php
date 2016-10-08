@@ -46,10 +46,10 @@
                         <label>
                             <?php echo t("Time")?>
                         </label>
-                        <?php echo CHtml::textField('booking_time',''			 
-                                    ,array(
-                                    'class'=>'form-control',
-                                    'required'=>true,
+                        <?php echo CHtml::textField('booking_time', '',
+                                array(
+                                        'class'    => 'form-control',
+                                        'required' => true,
                                     ));
                         ?>
                         
@@ -113,7 +113,7 @@
                         
                         <?php echo CHtml::textField('mobile',''			 
                                 ,array(
-                                'class'=>'form-control',
+                                'class'=>'form-control mobile_inputs',
                                 'required'=>true,
                                 ))?>
 

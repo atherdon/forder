@@ -2316,3 +2316,26 @@ button.btn_full_outline.login-button-signup:hover{
 .modal-popup.modal-details label {
     font-weight: 500;
 }
+label span.ml-10 {
+    line-height: 22px;
+}
+.modal-popup .intl-tel-input {
+    width: 100%;
+    text-align: left !important;
+}
+#frm-book .intl-tel-input, 
+.profile-forms .intl-tel-input {
+    width: 100%;
+}
+@media only screen and (max-width: 767px) {
+    #newsletter {
+        margin-bottom: 10px;
+    }
+    .responsive-center {
+        text-align: center;
+        line-height: 30px;
+    }
+    .star-padding {
+        padding-right: 0px;
+    }
+}

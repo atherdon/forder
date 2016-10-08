@@ -38,9 +38,15 @@
                     Home
                 </a>
             </li>
-            <!--<li><a href="#0">Category</a></li>-->
+            
             <li>
-                Checkout
+                <a href="<?php echo Yii::app()->getHomeUrl(); ?>">
+                    Category
+                </a>
+            </li>
+            
+            <li>
+                Receipt
             </li>
         </ul>
     </div>

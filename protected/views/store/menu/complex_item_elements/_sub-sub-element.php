@@ -27,15 +27,18 @@
     
     $html = "&nbsp;" . qTranslate( $val_addon['sub_item_name'], 'sub_item_name', $val_addon ) . '&nbsp;';
     
-    if ( ( $val['multi_option'] != "multiple" )  && !empty( $val_addon['price'] )  ){
-                
-        $html .=  '<span class="pull-right ml-10">' . FunctionsV3::prettyPrice( $val_addon['price'] ) . '</span>';
+    if (  $val['multi_option'] != "multiple" ) {
         
-    } else {
+        if( !empty( $val_addon['price'] ) ) {
+                                
+            $html .=  '<span class="pull-right ml-10">' . FunctionsV3::prettyPrice( $val_addon['price'] ) . '</span>';
         
-        $html .=  '<span class="pull-right ml-10"> - </span>';
-    }
+        } else {
+
+            $html .=  '<span class="pull-right ml-10"> - </span>';
+        }
     
+    }
     echo $html;
     
     
