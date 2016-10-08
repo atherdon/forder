@@ -2282,6 +2282,9 @@ button.btn_full_outline.login-button-signup:hover{
 .mb-45 {
     margin-bottom: 45px;
 }
+.ml-10 {
+    margin-left: 10px; 
+}
 .pb-28 {
     padding-bottom: 28px;
 }
@@ -2309,4 +2312,7 @@ button.btn_full_outline.login-button-signup:hover{
     height: 40px;
     width: 100%;
     
+}
+.modal-popup.modal-details label {
+    font-weight: 500;
 }

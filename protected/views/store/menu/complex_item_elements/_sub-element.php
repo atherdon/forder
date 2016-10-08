@@ -29,23 +29,45 @@
 
 ?>	
 
-    <div class="col-md-12">
+    <?php if ($val['multi_option']=="multiple"){ // because of additional addons ?>
+        <div class="col-md-12">
+    <?php } else { ?>
+        <div class="col-md-6">    
+    <?php } ?>
 
+    <!--<div class="col-md-6">-->
+        
         <label>
 
             <?php
                 $this->renderPartial('/store/menu/complex_item_elements/_sub-sub-element', [
-//                        'data'        => $data,
-//                        'item_id'     => 1,
-//                        'size_select' => $size_select,
+
                         'val'                   => $val,
                         'sub_item_name'         => $sub_item_name,
                         'sub_item_id'           => $sub_item_id,
                         'sub_addon_selected_id' => $sub_addon_selected_id,
-                        'val_addon'   => $val_addon,
+                        'val_addon'             => $val_addon,
+                        'x'                     => $x,
+                        'subcat_id'             => $subcat_id,
+                        'item_data'             => $item_data
                 ] );  
             ?>
 
         </label>
+       
+<?php if ( 0 ) { ?>
+        <?php
+                $this->renderPartial('/store/menu/complex_item_elements/_sub-sub-element', [
 
+                        'val'                   => $val,
+                        'sub_item_name'         => $sub_item_name,
+                        'sub_item_id'           => $sub_item_id,
+                        'sub_addon_selected_id' => $sub_addon_selected_id,
+                        'val_addon'             => $val_addon,
+                        'x'                     => $x,
+                        'subcat_id'             => $subcat_id,
+                        'item_data'             => $item_data
+                ] );  
+            ?>
+     <?php } ?>
     </div>

@@ -22,7 +22,8 @@
 		            'class'=>"price_cls item_price icheck"
 
 		          ));
-                      echo qTranslate($price['size'],'size',$price);
+                
+                    echo qTranslate($price['size'],'size',$price) ;
                 ?>
                
               <?php else :?>
@@ -39,17 +40,19 @@
              <?php if (isset($price['price'])):?>  
                 <?php if (is_numeric($data['discount'])):?>
                    
-                    <span class="line-tru">
+                    <span class="line-tru pull-right ml-10">
                         <?php echo FunctionsV3::prettyPrice($price['price'])?>
                     </span>
-                    <span class="text-danger">
+                    <span class="text-danger pull-right ml-10">
                         <?php echo FunctionsV3::prettyPrice($price['price']-$data['discount'])?>
                     </span>
                    
                 <?php else :?>
-               
-                    <?php echo FunctionsV3::prettyPrice($price['price'])?>
-               
+                   
+                   <span class="pull-right ml-10">
+                        <?php echo FunctionsV3::prettyPrice($price['price'])?>
+                   </span>    
+                   
                  <?php endif;?>
              <?php endif;?>
                

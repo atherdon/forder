@@ -23,6 +23,7 @@
 //                        'size_select' => $size_select,
                         'val'         => $val,
                         'val_addon'   => $val_addon,
+                        'x' => $x
                 ] );  
                 $x++; 
 

@@ -16,8 +16,6 @@ if (!isset($item_data['ingredients'])){
             </h5>
         </div>
         
-        
-        <div class="col-md-12">
 
             <?php 
                 foreach ($data['ingredients'] as $ingredients_id =>  $val){
@@ -33,7 +31,7 @@ if (!isset($item_data['ingredients'])){
                         isset( $item_data['ingredients_id']) ? $item_data['ingredients_id'] : ''; ?>
 
             
-            
+            <div class="col-md-6">
                 <label>
                     <?php echo CHtml::checkbox('ingredients[]',
                       in_array( $val,(array)$item_data['ingredients'] ) ? true : false
@@ -46,13 +44,10 @@ if (!isset($item_data['ingredients'])){
                       <?php echo qTranslate($val, 'ingredients_name', $ingredients_name_trans);?>
 
                 </label>        
-
+            </div>    
             
 
             <?php } ?>
-
-        </div>
-        
         
     </div>
 
