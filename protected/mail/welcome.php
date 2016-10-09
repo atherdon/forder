@@ -214,32 +214,37 @@
                         </td>
                 </tr>
                 <tr align="center">
-                        <td>
-                        <table cellpadding="0" cellspacing="0" border="0" align="center" class="menu-wrap" width="545">
-                                <tr>
-                                        <td class="td-block position" ><a href="#" style="font-family:'Lato',Arial, sans-serif; font-size: 24px; font-weight: 700; color:#828282;text-transform: uppercase; text-decoration: none;"> meno<span style="font-size: 30px; color:#06cfba;">.</span></a></td>
-                                        <td align="right" width="285" class="td-block">
+                    <td>
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" class="menu-wrap" width="545">
+                        <tr>
+                            <td class="td-block position" >
+                                <a href="#" style="font-family:'Lato',Arial, sans-serif; font-size: 24px; font-weight: 700; color:#828282;text-transform: uppercase; text-decoration: none;">
+                                    QuickFood
+                                    <span style="font-size: 30px; color:#06cfba;">.</span>
+                                </a>
+                            </td>
+                            <td align="right" width="285" class="td-block">
 
 
-                                        </td>
-                                </tr>
+                            </td>
+                        </tr>
 
-                        </table></td>
+                    </table></td>
                 </tr>
                 <tr>
-                        <td height="35" class="height-mobile-bt">
+                    <td height="35" class="height-mobile-bt">
 
 
 
 
 
-                            <img src="images/blank.gif" alt="blank" width="1" height="1" />
+                        <img src="images/blank.gif" alt="blank" width="1" height="1" />
 
 
 
 
 
-                        </td>
+                    </td>
                 </tr>
         </table>
         <!-- 	Section-1 End here -->
@@ -257,8 +262,48 @@
             <tr>
                 <td>
                 <table cellpadding="0" cellspacing="0" border="0" class="boxes" width="100%" >
-                        <tr>
-                                <td width="50" class="width-15-mob">
+                    <tr>
+                        <td width="50" class="width-15-mob">
+
+
+
+
+
+
+
+                            <img src="images/blank.gif" alt="blank" width="1" height="1" />
+
+
+
+
+
+
+                        </td>
+                        <td>
+                        <table cellpadding="0" cellspacing="0" border="0" class="boxes" width="95%">
+                            <tr>
+                                <td height="55">
+
+
+
+
+
+                                    <img src="images/blank.gif" alt="blank" width="1" height="1" />
+
+
+
+
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 14px; color:#737373; text-transform: uppercase;  letter-spacing: .5px; font-family:'Lato',Arial, sans-serif; font-weight: 700;">
+                                    Welcome to Quickfood 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="16">
 
 
 
@@ -273,30 +318,21 @@
 
 
 
+
                                 </td>
-                                <td>
-                                <table cellpadding="0" cellspacing="0" border="0" class="boxes" width="95%">
-                                        <tr>
-                                                <td height="55">
-
-
-
-
-
-                                                    <img src="images/blank.gif" alt="blank" width="1" height="1" />
+                            </tr>
+                            <tr>
+                                <td height="5"><span style="width: 42px;  border-top:5px solid #83e7dd; display: block; "> </span></td>
+                            </tr>
+                            <tr>
+                                <td height="25">
 
 
 
 
 
 
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <td style="font-size: 14px; color:#737373; text-transform: uppercase;  letter-spacing: .5px; font-family:'Lato',Arial, sans-serif; font-weight: 700;"> one COLUMN </td>
-                                        </tr>
-                                        <tr>
-                                                <td height="16">
+                                    <img src="images/blank.gif" alt="blank" width="1" height="1" />
 
 
 
@@ -304,42 +340,15 @@
 
 
 
-                                                    <img src="images/blank.gif" alt="blank" width="1" height="1" />
-
-
-
-
-
-
-
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <td height="5"><span style="width: 42px;  border-top:5px solid #83e7dd; display: block; "> </span></td>
-                                        </tr>
-                                        <tr>
-                                                <td height="25">
-
-
-
-
-
-
-                                                    <img src="images/blank.gif" alt="blank" width="1" height="1" />
-
-
-
-
-
-
-
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <td style="font-size: 14px; line-height: 1.5; color:#737373;  letter-spacing: .5px; font-family:'Lato',Arial, sans-serif; font-weight: 300;"> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </td>
-                                        </tr>
-                                        <tr>
-                                                <td height="72">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 14px; line-height: 1.5; color:#737373;  letter-spacing: .5px; font-family:'Lato',Arial, sans-serif; font-weight: 300;"> 
+                                    Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="72">
 
 
 
@@ -348,7 +357,7 @@
 
 
 
-                                                    <img src="images/blank.gif" alt="blank" width="1" height="1" />
+                                    <img src="images/blank.gif" alt="blank" width="1" height="1" />
 
 
 
@@ -362,12 +371,13 @@
 
 
 
-                                                </td>
-                                        </tr>
+                                </td>
+                            </tr>
 
-                                </table></td>
+                        </table>
+                        </td>
 
-                        </tr>
+                    </tr>
 
                 </table></td>
             </tr>
@@ -384,7 +394,7 @@
         <table width="640" border="0" cellpadding="0" cellspacing="0" align="center"  class="table_wrapper fitScreen" style="background:#1abaa9;">
 
             <tr>
-                    <td height="35">
+                <td height="35">
 
 
 
@@ -394,7 +404,7 @@
 
 
 
-                        <img src="images/blank.gif" alt="blank" width="1" height="1" />
+                    <img src="images/blank.gif" alt="blank" width="1" height="1" />
 
 
 
@@ -406,42 +416,44 @@
 
 
 
-                    </td>
+                </td>
             </tr>
             <tr>
-                    <td align="center">
-                    <table cellpadding="0" cellspacing="0" border="0" class="width-text" width="80%" align="center" >
+                <td align="center">
+                <table cellpadding="0" cellspacing="0" border="0" class="width-text" width="80%" align="center" >
 
+                    <tr>
+                        <td>
+                        <table cellpadding="0" cellspacing="0" border="0" class="" width="40%" align="left"  >
                             <tr>
-                                    <td>
-                                    <table cellpadding="0" cellspacing="0" border="0" class="" width="40%" align="left"  >
-                                            <tr>
-                                                    <td style="font-size: 12px; color:#ffffff; font-family:'Lato',Arial, sans-serif; word-spacing: 3px; "> Copyright  &copy;  Meno </td>
-                                            </tr>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0" border="0" class=""  width="150" align="right" >
-                                            <tr>
-                                                    <td></td>
-                                                    <td width="1"></td>
-                                                    <td align="right">
-                                                                    <a href="#" style="font-size: 12px; display: block; color:#ffffff; font-family:'Lato',Arial, sans-serif; letter-spacing: .5px; text-decoration: none; "> unsubscribe </a>
-                                                    </td>
-                                            </tr>
-                                    </table></td>
-
+                                <td style="font-size: 12px; color:#ffffff; font-family:'Lato',Arial, sans-serif; word-spacing: 3px; "> Copyright  &copy;  Meno </td>
                             </tr>
-                    </table></td>
+                        </table>
+                        <table cellpadding="0" cellspacing="0" border="0" class=""  width="150" align="right" >
+                            <tr>
+                                <td></td>
+                                <td width="1"></td>
+                                <td align="right">
+                                    <a href="#" style="font-size: 12px; display: block; color:#ffffff; font-family:'Lato',Arial, sans-serif; letter-spacing: .5px; text-decoration: none; "> 
+                                        unsubscribe 
+                                    </a>
+                                </td>
+                            </tr>
+                        </table></td>
+
+                    </tr>
+                </table></td>
             </tr>
 
             <tr>
-                    <td height="35">
+                <td height="35">
 
 
 
 
 
 
-                        <img src="images/blank.gif" alt="blank" width="1" height="1" />
+                    <img src="images/blank.gif" alt="blank" width="1" height="1" />
 
 
 
@@ -450,7 +462,7 @@
 
 
 
-                    </td>
+                </td>
             </tr>
 
         </table>
