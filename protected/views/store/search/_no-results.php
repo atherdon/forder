@@ -6,7 +6,7 @@ echo CHtml::hiddenField('current_page_url',isset($current_page_url)?$current_pag
 
 <div class="container margin_60_35">
     <div class="row">
-        <div class="col-md-8 col-lg-offset-3">
+        <div class="col-md-8 col-lg-offset-1">
             
             <h3>
                 <?php echo Yii::t("default","Oops. We're having trouble finding that address.")?>

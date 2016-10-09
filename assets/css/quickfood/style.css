@@ -2292,13 +2292,29 @@ button.btn_full_outline.login-button-signup:hover{
     padding-right: 60px;
 }
 
-#myReview {
+#myReview .popup-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#myReview .modal-popup {
+    background: white;
+    text-align: left;
+    
+/*    margin-left: 30px;
+    margin-right: 30px;*/
+}
+#myReview .modal-popup a.close-link  {
+    color: black;    
+}
+#myReview .modal-popup a  {
+    color: black;
+}
+#myReview .modal-popup .btn_1 {
+    height: 40px;
+    width: 100%;
     
 }
 
-#myReview .modal-popup {
-    
-}
 
 #complexModal {
     margin-top: 20px;

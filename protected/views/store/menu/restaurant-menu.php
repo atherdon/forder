@@ -91,12 +91,12 @@
             
                                           'data'             => $data,
                                           'distance'         => $distance,
-            'delivery_fee'     => $delivery_fee,
-            'checkout'          => $checkout,
-            'now'               => $now,
-            'now_time'          => $now_time,
-            'minimum_order'     => $minimum_order,
-            'merchant_minimum_order_pickup' => $merchant_minimum_order_pickup,
+                                        'delivery_fee'     => $delivery_fee,
+                                        'checkout'          => $checkout,
+                                        'now'               => $now,
+                                        'now_time'          => $now_time,
+                                        'minimum_order'     => $minimum_order,
+                                        'merchant_minimum_order_pickup' => $merchant_minimum_order_pickup,
             
 					));
         

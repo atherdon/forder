@@ -573,6 +573,11 @@ $this->renderPartial( '/store/menu/tabs', array(
 
 <?php } ?>
 
+
+
+
+
+
 <?php
 
 $this->renderPartial('/store/menu/_details_popup', [

@@ -2475,6 +2475,17 @@ function apply_voucher()
     });	
 }
 
+
+
+
+
+
+
+
+
+
+
+
 /***************************************
 GET CURRENT LOCATION 
 ***************************************/
@@ -2571,6 +2582,18 @@ jQuery(document).ready(function() {
     		display_direction();
     	}    	
     });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 //    @TODO enable edit address.
     //if( $('.rating-wrapper').is(':visible') ) {	

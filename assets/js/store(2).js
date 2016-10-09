@@ -2344,6 +2344,20 @@ jQuery(document).ready(function() {
     });
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     if( $('.rating-wrapper').is(':visible') ) {	
     	if ( $("#from_address ").val()=="" ){
     		if ( $("#customer_ask_address").val()!=2){

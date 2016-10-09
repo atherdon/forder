@@ -276,16 +276,19 @@ class ScriptManager
 	
 	public static function registerGlobalVariables()
 	{				
-		echo CHtml::hiddenField('fb_app_id',Yii::app()->functions->getOptionAdmin('fb_app_id'));
-		echo CHtml::hiddenField('admin_country_set',Yii::app()->functions->getOptionAdmin('admin_country_set'));
+		echo CHtml::hiddenField('fb_app_id', Yii::app()->functions->getOptionAdmin('fb_app_id'));
+		echo CHtml::hiddenField('admin_country_set', Yii::app()->functions->getOptionAdmin('admin_country_set'));
+                
                 
                 
 //                @TODO disabled due to google maps issue
 //                if( 0 ) { 
-		echo CHtml::hiddenField('google_auto_address',Yii::app()->functions->getOptionAdmin('google_auto_address'));
-		echo CHtml::hiddenField('google_default_country',getOptionA('google_default_country'));
-		echo CHtml::hiddenField('disabled_share_location',getOptionA('disabled_share_location'));
+		echo CHtml::hiddenField('google_auto_address',     Yii::app()->functions->getOptionAdmin('google_auto_address'));
+		echo CHtml::hiddenField('google_default_country',  getOptionA('google_default_country'));
+		echo CHtml::hiddenField('disabled_share_location', getOptionA('disabled_share_location'));
 //                }
+                
+                
                 
                 
 		
@@ -643,14 +646,15 @@ class ScriptManager
                                 $('#addressForm').modal({
                                     //backdrop: 'static',
                                     //keyboard: false,
-                                    //show    : true
-                                    show    : false
+                                    show    : true
+                                    //show    : false
                                 });
                                 
                                 $('#complexModalHtml').modal({
                                     //backdrop: 'static',
                                     //keyboard: false,
-                                    show    : true
+                                    //show    : true
+                                    show    : false
                                     
                                 });
                                 
@@ -838,6 +842,79 @@ class ScriptManager
         
            $cs->registerScriptFile($baseUrl . "/assets/js/quickfood/test.js", 
                    CClientScript::POS_END); 
+           
+           
+            $google_key=getOptionA('google_geo_api_key');
+            if (!empty($google_key)){
+                    $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=".$google_key
+                    ,CClientScript::POS_END); 
+            } else {
+                    $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"
+                ,CClientScript::POS_END); 
+            }
+           
+           
+           $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.geocomplete.min.js", 
+                   CClientScript::POS_END
+            ); 
+           
+            $cs->registerScript(
+                'address-form-geo',
+                '  
+                $(document).ready(function() {
+                    "use strict";
+
+                    if ( $("#google_auto_address").val() == "yes" ){	
+                    
+                    } else {
+                        
+                        
+                        if ( $("#google_default_country").val()=="yes" ){			
+                            console.log("init");
+                            
+                            $("#s").geocomplete({
+                                country: $("#admin_country_set").val()			
+                            });			   
+                            
+                        } else {			
+                                $("#s").geocomplete();	
+                        }
+                        
+
+                    }
+                    
+                    console.log("2");
+                    
+                        $("#addressForm").on("shown.bs.modal", function(e){
+                            console.log("good this" );
+                            
+                            var google_auto_address = $("#google_auto_address").val();	
+                            if ( google_auto_address == "yes") {
+                            
+                                //console.log("init2");
+                                //$("#client_address").geocomplete();
+
+                            } else {
+                                console.log("init2");
+                                //$("#client_address").geocomplete();
+                               $("#client_address").geocomplete({
+                                    country: $("#admin_country_set").val()
+                                });	
+                                
+                            }
+                                
+                           
+                            
+                        });
+                
+
+
+                });
+                ',
+                CClientScript::POS_END
+            );
+           
+           
 //
 //           $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
 //            ,CClientScript::POS_END);

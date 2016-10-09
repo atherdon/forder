@@ -18,9 +18,9 @@
                 <?php echo CHtml::hiddenField( 'merchant-id', $merchant_id );?>
                 <?php //echo CHtml::hiddenField('initial_review_rating', ''); ?>
                 
-                <div class="login_icon">
-                    <i class="icon_comment_alt"></i>
-                </div>
+<!--                <div class="login_icon">
+                    <i class="icon_star"></i>
+                </div>-->
                 
 <!--                <input name="restaurant_name" id="restaurant_name" type="hidden" 
                        value="Mexican Taco Mex">	-->
@@ -65,11 +65,14 @@
                             <option value="Not rated">I don't know</option>
                         </select>   -->
                         
-                        
-                        <?php echo CHtml::dropDownList('initial_review_rating',
+                         <div class="form-group">
+                            <h5>
+                                <?php echo Yii::t("default","Create review"); ?>
+                            </h5>
+                              <?php echo CHtml::dropDownList('initial_review_rating',
                                     'Food Quality',
                                     array( 
-                                        '0' => 'Food Quality ',
+                                        '0' => 'Food Quality',
                                         '1' => 'Low',
                                         '2' => 'Sufficient',
                                         '3' => 'Good',
@@ -77,11 +80,13 @@
                                         '5' => 'Super',
                                         ),
                                     array(
-                                        'class'    => "form-control form-white",
+                                        'class'    => "form-control",
                                         'multiple' => false
                                     )
                                 );
-                        ?>
+                            ?>
+                        </div>
+                       
                         
                     </div>
                     
@@ -132,30 +137,26 @@
                           style="height:100px" 
                           placeholder="Write your review"></textarea>-->
 
+                <div class="form-group">
+                    <h5>
+                        <?php echo Yii::t("default","Review Message"); ?>
+                    </h5>
+                    <?php echo CHtml::textArea('review_content','',array(
+                                    'required'    => true,
+                                    'class'       => "form-control",
+                                    'style'       => "height:100px",
+                                    'placeholder' => "Write your review"                    
+                    ))?>
+                </div>
 
-                <?php echo CHtml::textArea('review_content','',array(
-                                'required'    => true,
-                                'class'       => "form-control form-white",
-                                'style'       => "height:100px",
-                                'placeholder' => "Write your review"                    
-                ))?>
-
-
-
-<!--                <input type="text" 
-                       id="verify_review" 
-                       class="form-control form-white" 
-                       placeholder="Are you human? 3 + 1 =">-->
                 
 
-                <input type="submit" value="Submit" 
-                       class="btn btn-submit" 
+                <input type="submit" value="Submit Review" 
+                       class="btn btn_1" 
                        id="submit-review">
+                
             </form>
-            
-            
-            
-            <!--<div id="message-review"></div>-->
+
         </div>
     </div>
 </div><!-- End Review modal -->   

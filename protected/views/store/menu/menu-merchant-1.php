@@ -6,8 +6,12 @@
                 Menu
             </h2>
 
+            
+            
             <?php foreach ( $menu as $val ) { ?>
 
+                <?php //$this->renderPartial( '/store/menu/tabs', array()); ?>
+            
                 <h3 class="nomargin_top cat-<?php echo $val['category_id']?> " id="starters">
                     <?php echo qTranslate( $val['category_name'], 'category_name', $val )?>
                 </h3>
@@ -117,6 +121,9 @@
 
                             </tbody>
                         </table>
+                    
+                        
+                    
                         <hr>
 
 
@@ -145,3 +152,11 @@
     </div>
 
 <?php } ?>
+
+<!-- details popup -->
+<?php if( is_array( $menu ) && count( $menu ) >= 1 ) { ?>
+    
+        
+    
+<?php } ?>
+    
