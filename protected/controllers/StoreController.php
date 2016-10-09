@@ -765,42 +765,53 @@ class StoreController extends CController
 								
 		if (is_array($res) && count($res)>=1){			
 						
-			$_SESSION['client_location']=$res['client'];						
+			$_SESSION['client_location'] = $res['client'];						
 			Cookie::setCookie('client_location', json_encode($res['client']) );
 			
-			$this->render('search-results',array(
-			  'data'=>$res,
-			  'filter_delivery_type'=>$filter_delivery_type,
-			  'filter_cuisine'=>$filter_cuisine,
-			  'filter_minimum'=>$filter_minimum,
-			  'sort_filter'=>$sort_filter,
-			  'display_type'=>$display_type,
-			  'restaurant_name'=>$restaurant_name,
-			  'current_page_link'=>$current_page_link,
-			  'current_page_url'=>$current_page_url,
-			  'fc'=>getOptionA('theme_filter_colapse'),
-			  'enabled_search_map'=>getOptionA('enabled_search_map')
+			$this->render('search-results', array(
+                                    'data'                 => $res,
+                                    'filter_delivery_type' => $filter_delivery_type,
+                                    'filter_cuisine'       => $filter_cuisine,
+                                    'filter_minimum'       => $filter_minimum,
+                                    'sort_filter'          => $sort_filter,
+                                    'display_type'         => $display_type,
+                                    'restaurant_name'      => $restaurant_name,
+                                    'current_page_link'    => $current_page_link,
+                                    'current_page_url'     => $current_page_url,
+                                    'fc'                   => getOptionA('theme_filter_colapse'),
+                                    'enabled_search_map'   => getOptionA('enabled_search_map'),
+                            
+                                    'flag' => true
 			));
-			$_SESSION['kmrs_search_stmt']=$res['sql'];			
+                        
+			$_SESSION['kmrs_search_stmt'] = $res['sql'];			
 		} else {
 			$has_filter=false;
 			if (isset($_GET['filter_minimum'])){$has_filter=true;}		
 			if (isset($_GET['filter_delivery_type'])){$has_filter=true;}		
 			if (isset($_GET['filter_cuisine'])){$has_filter=true;}
 			if ($has_filter){
-				$this->render('search-results',array(
-				  'data'=>$res,
-				  'filter_delivery_type'=>$filter_delivery_type,
-				  'filter_cuisine'=>$filter_cuisine,
-				  'filter_minimum'=>$filter_minimum,
-				  'sort_filter'=>$sort_filter,
-				  'display_type'=>$display_type,
-				  'restaurant_name'=>$restaurant_name,
-				  'current_page_url'=>isset($current_page_url)?$current_page_url:'',
-				  'fc'=>getOptionA('theme_filter_colapse'),
-				  'enabled_search_map'=>getOptionA('enabled_search_map'),
-			   ));
-			} else $this->render('search-results-nodata');							
+                            
+				$this->render('search-results', array(
+                                    'data'=>$res,
+                                    'filter_delivery_type'=>$filter_delivery_type,
+                                    'filter_cuisine'=>$filter_cuisine,
+                                    'filter_minimum'=>$filter_minimum,
+                                    'sort_filter'=>$sort_filter,
+                                    'display_type'=>$display_type,
+                                    'restaurant_name'=>$restaurant_name,
+                                    'current_page_url'=>isset($current_page_url)?$current_page_url:'',
+                                    'fc'=>getOptionA('theme_filter_colapse'),
+                                    'enabled_search_map'=>getOptionA('enabled_search_map'),
+                                    
+                                    'flag' => true
+                                ));
+                                
+                        } else { 
+                            
+                            $this->render('//store/search/index-empty', []);							
+                            
+                        }
 		}	
 	}
 	

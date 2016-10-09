@@ -35,7 +35,7 @@ if (!isset($item_data['ingredients'])){
                 <label>
                     <?php echo CHtml::checkbox('ingredients[]',
                       in_array( $val,(array)$item_data['ingredients'] ) ? true : false
-                      ,array(
+                      , array(
                           'value' => $val,
                           'class' => 'icheck'
 
