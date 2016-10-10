@@ -31,11 +31,13 @@
                             <?php echo t("Date Of Booking")?>
                         </label>
                         
-                        <?php echo CHtml::hiddenField('date_booking')?>
-                        <?php echo CHtml::textField('date_booking1', '', array(
-                                            'class'    => 'date_booking form-control',
+                        <?php //echo CHtml::hiddenField('date_booking')?>
+                        <?php echo CHtml::textField('date_booking', '', array(
+                                            'class'    => 'form-control',
                                             'required' => true,
-                                            'data-id'  => 'date_booking'
+                                            'data-id'  => 'date_booking',
+//                                            'data-min-time' => '8:00am',
+//                                            'data-max-time' => '5:00pm'
                                     )); ?>
                         
                     </div>

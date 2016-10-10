@@ -9,11 +9,11 @@
             <a href="#" class="close-link">
                 <i class="icon_close_alt2"></i>
             </a>
-            
+            <!--onsubmit="return false;"-->
             <form id="addressModal"                  
                   class="frm-modal-enter-address popup-form" 
                   method="POST" 
-                  onsubmit="return false;"
+                  
                   >
                 
                 
@@ -32,7 +32,7 @@
                 <?php echo CHtml::textField('client_address',
                                 isset($_SESSION['kr_search_address']) ? $_SESSION['kr_search_address'] : '', 
                                 array(
-                                    'class'           => "form-control form-white",
+                                    'class'           => "form-control",
                                     'data-validation' => "required",
                                     'placeholder'     => "Enter a location"
                                 ));

@@ -70,9 +70,15 @@ if ( $res ){
 
 <div class="row" id="options_2">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <?php echo CHtml::hiddenField('delivery_date', $now)?>
-         <?php echo CHtml::textField('delivery_date1',
-            FormatDateTime($now,false),array('class'=>"j_date ",'data-id'=>'delivery_date'))?>
+        
+         <?php// echo CHtml::hiddenField('delivery_date', $now)?>
+         <?php echo CHtml::textField('delivery_date',
+                    FormatDateTime($now, false),
+                    array(
+                        'class'   => "j_date ",
+                        'data-id' => 'delivery_date'
+                        )
+                 )?>
     </div>
     
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 delivery_asap_wrap">
@@ -81,15 +87,16 @@ if ( $res ){
 
         <?php echo CHtml::textField('delivery_time', $now_time,
          array( 
-             'class'       => "timepick ", //"timepick grey-fields",   https://eonasdan.github.io/bootstrap-datetimepicker/
-             'placeholder' => Yii::t("default", "Delivery Time")
+//             'class'       => "timepick ",    
+             'placeholder' => Yii::t("default", "Delivery Time"),
+             'data-now'    => $now_time
              )); ?>	       
                        	         	        
            <!--</div>-->
      </div><!-- delivery_asap_wrap-->
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-10">
          <label class="delivery-asap">
-             <?php echo CHtml::checkBox('delivery_asap', false, array( 'class' => "icheck" ) ) ?>
+             <?php echo CHtml::checkBox('delivery_asap', false, array( 'class' => "icheck " ) ) ?>
             <!--<span class="text-muted">-->
                 <?php echo Yii::t("default", "Delivery ASAP?") ?>
             <!--</span>-->	          

@@ -133,6 +133,14 @@ jQuery(document).ready(function() {
 	}
 });	
 
+
+
+
+
+
+
+
+
 $(window).scroll(function() {   
 	
 	if ( hl_get_scroll_position() ) {		

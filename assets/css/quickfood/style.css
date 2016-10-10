@@ -2285,6 +2285,9 @@ button.btn_full_outline.login-button-signup:hover{
 .ml-10 {
     margin-left: 10px; 
 }
+.mt-10 {
+    margin-top: 10px; 
+}
 .pb-28 {
     padding-bottom: 28px;
 }
@@ -2313,6 +2316,30 @@ button.btn_full_outline.login-button-signup:hover{
     height: 40px;
     width: 100%;
     
+}
+/*.pac-container {
+     put Google geocomplete list on top of Bootstrap modal 
+    z-index: 9999 !important;
+}*/
+/*.modal-backdrop {
+    z-index: 1000 !important;
+}
+.modal {
+    z-index: 1040 !important;
+}
+*/
+div.pac-container {
+    z-index: 1000 !important;
+}
+.modal{
+    z-index: 20;   
+}
+.modal-backdrop{
+    z-index: 10;        
+}
+
+#addressModal {
+    background: white;
 }
 
 

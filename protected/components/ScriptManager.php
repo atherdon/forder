@@ -643,12 +643,8 @@ class ScriptManager
                       $( document ).ready(function( $ ) {
                             
                            if( $('body').hasClass('menu') ){
-                                $('#addressForm').modal({
-                                    //backdrop: 'static',
-                                    //keyboard: false,
-                                    show    : true
-                                    //show    : false
-                                });
+                           
+                                
                                 
                                 $('#complexModalHtml').modal({
                                     //backdrop: 'static',
@@ -752,111 +748,38 @@ class ScriptManager
                       );
            
            
-        $cs->registerScript(
-                'address-form',
-                " 
-                $(document).ready(function() {
-                    'use strict';
-
-                     $.validate({ 	
-                            language : jsLanguageValidator,
-                            language : jsLanguageValidator,
-                        form : '#forms',    
-                        onError : function() {    
-                            
-                        },
-                        onSuccess : function() {   
-//                          console.log('123');
-                          form_submit('forms');
-                          return false;
-                        }  
-                    })  
-
-                    //console.log('validation');
-                    
-
-                     $.validate({ 	
-                            language : jsLanguageValidator,
-                            language : jsLanguageValidator,
-                        form : '#myRegister',    //form-signup
-                        onError : function() {    
-                            
-                        },
-                        onSuccess : function() {   
-                          console.log('sign-up submit');
-                          form_submit2('myRegister');
-                          return false;
-                        }  
-                    })  
-
-                    //console.log('validation');
-
-                     $.validate({ 	
-                        language : jsLanguageValidator,
-                        language : jsLanguageValidator,
-                        form     : '#ForgotPassword',    //form-signup
-                        onError  : function() {    
-                            
-                        },
-                        onSuccess : function() {   
-                          console.log('forgot submit');
-                          form_submit3('ForgotPassword');
-                          return false;
-                        }  
-                    })  
-                    
-                    $.validate({ 	
-                        language : jsLanguageValidator,
-                        language : jsLanguageValidator,
-                        form     : '#review',    //form-signup
-                        onError  : function() {    
-                            
-                        },
-                        onSuccess : function() {   
-                          console.log('forgot submit');
-                          form_submit4('review');
-                          return false;
-                        }  
-                    })  
-                    
-                    $.validate({ 	
-                        language : jsLanguageValidator,
-                        language : jsLanguageValidator,
-                        form     : '#merchant-apply-form',    //form-signup
-                        onError  : function() {    
-                            
-                        },
-                        onSuccess : function() {   
-                          console.log('forgot submit');
-                          form_submit5('merchant-apply-form');
-                          return false;
-                        }  
-                    })  
-
-                });
-                ",
-                CClientScript::POS_END
-            );
-           
+//        $cs->registerScript(
+//                'validator-form',
+//                " 
+//
+//                ",
+//                CClientScript::POS_END
+//            );
+        
+        $cs->registerScriptFile($baseUrl . "/assets/js/quickfood/form-validation-init.js", 
+                   CClientScript::POS_END); 
         
         
-           $cs->registerScriptFile($baseUrl . "/assets/js/quickfood/test.js", 
+        $cs->registerScriptFile($baseUrl . "/assets/js/quickfood/test.js", 
                    CClientScript::POS_END); 
            
            
-            $google_key=getOptionA('google_geo_api_key');
-            if (!empty($google_key)){
-                    $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=".$google_key
-                    ,CClientScript::POS_END); 
-            } else {
-                    $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"
+        $google_key=getOptionA('google_geo_api_key');
+        if (!empty($google_key)){
+                $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=".$google_key
                 ,CClientScript::POS_END); 
-            }
+        } else {
+                $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"
+            ,CClientScript::POS_END); 
+        }
            
            
-           $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.geocomplete.min.js", 
+//           $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.geocomplete.min.js", 
+//                   CClientScript::POS_END
+//            );
+           $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.geocomplete.min_1.js", 
                    CClientScript::POS_END
-            ); 
+            );
            
             $cs->registerScript(
                 'address-form-geo',
@@ -885,27 +808,30 @@ class ScriptManager
                     
                     console.log("2");
                     
-                        $("#addressForm").on("shown.bs.modal", function(e){
-                            console.log("good this" );
+                    $("#addressForm").modal({
+                                    backdrop: "static",
+                                    keyboard: false,
+                                    show    : false
+                                    //show    : true
+                                }).on("shown.bs.modal", function(){
+                                
+                                    var google_auto_address = $("#google_auto_address").val();	
                             
-                            var google_auto_address = $("#google_auto_address").val();	
-                            if ( google_auto_address == "yes") {
-                            
-                                //console.log("init2");
-                                //$("#client_address").geocomplete();
+                                
+                                    if ( google_auto_address == "yes") {
 
-                            } else {
-                                console.log("init2");
-                                //$("#client_address").geocomplete();
-                               $("#client_address").geocomplete({
-                                    country: $("#admin_country_set").val()
-                                });	
-                                
-                            }
-                                
-                           
-                            
-                        });
+                                        
+                                    } else {
+                                        console.log("init2");
+                                        $("#client_address").geocomplete();
+                                       //$("#client_address").geocomplete({
+                                       //     country: $("#admin_country_set").val()
+                                       // });	
+
+                                    }
+
+                                });;
+                                //$("#addressForm").modal("show");
                 
 
 
@@ -914,7 +840,20 @@ class ScriptManager
                 CClientScript::POS_END
             );
            
-           
+//           Datepicker & timepicker
+            $cs->registerScriptFile( Widgets::quickScriptPath() . "bootstrap-datepicker.min.js", 
+                    CClientScript::POS_END
+            );
+            $cs->registerScriptFile( Widgets::quickScriptPath() . "jquery.timepicker.min.js", 
+                    CClientScript::POS_END
+            );
+            
+            $cs->registerScriptFile( Widgets::quickScriptPath() . "form-date-time-pickers-init.js", 
+                    CClientScript::POS_END
+            );
+            
+            
+            
 //
 //           $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
 //            ,CClientScript::POS_END);
