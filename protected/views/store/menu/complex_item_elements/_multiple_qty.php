@@ -17,10 +17,12 @@
   </div>
   <div class="col-md-5 col-xs-5 border">-->
 
-    <?php echo CHtml::textField("addon_qty[$subcat_id][$x]",$qty_selected,array(
-        'class'     => "numeric_only left addon_qty",   
-        'maxlength' => 5
-        ))?>
+    <?php echo CHtml::textField("addon_qty[$subcat_id][$x]", $qty_selected, 
+            array(
+                'class'     => "numeric_only left addon_qty",   
+                'maxlength' => 5
+        ));
+    ?>
 
 <!--  </div>
   <div class="col-md-3 col-xs-3 border ">
@@ -31,7 +33,7 @@
 
     <!--@TODO add recount of price when spinner triggered-->
     
-    <span class="pull-right ml-10 price-recount-change-event">    
+    <span class="pull-right ml-10 price-recount-change-event" data-price="<?php echo $price; ?>">    
         <?php echo !empty( $price )? FunctionsV3::prettyPrice( $price ) :"-";?>
     </span> 
 </span>    

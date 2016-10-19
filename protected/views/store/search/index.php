@@ -10,18 +10,16 @@
 ?>
 
  <?php $this->renderPartial('/store/search/_header', [
-            'total'          => empty( $flag ) ? $total : 0 ,
+            'total'          => $data['total'] ,
             'search_address' => $search_address
  ]); ?>
 
- <?php $this->renderPartial('/store/search/_breadcrumbs', [
-//            'total'          => $total,
-//            'search_address' => $search_address
- ]); 
+ <?php $this->renderPartial('/store/search/_breadcrumbs', []); 
 
     
 $this->renderPartial('/store/search/_search-results', [
-        'list' => $list
+        'list' => array()
+//        'list' => $list
 
 ]); 
 

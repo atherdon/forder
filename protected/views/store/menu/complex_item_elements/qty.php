@@ -9,7 +9,7 @@
         <?php echo CHtml::textField('qty',
            isset($item_data['qty']) ? $item_data['qty'] : 1,
             array(
-                'class'     => " spinner ", 
+                'class'     => "  touchspin", 
                 'maxlength' => 5     
            ));
         ?>

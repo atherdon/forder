@@ -649,8 +649,8 @@ class ScriptManager
                                 $('#complexModalHtml').modal({
                                     //backdrop: 'static',
                                     //keyboard: false,
-                                    //show    : true
-                                    show    : false
+                                    show    : true
+                                    //show    : false
                                     
                                 });
                                 
@@ -852,8 +852,41 @@ class ScriptManager
                     CClientScript::POS_END
             );
             
+//            Details popup Touchspin
+            $cs->registerScriptFile( Widgets::quickScriptPath() . "jquery.bootstrap-touchspin.js", 
+                    CClientScript::POS_END
+            );
             
-            
+            $cs->registerScript(
+                      'touchspin-init',
+                      " 
+                        $(document).ready(function() {
+                                'use strict';
+                                
+                             //if( $('body').hasClass('home') ) {
+                             
+                               $('.touchspin').TouchSpin({
+                                verticalbuttons: true
+                               });
+                               
+                               $('.addon_qty').TouchSpin({
+//                                verticalbuttons: true
+                               }).on('change', function(){
+                                    console.log( $(this).val() );
+//                                    var price_selector = $(this).parent().find('.price-recount-change-event');
+                                    //data().price
+                                    console.log( price );
+                                    //hasClass('');
+                               });
+
+                             //}   
+
+                             
+
+                        });
+                      ",
+                      CClientScript::POS_END
+                      );
 //
 //           $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
 //            ,CClientScript::POS_END);

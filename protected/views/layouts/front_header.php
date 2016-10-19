@@ -32,11 +32,13 @@
     <!-- SPECIFIC CSS -->
     <link href="<?php echo Widgets::quickStylesPath(); ?>jquery.cookiebar.css" rel="stylesheet">
     <link href="<?php echo Widgets::quickStylesPath(); ?>slider-pro.min.css" rel="stylesheet">
-    <!--<link href="<?php echo Widgets::quickStylesPath(); ?>bootstrap-datepicker.min.css" rel="stylesheet">-->
+    
     <link href="<?php echo Widgets::quickStylesPath(); ?>bootstrap-datepicker3.css" rel="stylesheet">
     <link href="<?php echo Widgets::quickStylesPath(); ?>jquery-timepicker.min.css" rel="stylesheet">
     
-    <link href="<?php echo Widgets::quickScriptPath(); ?>jquery-asSpinner/css/asSpinner.min.css" rel="stylesheet">
+    <link href="<?php echo Widgets::quickStylesPath(); ?>jquery.bootstrap-touchspin.css" rel="stylesheet">
+    
+    <!--<link href="<?php echo Widgets::quickScriptPath(); ?>jquery-asSpinner/css/asSpinner.min.css" rel="stylesheet">-->
     
     
     

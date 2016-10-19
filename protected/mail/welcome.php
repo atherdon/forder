@@ -9,7 +9,7 @@
             
             
             
-            QuickFood
+            QuickFood Welcome Email
         
         
         

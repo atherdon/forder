@@ -2368,6 +2368,13 @@ div.pac-container {
 .modal-popup.modal-details label {
     font-weight: 500;
 }
+.modal-popup.modal-details .touchspin#qty {
+    height: 34px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
 label span.ml-10 {
     line-height: 22px;
 }

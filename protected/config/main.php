@@ -1,6 +1,6 @@
 <?php
 return array(
-	'name'=>'Karinderia Multiple Restaurant',
+	'name'=>'QuickFood',
 	
 	'defaultController'=>'store',
 		
