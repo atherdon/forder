@@ -1,11 +1,11 @@
 <?php 
-    $search_address=isset($_GET['s'])?$_GET['s']:'';
-    if (isset($_GET['st'])){
-            $search_address=$_GET['st'];
+    $search_address = isset($_GET['s'])?$_GET['s']:'';
+    if ( isset($_GET['st'] )){
+        $search_address = $_GET['st'];
     }
     
-    echo CHtml::hiddenField('clien_lat',$data['client']['lat']);
-    echo CHtml::hiddenField('clien_long',$data['client']['long']);
+    echo CHtml::hiddenField('clien_lat',  $data['client']['lat']);
+    echo CHtml::hiddenField('clien_long', $data['client']['long']);
 
 ?>
 
@@ -16,9 +16,10 @@
 
  <?php $this->renderPartial('/store/search/_breadcrumbs', []); 
 
+// var_dump( $data ); 
     
 $this->renderPartial('/store/search/_search-results', [
-        'list' => array()
+        'list' => $data
 //        'list' => $list
 
 ]); 

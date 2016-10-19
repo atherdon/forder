@@ -2,8 +2,6 @@
     <div id="map" class="map"></div>
 </div><!-- End Map -->
 
-
-
 <!-- Content ================================================== -->
 <div class="container margin_60_35">
     <div class="row">
