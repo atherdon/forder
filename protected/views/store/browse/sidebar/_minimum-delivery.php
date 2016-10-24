@@ -1,3 +1,4 @@
+<?php if ( $minimum_list=FunctionsV3::minimumDeliveryFee()){ ?>
 <div class="filter_type">
     <h6>  Minimum Delivery </h6>
     
@@ -25,3 +26,4 @@
         <a href="<?php echo FunctionsV3::clearSearchParams('filter_minimum')?>">[<?php echo t("Clear")?>]</a>
     <?php endif;?>
 </div>
+<?php } ?>

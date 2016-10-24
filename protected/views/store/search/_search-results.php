@@ -7,9 +7,12 @@
     <div class="row">
         
         <?php $this->renderPartial('/store/browse/_sidebar2', [
-            'enabled_search_map' => $enabled_search_map,
-            'restaurant_name'    => $restaurant_name,
-            'filter_cuisine'     => $filter_cuisine
+            'enabled_search_map'   => $enabled_search_map,
+            'restaurant_name'      => $restaurant_name,
+            'filter_cuisine'       => $filter_cuisine,
+            'filter_delivery_type' => $filter_delivery_type,
+            'filter_minimum'         => $filter_minimum,
+            
         ]); ?>
         
         

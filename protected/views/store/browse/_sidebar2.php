@@ -44,21 +44,19 @@
                 ]); ?>
                 
                 
-                
-                
-                
             </div>
             
             <?php $this->renderPartial('/store/browse/sidebar/_distance-fee', [
-//                            'filter_cuisine' => $filter_cuisine
+
                 ]); ?>
             
             <?php $this->renderPartial('/store/browse/sidebar/_delivery', [
-//                            'filter_cuisine' => $filter_cuisine
+                            'filter_delivery_type' => $filter_delivery_type
                 ]); ?>
             
             <?php $this->renderPartial('/store/browse/sidebar/_minimum-delivery', [
-//                            'filter_cuisine' => $filter_cuisine
+
+                        'filter_minimum'         => $filter_minimum,
                 ]); ?>            
             
 
