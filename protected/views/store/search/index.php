@@ -19,7 +19,10 @@
 // var_dump( $data ); 
     
 $this->renderPartial('/store/search/_search-results', [
-        'list' => $data
+        'list'               => $data,
+        'enabled_search_map' => $enabled_search_map,
+        'restaurant_name'    => $restaurant_name,
+        'filter_cuisine'     => $filter_cuisine
 //        'list' => $list
 
 ]); 

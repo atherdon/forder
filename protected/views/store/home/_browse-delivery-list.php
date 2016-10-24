@@ -75,8 +75,194 @@
         
         <?php 
             
+        
+                $cusines = array(
+                    
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=American',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Asian',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Chinese',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Greek',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Healthy',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Indian',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Italian',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Japanese',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Mediterranean',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Mexican',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'category=Organic',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'category=Thai',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'category=Vegetarian',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'category=Vietnamese',
+
+                    ],
+                );
+        
             
-            $array = array(
+            $foods = array(
+                    
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Alcohol',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Bagels',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Bakery',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Breakfast',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Chicken',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Dessert',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Dinner',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => urlencode( 'Gluten free' ),
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => urlencode( 'Ice Cream & Frozen Yogurt' ),
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Liquor',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Lunch',
+
+                    ],
+                
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Pasta',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Pizza',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => urlencode('Sandwiches & Subs'),
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Seafood',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => urlencode('Soup & Salad'),
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Steak',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Sushi',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => urlencode('Tacos & Burritos'),
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Wine',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Wings',
+
+                    ],
+                );
+        
+        
+            $towns = array(
                     
                     [
                         'link' => urlencode( 'Bloomington, MN, USA'),
@@ -132,7 +318,7 @@
         
         <ul>
             <?php $x=1;?>
-            <?php foreach ( $array as $val ){ 
+            <?php foreach ( $towns as $val ){ 
                 
                 $url = '/store/searcharea?s=' . $val['link'];
                 ?>

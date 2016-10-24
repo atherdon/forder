@@ -34,7 +34,19 @@ echo CHtml::hiddenField('clien_long',$data['client']['long']);
         <?php echo t("View by map")?>
         </a>
         <?php endif;?>
+         
         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
         <div class="filter-wrap rounded2 <?php echo $enabled_search_map==""?"no-marin-top":""; ?>">
                 
           <button type="button" class="close modal-close-btn" data-dismiss="modal" aria-label="Close">
@@ -205,10 +217,39 @@ echo CHtml::hiddenField('clien_long',$data['client']['long']);
            
         </div> <!--filter-wrap-->
         
+        
+        
      </div> <!--col search-left-content-->
      
      <div class="col-md-9 border search-right-content">
           
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
      <?php echo CHtml::hiddenField('sort_filter',$sort_filter)?>
      <?php echo CHtml::hiddenField('display_type',$display_type)?>     
      

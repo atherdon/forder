@@ -133,8 +133,11 @@ $this->renderPartial('/store/home/_header',
     <div class="container margin_60">
         
         <div class="main_title">
-           <h2 class="nomargin_top">Choose from Most Popular </h2>
-               <?php //echo t("Featured Restaurants")?>
+           <h2 class="nomargin_top">
+               Choose from Most Popular 
+           </h2>
+            <?php //echo t("Featured Restaurants")?>
+            
             <p>
                 Cum doctus civibus efficiantur in imperdiet deterruisset. 
                     <?php //echo t("Featured Restaurants")?>
