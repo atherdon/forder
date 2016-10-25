@@ -28,6 +28,7 @@ $this->renderPartial('/store/search/_search-results', [
     
         'sort_filter'         => $sort_filter,
         'display_type'        => $display_type
+        
 //        'minimum_list'         => $minimum_list,
 //        'list' => $list
 

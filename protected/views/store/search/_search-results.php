@@ -2,6 +2,8 @@
     <div id="map" class="map"></div>
 </div><!-- End Map -->
 
+
+
 <!-- Content ================================================== -->
 <div class="container margin_60_35">
     <div class="row">
@@ -44,12 +46,6 @@
                  }
                        
             ?>
-            
-           
-            
-            
-            
-
             
             
             <a href="#0" class="load_more_bt wow fadeIn" 

@@ -3,7 +3,13 @@
             if ( is_array( $list['list'] ) && count( $list['list'] ) >= 1){ 
 
                 
-                
+              $jsVariable = '<script type="text/javascript">
+                                var
+                                    mapObject,
+                                    markers = [],
+                                    markersData = {' ;
+              
+//              $jsVariable .= ' }</script>'; 
                 
               foreach ($list['list'] as $key => $val){
 
@@ -25,13 +31,9 @@
                   }
                   
                   $even_or_odd = $key % 2;
-//                  var_dump( $key % 2 );
                   
                   ?>
 
-                  
-                  
-        	<!--<div class="row">-->
                 
                     <?php if( !$even_or_odd ) { ?>
                 
@@ -53,71 +55,7 @@
                 
                         </div>
                 
-                    <?php } ?>
-                
-                          
-                <!--</div>-->
-                <!-- End row-->
-            
-
-
-
-
-                <?php if ( 0 ) { ?>
-                
-                
-                  <div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-                      
-                      <?php if ( $val['is_sponsored']==2):?>
-                        <div class="ribbon_1">
-                          Popular
-                        </div>
-                        <!--<div class="ribbon"><span>Sponsored</span></div>-->
-                     <?php endif;?>
-                      
-                     <?php if ( $offer = FunctionsV3::getOffersByMerchant( $merchant_id ) ):?>
-                        <div class="ribbon-offer">
-                            <span>
-                            <?php echo $offer;?>
-                            </span>
-                        </div>
-                     <?php endif;?>
-                    
-                    <div class="row">
-                        <div class="col-md-9 col-sm-9">
-                                                                                            
-                            <?php $this->renderPartial('/store/browse/_item-single-list', [
-
-                                       'slug'            => $val['restaurant_slug'],
-                                       'merchant_id'     => $merchant_id ,
-                                       'restaurant_name' => $val['restaurant_name'],
-                                       'cuisine'         => $val['cuisine'],
-                                       'address'         => $address,
-                                       'service'         => $val['service'],
-                           ]); ?>
-
-                        </div>
-                        <div class="col-md-3 col-sm-3">
-                            <div class="go_to">
-                                <div>
-                                    <a href="<?php echo Yii::app()->createUrl( 'store/menu/merchant/' . $val['restaurant_slug'] ); ?>" 
-                                       class="btn_1">
-                                        View Menu
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End row-->
-                </div><!-- End strip_list-->
-                
-                
-                <?php } ?>
-                
-                
-                
-                
-                
-                <?php
+                    <?php } 
               }
             }
 

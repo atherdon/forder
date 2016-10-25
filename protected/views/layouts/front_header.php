@@ -53,7 +53,158 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
     
-    
+    <script type="text/javascript">
+    var
+        mapObject,
+        markers = [],
+        markersData = {
+                'American': [
+                {
+                        name: 'Angus Steak House',
+                        location_latitude: 48.873792, 
+                        location_longitude: 2.295028,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'Angus Steak House',
+                        type_point: 'American/Mexican',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                }
+                ],
+                'Chinese': [
+                {
+                        name: 'Golden Bowl',
+                        location_latitude: 48.865633, 
+                        location_longitude: 2.321236,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'Golden Bowl',
+                        type_point: 'Chinese',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                },
+                {
+                        name: 'Oriental Chinese',
+                        location_latitude: 48.854183,
+                        location_longitude: 2.354808,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'Oriental Chinese',
+                        type_point: 'American/Mexican',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                }
+                ],
+                'Fish': [
+                {
+                        name: 'Stevonia',
+                        location_latitude: 48.863893, 
+                        location_longitude: 2.342348,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'Stevonia',
+                        type_point: 'Fish and chips',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                },
+                {
+                        name: 'SeaFood ',
+                        location_latitude: 48.860642,
+                        location_longitude: 2.352245,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'SeaFood',
+                        type_point: 'Fish and chips',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                }
+                ],
+                'Mexican': [
+                {
+                        name: 'Tijuana Kitchen',
+                        location_latitude: 48.858370, 
+                        location_longitude: 2.294481,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'Tijuana Kitche',
+                        type_point: 'Mexican',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                },
+                {
+                        name: 'Mexican Food',
+                        location_latitude: 48.837273,
+                        location_longitude: 2.335387,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'Mexican Food',
+                        type_point: 'Mexican',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                }
+                ],
+                'Pizza': [
+                {
+                        name: 'O Sole mio',
+                        location_latitude: 48.860819, 
+                        location_longitude: 2.354507,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'O Sole mio',
+                        type_point: 'Pizza/Italian',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                },
+                {
+                        name: 'Naples Pizza',
+                        location_latitude: 48.853798,
+                        location_longitude: 2.333328,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'Naples Pizza',
+                        type_point: 'Pizza/Italian',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                }
+                ],
+                'Sushi': [
+                {
+                        name: 'Dragon Palace',
+                        location_latitude: 48.862880, 
+                        location_longitude: 2.287205,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'Dragon Palace',
+                        type_point: 'Sushi/Chinese',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                },
+                {
+                        name: 'New Hong Kong',
+                        location_latitude: 48.865784,
+                        location_longitude: 2.307314,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'New Hong Kong',
+                        type_point: 'Sushi/Chinese',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                }
+                ],
+                'Hamburger': [
+                {
+                        name: 'Route 66',
+                        location_latitude: 48.852729, 
+                        location_longitude: 2.350564,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'Route 66',
+                        type_point: 'Hamburger/Hotdog',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                },
+                {
+                        name: 'Burger King',
+                        location_latitude: 48.870587, 
+                        location_longitude: 2.318943,
+                        map_image_url: 'img/thumb_restaurant_map.png',
+                        name_point: 'Burger King',
+                        type_point: 'Hamburger/Hotdog',
+                        description_point: '135 Newtownards Road, Belfast, BT4<br><strong>Opening time</strong>: 09am-10pm.',
+                        url_point: 'detail_page.html'
+                }
+                ]
+
+        };
+    </script>
     
     <?php 
     /*add the analytic codes */

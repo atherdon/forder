@@ -29,6 +29,24 @@ echo CHtml::hiddenField('clien_long',$data['client']['long']);
    
      <div class="col-md-3 border search-left-content" id="mobile-search-filter">
        
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
         <?php if ( $enabled_search_map=="yes"):?>
         <a href="javascript:;" class="search-view-map green-button block center upper rounded">
         <?php echo t("View by map")?>

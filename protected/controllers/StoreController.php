@@ -628,17 +628,17 @@ class StoreController extends CController
 		unset($_SESSION['kr_item']);
 		unset($_SESSION['kr_merchant_id']);
 		
-		$filter_cuisine=isset($_GET['filter_cuisine'])?explode(",",$_GET['filter_cuisine']):false;
-		$filter_delivery_type=isset($_GET['filter_delivery_type'])?$_GET['filter_delivery_type']:'';		
-		$filter_minimum=isset($_GET['filter_minimum'])?$_GET['filter_minimum']:'';
-		$sort_filter=isset($_GET['sort_filter'])?$_GET['sort_filter']:'';		
-		$display_type=isset($_GET['display_type'])?$_GET['display_type']:'';
-		$restaurant_name=isset($_GET['restaurant_name'])?$_GET['restaurant_name']:'';
+		$filter_cuisine       = isset($_GET['filter_cuisine']) ? explode(",",$_GET['filter_cuisine']) : false;
+		$filter_delivery_type = isset($_GET['filter_delivery_type']) ? $_GET['filter_delivery_type'] : '';		
+		$filter_minimum       = isset($_GET['filter_minimum']) ? $_GET['filter_minimum'] : '';
+		$sort_filter          = isset($_GET['sort_filter']) ? $_GET['sort_filter'] : '';		
+		$display_type         = isset($_GET['display_type']) ? $_GET['display_type'] : '';
+		$restaurant_name      = isset($_GET['restaurant_name']) ? $_GET['restaurant_name'] : '';
 						
-		$current_page_get=$_GET;
-		unset($current_page_get['page']);				
-		$current_page_link=Yii::app()->createUrl('store/searcharea/',$current_page_get);
-		$current_page_url='';
+		$current_page_get  = $_GET;
+		unset( $current_page_get['page'] );				
+		$current_page_link = Yii::app()->createUrl('store/searcharea/',$current_page_get);
+		$current_page_url  = '';
 				
 		
 		/*update merchant if expired and sponsored*/
@@ -647,6 +647,7 @@ class StoreController extends CController
 		
 		/*  switch between search type */		
 		switch ($_SESSION['search_type']) {
+                    
 			case "kr_search_address":
 				if (isset($_GET['s'])){
 					$res=FunctionsV3::searchByAddress(
@@ -751,64 +752,72 @@ class StoreController extends CController
 		}
 										
 		if (empty($display_type)){
-			if ( !empty($_SESSION['krms_display_type']) ){				
-				$display_type=$_SESSION['krms_display_type'];
-			} else {		
-				$display_type=getOptionA('theme_list_style');
-				if (empty($display_type)){
-				    $display_type='gridview';	
-				}
-			}
+                    
+                    if ( !empty($_SESSION['krms_display_type']) ){				
+                        
+                        $display_type=$_SESSION['krms_display_type'];
+                        
+                    } else {		
+                        
+                        $display_type=getOptionA('theme_list_style');
+                        if (empty($display_type)){
+                            $display_type='gridview';	
+                        }
+                        
+                    }
+                    
 		}
 		
-		$_SESSION['krms_display_type']=$display_type;	
+		$_SESSION['krms_display_type'] = $display_type;	
 								
 		if (is_array($res) && count($res)>=1){			
 						
-			$_SESSION['client_location'] = $res['client'];						
-			Cookie::setCookie('client_location', json_encode($res['client']) );
+                    $_SESSION['client_location'] = $res['client'];						
+                    Cookie::setCookie('client_location', json_encode($res['client']) );
 			
 //                        $this->render('search-results', array(
-			$this->render('//store/search/index', array(
-                                    'data'                 => $res,
-                                    'filter_delivery_type' => $filter_delivery_type,
-                                    'filter_cuisine'       => $filter_cuisine,
-                                    'filter_minimum'       => $filter_minimum,
-                                    'sort_filter'          => $sort_filter,
-                                    'display_type'         => $display_type,
-                                    'restaurant_name'      => $restaurant_name,
-                                    'current_page_link'    => $current_page_link,
-                                    'current_page_url'     => $current_page_url,
-                                    'fc'                   => getOptionA('theme_filter_colapse'),
-                                    'enabled_search_map'   => getOptionA('enabled_search_map'),
-                            
-                           
-			));
+                    $this->render('//store/search/index', 
+                            array(
+                                'data'                 => $res,
+                                'filter_delivery_type' => $filter_delivery_type,
+                                'filter_cuisine'       => $filter_cuisine,
+                                'filter_minimum'       => $filter_minimum,
+                                'sort_filter'          => $sort_filter,
+                                'display_type'         => $display_type,
+                                'restaurant_name'      => $restaurant_name,
+                                'current_page_link'    => $current_page_link,
+                                'current_page_url'     => $current_page_url,
+                                'fc'                   => getOptionA('theme_filter_colapse'),
+                                'enabled_search_map'   => getOptionA('enabled_search_map'),
+
+                            ));
                         
-			$_SESSION['kmrs_search_stmt'] = $res['sql'];			
+			$_SESSION['kmrs_search_stmt'] = $res['sql'];
+                        
 		} else {
                     
-			$has_filter=false;
-			if (isset($_GET['filter_minimum'])){$has_filter=true;}		
-			if (isset($_GET['filter_delivery_type'])){$has_filter=true;}		
-			if (isset($_GET['filter_cuisine'])){$has_filter=true;}
-			if ($has_filter){
+			$has_filter = false;
+			if ( isset( $_GET['filter_minimum'] ) ){       $has_filter=true; }		
+			if ( isset( $_GET['filter_delivery_type'] ) ){ $has_filter=true; }		
+			if ( isset( $_GET['filter_cuisine'] ) ){       $has_filter=true; }
+                        
+			if ( $has_filter ){
                                 
-//                                $this->render('search-results', array(
-				$this->render('//store/search/index', array(
-                                    'data'                 => $res,
-                                    'filter_delivery_type' => $filter_delivery_type,
-                                    'filter_cuisine'       => $filter_cuisine,
-                                    'filter_minimum'       => $filter_minimum,
-                                    'sort_filter'          => $sort_filter,
-                                    'display_type'         => $display_type,
-                                    'restaurant_name'      => $restaurant_name,
-                                    'current_page_url'     => isset($current_page_url)?$current_page_url:'',
-                                    'fc'                   => getOptionA('theme_filter_colapse'),
-                                    'enabled_search_map'   => getOptionA('enabled_search_map'),
-                                    
-                                    
-                                ));
+//                          $this->render('search-results', array(
+                            $this->render('//store/search/index', array(
+                                'data'                 => $res,
+                                'filter_delivery_type' => $filter_delivery_type,
+                                'filter_cuisine'       => $filter_cuisine,
+                                'filter_minimum'       => $filter_minimum,
+                                'sort_filter'          => $sort_filter,
+                                'display_type'         => $display_type,
+                                'restaurant_name'      => $restaurant_name,
+                                'current_page_url'     => isset( $current_page_url ) ? $current_page_url : '',
+                                'fc'                   => getOptionA('theme_filter_colapse'),
+                                'enabled_search_map'   => getOptionA('enabled_search_map'),
+
+
+                            ));
                                 
                         } else { 
                             

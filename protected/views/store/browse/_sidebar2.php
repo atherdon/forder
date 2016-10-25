@@ -33,10 +33,11 @@
             </div>    
             
             <div class="filter_type">    
-                <h6>
+                
+<!--                <h6>
                     Distance
                 </h6>
-                <input type="text" id="range" value="" name="range">
+                <input type="text" id="range" value="" name="range">-->
                 
                 
                 <?php $this->renderPartial('/store/browse/sidebar/_type', [

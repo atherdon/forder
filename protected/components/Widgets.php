@@ -1976,7 +1976,7 @@ class Widgets extends CApplicationComponent
                         
 	}
         
-        public static function ratingHTML( $ratingAr, $extended = false, $tags = false, $id = false, $slug = false ){
+        public static function ratingHTML( $ratingAr, $extended = false, $tags = false, $id = false, $slug = false, $grid = false ){
             
             $html   = '<div class="rating">';
 //            var_dump( $ratingAr );
@@ -2037,7 +2037,7 @@ class Widgets extends CApplicationComponent
                          ';
             }
             
-            if( !$extended ){
+            if( !$extended && $grid ){
                 $html .= ' star-padding"></i>';
             } else {
                 $html .= ' "></i>';

@@ -862,7 +862,9 @@ class ScriptManager
                       " 
                         $(document).ready(function() {
                                 'use strict';
-                                
+                            
+//                            console.log( markersData );    
+
                              //if( $('body').hasClass('home') ) {
                              
                                $('.touchspin').TouchSpin({
