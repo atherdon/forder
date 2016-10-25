@@ -23,11 +23,31 @@
                     'display_type'        => $display_type
             ]); ?>
 
+            
+            <?php 
+            
+                switch ($display_type) {
+                    case 'gridview':
 
-            <?php $this->renderPartial('/store/browse/_items-list', [
-                        'list' => $list
-                  ]); 
+                            $this->renderPartial('/store/browse/_items-grid', [
+                                        'list' => $list
+                            ]); 
+
+                         break;
+
+                     default:
+                            $this->renderPartial('/store/browse/_items-list', [
+                                        'list' => $list
+                            ]); 
+
+                         break;
+                 }
+                       
             ?>
+            
+           
+            
+            
             
 
             

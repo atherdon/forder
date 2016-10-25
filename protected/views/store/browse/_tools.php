@@ -33,31 +33,40 @@
         </div>
         <div class="col-md-9 col-sm-6 hidden-xs">
             
-             <a href="<?php echo FunctionsV3::clearSearchParams('','display_type=listview')?>" 
-	           class="display-type bt_filters 
-	           <?php echo $display_type=="gridview"?'inactive':''?>" 
-		          data-type="listview">
-                <i class="icon-list"></i>
-            </a>
-                
-            <a href="<?php echo FunctionsV3::clearSearchParams('','display_type=gridview')?>" 
-		          class="display-type bt_filters 
-	             <?php echo $display_type=="listview"?'inactive':''?>" 
-		          data-type="gridview">
-                <i class="icon-th"></i>
-            </a>           
-                
+            
+            <?php 
+            
+                switch ($display_type) {
+                    case 'gridview':
+                            ?>
+            
+                        <a href="<?php echo FunctionsV3::clearSearchParams('','display_type=gridview')?>" 
+                                     class="display-type bt_filters" 
+                                     data-type="gridview">                
+                           <i class="icon-list"></i>
+                        </a>      
+            
+                        <?php
+
+                         break;
+
+                     default:
+                         ?>
+            
+                         <a href="<?php echo FunctionsV3::clearSearchParams('','display_type=listview')?>" 
+                            class="display-type bt_filters" 
+                                   data-type="listview">
+                            <i class="icon-th"></i>
+                        </a>
             
             
-<!--            <a href="#" class="bt_filters">
-                <i class="icon-th"></i>
-            </a>
-            
-            <a href="#" class="bt_filters">
-                <i class="icon-list"></i>
-            </a>-->
-            
-            
+                        <?php
+
+                         break;
+                 }
+                       
+            ?>
+                        
         </div>
     </div>
 </div><!--End tools -->

@@ -353,27 +353,27 @@ echo CHtml::hiddenField('clien_long',$data['client']['long']);
 	             <?php 	             
 	             if ( $display_type=="listview"){
 	             	 $this->renderPartial('/front/search-list-2',array(
-					   'data'=>$data,
-					   'val'=>$val,
-					   'merchant_id'=>$merchant_id,
-					   'ratings'=>$ratings,
-					   'distance_type'=>$distance_type,
-					   'distance_type_orig'=>$distance_type_orig,
-					   'distance'=>$distance,
-					   'merchant_delivery_distance'=>$merchant_delivery_distance,
-					   'delivery_fee'=>$delivery_fee
+					   'data'               => $data,
+					   'val'                => $val,
+					   'merchant_id'        => $merchant_id,
+					   'ratings'            => $ratings,
+					   'distance_type'      => $distance_type,
+					   'distance_type_orig' => $distance_type_orig,
+					   'distance'           => $distance,
+					   'merchant_delivery_distance' => $merchant_delivery_distance,
+					   'delivery_fee' => $delivery_fee
 					 ));
 	             } else {
 		             $this->renderPartial('/front/search-list-1',array(
-					   'data'=>$data,
-					   'val'=>$val,
-					   'merchant_id'=>$merchant_id,
-					   'ratings'=>$ratings,
-					   'distance_type'=>$distance_type,
-					   'distance_type_orig'=>$distance_type_orig,
-					   'distance'=>$distance,
-					   'merchant_delivery_distance'=>$merchant_delivery_distance,
-					   'delivery_fee'=>$delivery_fee
+					   'data' => $data,
+					   'val'  => $val,
+					   'merchant_id' => $merchant_id,
+					   'ratings'     => $ratings,
+					   'distance_type' => $distance_type,
+					   'distance_type_orig' => $distance_type_orig,
+					   'distance'           => $distance,
+					   'merchant_delivery_distance' => $merchant_delivery_distance,
+					   'delivery_fee'               => $delivery_fee
 					 ));
 	             }
 				 ?>
@@ -389,6 +389,7 @@ echo CHtml::hiddenField('clien_long',$data['client']['long']);
                 <i></i>
                 <p><?php echo t("Loading more restaurant...")?></p>
              </div> <!--search-result-loader-->
+             
              
              <?php                         
              if (!isset($current_page_url)){
@@ -410,7 +411,8 @@ echo CHtml::hiddenField('clien_long',$data['client']['long']);
 			 $pagination =   new pagination( $data['total'] ,((isset($_GET['page'])) ? $_GET['page']:1),$options);		
 			 $data   =   $pagination->render();
              ?>             
-                    
+                 
+             
          </div> <!--result-merchant-->
      
      </div> <!--col search-right-content-->
