@@ -53,6 +53,13 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
     
+    <?php if (  Yii::app()->controller->action->id != 'menu') { ?>
+    
+        <script src="<?php echo Widgets::quickScriptPath(); ?>map_single.js"></script> 
+    
+    <?php } ?>
+    
+    
     <script type="text/javascript">
     var
         mapObject,

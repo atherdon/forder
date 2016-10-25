@@ -9,6 +9,28 @@
                                     markers = [],
                                     markersData = {' ;
               
+              
+             $options = array(
+                'name'   => '',
+                'title'  => '',
+                'lat'    => '',
+                'long'   => '',
+                'logo'   => '',
+                'title2' => '',
+                'cusine' => '',
+                'description' => '',
+                'url'    => ''
+                
+             );
+             
+              $a = Widgets::jsRestaurantDataString( $options );
+              
+              
+              
+              
+              
+              
+              
 //              $jsVariable .= ' }</script>'; 
                 
               foreach ($list['list'] as $key => $val){

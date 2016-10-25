@@ -1938,7 +1938,29 @@ class Widgets extends CApplicationComponent
                         
 	}
         
-       
+        public static function jsRestaurantDataString( $options, $last = false )
+	{
+            
+            $html = 
+                "'" . $options['name'] . "': [ " .
+                "{
+                        name:                " . $options['title']  . "," .
+                      " location_latitude:   " . $options['lat']    . "," .
+                      " location_longitude:  " . $options['long']   . "," .
+                      " map_image_url:       " . $options['logo']   . "," .
+                      " name_point:          " . $options['title2'] . "," .
+                      " type_point:          " . $options['cusine'] . "," .
+                      " description_point:   " . $options['description'] . "," .
+                      " url_point:           " . $options['url']    . "," .
+                "}
+                ]"
+                ;            
+            if( !$last ){
+                $html .= ",";
+            }
+            return $html;
+                        
+	}
         
         public static function quickStylesPath()
 	{

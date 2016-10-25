@@ -2,6 +2,16 @@
                 
             if ( is_array( $list['list'] ) && count( $list['list'] ) >= 1){ 
 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
               foreach ($list['list'] as $val){
 
                   $merchant_id = $val['merchant_id'];
