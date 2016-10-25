@@ -18,7 +18,10 @@
         
         <div class="col-md-9">
             
-            <?php $this->renderPartial('/store/browse/_tools', []); ?>
+            <?php $this->renderPartial('/store/browse/_tools', [
+                    'sort_filter'         => $sort_filter,
+                    'display_type'        => $display_type
+            ]); ?>
 
 
             <?php $this->renderPartial('/store/browse/_items-list', [

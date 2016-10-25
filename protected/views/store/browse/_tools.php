@@ -1,24 +1,63 @@
+<?php echo CHtml::hiddenField('sort_filter',  $sort_filter)?>
+<?php echo CHtml::hiddenField('display_type', $display_type)?>     
+
 <div id="tools">
     <div class="row">
         <div class="col-md-3 col-sm-3 col-xs-6">
             <div class="styled-select">
-                <select name="sort_rating" id="sort_rating">
-                    <option value="" selected>
-                        Sort by ranking
-                    </option>
-                    <option value="lower">
-                        Lowest ranking
-                    </option>
-                    <option value="higher">
-                        Highest ranking
-                    </option>
-                </select>
+                
+                <?php 
+                
+	           $filter_list = 
+                        array(
+                            'restaurant_name' => t("Name"),
+                            'ratings'         => t("Rating"),
+                            'minimum_order'   => t("Minimum"),
+                            'distance'        => t("Distance")
+                        );
+                   
+	           if ( isset( $_GET['st'] ) ){ unset($filter_list['distance']); }
+                   
+	           echo CHtml::dropDownList('sort-results', $sort_filter, $filter_list,
+                           array(
+                            'class' => "sort-results selectpicker",
+                            'title' => t("Sort By")
+	           ));
+                   
+                ?>
+                
+                
+                
+                
             </div>
         </div>
         <div class="col-md-9 col-sm-6 hidden-xs">
-            <a href="#0" class="bt_filters">
+            
+             <a href="<?php echo FunctionsV3::clearSearchParams('','display_type=listview')?>" 
+	           class="display-type bt_filters 
+	           <?php echo $display_type=="gridview"?'inactive':''?>" 
+		          data-type="listview">
+                <i class="icon-list"></i>
+            </a>
+                
+            <a href="<?php echo FunctionsV3::clearSearchParams('','display_type=gridview')?>" 
+		          class="display-type bt_filters 
+	             <?php echo $display_type=="listview"?'inactive':''?>" 
+		          data-type="gridview">
+                <i class="icon-th"></i>
+            </a>           
+                
+            
+            
+<!--            <a href="#" class="bt_filters">
                 <i class="icon-th"></i>
             </a>
+            
+            <a href="#" class="bt_filters">
+                <i class="icon-list"></i>
+            </a>-->
+            
+            
         </div>
     </div>
 </div><!--End tools -->

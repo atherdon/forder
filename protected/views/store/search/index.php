@@ -25,6 +25,9 @@ $this->renderPartial('/store/search/_search-results', [
         'filter_cuisine'       => $filter_cuisine,
         'filter_delivery_type' => $filter_delivery_type,
         'filter_minimum'       => $filter_minimum,
+    
+        'sort_filter'         => $sort_filter,
+        'display_type'        => $display_type
 //        'minimum_list'         => $minimum_list,
 //        'list' => $list
 
