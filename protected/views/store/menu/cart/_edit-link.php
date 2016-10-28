@@ -1,8 +1,13 @@
-<?php
+<a data-target="#complexModalHtmlItem1" 
+   data-toggle="modal"
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+   data-qty=""
+   data-priceChoosen=""
+   data-preference=""
+   data-ingredients=""
+   data-addon="{cat_id:5, val:[id5, id6, id7, id8]}"
 
+   href="#" 
+   class="edit_item">
+    <i class="icon_pencil"></i>
+</a>     

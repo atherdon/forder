@@ -8,7 +8,8 @@
         <div id="cart_box" >
                         
             <h3>
-                <?php echo t("Your Order")?> <i class="icon_cart_alt pull-right"></i>
+                <?php echo t("Your Order")?> 
+                <i class="icon_cart_alt pull-right"></i>
             </h3>
 
             
@@ -17,55 +18,133 @@
             <!--<table class="table table_summary item-order-wrap">--> 
             <?php //if( 0 ) { ?>    
                 <tbody class="cart-to-change-by-js">
+                    
+                    
+                    
                     <tr>
                         <td>
                             
                             
+                        <?php
+                            $this->renderPartial('/store/menu/cart/_delete-link', [
+                                        //        'data'    => $data,
+                                        //        'item_id' => 1 
+//                                                    'menu'             => $menu,
+                            ] ); 
+                        ?>
                             
+                         <?php
+                            $this->renderPartial('/store/menu/cart/_edit-link', [
+                                        //        'data'    => $data,
+                                        //        'item_id' => 1 
+//                                                    'menu'             => $menu,
+                            ] ); 
+                        ?>    
                             
-                            
-                            
-                            <a href="#0" class="remove_item">
-                                <i class="icon_minus_alt"></i>
-                            </a> 
-                            
-                            
-                            
-                    
-                            <a data-target="#complexModalHtmlItem1" 
-                               data-toggle="modal"
-                               
-                               data-qty=""
-                               data-priceChoosen=""
-                               data-preference=""
-                               data-ingredients=""
-                               data-addon="{cat_id:5, val:[id5, id6, id7, id8]}"
-                               
-                               href="#" 
-                               class="edit_item">
-                                <i class="icon_pencil"></i>
-                            </a>     
                
 <!--                            <a href="#0" class="edit_item">
                                 <i class="icon_pencil"></i>
                             </a> -->
                             
-                            
-                            
-                            
-                            
-                            
                             <strong>
                                 1x
                             </strong>
-                            Enchiladas
+                            Enchiladas <br />
+                            
+                            
+<!--                            $ 5.00 <br />
+                            medium well <br />
+                            medium well <br />
+                            9999999999999 <br />-->
+                            
+                            instructions <br /> <!-- green title -->
+                            <!--sault <br />-->
+                            <!--sault <br />-->
+                            
                         </td>
                         <td>
                             <strong class="pull-right">
                                 $11
                             </strong>
                         </td>
+                        
                     </tr>
+                    <tr class="without-padding">
+                        <td>
+<!--                            <a href="#0" class="remove_item">
+                                <i class="icon_minus_alt"></i>
+                            </a>-->
+                            
+                            <strong>
+                                2x
+                            </strong> 
+                            Burrito
+                        </td>
+                        <td>
+                            <strong class="pull-right">
+                                $14
+                            </strong>
+                        </td>
+                    </tr>
+                    
+                    
+                    
+                    
+                    
+                    <tr>
+                        
+                        <td colspan="2">
+                            <div class="row">
+                                <div class="col-md-9">
+                                1111
+                                </div>
+                                <div class="col-md-3 pull-right" style="text-align: right;">
+                                22
+                                </div>
+                            </div>
+<!--                            <div>
+                                1 <br />1 <br />1 <br />1 <br />1 <br />1 <br />1 <br />
+                            </div>
+                            <div>
+                                2
+                            </div>-->
+                            
+<!--                            <a href="#0" class="remove_item">
+                                <i class="icon_minus_alt"></i>
+                            </a>
+                            
+                                <strong>
+                                2x
+                            </strong> 
+                            Burrito-->
+                            
+                            
+                        </td>
+                        <!--<td>-->
+                            
+                            <!--<div>3</div>-->
+                            <!--<div>4</div>-->
+                            
+<!--                            <strong class="pull-right">
+                                $14
+                            </strong>-->
+                        <!--</td>-->
+                        
+                    </tr>
+                    
+                    
+                    
+                    
+                                        
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     <tr>
                         <td>
                             <a href="#0" class="remove_item">
