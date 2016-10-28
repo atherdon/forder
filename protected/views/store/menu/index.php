@@ -580,10 +580,19 @@ $this->renderPartial( '/store/menu/tabs', array(
 
 <?php
 
-$this->renderPartial('/store/menu/_details_popup', [
+
+$this->renderPartial('/store/menu/_details-food-list-modals', [
 //        'data'    => $data,
-        'item_id' => 1 
+//        'item_id' => 1 
+            'menu'             => $menu,
      ] ); 
+
+
+
+//$this->renderPartial('/store/menu/_details_popup', [
+//        'data'    => $data,
+//        'item_id' => 1 
+//     ] ); 
 
 
 $this->renderPartial('/store/menu/_address_form', [

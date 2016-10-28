@@ -865,6 +865,43 @@ class ScriptManager
                             
 //                            console.log( markersData );    
 
+
+                            
+
+                            $('#complexModalHtmlItem1').on('shown.bs.modal', function (event) {
+                            
+                                var link         = $(event.relatedTarget) // Button that triggered the modal
+                                var information1 = button.data('qty') // Extract info from data-* attributes
+                                var information2 = button.data('priceChoosen') // Extract info from data-* attributes
+                                var information3 = button.data('preference') // Extract info from data-* attributes
+                                var information4 = button.data('ingredients') // Extract info from data-* attributes
+                                var information5 = button.data('addon') // Extract info from data-* attributes
+                                
+                                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                                var modal = $(this)
+                                modal.find('.modal-title').text('New message to ' + recipient)
+                                modal.find('.modal-body #qty').val(recipient)
+                                modal.find('.modal-body #price').prop('value', 500)
+                                modal.find('.modal-body #price').prop('checked', true) //test radio buttons & checkboxes
+                                modal.find('.modal-body #cooking_ref').prop('checked', true) //test radio buttons & checkboxes
+                                modal.find('.modal-body #ingredients').prop('checked', true) //test radio buttons & checkboxes
+                                modal.find('.modal-body #sub_item_1_0').prop('checked', true) //test radio buttons & checkboxes
+                                modal.find('.modal-body #addon_qty_2_0').prop('checked', true) //test radio buttons & checkboxes
+                                
+
+                                //$('.modal-body #qty').focus()
+                                
+                            })
+
+
+
+
+
+
+
+
+
                              //if( $('body').hasClass('home') ) {
                              
                                $('.touchspin').TouchSpin({

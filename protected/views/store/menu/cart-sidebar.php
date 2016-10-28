@@ -19,16 +19,45 @@
                 <tbody class="cart-to-change-by-js">
                     <tr>
                         <td>
+                            
+                            
+                            
+                            
+                            
+                            
                             <a href="#0" class="remove_item">
                                 <i class="icon_minus_alt"></i>
                             </a> 
                             
-                            <a href="#0" class="edit_item">
+                            
+                            
+                    
+                            <a data-target="#complexModalHtmlItem1" 
+                               data-toggle="modal"
+                               
+                               data-qty=""
+                               data-priceChoosen=""
+                               data-preference=""
+                               data-ingredients=""
+                               data-addon="{cat_id:5, val:[id5, id6, id7, id8]}"
+                               
+                               href="#" 
+                               class="edit_item">
                                 <i class="icon_pencil"></i>
-                            </a> 
+                            </a>     
+               
+<!--                            <a href="#0" class="edit_item">
+                                <i class="icon_pencil"></i>
+                            </a> -->
                             
                             
-                            <strong>1x</strong>
+                            
+                            
+                            
+                            
+                            <strong>
+                                1x
+                            </strong>
                             Enchiladas
                         </td>
                         <td>
@@ -40,28 +69,42 @@
                     <tr>
                         <td>
                             <a href="#0" class="remove_item">
-                                <i class="icon_minus_alt"></i></a>
-                            <strong>2x</strong> Burrito
+                                <i class="icon_minus_alt"></i>
+                            </a>
+                            
+                                <strong>
+                                2x
+                            </strong> 
+                            Burrito
                         </td>
                         <td>
-                            <strong class="pull-right">$14</strong>
+                            <strong class="pull-right">
+                                $14
+                            </strong>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <a href="#0" class="remove_item">
                                 <i class="icon_minus_alt"></i>
-                            </a> <strong>1x</strong> Chicken
+                            </a> 
+                            <strong>
+                                1x
+                            </strong>
+                            Chicken
                         </td>
                         <td>
-                            <strong class="pull-right">$20</strong>
+                            <strong class="pull-right">
+                                $20
+                            </strong>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <a href="#0" class="remove_item">
                                 <i class="icon_minus_alt"></i>
-                            </a> <strong>2x</strong> Corona Beer
+                            </a> <strong>2x</strong> 
+                            Corona Beer
                         </td>
                         <td>
                             <strong class="pull-right">$9</strong>
@@ -86,9 +129,13 @@
                     <!--add minimum order data to table too-->
                     <tr>
                         <td>
+                            
+                            
                             <a href="javascript:;" class="clear-cart">
                                 [<?php echo t("Clear Order")?>]
                             </a>
+                            
+                            
                         </td>
                     </tr>
                     

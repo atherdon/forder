@@ -19,7 +19,7 @@
 //        $row++;
 //    }
 //    
-    $row = 957;
+    $row = 0;
     
 
     $data = Yii::app()->functions->getItemById( $item_id );
@@ -109,27 +109,6 @@
                         
                             <?php
                                 $this->renderPartial('/store/menu/complex_item_elements/instructions', [
-                                        'data'        => $data,
-//                                        'item_id'     => 1,
-//                                        'size_select' => $size_select
-                                ] ); ?>      
-                        
-                             <?php
-                                $this->renderPartial('/store/menu/complex_item_elements/cooking-ref', [
-                                        'data'        => $data,
-//                                        'item_id'     => 1,
-//                                        'size_select' => $size_select
-                                ] ); ?>  
-                        
-                             <?php
-                                $this->renderPartial('/store/menu/complex_item_elements/ingredients', [
-                                        'data'        => $data,
-//                                        'item_id'     => 1,
-//                                        'size_select' => $size_select
-                                ] ); ?>  
-                        
-                             <?php
-                                $this->renderPartial('/store/menu/complex_item_elements/food-addon', [
                                         'data'        => $data,
 //                                        'item_id'     => 1,
 //                                        'size_select' => $size_select

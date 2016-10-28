@@ -12,7 +12,14 @@
 
                 <?php //$this->renderPartial( '/store/menu/tabs', array()); ?>
             
-                <h3 class="nomargin_top cat-<?php echo $val['category_id']?> " id="starters">
+                
+                <div class="blaha-ha" id="category-<?php echo $val['category_id']?>">
+            
+            
+                
+            
+                <h3 class="nomargin_top cat-<?php echo $val['category_id']?> " 
+                    id="category-<?php echo $val['category_id']?>">
                     <?php echo qTranslate( $val['category_name'], 'category_name', $val )?>
                 </h3>
 
@@ -59,53 +66,26 @@
                                 }
                             ?>    
 
-                              <tr class="<?php echo $tc == 2 ? "hide" : ''; ?>" >
-                                    <td>
-                                        <h5>
-                                            <?php echo ( $number + 1 ) . '.' ; ?>
-                                            <?php echo qTranslate( $val_item['item_name'], 'item_name', $val_item )?>
-                                        </h5>
-
-                                        <?php if( isset( $val_item['item_description'] ) ) { ?>
-
-                                            <p>
-                                               <?php echo $val_item['item_description']; ?>
-                                            </p>
-
-                                        <?php } ?>
-
-                                    </td>
-                                    <td>                                                                                                                                                
-                                        <strong>
-                                            <?php echo FunctionsV3::getItemFirstPrice( $val_item['prices'], $val_item['discount'] ) ?>
-                                        </strong>
-                                    </td>
-                                    <td class="options">
-
-                                        <?php if ( $disabled_addcart == "" ) { ?>
-
-                                             <a href="javascript:;"
-                                                rel="<?php echo $val_item['item_id']?>"
-                                                data-single="<?php echo $val_item['single_item']?>"
-                                                class="menu-item"
-                                                <?php echo $atts;?>
-                                             >
-
-                                                <?php if( $val_item['not_available'] == 2 ) { ?>
-
-                                                    <i class="icon_minus-06"></i>
-                                                <?php } else { ?>
-
-                                                    <i class="icon_plus_alt2"></i>                                        
-                                                <?php } ?>
-
-                                            </a>
-
-                                        <?php } ?>
-
-
-                                    </td>
-                                </tr>  
+                            <?php  
+//                                    if( 0 ) {
+                                        
+                                    $this->renderPartial('/store/menu/_single-row', [
+                                                'tc'       => $tc,
+                                                'number'   => $number,
+                                                'val_item' => $val_item,
+                                                'disabled_addcart' => $disabled_addcart,
+                                                'atts' => $atts
+                                        //        'item_id' => 1 
+                                    ] ); 
+                            
+//                                    } 
+                            ?>
+                                
+                              
+                              
+                                
+                                
+                                
 
 
 
@@ -136,6 +116,21 @@
 
                 <?php } ?>     
 
+                     
+                     
+                     
+                     
+                     
+                     
+                </div>     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
             <?php } ?>
 
 
