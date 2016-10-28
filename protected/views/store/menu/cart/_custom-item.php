@@ -2,7 +2,7 @@
 
     <td colspan="2">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 
                 <div class="row row-cart-item-main ">
                      <?php
@@ -20,6 +20,7 @@
 //                                                    'menu'             => $menu,
                             ] ); 
                         ?> 
+                    
                     <strong>
                     2x
                     </strong> 
@@ -29,10 +30,13 @@
                 
                 
                 <div class="row row-cart-item-addon">
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-md-offset-1">
+                        
                         $ 5.00 <br />
+                        
                         medium well <br />
                         medium well <br />
+                        
                         9999999999999 <br />
                         
                         <!-- instructions part -->
@@ -60,7 +64,7 @@
                 
             
             </div>
-            <div class="col-md-3 pull-right" > 
+            <div class="col-md-4 pull-right" > 
                 <!--style="text-align: right;"-->
 
                 <strong class="pull-right">
