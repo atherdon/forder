@@ -20,7 +20,7 @@
                 <tbody class="cart-to-change-by-js">
                     
                     
-                    
+                    <?php if ( 0 ) { ?>
                     <tr>
                         <td>
                             
@@ -87,51 +87,19 @@
                         </td>
                     </tr>
                     
+                    <?php } ?>
                     
                     
+                    <?php
+                            $this->renderPartial('/store/menu/cart/_custom-item-addon', [
+                                        //        'data'    => $data,
+                                        //        'item_id' => 1 
+//                                                    'menu'             => $menu,
+                            ] ); 
+                        ?>    
                     
                     
-                    <tr>
-                        
-                        <td colspan="2">
-                            <div class="row">
-                                <div class="col-md-9">
-                                1111
-                                </div>
-                                <div class="col-md-3 pull-right" style="text-align: right;">
-                                22
-                                </div>
-                            </div>
-<!--                            <div>
-                                1 <br />1 <br />1 <br />1 <br />1 <br />1 <br />1 <br />
-                            </div>
-                            <div>
-                                2
-                            </div>-->
-                            
-<!--                            <a href="#0" class="remove_item">
-                                <i class="icon_minus_alt"></i>
-                            </a>
-                            
-                                <strong>
-                                2x
-                            </strong> 
-                            Burrito-->
-                            
-                            
-                        </td>
-                        <!--<td>-->
-                            
-                            <!--<div>3</div>-->
-                            <!--<div>4</div>-->
-                            
-<!--                            <strong class="pull-right">
-                                $14
-                            </strong>-->
-                        <!--</td>-->
-                        
-                    </tr>
-                    
+
                     
                     
                     

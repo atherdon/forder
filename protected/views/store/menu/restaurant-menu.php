@@ -83,22 +83,23 @@
     
     <?php
     
-        $this->renderPartial('/store/menu/cart-sidebar',array(
-					  'merchant_id'      => $merchant_id,
-					  'menu'             => $menu,
-					  'disabled_addcart' => $disabled_addcart,
-					  'tc'               => $tc,
-            
-                                          'data'             => $data,
-                                          'distance'         => $distance,
-                                        'delivery_fee'     => $delivery_fee,
-                                        'checkout'          => $checkout,
-                                        'now'               => $now,
-                                        'now_time'          => $now_time,
-                                        'minimum_order'     => $minimum_order,
-                                        'merchant_minimum_order_pickup' => $merchant_minimum_order_pickup,
-            
-					));
+        $this->renderPartial('/store/menu/cart/cart-sidebar',
+                array(
+                    'merchant_id'       => $merchant_id,
+                    'menu'              => $menu,
+                    'disabled_addcart'  => $disabled_addcart,
+                    'tc'                => $tc,
+
+                    'data'              => $data,
+                    'distance'          => $distance,
+                    'delivery_fee'      => $delivery_fee,
+                    'checkout'          => $checkout,
+                    'now'               => $now,
+                    'now_time'          => $now_time,
+                    'minimum_order'     => $minimum_order,
+                    'merchant_minimum_order_pickup' => $merchant_minimum_order_pickup,
+
+        ));
         
     ?>
         
