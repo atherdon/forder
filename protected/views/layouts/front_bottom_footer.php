@@ -62,6 +62,7 @@
         
         <?php
             $this->renderPartial('/store/home/_browse-delivery-list', [
+        
 //                        'data' => $data,
 
             ] ); 

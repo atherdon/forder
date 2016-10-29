@@ -64,6 +64,9 @@ if ( $fb_flag == "" && $fb_app_id <> "") {
   'captcha_customer_signup' => getOptionA('captcha_customer_signup'),
   'fb_flag'                 => $fb,
     
+    
+
+    
 ));?>
 
 <!--FOOTER-->
