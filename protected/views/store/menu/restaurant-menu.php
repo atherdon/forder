@@ -83,6 +83,9 @@
     
     <?php
     
+        
+    
+    
         $this->renderPartial('/store/menu/cart/cart-sidebar',
                 array(
                     'merchant_id'       => $merchant_id,

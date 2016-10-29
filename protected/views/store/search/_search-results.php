@@ -13,7 +13,8 @@
             'restaurant_name'      => $restaurant_name,
             'filter_cuisine'       => $filter_cuisine,
             'filter_delivery_type' => $filter_delivery_type,
-            'filter_minimum'         => $filter_minimum,
+            'filter_minimum'       => $filter_minimum,
+            'filter_rating'        => $filter_rating,
             
         ]); ?>
         
@@ -27,6 +28,10 @@
 
             
             <?php 
+                
+//                if( empty($display_type) ){
+//                    $display_type = 'listview';
+//                }
             
                 switch ($display_type) {
                     case 'gridview':

@@ -556,6 +556,7 @@ class FunctionsV3
     	return $merchant_logo;
     }
     
+    
     public static function searchByAddress($address='',$page=0,$per_page=5,$getdata='')
     {    	
     	if (empty($address)){
@@ -567,12 +568,12 @@ class FunctionsV3
     	}
     	
     	$lat=0;
-		$long=0;
-		$and='';
+        $long=0;
+        $and='';
 		
     	if ($lat_res=Yii::app()->functions->geodecodeAddress($address)){
-	        $lat=$lat_res['lat'];
-			$long=$lat_res['long'];
+            $lat=$lat_res['lat'];
+            $long=$lat_res['long'];
     	} 
     	
     	if (empty($lat)){
@@ -582,35 +583,39 @@ class FunctionsV3
 			$long=0;
 		}					
 		    	    	
-    	$home_search_unit_type=getOptionA('home_search_unit_type');
-		$home_search_radius=getOptionA('home_search_radius');
+    	$home_search_unit_type = getOptionA('home_search_unit_type');
+        $home_search_radius    = getOptionA('home_search_radius');
 				
-		if (empty($home_search_unit_type)){
-			$home_search_unit_type='mi';
-		}	
-		if (!is_numeric($home_search_radius)){
-			$home_search_radius=10;
-		}			
+        if (empty($home_search_unit_type)){
+                $home_search_unit_type='mi';
+        }	
+        
+        if (!is_numeric($home_search_radius)){
+                $home_search_radius=10;
+        }			
     	
-		$distance_exp=3959;
-		if ($home_search_unit_type=="km"){
-			$distance_exp=6371;
-		}		
+        $distance_exp=3959;
+        if ($home_search_unit_type=="km"){
+                $distance_exp=6371;
+        }		
 		
-		$sort_by =" ORDER BY is_sponsored DESC, distance ASC";		
-		$sort_combine=$sort_by;
+        
+        $sort_by =" ORDER BY is_sponsored DESC, distance ASC";		
+        $sort_combine=$sort_by;
+
+        if (isset($getdata['sort_filter'])){
+                if (!empty($getdata['sort_filter'])){
+                        $sort="ASC";
+                        if($getdata['sort_filter']=="ratings"){
+                                $sort="DESC";
+                        }
+                        $sort_combine=" ORDER BY ".$getdata['sort_filter']." $sort";
+                }
+        }
 		
-		if (isset($getdata['sort_filter'])){
-			if (!empty($getdata['sort_filter'])){
-				$sort="ASC";
-				if($getdata['sort_filter']=="ratings"){
-					$sort="DESC";
-				}
-				$sort_combine=" ORDER BY ".$getdata['sort_filter']." $sort";
-			}
-		}
-		
-		//dump($getdata);		
+        
+        //dump($getdata);	
+        
 		if (isset($getdata['filter_delivery_type'])){			
 			switch ($getdata['filter_delivery_type']) {
 				case 1:
@@ -821,13 +826,15 @@ class FunctionsV3
 			   $query =" 1";
 			   break;
 			   
+                       
 			case "kr_search_foodname":   
 			   $foodname_str='';
 			   if (isset($getdata['foodname'])){
 				  if (!empty($getdata['foodname'])){
 					  $foodname_str="%".$getdata['foodname']."%";
-				  } else $foodname_str='-1';			
-			   } else $foodname_str='-1';		   			   
+                           } else { $foodname_str='-1'; }			
+                } else { $foodname_str='-1'; }		   			   
+                
 			   $stmt="SELECT SQL_CALC_FOUND_ROWS a.*,
 			   concat(street,' ',city,' ',state,' ',post_code) as merchant_address
 			   FROM
@@ -837,17 +844,25 @@ class FunctionsV3
 		         select merchant_id
 		         from
 		         {{item}}
+                         
+                         
+
 		         where
 		         item_name like ".self::q($foodname_str)."
+                                                      
+                         or category like \"(select cat_id from {{category}} where category_name like " . self::q( $foodname_str ) . " )\"     
+
 		         and
 		         merchant_id=a.merchant_id
 		         limit 0,1
 		       )
 		       $and
 		       $sort_combine
-		       LIMIT $page,$per_page
+		       LIMIT $page, $per_page
 		       ";	
 			   break;
+                           
+                           
 			   
 			case "kr_postcode":   
 			   $post_code='-1';

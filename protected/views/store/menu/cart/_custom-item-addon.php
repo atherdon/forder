@@ -72,27 +72,29 @@
         </div>
         
         <?php //foreach ($array as $key => $value) { ?>
-                            
+                      
+            <div class="row row-addon">
+                <div class="col-md-8">
+                    Desserts & Sides <br/>
+
+                    <span class="qty-and-price">
+                        3x0.10
+                    </span>
+                    &nbsp;Apple Pie
+
+                </div>
+                <div class="col-md-4 pull-right">
+                    <br />
+                    <strong class="pull-right">
+                        $ 0.30
+                    </strong>
+                </div>
+            </div>
+        
+        
         <?php //} ?>
         
-        <div class="row row-addon">
-            <div class="col-md-8">
-                Desserts & Sides <br/>
-                
-                <span class="qty-and-price">
-                    3x0.10
-                </span>
-                &nbsp;Apple Pie
-                
-            </div>
-            <div class="col-md-4 pull-right">
-                <br />
-                <strong class="pull-right">
-                    $ 0.30
-                </strong>
-            </div>
-        </div>
-        
+
         
         <div class="row row-addon">
             <div class="col-md-8">
@@ -111,6 +113,10 @@
                 </strong>
             </div>
         </div>        
+        
+        
+        
+        
         
 
     </td>

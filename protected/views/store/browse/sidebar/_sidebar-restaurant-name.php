@@ -19,6 +19,9 @@
 //                           'placeholder'=>t("enter restaurant name")
               ));
         ?>
+        <button type="submit" class="" >
+            <i class="icon-search"></i>
+        </button>    
 
      </form>
     

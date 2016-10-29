@@ -217,7 +217,7 @@ $this->renderPartial( '/store/menu/tabs', array(
  
  <!--This part can be removed when ordering will be completed-->
  
-<?php if ( 0 ) { ?> 
+<?php //if ( 0 ) { ?> 
  
 <div class="sections section-menu section-grey2">
 <div class="container">
@@ -567,7 +567,7 @@ $this->renderPartial( '/store/menu/tabs', array(
 </div> <!--section-menu-->
 
 
-<?php } ?>
+<?php //} end of if 0 ?>
 
 
 
@@ -584,11 +584,6 @@ $this->renderPartial('/store/menu/_details-food-list-modals', [
      ] ); 
 
 
-
-//$this->renderPartial('/store/menu/_details_popup', [
-//        'data'    => $data,
-//        'item_id' => 1 
-//     ] ); 
 
 
 $this->renderPartial('/store/menu/_address_form', [

@@ -102,6 +102,436 @@ class StoreController extends CController
         /* functionality from sign up page for making login, registration via modal */
 
 
+        
+        /* arrays with items, combined by type */
+                $cusines = array(
+                    
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=American',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Asian',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Chinese',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Greek',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Healthy',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Indian',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Italian',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Japanese',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Mediterranean',
+
+                    ],
+                    [
+                        'type' => 'cusines',
+                        'link' => 'category=Mexican',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'category=Organic',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'category=Thai',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'category=Vegetarian',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'category=Vietnamese',
+
+                    ],
+                );
+        
+            
+            $foods = array(
+                    
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Alcohol',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Bagels',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Bakery',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Breakfast',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Chicken',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Dessert',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Dinner',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => urlencode( 'Gluten free' ),
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => urlencode( 'Ice Cream & Frozen Yogurt' ),
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Liquor',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Lunch',
+
+                    ],
+                
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Pasta',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Pizza',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => urlencode('Sandwiches & Subs'),
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Seafood',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => urlencode('Soup & Salad'),
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Steak',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Sushi',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => urlencode('Tacos & Burritos'),
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Wine',
+
+                    ],
+                    [
+                        'type' => 'foodname',
+                        'link' => 'Wings',
+
+                    ],
+                );
+        
+        
+            $towns = array(
+                    
+                    [
+                        'link' => urlencode( 'Bloomington, MN, USA'),
+                        'city' => 'Bloomington', 
+                    ],
+                    [
+                        'link' => urlencode( 'Dinkytown, MN, USA'),
+                        'city' => 'Dinkytown', 
+                    ],
+                    [
+                        'link' => urlencode( 'Eden Prairie, MN, USA'),
+                        'city' => 'Eden Prairie', 
+                    ],
+                    [
+                        'link' => urlencode( 'Edina, MN, USA'),
+                        'city' => 'Edina', 
+                    ],
+                    [
+                        'link' => urlencode( 'Hopkins, MN, USA'),
+                        'city' => 'Hopkins', 
+                    ],
+                    [
+                        'link' => urlencode( 'Richfield, MN, USA'),
+                        'city' => 'Richfield', 
+                    ],
+                    [
+                        'link' => urlencode( 'St. Louis Park, MN, USA'),
+                        'city' => 'St. Louis Park', 
+                    ],
+                    [
+                        'link' => urlencode( 'Uptown Minneapolis, MN, USA'),
+                        'city' => 'Uptown Minneapolis', 
+                    ],
+                    [
+                        'link' => urlencode( 'Apple Valley, MN, USA'),
+                        'city' => 'Apple Valley', 
+                    ],
+                    [
+                        'link' => urlencode( 'Lakeville, MN, USA'),
+                        'city' => 'Lakeville', 
+                    ],
+                    [
+                        'link' => urlencode( 'Burnsville, MN, USA'),
+                        'city' => 'Burnsville', 
+                    ],
+                    
+                );
+            
+        
+        
+        /* arrays with items related to current footer state  */
+        $column1 = array(
+            [
+                'type' => 'foodname',
+                'link' => 'Alcohol',
+
+            ],
+            [
+                'type' => 'cusines',
+                'link' => 'category=American',
+                'title' => 'American',
+            ],
+            [
+                'type' => 'cusines',
+                'link' => 'category=Asian',
+                'title' => 'Asian',
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'Bagels',
+
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'Bakery',
+
+            ],            
+            [
+                'type' => 'foodname',
+                'link' => 'Breakfast',
+
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'Chicken',
+
+            ],
+            [
+                'type' => 'cusines',
+                'link' => 'category=Chinese',
+                'title' => 'Chinese',
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'Dessert',
+
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'Dinner',
+
+            ],
+            [
+                'type' => 'foodname',
+                'link' => urlencode( 'Gluten free' ),
+                'title' => 'Gluten free',
+            ],
+            [
+                'type' => 'cusines',
+                'link' => 'category=Greek',
+                'title' => 'Greek',
+            ],
+            [
+                'type' => 'cusines',
+                'link' => 'category=Healthy',
+                'title' => 'Healthy',
+            ],
+            [
+                'type' => 'foodname',
+                'link' => urlencode( 'Ice Cream & Frozen Yogurt' ),
+                'title' => 'Ice Cream & Frozen Yogurt',
+            ],
+            [
+                'type' => 'cusines',
+                'link' => 'category=Indian',
+                'title' => 'Indian',
+            ],
+            [
+                'type' => 'cusines',
+                'link' => 'category=Italian',
+                'title' => 'Italian',
+            ],
+            [
+                'type' => 'cusines',
+                'link' => 'category=Japanese',
+                'title' => 'Japanese',
+            ],
+            [
+                'type' => 'custom',
+                'link' => urlencode( 'Late Night' ),
+                'title' => 'Late Night',
+            ],
+        );
+        
+        $column2 = array(
+            [
+                'type' => 'foodname',
+                'link' => 'Liquor',
+
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'Lunch',
+
+            ],
+            [
+                'type'  => 'cusines',
+                'link'  => 'category=Mediterranean',
+                'title' => 'Mediterranean',
+
+            ],
+            [
+                'type' => 'cusines',
+                'link' => 'category=Mexican',
+                'title' => 'Mexican',
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'category=Organic',
+                'title' => 'Organic',
+            ],
+                        [
+                'type' => 'foodname',
+                'link' => 'Pasta',
+//                'title' => 'Mediterranean', 
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'Pizza',
+//                'title' => 'Mediterranean',
+            ],
+            [
+                'type' => 'foodname',
+                'link' => urlencode('Sandwiches & Subs'),
+                'title' => 'Sandwiches & Subs',
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'Seafood',
+                
+            ],
+            [
+                'type' => 'foodname',
+                'link' => urlencode('Soup & Salad'),
+                'title' => 'Soup & Salad',
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'Steak',
+
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'Sushi',
+
+            ],
+            [
+                'type' => 'foodname',
+                'link' => urlencode('Tacos & Burritos'),
+                'title' => 'Tacos & Burritos',
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'category=Thai',
+                'title' => 'Thai',
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'category=Vegetarian',
+                'title' => 'Vegetarian',
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'category=Vietnamese',
+                'title' => 'Vietnamese',
+            ],
+                        [
+                'type' => 'foodname',
+                'link' => 'Wine',
+
+            ],
+            [
+                'type' => 'foodname',
+                'link' => 'Wings',
+
+            ],
+        );
+        
+        $column3 = $towns;
+        
+        
 
 
         $this->render('index', array(
@@ -115,7 +545,10 @@ class StoreController extends CController
            'theme_app_android'          => FunctionsV3::prettyUrl(getOptionA('theme_app_android')),
            'theme_app_ios'              => FunctionsV3::prettyUrl(getOptionA('theme_app_ios')),
            'theme_app_windows'          => FunctionsV3::prettyUrl(getOptionA('theme_app_windows')),
-
+            
+            'column1'                   => $column1,
+            'column2'                   => $column2,
+            'column3'                   => $column3,
             //customization
 //               'google_login_enabled'    => getOptionA('google_login_enabled'),
 //	       'captcha_customer_login'  => getOptionA('captcha_customer_login'),
@@ -581,86 +1014,129 @@ class StoreController extends CController
 		));
 	}
 	
+        
+        
 	public function actionSearchArea()
 	{
-		$seo_title=Yii::app()->functions->getOptionAdmin('seo_search');
-		$seo_meta=Yii::app()->functions->getOptionAdmin('seo_search_meta');
-		$seo_key=Yii::app()->functions->getOptionAdmin('seo_search_keywords');
+            
+            $seo_title = Yii::app()->functions->getOptionAdmin('seo_search');
+            $seo_meta  = Yii::app()->functions->getOptionAdmin('seo_search_meta');
+            $seo_key   = Yii::app()->functions->getOptionAdmin('seo_search_keywords');
 		
-		if (!empty($seo_title)){
-			$seo_title=smarty('website_title',getWebsiteName(),$seo_title);
-		    $this->pageTitle=$seo_title;
-		    Yii::app()->functions->setSEO($seo_title,$seo_meta,$seo_key);
-		}
+            if (!empty($seo_title)){
+                
+                $seo_title = smarty('website_title', getWebsiteName(), $seo_title);
+                $this->pageTitle = $seo_title;
+                Yii::app()->functions->setSEO($seo_title, $seo_meta, $seo_key);
+            }
 		
-		$_SESSION['search_type']='';
-		if (isset($_GET['s'])){
-			$_SESSION['kr_search_address']=$_GET['s'];
-			$_SESSION['search_type']='kr_search_address';
-			Cookie::setCookie('kr_search_address',$_GET['s']);
-		}
+            
+            $_SESSION['search_type']='';
+            if (isset($_GET['s'])){
+                
+                $_SESSION['kr_search_address']=$_GET['s'];
+                $_SESSION['search_type']='kr_search_address';
+                Cookie::setCookie('kr_search_address',$_GET['s']);
+                    
+            }
 		
-		if (isset($_GET['foodname'])){
-			$_SESSION['kr_search_foodname']=$_GET['foodname'];
-			$_SESSION['search_type']='kr_search_foodname';
-		}
+            if (isset($_GET['foodname'])){
+                
+                $_SESSION['kr_search_foodname']=$_GET['foodname'];
+                $_SESSION['search_type']='kr_search_foodname';
+                
+            }
+
+            if (isset($_GET['category'])){
+                
+                $_SESSION['kr_search_category']=$_GET['category'];
+                $_SESSION['search_type']='kr_search_category';
+                
+            }
+
+            if (isset($_GET['restaurant-name'])){
+                
+                $_SESSION['kr_search_restaurantname']=$_GET['restaurant-name'];
+                $_SESSION['search_type']='kr_search_restaurantname';
+                
+            }
 		
-		if (isset($_GET['category'])){
-			$_SESSION['kr_search_category']=$_GET['category'];
-			$_SESSION['search_type']='kr_search_category';
-		}
+            if (isset($_GET['street-name'])){
+                
+                $_SESSION['kr_search_streetname']=$_GET['street-name'];
+                $_SESSION['search_type']='kr_search_streetname';
+
+            }
 		
-		if (isset($_GET['restaurant-name'])){
-			$_SESSION['kr_search_restaurantname']=$_GET['restaurant-name'];
-			$_SESSION['search_type']='kr_search_restaurantname';
-		}
+            if (isset($_GET['zipcode'])){
+                
+                $_SESSION['search_type']='kr_postcode';
+                $_SESSION['kr_postcode']=isset($_GET['zipcode'])?$_GET['zipcode']:'';
+                    
+            }
 		
-		if (isset($_GET['street-name'])){
-			$_SESSION['kr_search_streetname']=$_GET['street-name'];
-			$_SESSION['search_type']='kr_search_streetname';
-		}
-		
-		if (isset($_GET['zipcode'])){
-			$_SESSION['search_type']='kr_postcode';
-			$_SESSION['kr_postcode']=isset($_GET['zipcode'])?$_GET['zipcode']:'';
-		}
-		
-		unset($_SESSION['kr_item']);
-		unset($_SESSION['kr_merchant_id']);
-		
-		$filter_cuisine       = isset($_GET['filter_cuisine']) ? explode(",",$_GET['filter_cuisine']) : false;
-		$filter_delivery_type = isset($_GET['filter_delivery_type']) ? $_GET['filter_delivery_type'] : '';		
-		$filter_minimum       = isset($_GET['filter_minimum']) ? $_GET['filter_minimum'] : '';
-		$sort_filter          = isset($_GET['sort_filter']) ? $_GET['sort_filter'] : '';		
-		$display_type         = isset($_GET['display_type']) ? $_GET['display_type'] : '';
-		$restaurant_name      = isset($_GET['restaurant_name']) ? $_GET['restaurant_name'] : '';
+            unset($_SESSION['kr_item']);
+            unset($_SESSION['kr_merchant_id']);
+
+            $filter_cuisine       = isset($_GET['filter_cuisine'])       ? explode(",",$_GET['filter_cuisine']) : false;
+            $filter_delivery_type = isset($_GET['filter_delivery_type']) ? $_GET['filter_delivery_type']        : '';		
+            $filter_minimum       = isset($_GET['filter_minimum'])       ? $_GET['filter_minimum']              : '';
+            $sort_filter          = isset($_GET['sort_filter'])          ? $_GET['sort_filter']                 : '';		
+            $display_type         = isset($_GET['display_type'])         ? $_GET['display_type']                : '';
+            $restaurant_name      = isset($_GET['restaurant_name'])      ? $_GET['restaurant_name']             : '';
+            
+            $filter_rating        = isset( $_GET['filter_rating'] )      ? explode(",", $_GET['filter_rating'])               : '';
 						
-		$current_page_get  = $_GET;
-		unset( $current_page_get['page'] );				
-		$current_page_link = Yii::app()->createUrl('store/searcharea/',$current_page_get);
-		$current_page_url  = '';
+
+            $current_page_get  = $_GET;
+            unset( $current_page_get['page'] );				
+            $current_page_link = Yii::app()->createUrl('store/searcharea/',$current_page_get);
+            $current_page_url  = '';
 				
 		
-		/*update merchant if expired and sponsored*/
-		Yii::app()->functions->updateMerchantSponsored();
-		Yii::app()->functions->updateMerchantExpired();
-		
+            /*update merchant if expired and sponsored*/
+            Yii::app()->functions->updateMerchantSponsored();
+            Yii::app()->functions->updateMerchantExpired();
+	
+            
+//            var_dump( $_GET );
+//            var_dump( $_SESSION['search_type'] );
+//            die();
+            
+            
+            $search_term = isset( $_GET['s'] )    ? $_GET['s']:'' ;
+            $page        = isset( $_GET['page'] ) ? $_GET['page'] : 0;
+            
 		/*  switch between search type */		
 		switch ($_SESSION['search_type']) {
                     
+                    
 			case "kr_search_address":
-				if (isset($_GET['s'])){
-					$res=FunctionsV3::searchByAddress(
-					  isset($_GET['s'])?$_GET['s']:'' ,
-					  isset($_GET['page'])?$_GET['page']:0,
-					  FunctionsV3::getPerPage(),
-					  $_GET			  
-					);
-				}		
-				$current_page_url=Yii::app()->createUrl('store/searcharea/',array(
-				  's'=>isset($_GET['s'])?$_GET['s']:''
-				));										
-				break;
+                            
+                            
+                            if ( isset( $search_term ) ){
+                                
+                                $res = FunctionsV3::searchByAddress(
+                                    $search_term,
+                                    $page,
+                                    FunctionsV3::getPerPage(),
+                                    $_GET			  
+                                );
+                                
+//                                echo '<pre>';
+//                                var_dump($res);
+//                                die();
+                                
+                            }	
+                            
+                            $current_page_url = Yii::app()->createUrl('store/searcharea/',
+                                    array(
+                                        's'=> $search_term
+                            ));										
+                            break;
+                                
+                                
+                                
 						
 			case "kr_search_restaurantname":				
 				 $res=FunctionsV3::searchByMerchant(
@@ -721,17 +1197,20 @@ class StoreController extends CController
 				
 			case "kr_search_foodname":
 				
-				$res=FunctionsV3::searchByMerchant(
-				   $_SESSION['search_type'],
-				   isset($_GET['st'])?$_GET['st']:'',
-				   isset($_GET['page'])?$_GET['page']:0,
-				   FunctionsV3::getPerPage(),
-				   $_GET			  
-				 );			
+                            
+				$res = FunctionsV3::searchByMerchant(
+                                        $_SESSION['search_type'],
+                                        isset($_GET['st'])?$_GET['st']:'',
+                                        $page,
+                                        FunctionsV3::getPerPage(),
+                                        $_GET			  
+				 );
+                            
 				 $current_page_url=Yii::app()->createUrl('store/searcharea/',array(
 				  'st'=>isset($_GET['st'])?$_GET['st']:'',
 				  'foodname'=>isset($_GET['foodname'])?$_GET['foodname']:''
-				));													 			 					 
+				));	
+                                 
 			     break;
 				
 			case "kr_postcode":     
@@ -751,17 +1230,18 @@ class StoreController extends CController
 				break;
 		}
 										
-		if (empty($display_type)){
+		if ( empty( $display_type ) ){
                     
                     if ( !empty($_SESSION['krms_display_type']) ){				
                         
-                        $display_type=$_SESSION['krms_display_type'];
+                        $display_type = $_SESSION['krms_display_type'];
                         
                     } else {		
                         
-                        $display_type=getOptionA('theme_list_style');
-                        if (empty($display_type)){
-                            $display_type='gridview';	
+                        $display_type = getOptionA('theme_list_style');
+                        
+                        if ( empty( $display_type ) ){
+                            $display_type='listview';	
                         }
                         
                     }
@@ -770,7 +1250,7 @@ class StoreController extends CController
 		
 		$_SESSION['krms_display_type'] = $display_type;	
 								
-		if (is_array($res) && count($res)>=1){			
+		if ( is_array( $res ) && count( $res ) >= 1 ){			
 						
                     $_SESSION['client_location'] = $res['client'];						
                     Cookie::setCookie('client_location', json_encode($res['client']) );
@@ -783,6 +1263,7 @@ class StoreController extends CController
                                 'filter_cuisine'       => $filter_cuisine,
                                 'filter_minimum'       => $filter_minimum,
                                 'sort_filter'          => $sort_filter,
+                                'filter_rating'        => $filter_rating,
                                 'display_type'         => $display_type,
                                 'restaurant_name'      => $restaurant_name,
                                 'current_page_link'    => $current_page_link,
@@ -797,9 +1278,10 @@ class StoreController extends CController
 		} else {
                     
 			$has_filter = false;
-			if ( isset( $_GET['filter_minimum'] ) ){       $has_filter=true; }		
-			if ( isset( $_GET['filter_delivery_type'] ) ){ $has_filter=true; }		
-			if ( isset( $_GET['filter_cuisine'] ) ){       $has_filter=true; }
+			if ( isset( $_GET['filter_minimum'] ) ){       $has_filter = true; }		
+			if ( isset( $_GET['filter_delivery_type'] ) ){ $has_filter = true; }		
+			if ( isset( $_GET['filter_cuisine'] ) ){       $has_filter = true; }
+                        if ( isset( $_GET['filter_rating'] ) ){        $has_filter = true; }
                         
 			if ( $has_filter ){
                                 
@@ -808,8 +1290,9 @@ class StoreController extends CController
                                 'data'                 => $res,
                                 'filter_delivery_type' => $filter_delivery_type,
                                 'filter_cuisine'       => $filter_cuisine,
-                                'filter_minimum'       => $filter_minimum,
+                                'filter_minimum'       => $filter_minimum,                                
                                 'sort_filter'          => $sort_filter,
+                                'filter_rating'        => $filter_rating,
                                 'display_type'         => $display_type,
                                 'restaurant_name'      => $restaurant_name,
                                 'current_page_url'     => isset( $current_page_url ) ? $current_page_url : '',
@@ -836,10 +1319,11 @@ class StoreController extends CController
 //                                 );
             
             
-            $data=$_GET;		
-            $current_merchant='';
+            $data = $_GET;		
+            $current_merchant = '';
             if (isset($_SESSION['kr_merchant_id'])){
-                    $current_merchant=$_SESSION['kr_merchant_id'];
+                
+                $current_merchant = $_SESSION['kr_merchant_id'];
             }
 
             $res=FunctionsV3::getMerchantBySlug($data['merchant']);
@@ -853,11 +1337,12 @@ class StoreController extends CController
 			if ( $res['status']=="active"){
 								
 				/*SEO*/
-				$seo_title=Yii::app()->functions->getOptionAdmin('seo_menu');
-				$seo_meta=Yii::app()->functions->getOptionAdmin('seo_menu_meta');
-				$seo_key=Yii::app()->functions->getOptionAdmin('seo_menu_keywords');
+				$seo_title = Yii::app()->functions->getOptionAdmin('seo_menu');
+				$seo_meta  = Yii::app()->functions->getOptionAdmin('seo_menu_meta');
+				$seo_key   = Yii::app()->functions->getOptionAdmin('seo_menu_keywords');
 				
 				if (!empty($seo_title)){
+                                    
 					$seo_title=smarty('website_title',getWebsiteName(),$seo_title);
 					$seo_title=smarty('merchant_name',ucwords($res['restaurant_name']),$seo_title);		    
 				    $this->pageTitle=$seo_title;
@@ -868,6 +1353,7 @@ class StoreController extends CController
 				    Yii::app()->functions->setSEO($seo_title,$seo_meta,$seo_key);
 				}
 				/*END SEO*/
+                                
 				
 				unset($_SESSION['guest_client_id']);
 				
@@ -877,7 +1363,7 @@ class StoreController extends CController
 				$mt_timezone=Yii::app()->functions->getOption("merchant_timezone",$merchant_id);				
                                 
 		    	if ( !empty($mt_timezone) ){       	 	
-		    		Yii::app()->timeZone=$mt_timezone;
+                            Yii::app()->timeZone=$mt_timezone;
 		    	}		   		
 		    	
 		    	
@@ -900,7 +1386,9 @@ class StoreController extends CController
 		             $distance = FunctionsV3::getDistanceBetweenPlot(
 		                $_SESSION['client_location']['lat'],
 		                $_SESSION['client_location']['long'],
-		                $res['latitude'],$res['lontitude'],$distance_type
+		                $res['latitude'],
+                                $res['lontitude'],
+                                $distance_type
 		             );           
 		             		            		 
 		             $distance_type_raw  = $distance_type == "M" ? "miles" : "kilometers" ;            		            
@@ -924,17 +1412,18 @@ class StoreController extends CController
 		    		    		
 		    	
 		    	/*SESSION REF*/
-		    	$_SESSION['kr_merchant_id']=$merchant_id;
-                        $_SESSION['kr_merchant_slug']=$data['merchant'];
-		    	$_SESSION['shipping_fee']=$delivery_fee;		
+		    	$_SESSION['kr_merchant_id']   = $merchant_id;
+                        $_SESSION['kr_merchant_slug'] = $data['merchant'];
+		    	$_SESSION['shipping_fee']     = $delivery_fee;		
 		    			    	
 		    	/*CHECK IF BOOKING IS ENABLED*/
-		    	$booking_enabled=true;		    		
+		    	$booking_enabled = true;		    		
+                        
 		    	if (getOption($merchant_id,'merchant_table_booking')=="yes"){
-		    		$booking_enabled=false;
+                            $booking_enabled = false;
 		    	}			
 		    	if ( getOptionA('merchant_tbl_book_disabled')){
-		    		$booking_enabled=false;
+                            $booking_enabled = false;
 		    	}
 		    	
 		    	/*CHECK IF MERCHANT HAS PROMO*/
@@ -942,11 +1431,13 @@ class StoreController extends CController
 		    	if($offer=FunctionsV3::getOffersByMerchant($merchant_id,2)){		    	   
 		    	   $promo['offer']=$offer;
 		    	   $promo['enabled']=2;
-		    	}		    			
+		    	}	
+                        
 		    	if ( $voucher=FunctionsV3::merchantActiveVoucher($merchant_id)){		    
 		    		$promo['voucher']=$voucher;
 		    		$promo['enabled']=2;
 		    	}
+                        
 		    	$free_delivery_above_price=getOption($merchant_id,'free_delivery_above_price');
 		    	if ($free_delivery_above_price>0){
 		    	    $promo['free_delivery']=$free_delivery_above_price;
@@ -988,6 +1479,7 @@ class StoreController extends CController
                         $this->render('//store/menu/index', $variables );	
 								
                         }  else {
+                            
                              $this->render(
                                     'error', 
                                     array( 'message' => t("Sorry but this merchant is no longer available"), 'viewName' => 'error' )
@@ -995,9 +1487,12 @@ class StoreController extends CController
                         } 
 			
                 } else {
-                    $this->render('error',array(
-		  'message'=>t("merchant is not available"), 'viewName' => 'error'
-		));
+                    
+                    $this->render('error',
+                            array(
+                                'message'=>t("merchant is not available"),
+                                'viewName' => 'error'
+                        ));
                 }
 	}
 	

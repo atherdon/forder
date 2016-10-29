@@ -26,6 +26,7 @@
                     <li><label><input type="checkbox" class="icheck">Sushi <small>(43)</small></label><i class="color_7"></i></li>
                 </ul>
             </div>
+            
             <div class="filter_type">
                 <h6>Rating</h6>
                 <ul>
@@ -51,6 +52,8 @@
                     </span></label></li>
                 </ul>
             </div>
+            
+            
             <div class="filter_type">
                 <h6>Options</h6>
                 <ul class="nomargin">
