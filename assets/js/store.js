@@ -3715,6 +3715,11 @@ jQuery(document).ready(function($){
 }); /*end docu*/
 /*SCROLLING DIV ENDS HERE*/
 
+
+
+
+
+
 var temp_geocoder = new google.maps.Geocoder();
 
 function mapAddress()
@@ -3750,6 +3755,7 @@ jQuery(document).ready(function() {
         	
 }); /*end docu*/	
 /** END CODE VERSION 2.3*/
+
 
 
 /** START ADDED CODE VERSION 2.4*/
