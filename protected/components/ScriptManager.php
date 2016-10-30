@@ -926,9 +926,10 @@ class ScriptManager
                       ",
                       CClientScript::POS_END
                       );
-//
-//           $cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
-//            ,CClientScript::POS_END);
+
+           $cs->registerScriptFile($baseUrl."/assets/js/quickfood/search.js",
+                   CClientScript::POS_END
+            );
 //           
            
             

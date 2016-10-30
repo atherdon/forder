@@ -138,6 +138,7 @@ jQuery(document).ready(function() {
 	    }); 
    }
    
+   
    $( document ).on( "click", ".display-type", function() {   	   
    	   $("#display_type").val( $(this).data("type") );   	   
    	   research_merchant(); 
@@ -150,6 +151,9 @@ jQuery(document).ready(function() {
    $('.filter_promo').on('ifUnchecked', function(event){       
        $(".non-free").fadeIn("fast");
    });        
+   
+   
+   
 
    /*SEARCH MAP TOOGLE*/  
    $( document ).on( "click", ".search-view-map, #mobile-viewmap-handle", function() {   	   

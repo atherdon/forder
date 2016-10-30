@@ -12,14 +12,14 @@
     </h6>
     
 
-    <form method="POST" onsubmit="return research_merchant();">
-        
+    <form method="POST" id="restaurant-name" >
+        <!--onsubmit="return research_merchant();"-->
         <?php echo CHtml::textField('restaurant_name',$restaurant_name,array(
                    'required' => true,
 //                           'placeholder'=>t("enter restaurant name")
               ));
         ?>
-        <button type="submit" class="" >
+        <button type="button" class="" id="search-init">
             <i class="icon-search"></i>
         </button>    
 

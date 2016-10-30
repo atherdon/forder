@@ -30,6 +30,16 @@
                             'restaurant_name' => $restaurant_name
                 ]); ?>
                 
+                <?php //if ( true ) { ?>
+                
+                <?php if (!empty($filter_delivery_type)):?>                      
+                    <a href="<?php echo FunctionsV3::clearSearchParams('filter_delivery_type')?>">
+                        [<?php echo t("Clear")?>]
+                    </a>
+                <?php endif;?>
+                
+                <?php //} ?>
+                
             </div>    
             
             <div class="filter_type">    

@@ -41,8 +41,8 @@
                             ?>
             
                         <a href="<?php echo FunctionsV3::clearSearchParams('','display_type=gridview')?>" 
-                                     class="display-type bt_filters" 
-                                     data-type="gridview">                
+                           class="display-type bt_filters" 
+                           data-type="gridview">                
                            <i class="icon-list"></i>
                         </a>      
             
