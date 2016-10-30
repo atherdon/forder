@@ -1156,34 +1156,34 @@ class StoreController extends CController
 	
 	public function actionReceipt()
 	{
-            $this->render('receipt');
+            $this->render('//store/receipt/index');
 	}
 	
 	public function actionLogout()
 	{
-		unset($_SESSION['kr_client']);
-		$http_referer=$_SERVER['HTTP_REFERER'];				
-		if (preg_match("/receipt/i", $http_referer)) {
-			$http_referer=websiteUrl()."/store";
-		}		
-		if (preg_match("/orderHistory/i", $http_referer)) {
-			$http_referer=websiteUrl()."/store";
-		}		
-		if (preg_match("/Profile/i", $http_referer)) {
-			$http_referer=websiteUrl()."/store";
-		}		
-		if (preg_match("/Cards/i", $http_referer)) {
-			$http_referer=websiteUrl()."/store";
-		}		
-		if (preg_match("/PaymentOption/i", $http_referer)) {
-			$http_referer=websiteUrl()."/store";
-		}		
-		if (preg_match("/verification/i", $http_referer)) {
-			$http_referer=websiteUrl()."/store";
-		}		
-		if ( !empty($http_referer)){
-			header("Location: ".$http_referer);
-		} else header("Location: ".Yii::app()->request->baseUrl);		
+            unset($_SESSION['kr_client']);
+            $http_referer=$_SERVER['HTTP_REFERER'];				
+            if (preg_match("/receipt/i", $http_referer)) {
+                    $http_referer=websiteUrl()."/store";
+            }		
+            if (preg_match("/orderHistory/i", $http_referer)) {
+                    $http_referer=websiteUrl()."/store";
+            }		
+            if (preg_match("/Profile/i", $http_referer)) {
+                    $http_referer=websiteUrl()."/store";
+            }		
+            if (preg_match("/Cards/i", $http_referer)) {
+                    $http_referer=websiteUrl()."/store";
+            }		
+            if (preg_match("/PaymentOption/i", $http_referer)) {
+                    $http_referer=websiteUrl()."/store";
+            }		
+            if (preg_match("/verification/i", $http_referer)) {
+                    $http_referer=websiteUrl()."/store";
+            }		
+            if ( !empty($http_referer)){
+                    header("Location: ".$http_referer);
+            } else header("Location: ".Yii::app()->request->baseUrl);		
 	}
 	
 	public function actionPaypalInit()
@@ -1379,7 +1379,8 @@ class StoreController extends CController
 		$this->render('//store/browse/browse-resto',
                     array(
                         'list' => $list,
-                        'tabs' => $tabs
+                        'tabs' => $tabs,
+                        'total' => 6 //@TODO REmove this later. not maky any sence
                     ));
 	}
 	
