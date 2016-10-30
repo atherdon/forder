@@ -53,10 +53,15 @@
             ?>
             
             
+            <?php if( intval( $total ) <= 10 ) { ?>
+            
             <a href="#0" class="load_more_bt wow fadeIn" 
                data-wow-delay="0.2s">
                 Load more...
             </a>  
+            
+            <?php } ?>
+            
             
             
         </div><!-- End col-md-9-->

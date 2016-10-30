@@ -697,6 +697,7 @@ Yii::app()->functions->getOptionAdmin("website_time_picker_format")
   ?>  
 </div>
 
+<?php if ( 0 ) { ?>
 <div class="uk-form-row">
   <label class="uk-form-label"><?php echo Yii::t("default","Hide food price")?>?</label>  
   <?php 
@@ -708,6 +709,7 @@ Yii::app()->functions->getOptionAdmin("website_time_picker_format")
   ))
   ?>  
 </div>
+<?php } ?>
 
 <div class="uk-form-row">
   <label class="uk-form-label"><?php echo Yii::t("default","Disabled single food item auto add to cart")?>?</label>  
