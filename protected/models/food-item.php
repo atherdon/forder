@@ -420,6 +420,10 @@ if ($data['two_flavors']==2){
 <?php else :?>
 <p class="text-danger"><?php echo Yii::t("default","Sorry but we cannot find what you are looking for.")?></p>
 <?php endif;?>
+
+
+
+
 <script type="text/javascript">
 jQuery(document).ready(function() {	
 	var hide_foodprice=$("#hide_foodprice").val();	

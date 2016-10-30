@@ -929,7 +929,11 @@ class ScriptManager
 
            $cs->registerScriptFile($baseUrl."/assets/js/quickfood/search.js",
                    CClientScript::POS_END
-            );
+           );
+           
+            $cs->registerScriptFile($baseUrl."/assets/js/quickfood/menu.js",
+                   CClientScript::POS_END
+           );
 //           
            
             

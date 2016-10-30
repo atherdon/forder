@@ -31,7 +31,7 @@ $this->renderPartial('/store/search/_search-results', [
         
         'filter_rating'        => $filter_rating,
     
-        'total'          => $data['total'] ,
+        'total'                => $data['total'] ,
 //        'minimum_list'         => $minimum_list,
 //        'list' => $list
 
