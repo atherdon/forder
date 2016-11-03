@@ -5,24 +5,26 @@ $res = Yii::app()->functions->getMerchant( $merchant_id );
 if ( $res ){
     
     switch ( $res['service'] ) {
+        
             case 2:
                 ?>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
                     <label>
                         <?php echo CHtml::radioButton( 'delivery_type[delivery]', true, [ 'class' => 'icheck' ] ); 
-                              echo Yii::t("default","Delivery"); ?>
+                              echo Yii::t("default", "Delivery"); ?>
                     </label>
                 </div>
 
             <?php
 
-                    break;
+                break;
+            
             case 3:
                 ?>
                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
                         <label>
-                            <?php echo CHtml::radioButton( 'delivery_type[pickup]', true, [ 'class' => 'icheck' ] ); 
-                                  echo Yii::t("default","Pickup"); ?>
+                            <?php echo CHtml::radioButton( 'delivery_type[pickup]', false, [ 'class' => 'icheck' ] ); 
+                                  echo Yii::t("default", "Pickup"); ?>
                         </label>
                     </div>
 
@@ -36,13 +38,13 @@ if ( $res ){
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
                     <label>
                          <?php echo CHtml::radioButton( 'delivery_type[delivery]', true, [ 'class' => 'icheck' ] ); 
-                               echo Yii::t("default","Delivery"); ?>
+                               echo Yii::t("default", "Delivery"); ?>
                     </label>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
                     <label>
-                         <?php echo CHtml::radioButton( 'delivery_type[pickup]', true, [ 'class' => 'icheck' ] ); 
-                               echo Yii::t("default","Pickup"); ?>
+                         <?php echo CHtml::radioButton( 'delivery_type[pickup]', false, [ 'class' => 'icheck' ] ); 
+                               echo Yii::t("default", "Pickup"); ?>
                     </label>
                 </div> 
         <?php
@@ -55,13 +57,13 @@ if ( $res ){
     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
         <label>
                 <?php echo CHtml::radioButton( 'delivery_type[delivery]', true, [ 'class' => 'icheck' ] ); 
-                      echo Yii::t("default","Delivery"); ?>
+                      echo Yii::t("default", "Delivery"); ?>
         </label>
     </div>
     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
         <label>
-                <?php echo CHtml::radioButton( 'delivery_type[pickup]', true, [ 'class' => 'icheck' ] ); 
-                      echo Yii::t("default","Pickup"); ?>
+                <?php echo CHtml::radioButton( 'delivery_type[pickup]', false, [ 'class' => 'icheck' ] ); 
+                      echo Yii::t("default", "Pickup"); ?>
         </label>
     </div>     
     
@@ -71,7 +73,7 @@ if ( $res ){
 <div class="row" id="options_2">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         
-         <?php// echo CHtml::hiddenField('delivery_date', $now)?>
+         <?php // echo CHtml::hiddenField('delivery_date', $now); ?>
          <?php echo CHtml::textField('delivery_date',
                     FormatDateTime($now, false),
                     array(
@@ -94,6 +96,7 @@ if ( $res ){
                        	         	        
            <!--</div>-->
      </div><!-- delivery_asap_wrap-->
+     
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-10">
          <label class="delivery-asap">
              <?php echo CHtml::checkBox('delivery_asap', false, array( 'class' => "icheck " ) ) ?>

@@ -1025,19 +1025,19 @@ class StoreController extends CController
 //				   'distance_type_orig' => $distance_type_orig,
 				   'distance'           => $distance,
 				   'merchant_delivery_distance' => $merchant_delivery_distance,
-				   'delivery_fee'      => $delivery_fee,
-				   'disabled_addcart'  => getOption($merchant_id,'merchant_disabled_ordering'),
-				   'merchant_website'  => getOption($merchant_id,'merchant_extenal'),
-				   'photo_enabled'     => $photo_enabled,
-				   'booking_enabled'   => $booking_enabled,
-				   'promo'             => $promo,
-				   'tc'                => getOptionA('theme_menu_colapse'),
-				   'theme_promo_tab'   => getOptionA('theme_promo_tab'),
-				   'theme_hours_tab'   => getOptionA('theme_hours_tab'),
-				   'theme_reviews_tab' => getOptionA('theme_reviews_tab'),
-				   'theme_map_tab'     => getOptionA('theme_map_tab'),
-				   'theme_info_tab'    => getOptionA('theme_info_tab'),
-				   'theme_photos_tab'  => getOptionA('theme_photos_tab')
+				   'delivery_fee'       => $delivery_fee,
+				   'disabled_addcart'   => getOption($merchant_id,'merchant_disabled_ordering'),
+				   'merchant_website'   => getOption($merchant_id,'merchant_extenal'),
+				   'photo_enabled'      => $photo_enabled,
+				   'booking_enabled'    => $booking_enabled,
+				   'promo'              => $promo,
+				   'tc'                 => getOptionA('theme_menu_colapse'),
+				   'theme_promo_tab'    => getOptionA('theme_promo_tab'),
+				   'theme_hours_tab'    => getOptionA('theme_hours_tab'),
+				   'theme_reviews_tab'  => getOptionA('theme_reviews_tab'),
+				   'theme_map_tab'      => getOptionA('theme_map_tab'),
+				   'theme_info_tab'     => getOptionA('theme_info_tab'),
+				   'theme_photos_tab'   => getOptionA('theme_photos_tab')
                         );
                         
                         if( isset( $distance_type_orig ) ){
@@ -1148,9 +1148,9 @@ class StoreController extends CController
 		   $this->pageTitle=$seo_title;		   
 		   Yii::app()->functions->setSEO($seo_title,$seo_meta,$seo_key);
 		}
-		$this->render('payment-option',array(
-		  'website_enabled_map_address'=>getOptionA('website_enabled_map_address'),
-		  'address_book'=>Yii::app()->functions->showAddressBook()
+		$this->render('payment-option', array(
+		  'website_enabled_map_address' => getOptionA('website_enabled_map_address'),
+		  'address_book'                => Yii::app()->functions->showAddressBook()
 		));
 	}
 	
@@ -1857,17 +1857,17 @@ class StoreController extends CController
 	
 	public function actionGuestCheckout()
 	{
-		/*POINTS PROGRAM*/
-		if (FunctionsV3::hasModuleAddon("pointsprogram")){
-		   PointsProgram::includeFrontEndFiles();	
-		}    
-		
-		$this->render('payment-option',
-		  array(
-		     'is_guest_checkout'=>true,
-		     'website_enabled_map_address'=>getOptionA('website_enabled_map_address'),
-		     'address_book'=>Yii::app()->functions->showAddressBook()
-		));
+            
+            /*POINTS PROGRAM*/
+            if (FunctionsV3::hasModuleAddon("pointsprogram")){
+               PointsProgram::includeFrontEndFiles();	
+            }    
+
+            $this->render('payment-option', array(
+                 'is_guest_checkout'           => true,
+                 'website_enabled_map_address' => getOptionA('website_enabled_map_address'),
+                 'address_book'                => Yii::app()->functions->showAddressBook()
+            ));
 	}
 	
 	public function actionMerchantSignupSelection()

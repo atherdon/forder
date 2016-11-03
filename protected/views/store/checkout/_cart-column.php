@@ -79,16 +79,20 @@
     
     
     <?php 
-           $minimum_order=Yii::app()->functions->getOption('merchant_minimum_order',$merchant_id);
-           $maximum_order=getOption($merchant_id,'merchant_maximum_order');	         
-           if ( $s['kr_delivery_options']['delivery_type']=="pickup"){
-                    $minimum_order=Yii::app()->functions->getOption('merchant_minimum_order_pickup',$merchant_id);
-                    $maximum_order=getOption($merchant_id,'merchant_maximum_order_pickup');	         
-           }  
+           $minimum_order = Yii::app()->functions->getOption('merchant_minimum_order',$merchant_id);
+           $maximum_order = getOption($merchant_id,'merchant_maximum_order');	         
+           
+            if( isset( $s['kr_delivery_options']['delivery_type'] ) ){
+                if ( $s['kr_delivery_options']['delivery_type']=="pickup"){
+
+                     $minimum_order = Yii::app()->functions->getOption('merchant_minimum_order_pickup', $merchant_id);
+                     $maximum_order = getOption($merchant_id, 'merchant_maximum_order_pickup');	         
+                }
+           }
            ?>
 
            <?php 
-           if (!empty($minimum_order)){
+           if ( !empty( $minimum_order ) ){
                   echo CHtml::hiddenField('minimum_order',unPrettyPrice($minimum_order));
                   echo CHtml::hiddenField('minimum_order_pretty',baseCurrency().prettyFormat($minimum_order));
               ?>
@@ -103,12 +107,11 @@
               </div>
 
 
-          <?php  } ?>
-
-          <?php if($maximum_order>0){
-                 echo CHtml::hiddenField('maximum_order',unPrettyPrice($maximum_order));
-                 echo CHtml::hiddenField('maximum_order_pretty',baseCurrency().prettyFormat($maximum_order));
-          }
+          <?php  } 
+            if( $maximum_order > 0 ){
+                echo CHtml::hiddenField('maximum_order', unPrettyPrice( $maximum_order ) );
+                echo CHtml::hiddenField('maximum_order_pretty', baseCurrency().prettyFormat( $maximum_order ) );
+            }
           ?>
                 
     
@@ -169,8 +172,10 @@
                 <?php echo t("Place Order")?>
             </a>
     
-            <a class="btn_full_outline" href="<?php echo Yii::app()->createUrl('/store/menu/merchant/' . $slug )?>">
-                <i class="icon-right"></i> Add other items
+            <a class="btn_full_outline" 
+               href="<?php echo Yii::app()->createUrl('/store/menu/merchant/' . $slug )?>">
+                <i class="icon-right"></i> 
+                Add other items
             </a>
     
         </div><!-- End cart_box -->

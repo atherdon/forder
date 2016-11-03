@@ -2,8 +2,8 @@
     <label>
         <?php echo CHtml::radioButton('payment_opt', false,
                     array( 
-                        'class'=>"icheck payment_option",
-                        'value'=>$key 
+                        'class' => "icheck payment_option",
+                        'value' => $key 
                     )
                 )
         ?> 

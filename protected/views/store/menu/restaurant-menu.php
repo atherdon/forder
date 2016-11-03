@@ -18,18 +18,16 @@
                 ));
             ?>
 
+            
+            
+            <?php
+                $this->renderPartial('/store/menu/_phone-block',array(
+                      'phone' => $phone
+                ));                     
+            ?>        
+            
 
 
-<!--            <div class="box_style_2 hidden-xs" id="help">
-                <i class="icon_lifesaver"></i>
-                <h4>
-                    Need <span>Help?</span>
-                </h4>
-                <a href="tel://004542344599" class="phone">+45 423 445 99</a>
-                <small>
-                    Monday to Friday 9.00am - 7.30pm
-                </small>
-            </div>-->
 
 
         </div><!-- End col-md-3 -->
@@ -51,37 +49,36 @@
         switch ( $admin_activated_menu ){
             
             case 1:
-                    die();
-                    $this->renderPartial('/front/menu-merchant-2',array(
-                      'merchant_id'=>$merchant_id,
-                      'menu'=>$menu,
-                      'disabled_addcart'=>$disabled_addcart
+                    die(); //@TODO check it
+                    $this->renderPartial('/front/menu-merchant-2', array(
+                            'merchant_id'      => $merchant_id,
+                            'menu'             => $menu,
+                            'disabled_addcart' => $disabled_addcart
                     ));
-                    break;
+                break;
 
+                
             case 2:
-                die();
-                    $this->renderPartial('/front/menu-merchant-3',array(
-                      'merchant_id'=>$merchant_id,
-                      'menu'=>$menu,
-                      'disabled_addcart'=>$disabled_addcart
+                die(); //@TODO check it
+                    $this->renderPartial('/front/menu-merchant-3', array(
+                            'merchant_id'      => $merchant_id,
+                            'menu'             => $menu,
+                            'disabled_addcart' => $disabled_addcart
                     ));
-                    break;
+                break;
 
+                
             default:	
-                   $this->renderPartial('/store/menu/menu-merchant-1',array(
-					  'merchant_id'      => $merchant_id,
-					  'menu'             => $menu,
-					  'disabled_addcart' => $disabled_addcart,
-					  'tc'               => $tc
-					));
-        break;
+                   $this->renderPartial('/store/menu/menu-merchant-1', array(
+                            'merchant_id'      => $merchant_id,
+                            'menu'             => $menu,
+                            'disabled_addcart' => $disabled_addcart,
+                            'tc'               => $tc
+                    ));
+                break;
      }	
         
 
-    ?>
-    
-    <?php
     
         
     

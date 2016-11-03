@@ -3361,6 +3361,15 @@ function display_tip(tip_percentage,amount)
 	$(".cart_total").html(cart_total_display);
 }
 
+
+
+
+
+//-----------------------------------------------
+
+
+
+
 $.validate({ 	
 	language : jsLanguageValidator,
     form : '#forms-normal',    

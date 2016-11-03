@@ -55,6 +55,8 @@
                                     'now_time'          => $now_time,
                                     'minimum_order'     => $minimum_order,
                                     'merchant_minimum_order_pickup' => $merchant_minimum_order_pickup,
+                             
+                                    'phone'             => $phone,
                         ) ); ?>  
                   
                          

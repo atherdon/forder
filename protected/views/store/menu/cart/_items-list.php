@@ -1,4 +1,4 @@
-<table class="table table_summary"> 
+<table class="table table_summary " id="cart-items"> 
 <!--<table class="table table_summary item-order-wrap">--> 
 
     <tbody class="cart-to-change-by-js">

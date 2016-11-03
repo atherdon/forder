@@ -15,20 +15,25 @@ $this->renderPartial('/store/checkout/_subheader', array(
 
 //var_dump( $address_book ); die();
 
-$s=$_SESSION;
-$continue=false;
+$s        = $_SESSION;
+$continue = false;
 
 $merchant_address='';		
-if ($merchant_info=Yii::app()->functions->getMerchant($s['kr_merchant_id'])){	
-	$merchant_address=$merchant_info['street']." ".$merchant_info['city']." ".$merchant_info['state'];
-	$merchant_address.=" "	. $merchant_info['post_code'];
+
+if ($merchant_info = Yii::app()->functions->getMerchant($s['kr_merchant_id'])){	
+    
+    $merchant_address  = $merchant_info['street']." ".$merchant_info['city']." ".$merchant_info['state'];
+    $merchant_address .= " "	. $merchant_info['post_code'];
 }
 
 $client_info='';
 
 if (isset($is_guest_checkout)){
-	$continue=true;	
+    
+	$continue=true;
+        
 } else {	
+    
 	$client_info = Yii::app()->functions->getClientInfo(Yii::app()->functions->getClientId());
 	if (isset($s['kr_search_address'])){	
 		$temp=explode(",",$s['kr_search_address']);		
@@ -63,7 +68,8 @@ echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCou
 echo CHtml::hiddenField('admin_currency_set',getCurrencyCode());
 
 echo CHtml::hiddenField('admin_currency_position',
-Yii::app()->functions->getOptionAdmin("admin_currency_position"));
+            Yii::app()->functions->getOptionAdmin("admin_currency_position")
+     );
 ?>
 
 

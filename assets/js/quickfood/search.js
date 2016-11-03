@@ -21,8 +21,8 @@ jQuery(document).ready(function($) {
    });     
       
    $( document ).on( "click", ".button_filter", function() {
-   	   $(".frm_search_name_clear").show();
-   	   research_merchant(); 
+        $(".frm_search_name_clear").show();
+        research_merchant(); 
    });
 
    $( document ).on( "change", ".sort-results", function() {

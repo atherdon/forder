@@ -1,19 +1,23 @@
 <div class="form-group">
-    <label>First name</label>
+    <label>
+        First name
+    </label>
     <?php echo CHtml::textField('first_name','',array(
-            'class'=>'form-control',
-            'placeholder'=>Yii::t("default","First Name"),
-            'data-validation'=>"required"
+            'class'           => 'form-control',
+            'placeholder'     => Yii::t("default","First Name"),
+            'data-validation' => "required"
     ))?>
     
 </div>
 
 <div class="form-group">
-    <label>Last name</label>
+    <label>
+        Last name
+    </label>
     <?php echo CHtml::textField('last_name','',array(
-            'class'=>'form-control',
-            'placeholder'=>Yii::t("default","Last Name"),
-            'data-validation'=>"required"
+            'class'           => 'form-control',
+            'placeholder'     => Yii::t("default","Last Name"),
+            'data-validation' => "required"
    ))?> 
     
 </div>

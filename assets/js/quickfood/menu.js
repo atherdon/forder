@@ -1,7 +1,14 @@
 jQuery(document).ready(function($) {
     
     $( document ).on( "click", ".clear-cart", function() {
-        clearCart();
+        
+//        clearCart();
+        alert("click on");
+
+        $('#cart-items').fadeOut( 800 );
+        $('#cart-total .item-value').html("0");
+        return false;
+        
     }); 
 
     
@@ -15,8 +22,8 @@ function clearCart()
         return;
     }
     
-    var params="action=clearCart&currentController=store";	
-    busy(true);
+    var params = "action=clearCart&currentController=store";	
+//    busy(true);
     
     $.ajax({    
         type     : "POST",

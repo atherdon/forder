@@ -2805,12 +2805,14 @@ $this->msg=t("We have sent bank information instruction to your email")." :$merc
 		} else $this->msg="";		
 	}	
 	
+        
 	public function clearCart()
 	{
-		unset($_SESSION['kr_item']);
-		$this->code=1;
-		$this->msg="OK";
+            unset($_SESSION['kr_item']);
+            $this->code = 1;
+            $this->msg  = "OK";
 	}
+        
 	
 	public function UpdateItemAvailable()
 	{		

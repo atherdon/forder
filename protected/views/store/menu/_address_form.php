@@ -4,7 +4,7 @@
      aria-labelledby="addressModal" 
      aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content modal-popup">
+        <div class="modal-content modal-popup modal-details">
             
             <a href="#" class="close-link">
                 <i class="icon_close_alt2"></i>
@@ -22,9 +22,12 @@
                 </h4>
                 
                 <?php echo CHtml::hiddenField('action','setAddress');?> 
-                <?php if(0){echo CHtml::hiddenField('web_session_id',
+                <?php if(0){
+                    echo CHtml::hiddenField('web_session_id',
                     isset( $this->data['web_session_id'] ) ? $this->data['web_session_id'] : ''
-                );}?>
+                );
+                    
+                }?>
                 
 
                 
@@ -38,7 +41,7 @@
                                 ));
                 ?> 
                   
-                <button type="submit" class="btn btn-submit">
+                <button type="submit" class="btn_1 btn-submit">
                     <?php echo t("Submit")?>
                 </button>
                 

@@ -2338,7 +2338,7 @@ div.pac-container {
     z-index: 10;        
 }
 
-#addressModal {
+#addressForm .modal-popup {
     background: white;
 }
 
@@ -2354,13 +2354,16 @@ div.pac-container {
     margin-left: 30px;
     margin-right: 30px;
 }
-.modal-popup.modal-details a.close-link {
+.modal-popup.modal-details a.close-link,
+#addressForm .modal-popup.modal-details a.close-link{
     color: black;
 }
-.modal-popup.modal-details a {
+.modal-popup.modal-details a,
+#addressForm .modal-popup.modal-details a{
     color: black;
 }
-.modal-popup.modal-details .btn_1 {
+.modal-popup.modal-details .btn_1,
+#addressForm .modal-popup.modal-details .btn_1 {
     height: 40px;
     width: 100%;
     
@@ -2386,6 +2389,9 @@ label span.ml-10 {
 .profile-forms .intl-tel-input {
     width: 100%;
 }
+
+
+
 @media only screen and (max-width: 767px) {
     #newsletter {
         margin-bottom: 10px;

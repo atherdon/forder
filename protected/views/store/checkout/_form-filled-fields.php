@@ -6,21 +6,25 @@
  <?php if ( isset( $is_guest_checkout ) ){ ?>	     
 
         <div class="form-group">
-            <label>First name</label>
+            <label>
+                First name
+            </label>
             <?php echo CHtml::textField('first_name','',array(
-                    'class'=>'form-control',
-                    'placeholder'=>Yii::t("default","First Name"),
-                    'data-validation'=>"required"
+                    'class'           => 'form-control',
+                    'placeholder'     => Yii::t("default","First Name"),
+                    'data-validation' => "required"
               ))?>
         </div>
 
 
         <div class="form-group">
-            <label>Last name</label>
+            <label>
+                Last name
+            </label>
             <?php echo CHtml::textField('last_name','',array(
-                    'class'=>'form-control',
-                    'placeholder'=>Yii::t("default","Last Name"),
-                    'data-validation'=>"required"
+                    'class'           => 'form-control',
+                    'placeholder'     => Yii::t("default","Last Name"),
+                    'data-validation' => "required"
               ))?>
         </div>
               
@@ -45,12 +49,13 @@
     <div class="row">
         <div class="col-md-10 col-sm-10">
             <div class="form-group">
-                <label>Address book</label>
+                <label>
+                    Address book
+                </label>
                 <?php 
-               $address_list=Yii::app()->functions->addressBook(Yii::app()->functions->getClientId());
-               echo CHtml::dropDownList('address_book_id',$address_book['id'],
-               (array)$address_list,array(
-                  'class'=>"form-control"
+               $address_list = Yii::app()->functions->addressBook(Yii::app()->functions->getClientId());
+               echo CHtml::dropDownList('address_book_id', $address_book['id'], (array)$address_list, array(
+                    'class' => "form-control"
                ));
         ?>
             </div>
@@ -58,7 +63,8 @@
         <div class="col-md-2 col-sm-2">
 
             <a href="javascript:;" class="edit_address_book block top10">
-                <i class="ion-compose"></i> <?php echo t("Edit")?>
+                <i class="ion-compose"></i>
+                <?php echo t("Edit")?>
             </a>
 
         </div>
@@ -81,9 +87,10 @@
 
     <div class="form-group">
         <label><?php echo Yii::t("default","City") ?></label>
+        
         <?php echo CHtml::textField('city',
-	             isset($client_info['city'])?$client_info['city']:''
-	             ,array(
+	             isset($client_info['city'])?$client_info['city']:'', 
+                     array(
 	               'class'=>'form-control',
 	               'placeholder'=>Yii::t("default","City"),
 	               'data-validation'=>"required"
@@ -93,6 +100,7 @@
 
     <div class="form-group">
         <label><?php echo Yii::t("default","State") ?></label>
+        
          <?php echo CHtml::textField('state',
                  isset($client_info['state'])?$client_info['state']:''
                  ,array(
@@ -105,6 +113,7 @@
 
     <div class="form-group">
         <label><?php echo Yii::t("default","Zip code") ?></label>
+        
         <?php echo CHtml::textField('zipcode',
                   isset($client_info['zipcode'])?$client_info['zipcode']:''
                   ,array(
@@ -117,6 +126,7 @@
         <label>
             <?php echo Yii::t("default","Apartment suite, unit number, or company name") ?>
         </label>
+        
         <?php echo CHtml::textField('location_name',
                  isset($client_info['location_name'])?$client_info['location_name']:''
                  ,array(
@@ -129,6 +139,7 @@
         <label>
             <?php echo Yii::t("default","Mobile Number") ?>
         </label>
+        
         <?php echo CHtml::textField('contact_phone',
                  isset($client_info['contact_phone'])?$client_info['contact_phone']:''
                  ,array(
@@ -144,6 +155,7 @@
         <label>
             <?php echo Yii::t("default","Delivery instructions") ?>
         </label>
+        
         <?php echo CHtml::textField('delivery_instruction','',array(
                       'class'=>'form-control',
                       'placeholder'=>Yii::t("default","Delivery instructions")   
@@ -166,6 +178,7 @@
 
         <div class="form-group">
             <label><?php echo Yii::t("default","Email address") ?></label>
+            
              <?php echo CHtml::textField('email_address','',array(
                            'class'=>'form-control',
                            'placeholder'=>Yii::t("default","Email address"),              
@@ -183,9 +196,10 @@
 
         <div class="form-group">
             <label><?php echo Yii::t("default","Password") ?></label>
-             <?php echo CHtml::passwordField('password','',array(
-                           'class'=>'form-control',
-                           'placeholder'=>Yii::t("default","Password"),               
+            
+             <?php echo CHtml::passwordField('password', '', array(
+                           'class'       => 'form-control',
+                           'placeholder' => Yii::t("default","Password"),               
                           ))?>
 
 
