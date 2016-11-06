@@ -17,12 +17,32 @@
          if (isset($is_guest_checkout)){
             echo CHtml::hiddenField('is_guest_checkout',2);
          }     
+         
+         
+//         var_dump( $s['kr_delivery_options']['delivery_type'] );die();
+         
+         $this->renderPartial('/store/checkout/_form-guest-checkout', array(
+                  'client_info' => $client_info
+         )); 
+         
+//         $this->renderPartial('/store/checkout/_form-filled-fields', array(
+//                  
+//                  'website_enabled_map_address' => $website_enabled_map_address,
+//                  'address_book'                => $address_book,
+//                  'is_guest_checkout'           => $is_guest_checkout,
+//                  'client_info'                 => $client_info,
+//                  
+//        )); 
+         
+         if( 0 ) { 
+         
          if( isset( $s['kr_delivery_options']['delivery_type'] ) ){
              
-            if ( $s['kr_delivery_options']['delivery_type']=="pickup") { 
+//            if ( false ) { 
+            if ( $s['kr_delivery_options']['delivery_type']=="pickup") {     
              
 //            @TODO check this partials
-                
+//                echo '123'; die();
                 $this->renderPartial('/store/checkout/_form-guest-checkout', array(
 //
                 )); 
@@ -39,7 +59,7 @@
     
     
             } else { 
-            
+//            die();
               $this->renderPartial('/store/checkout/_form-filled-fields', array(
                   
                   'website_enabled_map_address' => $website_enabled_map_address,
@@ -50,6 +70,9 @@
             } 
              
         }     
+        
+        
+         }
              
              ?>
     

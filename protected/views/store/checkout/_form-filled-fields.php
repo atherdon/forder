@@ -1,4 +1,3 @@
-
 <h2 class="inner"> 
     <?php echo Yii::t( "default", "Address" )?> 
 </h2>
@@ -9,9 +8,9 @@
             <label>
                 First name
             </label>
-            <?php echo CHtml::textField('first_name','',array(
+            <?php echo CHtml::textField('first_name', '', array(
                     'class'           => 'form-control',
-                    'placeholder'     => Yii::t("default","First Name"),
+                    'placeholder'     => Yii::t("default", "First Name"),
                     'data-validation' => "required"
               ))?>
         </div>
@@ -21,9 +20,9 @@
             <label>
                 Last name
             </label>
-            <?php echo CHtml::textField('last_name','',array(
+            <?php echo CHtml::textField('last_name', '', array(
                     'class'           => 'form-control',
-                    'placeholder'     => Yii::t("default","Last Name"),
+                    'placeholder'     => Yii::t("default", "Last Name"),
                     'data-validation' => "required"
               ))?>
         </div>
@@ -33,7 +32,7 @@
              
              
              
-<?php if ( $website_enabled_map_address==2 ):?>
+<?php if ( $website_enabled_map_address == 2 ):?>
 
    <div class="form-group">
        <?php Widgets::AddressByMap()?>
@@ -79,9 +78,9 @@
             <?php echo Yii::t("default","Street") ?>
         </label>
         <?php echo CHtml::textField('street', isset($client_info['street'])?$client_info['street']:'' ,array(
-	               'class'=>'form-control',
-	               'placeholder'=>Yii::t("default","Street"),
-	               'data-validation'=>"required"
+	               'class' => 'form-control',
+	               'placeholder' => Yii::t("default","Street"),
+	               'data-validation' => "required"
 	              ))?>
     </div>
 
@@ -91,9 +90,9 @@
         <?php echo CHtml::textField('city',
 	             isset($client_info['city'])?$client_info['city']:'', 
                      array(
-	               'class'=>'form-control',
-	               'placeholder'=>Yii::t("default","City"),
-	               'data-validation'=>"required"
+	               'class' => 'form-control',
+	               'placeholder' => Yii::t("default","City"),
+	               'data-validation' => "required"
 	              ))?>
 
     </div>
@@ -104,9 +103,9 @@
          <?php echo CHtml::textField('state',
                  isset($client_info['state'])?$client_info['state']:''
                  ,array(
-                 'class'=>'form-control',
-	               'placeholder'=>Yii::t("default","State"),
-	               'data-validation'=>"required"
+                 'class' => 'form-control',
+	               'placeholder' => Yii::t("default","State"),
+	               'data-validation' => "required"
 	              ))?>
 
     </div>
@@ -117,8 +116,8 @@
         <?php echo CHtml::textField('zipcode',
                   isset($client_info['zipcode'])?$client_info['zipcode']:''
                   ,array(
-	               'class'=>'form-control',
-	               'placeholder'=>Yii::t("default","Zip code")
+	               'class' => 'form-control',
+	               'placeholder' => Yii::t("default","Zip code")
 	              ))?>
     </div>
 
@@ -130,12 +129,12 @@
         <?php echo CHtml::textField('location_name',
                  isset($client_info['location_name'])?$client_info['location_name']:''
                  ,array(
-	               'class'=>'form-control',
-	               'placeholder'=>Yii::t("default","Apartment suite, unit number, or company name")	               
+	               'class' => 'form-control',
+	               'placeholder' => Yii::t("default","Apartment suite, unit number, or company name")	               
 	              ))?>
     </div>
 
-    <div class="form-group">
+    <div class="form-group form-phone-element">
         <label>
             <?php echo Yii::t("default","Mobile Number") ?>
         </label>
@@ -143,9 +142,9 @@
         <?php echo CHtml::textField('contact_phone',
                  isset($client_info['contact_phone'])?$client_info['contact_phone']:''
                  ,array(
-	               'class'=>'form-control mobile_inputs ',
-	               'placeholder'=>Yii::t("default","Mobile Number"),
-	               'data-validation'=>"required"  
+	               'class' => 'form-control mobile_inputs ',
+	               'placeholder' => Yii::t("default","Mobile Number"),
+	               'data-validation' => "required"  
 	              ))?>
 
 
@@ -157,8 +156,8 @@
         </label>
         
         <?php echo CHtml::textField('delivery_instruction','',array(
-                      'class'=>'form-control',
-                      'placeholder'=>Yii::t("default","Delivery instructions")   
+                      'class' => 'form-control',
+                      'placeholder' => Yii::t("default","Delivery instructions")   
                      ))?>
     </div>
 
@@ -180,8 +179,8 @@
             <label><?php echo Yii::t("default","Email address") ?></label>
             
              <?php echo CHtml::textField('email_address','',array(
-                           'class'=>'form-control',
-                           'placeholder'=>Yii::t("default","Email address"),              
+                           'class' => 'form-control',
+                           'placeholder' => Yii::t("default","Email address"),              
                           ))?>
 
             <!--<input type="email" id="email_booking_2" name="email_order" class="form-control" placeholder="Your email">-->

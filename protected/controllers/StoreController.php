@@ -1863,10 +1863,17 @@ class StoreController extends CController
                PointsProgram::includeFrontEndFiles();	
             }    
 
-            $this->render('payment-option', array(
+            //            $this->render('//store/checkout/payment-option', array(
+//            var_dump( Yii::app()->functions->showAddressBook() );
+//            die();
+            
+            
+            $this->render('//store/checkout/payment-option', array(
+                
                  'is_guest_checkout'           => true,
                  'website_enabled_map_address' => getOptionA('website_enabled_map_address'),
                  'address_book'                => Yii::app()->functions->showAddressBook()
+                    
             ));
 	}
 	

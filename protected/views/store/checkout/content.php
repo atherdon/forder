@@ -25,11 +25,13 @@
 
                     <?php                    
                         $this->renderPartial('/store/checkout/_form', array(
-                            'merchant_info'     => $merchant_info,
-                            's'         => $s,
+                            'merchant_info'   => $merchant_info,
+                            's'               => $s,
                             'website_enabled_map_address' => $website_enabled_map_address,
-                            'address_book'      => $address_book,
-                                'merchant_id'  => $merchant_id,
+                            'address_book'    => $address_book,
+                            'merchant_id'     => $merchant_id,
+                            'client_info'     => $client_info,
+                            'is_guest_checkout'           => $is_guest_checkout,
 //                           'restaurant_name' => $merchant_info['restaurant_name'],
 //                           'restaurant_slug' => $merchant_info['restaurant_slug']
                         ));
@@ -39,7 +41,7 @@
                     <!--CREDIT CART-->
                         <?php 
                         $this->renderPartial('/store/checkout/_credit_card',array(
-                              'merchant_id'=>$merchant_id	   
+                              'merchant_id' => $merchant_id	   
                             ));
                             ?>     
                         <!--END CREDIT CART-->

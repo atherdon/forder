@@ -32,26 +32,30 @@ $merchant_tip_default=Yii::app()->functions->getOption("merchant_tip_default", $
       
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
             <label>
-                <input type="radio" value="0.1" name="cart_tip_percentage"  class="icheck tips-el">
+                <input type="radio" value="0.1" name="cart_tip_percentage"  
+                       class="icheck tips-el">
                 10%
             </label>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
             <label>
-                <input type="radio" value="0.15" name="cart_tip_percentage"  class="icheck tips-el">
+                <input type="radio" value="0.15" name="cart_tip_percentage"  
+                       class="icheck tips-el">
                 15%
             </label>
         </div>
 
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
             <label>
-                <input type="radio" value="0.20" name="cart_tip_percentage"  class="icheck tips-el">
+                <input type="radio" value="0.20" name="cart_tip_percentage"  
+                       class="icheck tips-el">
                 20%
             </label>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
             <label>
-                <input type="radio" value="0.25" name="cart_tip_percentage"  class="icheck tips-el">
+                <input type="radio" value="0.25" name="cart_tip_percentage"  
+                       class="icheck tips-el">
                 25%
             </label>
         </div>

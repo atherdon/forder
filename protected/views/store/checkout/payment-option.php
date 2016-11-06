@@ -30,42 +30,49 @@ $client_info='';
 
 if (isset($is_guest_checkout)){
     
-	$continue=true;
+    $continue = true;
         
 } else {	
     
-	$client_info = Yii::app()->functions->getClientInfo(Yii::app()->functions->getClientId());
-	if (isset($s['kr_search_address'])){	
-		$temp=explode(",",$s['kr_search_address']);		
-		if (is_array($temp) && count($temp)>=2){
-			$street=isset($temp[0])?$temp[0]:'';
-			$city=isset($temp[1])?$temp[1]:'';
-			$state=isset($temp[2])?$temp[2]:'';
-		}
-		if ( isset($client_info['street'])){
-			if ( empty($client_info['street']) ){
-				$client_info['street']=$street;
-			}
-		}
-		if ( isset($client_info['city'])){
-			if ( empty($client_info['city']) ){
-				$client_info['city']=$city;
-			}
-		}
-		if ( isset($client_info['state'])){
-			if ( empty($client_info['state']) ){
-				$client_info['state']=$state;
-			}
-		}
-	}	
-	
-	if (isset($s['kr_merchant_id']) && Yii::app()->functions->isClientLogin() && is_array($merchant_info) ){
-		$continue=true;
-	}
-}
-echo CHtml::hiddenField('mobile_country_code',Yii::app()->functions->getAdminCountrySet(true));
+    $client_info = Yii::app()->functions->getClientInfo( Yii::app()->functions->getClientId() );
+    
+    if (isset($s['kr_search_address'])){	
+        
+        $temp = explode(",",$s['kr_search_address']);		
+        
+        if (is_array($temp) && count($temp)>=2){
+            
+            $street = isset($temp[0])?$temp[0]:'';
+            $city   = isset($temp[1])?$temp[1]:'';
+            $state  = isset($temp[2])?$temp[2]:'';
+        }
+        if ( isset($client_info['street'])){
+            
+            if ( empty($client_info['street']) ){
+                $client_info['street'] = $street;
+            }
+        }
+        if ( isset($client_info['city'])){
+            
+            if ( empty($client_info['city']) ){
+                $client_info['city'] = $city;
+            }
+        }
+        if ( isset($client_info['state'])){
+            
+            if ( empty($client_info['state']) ){
+                $client_info['state'] = $state;
+            }
+        }
+    }	
 
-echo CHtml::hiddenField('admin_currency_set',getCurrencyCode());
+    if (isset($s['kr_merchant_id']) && Yii::app()->functions->isClientLogin() && is_array($merchant_info) ){
+        $continue=true;
+    }
+}
+echo CHtml::hiddenField('mobile_country_code', Yii::app()->functions->getAdminCountrySet(true));
+
+echo CHtml::hiddenField('admin_currency_set',  getCurrencyCode());
 
 echo CHtml::hiddenField('admin_currency_position',
             Yii::app()->functions->getOptionAdmin("admin_currency_position")
@@ -96,7 +103,9 @@ $this->renderPartial('/store/checkout/content', array(
    'merchant_address'  => $merchant_address,
    'merchant_info'     => $merchant_info,
    'website_enabled_map_address' => $website_enabled_map_address,
-   'address_book'      => $address_book
+   'address_book'      => $address_book,
+   'client_info'       => $client_info,
+   'is_guest_checkout'           => $is_guest_checkout,
 //   'phone'             => $phone 
     
     

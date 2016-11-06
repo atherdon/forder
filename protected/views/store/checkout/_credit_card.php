@@ -1,10 +1,19 @@
-<div class="credit_card_wrap">    
-    <form id="frm-creditcard" class="frm-creditcard" method="POST" onsubmit="return false;">
 
+
+<div class="credit_card_wrap">    
+    <form id="frm-creditcard" class="frm-creditcard" 
+          method="POST" onsubmit="return false;">
+        
+        
+        
+        
         <?php FunctionsV3::sectionHeader('Credit Card information')?>
 
          <a href="javascript:;" class="cc-add orange-text">
-         [ <i class="ion-ios-compose-outline"></i> <?php echo t("Add new card")?>]
+         [
+         <i class="ion-ios-compose-outline"></i> 
+             <?php echo t("Add new card")?>
+         ]
          </a>
 
 
@@ -43,7 +52,7 @@
             </label>
             <?php echo CHtml::textField('credit_card_number', '', array(
                         'class'           => 'numeric_only form-control',
-                        'placeholder'     => Yii::t("default","Credit Card Number"),
+                        'placeholder'     => Yii::t("default", "Credit Card Number"),
                         'data-validation' => "required",
                         'maxlength'       => 16
             ));?>   
@@ -62,7 +71,7 @@
                                     Yii::app()->functions->ccExpirationMonth()
                                     ,array(
                                         'class'           => 'form-control',
-                                        'placeholder'     => Yii::t("default","Exp. month"),
+                                        'placeholder'     => Yii::t("default", "Exp. month"),
                                         'data-validation' => "required"  
                                     ))
                             ?>  
@@ -75,7 +84,7 @@
                                             Yii::app()->functions->ccExpirationYear()
                                             ,array(
                                                 'class'           => 'form-control',
-                                                'placeholder'     => Yii::t("default","Exp. year") ,
+                                                'placeholder'     => Yii::t("default", "Exp. year") ,
                                                 'data-validation' => "required"  
                                             ))
                             ?> 
@@ -92,7 +101,7 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
                             <div class="form-group">
-                                  <?php echo CHtml::textField('cvv','',array(
+                                  <?php echo CHtml::textField('cvv', '', array(
                                                 'class'           => 'form-control',
                                                 'placeholder'     => Yii::t("default", "CVV"),
                                                 'data-validation' => "required",
@@ -118,9 +127,9 @@
             <label>
                 <?php echo Yii::t("default","Billing Address") ?>
             </label>
-             <?php echo CHtml::textField('billing_address','',array(
+             <?php echo CHtml::textField('billing_address', '', array(
                         'class'           => 'form-control',
-                        'placeholder'     => Yii::t("default","Billing Address"),
+                        'placeholder'     => Yii::t("default", "Billing Address"),
                         'data-validation' => "required"  
                     ));
              ?> 
