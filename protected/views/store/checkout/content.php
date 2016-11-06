@@ -38,13 +38,7 @@
                     ?>
 
 
-                    <!--CREDIT CART-->
-                        <?php 
-                        $this->renderPartial('/store/checkout/_credit_card',array(
-                              'merchant_id' => $merchant_id	   
-                            ));
-                            ?>     
-                        <!--END CREDIT CART-->
+                    
 
 
 

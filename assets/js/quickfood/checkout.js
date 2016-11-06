@@ -1,30 +1,41 @@
 jQuery(document).ready(function() {	
-    
-
-    $('#payment_opt').on('ifChecked', function(event){   
+      
+    $('#ocr input').on('ifChecked', function(event){   
         
-        var value = $(this).val();
-        if( value == 'cod' ){
-            
-            $('.reveal-if-active.cod').removeClass('hide').fadeIn('500');
-            
-            
-        }
+        $('.reveal-if-active.ocr').removeClass('hide').fadeIn('500');
 
    });     
    
-   $('#payment_opt').on('ifUnchecked', function(event){   
+   $('#ocr input').on('ifUnchecked', function(event){   
+
+        $('.reveal-if-active.ocr').addClass('hide').fadeOut('500');
+
+   });     
+    
+    $('#cod input').on('ifChecked', function(event){   
         
-        var value = $(this).val();
-        if( value == 'cod' ){
-            
-            $('.reveal-if-active.cod').addClass('hide').fadeOut('500');
-            
-            
-        }
+        $('.reveal-if-active.cod').removeClass('hide').fadeIn('500');
+   });     
+   
+   $('#cod input').on('ifUnchecked', function(event){   
+        
+        $('.reveal-if-active.cod').addClass('hide').fadeOut('500');
 
    });    
-   
+
+   $('#cc-add').on('click', function(){
+       
+       if( $('.reveal-if-active.newcreditcard').hasClass('hide') ){
+           $('.reveal-if-active.newcreditcard').removeClass('hide').fadeIn('500');
+       } else {
+           $('.reveal-if-active.newcreditcard').addClass('hide').fadeOut('500');
+       }
+       
+//       $('#extra').;
+       return false;
+       
+   });
+
    
    $('.tips-el').on('ifChecked', function(event){           
 

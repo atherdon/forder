@@ -1118,6 +1118,14 @@ jQuery(document).ready(function() {
 	    });   	     	  
    });
    
+   
+   
+   
+   
+   
+   
+   
+   //      @TODO
    $('#delivery_asap').on('ifChecked', function(event){
       $("#delivery_time").val('');
    });
@@ -1131,10 +1139,19 @@ jQuery(document).ready(function() {
    });
    
    
+   
+   
+   
+   
+   
+   
+
    $( document ).on( "click", ".cc-add", function() {    	  
    	   $(".cc-add-wrap").slideToggle("fast");
    });
    
+   
+//      @TODO
    if( $('.payment-option-page').is(':visible') ) {	
        load_cc_list();
    }
@@ -1143,6 +1160,28 @@ jQuery(document).ready(function() {
        load_cc_list_merchant();
    }
    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   //      @TODO
    /************ PLACE ORDER ***************/
    
    $( document ).on( "click", ".place_order", function() {    	  

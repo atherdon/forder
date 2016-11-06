@@ -2381,7 +2381,8 @@ div.pac-container {
 label span.ml-10 {
     line-height: 22px;
 }
-.modal-popup .intl-tel-input {
+.modal-popup .intl-tel-input,
+.form-phone-element .intl-tel-input{
     width: 100%;
     text-align: left !important;
 }

@@ -81,14 +81,25 @@
              
         <!--<hr />-->
         <!--<div class="box_style_2">-->
-            <?php 
-                $this->renderPartial('/store/checkout/_payment-list', array(
-                  'merchant_id'  => $merchant_id,
-                  'payment_list' => FunctionsV3::getMerchantPaymentList( $merchant_id )
-                ));
-                ?>
+        <?php 
+            $this->renderPartial('/store/checkout/_payment-list', array(
+                'merchant_id'  => $merchant_id,
+                'payment_list' => FunctionsV3::getMerchantPaymentList( $merchant_id )
+            ));
+        ?>
 
 
+        
+        
+        <!--CREDIT CART-->
+        <?php 
+            $this->renderPartial('/store/checkout/_credit_card', array(
+                  'merchant_id' => $merchant_id	   
+            ));
+        ?>     
+        <!--END CREDIT CART-->
+        
+        
 
             <?php 
             
