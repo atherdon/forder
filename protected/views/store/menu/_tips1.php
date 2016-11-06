@@ -71,12 +71,6 @@ $merchant_tip_default=Yii::app()->functions->getOption("merchant_tip_default", $
             </label>
 
 
-            <?php //echo CHtml::textField('tip_value', '', array(
-                    //        'class' => "numeric_only form-control reveal-if-active",
-                      //      'style' => "width:70px;",
-                        //    ''  
-                         // ));
-            ?>
 
 
         </div>

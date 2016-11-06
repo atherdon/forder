@@ -28,8 +28,14 @@ jQuery(document).ready(function() {
    
    $('.tips-el').on('ifChecked', function(event){           
 
-        var value       = $(this).val();
-        var cart_amount = $('#subtotal_order2');
+        var value          = $(this).val();
+        var cart_amount    = $('#subtotal_order2');
+        
+        var tip_percentage =  $("#cart_tip_percentage"),
+            tip_value          = $("#cart_tip_value");
+            
+//            var tip_percentage =  $("#cart_tip_percentage").val(tip_percentage),
+//            value = $("#cart_tip_value").val(amount);
         
         if( value === 'cash' ){
         
@@ -38,7 +44,12 @@ jQuery(document).ready(function() {
             var html       = '<div> Tip (' + value*100 + ')%</div>';
             
             var tip_amount = 10;
-            html += '<div>' + tip_amount + '</div>';        
+            html += '<div>' + tip_amount + '</div>'; 
+            
+            tip_percentage.val( value*100 );
+            tip_value.val( tip_amount );
+            
+//            display_tip2( value, tip_amount );
 //            $(".tip_percentage").html(tip_percentage+"%");
             
         } else {
@@ -48,6 +59,13 @@ jQuery(document).ready(function() {
             var tip_amount = cart_amount * value ;
             tip_amount = Math.round(( tip_amount )*10)/10 ;
             
+            tip_percentage.val( value*100 );
+            tip_value.val( tip_amount );
+
+//            console.log( tip_percentage );
+//            console.log( tip_value );
+           
+           
 //            console.log( tip_amount );
 //            console.log( value );
 //            console.log( parseInt(value, 10) )
@@ -166,6 +184,12 @@ jQuery(document).ready(function() {
 //    }
 		
 }); /*end docu*/
+
+
+//function display_tip2(){
+//    
+//}
+
 
 function display_tip(tip_percentage,amount)
 {
