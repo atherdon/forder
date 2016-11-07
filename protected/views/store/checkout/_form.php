@@ -21,9 +21,9 @@
          
 //         var_dump( $s['kr_delivery_options']['delivery_type'] );die();
          
-         $this->renderPartial('/store/checkout/_form-guest-checkout', array(
-                  'client_info' => $client_info
-         )); 
+//         $this->renderPartial('/store/checkout/_form-guest-checkout', array(
+//                  'client_info' => $client_info
+//         )); 
          
 //         $this->renderPartial('/store/checkout/_form-filled-fields', array(
 //                  
@@ -34,7 +34,7 @@
 //                  
 //        )); 
          
-         if( 0 ) { 
+//         if( 0 ) { 
          
          if( isset( $s['kr_delivery_options']['delivery_type'] ) ){
              
@@ -72,7 +72,7 @@
         }     
         
         
-         }
+//         }
              
              ?>
     

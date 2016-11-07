@@ -16,6 +16,7 @@
                 'key' => $key,
             ));  
             
+            // PYR key is for Pay on Delivery
             $this->renderPartial('/store/checkout/payment/_pyr', array(
                 'key' => $key,
             ));  

@@ -2,14 +2,14 @@
 
 
     <?php   
-            $provider_list=Yii::app()->functions->getPaymentProviderMerchant($merchant_id);
-            if ( Yii::app()->functions->isMerchantCommission($merchant_id)){	          	
-                $provider_list=Yii::app()->functions->getPaymentProviderListActive();         	
+            $provider_list = Yii::app()->functions->getPaymentProviderMerchant( $merchant_id );
+            if ( Yii::app()->functions->isMerchantCommission( $merchant_id ) ){	          	
+                $provider_list = Yii::app()->functions->getPaymentProviderListActive();         	
             }	         
       ?>
 
 
-    <?php if (is_array($provider_list) && count($provider_list)>=1) { ?>
+    <?php if ( is_array( $provider_list ) && count( $provider_list ) >= 1 ) { ?>
       
         <?php foreach ($provider_list as $val_provider_list){ ?>
 

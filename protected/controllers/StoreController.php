@@ -1067,27 +1067,29 @@ class StoreController extends CController
 	
 	public function actionCheckout()
 	{
-	       if ( Yii::app()->functions->isClientLogin()){	       
-                    $this->redirect(Yii::app()->createUrl('/store/PaymentOption')); 
-                    die();
-               }
+            
+            if ( Yii::app()->functions->isClientLogin()){	       
+                 $this->redirect(Yii::app()->createUrl('/store/PaymentOption')); 
+                 die();
+            }
                
                
         
-        $cs = Yii::app()->getClientScript();
-		$baseUrl = Yii::app()->baseUrl; 
-		$cs->registerScriptFile($baseUrl."/assets/js/fblogin.js?ver=1"); 
-		    
-		if (Yii::app()->functions->isClientLogin()){
-			$this->redirect(Yii::app()->createUrl('/store')); 
-			die();
-		}
+            $cs = Yii::app()->getClientScript();
+            
+            $baseUrl = Yii::app()->baseUrl; 
+            $cs->registerScriptFile($baseUrl."/assets/js/fblogin.js?ver=1"); 
 
-		$_SESSION['google_http_refferer']=websiteUrl()."/store/paymentOption";
+            if (Yii::app()->functions->isClientLogin()){
+                    $this->redirect(Yii::app()->createUrl('/store')); 
+                    die();
+            }
+
+            $_SESSION['google_http_refferer'] = websiteUrl()."/store/paymentOption";
 		
-		$seo_title=Yii::app()->functions->getOptionAdmin('seo_checkout');
-		$seo_meta=Yii::app()->functions->getOptionAdmin('seo_checkout_meta');
-		$seo_key=Yii::app()->functions->getOptionAdmin('seo_checkout_keywords');
+            $seo_title=Yii::app()->functions->getOptionAdmin('seo_checkout');
+            $seo_meta=Yii::app()->functions->getOptionAdmin('seo_checkout_meta');
+            $seo_key=Yii::app()->functions->getOptionAdmin('seo_checkout_keywords');
 		
 		$current_merchant='';
 		if (isset($_SESSION['kr_merchant_id'])){
@@ -1111,47 +1113,75 @@ class StoreController extends CController
 			$fb=2;
 		}
 		
-		$this->render('checkout',array(
-		   'terms_customer'=>getOptionA('website_terms_customer'),
-		   'terms_customer_url'=>Yii::app()->functions->prettyLink(getOptionA('website_terms_customer_url')),
-		   'disabled_guest_checkout'=>getOptionA('website_disabled_guest_checkout'),
-		   'enabled_mobile_verification'=>getOptionA('website_enabled_mobile_verification'),
-		   'fb_flag'=>$fb,
-		   'google_login_enabled'=>getOptionA('google_login_enabled'),
-		   'captcha_customer_login'=>getOptionA('captcha_customer_login'),
-		   'captcha_customer_signup'=>getOptionA('captcha_customer_signup')
+                
+                $this->render('//store/checkout/index', array(
+                    
+//		   'terms_customer'          =>getOptionA('website_terms_customer'),
+//		   'terms_customer_url'      =>Yii::app()->functions->prettyLink(getOptionA('website_terms_customer_url')),
+//		   'disabled_guest_checkout'     =>getOptionA('website_disabled_guest_checkout'),
+//		   'enabled_mobile_verification' =>getOptionA('website_enabled_mobile_verification'),
+//		   'fb_flag'                     =>$fb,
+//		   'google_login_enabled'=>getOptionA('google_login_enabled'),
+//		   'captcha_customer_login'=>getOptionA('captcha_customer_login'),
+//		   'captcha_customer_signup'=>getOptionA('captcha_customer_signup')
+//                    
+                    
 		));
+                
+                
+                
+//		$this->render('//store/checkout/previous-checkout-page', array(
+//                    
+//		   'terms_customer'          =>getOptionA('website_terms_customer'),
+//		   'terms_customer_url'      =>Yii::app()->functions->prettyLink(getOptionA('website_terms_customer_url')),
+//		   'disabled_guest_checkout' =>getOptionA('website_disabled_guest_checkout'),
+//		   'enabled_mobile_verification'=>getOptionA('website_enabled_mobile_verification'),
+//		   'fb_flag'=>$fb,
+//		   'google_login_enabled'=>getOptionA('google_login_enabled'),
+//		   'captcha_customer_login'=>getOptionA('captcha_customer_login'),
+//		   'captcha_customer_signup'=>getOptionA('captcha_customer_signup')
+//                    
+//                    
+//		));
+                
+                
 	}
 	
 	public function actionPaymentOption()
 	{	
 		
-		/*POINTS PROGRAM*/
-		if (FunctionsV3::hasModuleAddon("pointsprogram")){
-		   PointsProgram::includeFrontEndFiles();	   
-		} 
+            /*POINTS PROGRAM*/
+            if (FunctionsV3::hasModuleAddon("pointsprogram")){
+               PointsProgram::includeFrontEndFiles();	   
+            } 
 		
  	    $seo_title=Yii::app()->functions->getOptionAdmin('seo_checkout');
-		$seo_meta=Yii::app()->functions->getOptionAdmin('seo_checkout_meta');
-		$seo_key=Yii::app()->functions->getOptionAdmin('seo_checkout_keywords');
+            $seo_meta=Yii::app()->functions->getOptionAdmin('seo_checkout_meta');
+            $seo_key=Yii::app()->functions->getOptionAdmin('seo_checkout_keywords');
+            
 		
-		$current_merchant='';
-		if (isset($_SESSION['kr_merchant_id'])){
-			$current_merchant=$_SESSION['kr_merchant_id'];
-		}
+            $current_merchant='';
+            if (isset($_SESSION['kr_merchant_id'])){
+                    $current_merchant=$_SESSION['kr_merchant_id'];
+            }
 		
-		if (!empty($seo_title)){
-		   $seo_title=smarty('website_title',getWebsiteName(),$seo_title);
-		   if ( $info=Yii::app()->functions->getMerchant($current_merchant)){        	
-		   	   $seo_title=smarty('merchant_name',ucwords($info['restaurant_name']),$seo_title);
-           }		   
-		   $this->pageTitle=$seo_title;		   
-		   Yii::app()->functions->setSEO($seo_title,$seo_meta,$seo_key);
-		}
-		$this->render('payment-option', array(
-		  'website_enabled_map_address' => getOptionA('website_enabled_map_address'),
-		  'address_book'                => Yii::app()->functions->showAddressBook()
-		));
+            if (!empty($seo_title)){
+                
+               $seo_title=smarty('website_title',getWebsiteName(),$seo_title);
+               if ( $info=Yii::app()->functions->getMerchant($current_merchant)){        	
+                       $seo_title=smarty('merchant_name',ucwords($info['restaurant_name']),$seo_title);
+               }		   
+               
+               $this->pageTitle=$seo_title;		   
+               Yii::app()->functions->setSEO($seo_title,$seo_meta,$seo_key);
+            }
+            
+            $this->render('//store/checkout/payment-option', array(
+              'is_guest_checkout'           => false,  
+              'website_enabled_map_address' => getOptionA('website_enabled_map_address'),
+              'address_book'                => Yii::app()->functions->showAddressBook()
+                
+            ));
 	}
 	
 	public function actionReceipt()
@@ -1863,10 +1893,6 @@ class StoreController extends CController
                PointsProgram::includeFrontEndFiles();	
             }    
 
-            //            $this->render('//store/checkout/payment-option', array(
-//            var_dump( Yii::app()->functions->showAddressBook() );
-//            die();
-            
             
             $this->render('//store/checkout/payment-option', array(
                 
