@@ -26,7 +26,7 @@ $open_schedule = array();
 
 
 
-//echo '<pre>';var_dump( $open_hours ); die();
+echo '<pre>';  var_dump( $open_hours ); die();
 
 
 

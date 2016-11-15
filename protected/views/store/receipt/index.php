@@ -19,24 +19,37 @@ $this->renderPartial('/store/receipt/_subheader-receipt',array(
 
 $data='';
 $ok=false;
-if ( $data=Yii::app()->functions->getOrder2($_GET['id'])){				
-	$merchant_id=$data['merchant_id'];
-	$json_details=!empty($data['json_details'])?json_decode($data['json_details'],true):false;
-	if ( $json_details !=false){
-		Yii::app()->functions->displayOrderHTML(array(
-		  'merchant_id'=>$data['merchant_id'],
-		  'delivery_type'=>$data['trans_type'],
-		  'delivery_charge'=>$data['delivery_charge'],
-		  'packaging'=>$data['packaging'],
-		  'cart_tip_value'=>$data['cart_tip_value'],
-		  'cart_tip_percentage'=>$data['cart_tip_percentage'],
-		  'card_fee'=>$data['card_fee'],
-		  'points_discount'=>isset($data['points_discount'])?$data['points_discount']:'' /*POINTS PROGRAM*/
-		  ),$json_details,true);
-		if ( Yii::app()->functions->code==1){
-			$ok=true;
-		}
-	}	
+if( !empty($_GET) ){
+    
+
+if ( $data=Yii::app()->functions->getOrder2($_GET['id'])){
+    
+    $merchant_id  = $data['merchant_id'];
+    $json_details = !empty($data['json_details']) ? json_decode($data['json_details'], true) : false;
+    if ( $json_details != false){
+        
+        Yii::app()->functions->displayOrderHTML(
+                
+            array(            
+                'merchant_id'         => $data['merchant_id'],
+                'delivery_type'       => $data['trans_type'],
+                'delivery_charge'     => $data['delivery_charge'],
+                'packaging'           => $data['packaging'],
+                'cart_tip_value'      => $data['cart_tip_value'],
+                'cart_tip_percentage' => $data['cart_tip_percentage'],
+                'card_fee'            => $data['card_fee'],
+                'points_discount'     => isset( $data['points_discount'] ) ? $data['points_discount'] : '' /*POINTS PROGRAM*/
+            ),
+        $json_details, true);
+        
+        if ( Yii::app()->functions->code==1){
+            $ok = true;
+        }
+            
+    }
+        
+}
+
 }
 unset($_SESSION['kr_item']);
 unset($_SESSION['kr_merchant_id']);
@@ -44,13 +57,13 @@ unset($_SESSION['voucher_code']);
 unset($_SESSION['less_voucher']);
 unset($_SESSION['shipping_fee']);
 
-$print='';
+$print    = '';
 
-$order_ok=true;
+$order_ok = true;
 
-$merchant_info=Yii::app()->functions->getMerchant(isset($merchant_id)?$merchant_id:'');
-$full_merchant_address=$merchant_info['street']." ".$merchant_info['city']. " ".$merchant_info['state'].
-" ".$merchant_info['post_code'];
+$merchant_info         = Yii::app()->functions->getMerchant(isset($merchant_id)?$merchant_id:'');
+$full_merchant_address = $merchant_info['street'] . " " . $merchant_info['city'] . " " . $merchant_info['state'] .
+" " . $merchant_info['post_code'];
 ?>
 
 
@@ -372,13 +385,21 @@ $full_merchant_address=$merchant_info['street']." ".$merchant_info['city']. " ".
    
    <div class="row">
       <div class="col-sm-12 text-right">
-        <a href="javascript:;" class="print-receipt"><i class="ion-ios-printer-outline"></i></a>
+          
+        <a href="javascript:;" class="print-receipt">
+            <i class="ion-ios-printer-outline"></i>
+        </a>
+          
       </div> <!--col-->
    </div> <!--row-->
     
    <?php else :?>
-    <p class="text-warning"><?php echo t("Sorry but we cannot find what you are looking for.")?></p>
-    <?php $order_ok=false;?>
+   
+    <p class="text-warning">
+        <?php echo t("Sorry but we cannot find what you are looking for.")?>
+    </p>
+    <?php $order_ok = false;?>
+    
    <?php endif;?>
     
    </div> <!--container-->
@@ -392,8 +413,8 @@ $full_merchant_address=$merchant_info['street']." ".$merchant_info['city']. " ".
 
 
 <?php 
-$data_raw=Yii::app()->functions->details['raw'];
-$receipt=EmailTPL::salesReceipt($print,Yii::app()->functions->details['raw']);
+$data_raw = Yii::app()->functions->details['raw'];
+$receipt  = EmailTPL::salesReceipt( $print, Yii::app()->functions->details['raw'] );
 //dump($receipt);
 
 
@@ -409,9 +430,9 @@ if ( empty( $tpl ) ){
 
 
 
-$tpl=Yii::app()->functions->smarty('receipt', $receipt, $tpl);
-$tpl=Yii::app()->functions->smarty('customer-name', $data['full_name'], $tpl);
-$tpl=Yii::app()->functions->smarty('receipt-number', Yii::app()->functions->formatOrderNumber( $data['order_id']), $tpl );
+$tpl = Yii::app()->functions->smarty('receipt', $receipt, $tpl);
+$tpl = Yii::app()->functions->smarty('customer-name', $data['full_name'], $tpl);
+$tpl = Yii::app()->functions->smarty('receipt-number', Yii::app()->functions->formatOrderNumber( $data['order_id']), $tpl );
 
 
 if( isset( $merchant_id ) ){
@@ -420,11 +441,13 @@ $receipt_sender  = Yii::app()->functions->getOption("receipt_sender", $merchant_
 $receipt_subject = Yii::app()->functions->getOption("receipt_subject", $merchant_id);
 
 }
-if ( empty( $receipt_subject ) ){	
-	$receipt_subject=getOptionA('receipt_default_subject');
-	if (empty($receipt_subject)){
-	    $receipt_subject="We have receive your order";
-	}
+if ( empty( $receipt_subject ) ){
+    
+    $receipt_subject = getOptionA('receipt_default_subject');
+    if ( empty( $receipt_subject ) ){
+        $receipt_subject = "We have receive your order";
+    }
+        
 }
 if ( empty( $receipt_sender ) ){
 	$receipt_sender='no-reply@'.$_SERVER['HTTP_HOST'];
@@ -435,19 +458,27 @@ if ( !isset( $_SESSION['kr_receipt'] ) ){
     $_SESSION['kr_receipt']='';
 }
 
-if (!in_array($data['order_id'],(array)$_SESSION['kr_receipt'])){	
+
+
+
+
+
+
+
+if ( !in_array($data['order_id'], (array)$_SESSION['kr_receipt'] ) ){	
 	
-    if ( $order_ok==false){
+    if ( $order_ok == false ){
             return ;
     }
 	
     sendEmail($to,$receipt_sender,$receipt_subject,$tpl);    
     
     /*send email to merchant address*/
-    $merchant_notify_email=Yii::app()->functions->getOption("merchant_notify_email",$merchant_id);    
-    $enabled_alert_notification=Yii::app()->functions->getOption("enabled_alert_notification",$merchant_id);    
+    $merchant_notify_email      = Yii::app()->functions->getOption("merchant_notify_email",$merchant_id);    
+    $enabled_alert_notification = Yii::app()->functions->getOption("enabled_alert_notification",$merchant_id);    
     /*dump($merchant_notify_email);
     dump($enabled_alert_notification);   */
+    
     if ( $enabled_alert_notification==""){   
     	 	
     	$merchant_receipt_subject=Yii::app()->functions->getOption("merchant_receipt_subject",$merchant_id);
@@ -459,36 +490,47 @@ if (!in_array($data['order_id'],(array)$_SESSION['kr_receipt'])){
     	
     	$final_tpl='';    	
     	if (!empty($merchant_receipt_content)){
-    		$merchant_token=Yii::app()->functions->getMerchantActivationToken($merchant_id);
-    		$confirmation_link=Yii::app()->getBaseUrl(true)."/store/confirmorder/?id=".$data['order_id']."&token=$merchant_token";
-    		$final_tpl=smarty('receipt-number',Yii::app()->functions->formatOrderNumber($data['order_id'])
+            
+    		$merchant_token    = Yii::app()->functions->getMerchantActivationToken($merchant_id);
+    		$confirmation_link = Yii::app()->getBaseUrl(true)."/store/confirmorder/?id=".$data['order_id']."&token=$merchant_token";
+                
+    		$final_tpl         = smarty('receipt-number',Yii::app()->functions->formatOrderNumber($data['order_id'])
     		,$merchant_receipt_content);    		
-    		$final_tpl=smarty('customer-name',$data['full_name'],$final_tpl);
-    		$final_tpl=smarty('receipt',$receipt,$final_tpl); 
-    		$final_tpl=smarty('confirmation-link',$confirmation_link,$final_tpl); 
-    	} else $final_tpl=$tpl;
+    		$final_tpl         = smarty('customer-name',$data['full_name'],$final_tpl);
+    		$final_tpl         = smarty('receipt',$receipt,$final_tpl); 
+    		$final_tpl         = smarty('confirmation-link',$confirmation_link,$final_tpl); 
+                
+        } else { 
+            $final_tpl = $tpl;
+        
+        }
     	    	
-    	$global_admin_sender_email=Yii::app()->functions->getOptionAdmin('global_admin_sender_email');
+    	$global_admin_sender_email = Yii::app()->functions->getOptionAdmin('global_admin_sender_email');
+        
     	if (empty($global_admin_sender_email)){
-    		$global_admin_sender_email=$receipt_sender;
+            $global_admin_sender_email = $receipt_sender;
     	}     	
     	    	
     	// fixed if email is multiple
-    	$merchant_notify_email=explode(",",$merchant_notify_email);    	
+    	$merchant_notify_email=explode(",",$merchant_notify_email);  
+        
     	if (is_array($merchant_notify_email) && count($merchant_notify_email)>=1){
-    		foreach ($merchant_notify_email as $merchant_notify_email_val) {    			
-    			if(!empty($merchant_notify_email_val)){
-    			sendEmail(trim($merchant_notify_email_val),$global_admin_sender_email,$merchant_receipt_subject,$final_tpl);
-    			}
-    		}
+            
+            foreach ($merchant_notify_email as $merchant_notify_email_val) {    			
+                
+                if(!empty($merchant_notify_email_val)){
+                    sendEmail( trim($merchant_notify_email_val), $global_admin_sender_email, $merchant_receipt_subject, $final_tpl );
+                }
+            }
+            
     	}    	    	
     }   
     
     // send SMS    
-    Yii::app()->functions->SMSnotificationMerchant($merchant_id,$data,$data_raw);
+    Yii::app()->functions->SMSnotificationMerchant($merchant_id, $data, $data_raw);
         
     // SEND FAX
-    Yii::app()->functions->sendFax($merchant_id,$_GET['id']);
+    Yii::app()->functions->sendFax($merchant_id, $_GET['id']);
     
 }
-$_SESSION['kr_receipt']=array($data['order_id']);
+$_SESSION['kr_receipt'] = array( $data['order_id'] );
