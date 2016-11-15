@@ -69,7 +69,7 @@
             
             
             <?php //var_dump( $now_time ); die(); ?> 
-
+            <!--Related to delivery types, date and time-->
             <?php $this->renderPartial('/store/menu/cart/_delivery', array( 
                 'merchant_id' => $merchant_id,
                 'now'         => $now,

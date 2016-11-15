@@ -491,7 +491,9 @@ class StoreController extends CController
 	}
         
         
-        
+        public function actionPress(){
+            $this->render('//store/press/index');
+        }
         
         public function actionFaq(){
             $this->render('//store/faq/index');
@@ -519,7 +521,9 @@ class StoreController extends CController
         
         public function actionCareers(){
 //            $this->layout = 'partner';
-            $this->render('//store/jobs/content');
+            $this->render('//store/jobs/content',[
+//                'sub_text' => 'piece of shit'
+            ]);
         }
         
         public function actionSlider(){
@@ -1233,25 +1237,39 @@ class StoreController extends CController
 	
 	public function actionProfile()
 	{
-		if (Yii::app()->functions->isClientLogin()){
-                    
-                    
-		   $this->render('//store/profile/index', array(
-		     'tabs'        => isset($_GET['tab'])?$_GET['tab']:'',
+            
+//          @TODO  disabled but enable later
+            
+            $this->render('//store/profile/index', array(
+		     'tabs'        => isset( $_GET['tab'] ) ? $_GET['tab'] : '',
 		     'disabled_cc' => getOptionA('disabled_cc_management'),
 		     'info'        => Yii::app()->functions->getClientInfo( Yii::app()->functions->getClientId()),
 		     'avatar'      => FunctionsV3::getAvatar( Yii::app()->functions->getClientId() )
 		   ));
-                   
-                } else {
-                    
-                    $this->render('//store/404/index', array(
-                        'header' => true
-                    ));
+            
+            if( 0 ){
+            if (Yii::app()->functions->isClientLogin()){
+
+
+               $this->render('//store/profile/index', array(
+                 'tabs'        => isset($_GET['tab'])?$_GET['tab']:'',
+                 'disabled_cc' => getOptionA('disabled_cc_management'),
+                 'info'        => Yii::app()->functions->getClientInfo( Yii::app()->functions->getClientId()),
+                 'avatar'      => FunctionsV3::getAvatar( Yii::app()->functions->getClientId() )
+               ));
+
+            } else {
+
+                $this->render('//store/404/index', array(
+                    'header' => true
+                ));
 //                    $this->render('404-page',array(
 //                        'header'=>true
 //                    ));
-                } 
+            } 
+            }
+            
+            
 	}
 	
 	/*public function actionCards()

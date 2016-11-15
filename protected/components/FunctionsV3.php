@@ -147,31 +147,31 @@ class FunctionsV3
         $top_menu[] = array( 
                         'tag'   => "about-us",
                         'label' => '' . Yii::t("default", "About us"),
-                        'url'   => array('/store/page/about-us') 
+                        'url'   => array('/store/about') 
             );
         
         $top_menu[] = array( 
                         'tag'   => "blog",
                         'label' => '' . Yii::t("default", "Blog"),
-                        'url'   => array('/store/page/blog') 
+                        'url'   => array('/store/blog') 
             );
         
         $top_menu[] = array( 
                         'tag'   => "faq",
                         'label' => '' . Yii::t("default", "Faq"),
-                        'url'   => array('/store/page/faq') 
+                        'url'   => array('/store/faq') 
             );
           
         $top_menu[] = array( 
                         'tag'   => "press",
                         'label' => '' . Yii::t("default", "Press"),
-                        'url'   => array('/store/page/press') 
+                        'url'   => array('/store/press') 
             );
         
         $top_menu[] = array( 
                         'tag'   => "jobs",
                         'label' => '' . Yii::t("default", "Jobs"),
-                        'url'   => array('/store/page/jobs') 
+                        'url'   => array('/store/careers') 
             );
         
          return array(  		    
@@ -223,7 +223,7 @@ class FunctionsV3
         $top_menu[] = array( 
                         'tag'   => "driver-registration",
                         'label' => '' . Yii::t("default", "Become a Driver"),
-                        'url'   => array('/store/page/become-a-driver'),
+                        'url'   => array('/store/driver'),
 //                        'linkOptions' => array(
 //                                            'data-target' => '#login_2',
 //                                            'data-toggle' => 'modal',
@@ -234,7 +234,7 @@ class FunctionsV3
         $top_menu[] = array( 
                         'tag'   => "partner-registration",
                         'label' => '' . Yii::t("default", "Become a Partner"),
-                        'url'   => array('/store/page/become-a-partner-restaurant-signup'),
+                        'url'   => array('/store/partner'),
 //                        'linkOptions' => array(
 //                                            'data-target' => '#login_2',
 //                                            'data-toggle' => 'modal',
@@ -1317,73 +1317,139 @@ class FunctionsV3
 		return $url_image;
 	}		
 	
-    public static function getMerchantOpeningHours($merchant_id='')
-	{
-        $stores_open_day=Yii::app()->functions->getOption("stores_open_day",$merchant_id);
-		$stores_open_starts=Yii::app()->functions->getOption("stores_open_starts",$merchant_id);
-		$stores_open_ends=Yii::app()->functions->getOption("stores_open_ends",$merchant_id);
-		$stores_open_custom_text=Yii::app()->functions->getOption("stores_open_custom_text",$merchant_id);
-		
-		$stores_open_day=!empty($stores_open_day)?(array)json_decode($stores_open_day):false;
-		$stores_open_starts=!empty($stores_open_starts)?(array)json_decode($stores_open_starts):false;
-		$stores_open_ends=!empty($stores_open_ends)?(array)json_decode($stores_open_ends):false;
-		$stores_open_custom_text=!empty($stores_open_custom_text)?(array)json_decode($stores_open_custom_text):false;
-		
-		
-		$stores_open_pm_start=Yii::app()->functions->getOption("stores_open_pm_start",$merchant_id);
-		$stores_open_pm_start=!empty($stores_open_pm_start)?(array)json_decode($stores_open_pm_start):false;
-		
-		$stores_open_pm_ends=Yii::app()->functions->getOption("stores_open_pm_ends",$merchant_id);
-		$stores_open_pm_ends=!empty($stores_open_pm_ends)?(array)json_decode($stores_open_pm_ends):false;		
-												
-		$open_starts='';
-		$open_ends='';
-		$open_text='';
-		$data='';
+    public static function getMerchantOpeningHours( $merchant_id = '', $delivery = false )
+    {
+        
+        $stores_open_day         = Yii::app()->functions->getOption("stores_open_day",$merchant_id);
+        $stores_open_starts      = Yii::app()->functions->getOption("stores_open_starts",$merchant_id);
+        $stores_open_ends        = Yii::app()->functions->getOption("stores_open_ends",$merchant_id);
+        $stores_open_custom_text = Yii::app()->functions->getOption("stores_open_custom_text",$merchant_id);
+
+        $stores_open_day         = !empty($stores_open_day)?(array)json_decode($stores_open_day):false;
+        $stores_open_starts      = !empty($stores_open_starts)?(array)json_decode($stores_open_starts):false;
+        $stores_open_ends        = !empty($stores_open_ends)?(array)json_decode($stores_open_ends):false;
+        $stores_open_custom_text = !empty($stores_open_custom_text)?(array)json_decode($stores_open_custom_text):false;
+
+
+        $stores_open_pm_start    = Yii::app()->functions->getOption("stores_open_pm_start",$merchant_id);
+        $stores_open_pm_start    = !empty($stores_open_pm_start)?(array)json_decode($stores_open_pm_start):false;
+
+        $stores_open_pm_ends     = Yii::app()->functions->getOption("stores_open_pm_ends",$merchant_id);
+        $stores_open_pm_ends     = !empty($stores_open_pm_ends)?(array)json_decode($stores_open_pm_ends):false;		
+
+        $open_starts = '';
+        $open_ends   = '';
+        $open_text   = '';
+        $data        = '';
 				
-		if (is_array($stores_open_day) && count($stores_open_day)>=1){
-			foreach ($stores_open_day as $val_open) {	
-				if (array_key_exists($val_open,(array)$stores_open_starts)){
-					$open_starts=timeFormat($stores_open_starts[$val_open],true);
-				}							
-				if (array_key_exists($val_open,(array)$stores_open_ends)){
-					$open_ends=timeFormat($stores_open_ends[$val_open],true);
-				}							
-				if (array_key_exists($val_open,(array)$stores_open_custom_text)){
-					$open_text=$stores_open_custom_text[$val_open];
-				}					
-				
-				$pm_starts=''; $pm_ends=''; $pm_opens='';
-				if (array_key_exists($val_open,(array)$stores_open_pm_start)){
-					$pm_starts=timeFormat($stores_open_pm_start[$val_open],true);
-				}											
-				if (array_key_exists($val_open,(array)$stores_open_pm_ends)){
-					$pm_ends=timeFormat($stores_open_pm_ends[$val_open],true);
-				}												
-				
-				$full_time='';
-				if (!empty($open_starts) && !empty($open_ends)){					
-					$full_time=$open_starts." - ".$open_ends."&nbsp;&nbsp;";
-				}			
-				if (!empty($pm_starts) && !empty($pm_ends)){
-					if ( !empty($full_time)){
-						$full_time.=" / ";
-					}				
-					$full_time.="$pm_starts - $pm_ends";
-				}												
-								
-				$data[]=array(
-				  'day'=>$val_open,
-				  'hours'=>$full_time,
-				  'open_text'=>$open_text
-				);
-				
-				$open_starts='';
-		        $open_ends='';
-		        $open_text='';
-			}
-			return $data;
-		}			
+        if (is_array($stores_open_day) && count($stores_open_day)>=1){
+            
+                foreach ($stores_open_day as $val_open) {
+                    
+                        if (array_key_exists($val_open,(array)$stores_open_starts)){
+                                $open_starts = timeFormat($stores_open_starts[$val_open],true);
+                                
+//                                var_dump( $open_starts );
+                        }							
+                        if (array_key_exists($val_open,(array)$stores_open_ends)){
+                                $open_ends   = timeFormat($stores_open_ends[$val_open],true);
+                                
+//                                var_dump( $open_ends );
+                        }							
+                        if (array_key_exists($val_open,(array)$stores_open_custom_text)){
+                                $open_text=$stores_open_custom_text[$val_open];
+                        }					
+
+                        $pm_starts=''; $pm_ends=''; $pm_opens='';
+                        if (array_key_exists($val_open,(array)$stores_open_pm_start)){
+                                $pm_starts=timeFormat($stores_open_pm_start[$val_open],true);
+                        }											
+                        if (array_key_exists($val_open,(array)$stores_open_pm_ends)){
+                                $pm_ends=timeFormat($stores_open_pm_ends[$val_open],true);
+                        }												
+
+                        $full_time='';
+                        if (!empty($open_starts) && !empty($open_ends)){					
+                            $full_time=$open_starts." - ".$open_ends."&nbsp;&nbsp;";
+                        }			
+                        
+                        if (!empty($pm_starts) && !empty($pm_ends)){
+                                if ( !empty($full_time)){
+                                        $full_time.=" / ";
+                                }				
+                                $full_time.="$pm_starts - $pm_ends";
+                        }												
+                        
+                        $only_open_time = false;
+                        $time           = false;
+                        if( empty( $open_ends ) ){
+                            $only_open_time = true;
+                        }
+                        
+//                        if (!empty($open_starts) && !empty($open_ends)){					
+//                        }
+                        
+                        if( !$only_open_time ){
+                            
+                            if (!empty($pm_starts) && !empty($pm_ends)){  
+                                $time = 
+                                [
+                                    [ $open_starts, $open_ends ],
+                                    [ $pm_starts,   $pm_ends ]
+                                ];
+                            } else {
+                                $time = [
+                                    [ $open_starts, $open_ends ]
+                                ];
+                            }
+                            
+                        } else {
+                            $time = $open_starts;
+                        }
+                        
+                        
+                        if( !$time ){ $only_open_time = false; }
+                        
+                        $array =  array(
+                            
+                          'day'       => $val_open,
+                          'hours'     => $full_time,
+                          'open_text' => $open_text,
+                          
+                          'open_starts' => $open_starts,
+                          'open_ends'   => $open_ends,
+                          'pm_starts'   => $pm_starts,
+                          'pm_ends'     => $pm_ends,
+                            
+                          'only_open_time' => $only_open_time,
+                          'time'           => $time  
+                            
+                        );
+                        
+                        
+                        if( $val_open == 'sunday' && $delivery ){
+                            
+                            array_unshift($data, $array);
+                            
+                        } else {
+                            $data[] = $array;
+                        }
+                        
+                        
+
+                        $open_starts='';
+                $open_ends='';
+                $open_text='';
+                
+            }
+            
+            
+//            var_dump( $data );
+            
+            
+            return $data;
+                
+        }			
 		return false;		
 	}	
 		

@@ -46,37 +46,47 @@
            }
         }
         
-        switch ( $admin_activated_menu ){
-            
-            case 1:
-                    die(); //@TODO check it
-                    $this->renderPartial('/front/menu-merchant-2', array(
-                            'merchant_id'      => $merchant_id,
-                            'menu'             => $menu,
-                            'disabled_addcart' => $disabled_addcart
-                    ));
-                break;
-
-                
-            case 2:
-                die(); //@TODO check it
-                    $this->renderPartial('/front/menu-merchant-3', array(
-                            'merchant_id'      => $merchant_id,
-                            'menu'             => $menu,
-                            'disabled_addcart' => $disabled_addcart
-                    ));
-                break;
-
-                
-            default:	
-                   $this->renderPartial('/store/menu/menu-merchant-1', array(
+        // Decided to remove this checking. Let's assume that menu will be filled well
+        
+//        switch ( $admin_activated_menu ){
+//            
+//            case 1:
+//                    die(); //@TODO check it
+//                    $this->renderPartial('/front/menu-merchant-2', array(
+//                            'merchant_id'      => $merchant_id,
+//                            'menu'             => $menu,
+//                            'disabled_addcart' => $disabled_addcart
+//                    ));
+//                break;
+//
+//                
+//            case 2:
+//                die(); //@TODO check it
+//                    $this->renderPartial('/front/menu-merchant-3', array(
+//                            'merchant_id'      => $merchant_id,
+//                            'menu'             => $menu,
+//                            'disabled_addcart' => $disabled_addcart
+//                    ));
+//                break;
+//
+//                
+//            default:	
+//                   $this->renderPartial('/store/menu/menu-merchant-1', array(
+//                            'merchant_id'      => $merchant_id,
+//                            'menu'             => $menu,
+//                            'disabled_addcart' => $disabled_addcart,
+//                            'tc'               => $tc
+//                    ));
+//                break;
+//     }	
+     
+     
+     $this->renderPartial('/store/menu/menu-merchant-1', array(
                             'merchant_id'      => $merchant_id,
                             'menu'             => $menu,
                             'disabled_addcart' => $disabled_addcart,
                             'tc'               => $tc
                     ));
-                break;
-     }	
         
 
     

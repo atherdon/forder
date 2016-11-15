@@ -6,6 +6,23 @@
         </h4>
         
         
+        <?php
+        $this->renderPartial('/store/profile/modals/_order-details-link', [
+//                          'val' => $value  
+//                        'item_id' => $val_item["item_id"] 
+        ] ); 
+        ?>
+        
+        <?php
+        $this->renderPartial('/store/profile/modals/_order-details-modal', [
+//                          'val' => $value  
+//                        'item_id' => $val_item["item_id"] 
+        ] ); 
+        ?>
+        
+        
+        
+        
         <?php if ( is_array( $data ) && count( $data ) >= 1 ) : ?>
 
         <?php $payment_list=FunctionsV3::PaymentOptionList();?>
@@ -19,30 +36,47 @@
               <div class="mycol" style="width: 10%;"><i style="font-size: 30px;" class="ion-android-arrow-dropright"></i></div>
               <div class="mycol ">
 
-                <a href="javascript:;" class="view-receipt-front" data-id="<?php echo $val['order_id']?>" >
-                  <p><?php echo t("Order")?># <?php echo $val['order_id']?></p>
+                  
+                <a href="javascript:;" class="view-receipt-front" 
+                   data-id="<?php echo $val['order_id']?>" >
+                  <p>
+                      <?php echo t("Order")?># <?php echo $val['order_id']?>
+                  </p>
                 </a>
 
-                <a href="<?php echo Yii::app()->createUrl('/ajax/viewreceipt',array('order_id'=>$val['order_id'],'post_type'=>'get'))?>"
-                class="view-receipt-mobile"  >
-                  <p><?php echo t("Order")?># <?php echo $val['order_id']?></p>
+                <a href="<?php echo Yii::app()->createUrl('/ajax/viewreceipt', array(
+                             'order_id' => $val['order_id'],'post_type'=>'get')
+                         );?>"
+                    class="view-receipt-mobile"  >
+                  <p>
+                      <?php echo t("Order")?># <?php echo $val['order_id']?>
+                  </p>
                 </a>
 
-                 <p><?php echo t("Placed on");?> 
-                 <?php echo Yii::app()->functions->translateDate(prettyDate($val['date_created']))?></p>
+                 <p>
+                     <?php echo t("Placed on");?> 
+                 <?php echo Yii::app()->functions->translateDate(prettyDate($val['date_created']))?>
+                 </p>
+                 
               </div>
             </div>
              </td>
 
              <td>        
              <a class="add-to-cart" href="javascript:;" data-id="<?php echo $val['order_id']?>" >    
-             <p><?php echo clearString($val['merchant_name'])?></p>    
+             <p>
+                 <?php echo clearString($val['merchant_name'])?>
+             </p>    
              </a>
              </td>
 
              <td> 
-             <p><?php echo t("TOTAL")?></p>
-             <p><?php echo FunctionsV3::prettyPrice($val['total_w_tax'])?></p>         
+             <p>
+                 <?php echo t("TOTAL")?>
+             </p>
+             <p>
+                 <?php echo FunctionsV3::prettyPrice($val['total_w_tax'])?>
+             </p>         
              </td>
 
              <td>

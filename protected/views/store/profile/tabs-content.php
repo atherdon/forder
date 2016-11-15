@@ -1,5 +1,6 @@
  <div class="tab-content">
      
+     
     <div class="tab-pane <?php if( $tabs != '' ) { echo '  '; } else { echo ' active '; } ; ?>" id="profile" role="tabpanel">
 
          <?php $this->renderPartial('/store/profile/form',array(
@@ -8,6 +9,7 @@
         
 
     </div>
+     
      
     <div class="tab-pane <?php if( $tabs != '2' ) { echo '  '; } else { echo ' active '; } ; ?>" id="addressbook" role="tabpanel">
 
@@ -22,6 +24,7 @@
 
     </div>
      
+     
     <div class="tab-pane" id="orderhistory" role="tabpanel">
         
         <?php $this->renderPartial('/store/profile/order-history',array(           
@@ -32,6 +35,7 @@
 
     </div>
 
+     
     <div class="tab-pane" id="creditcards" role="tabpanel">
 
        <?php if ( $disabled_cc != "yes") { ?>
@@ -57,6 +61,8 @@
   
 
    </div>
-                    
+           
+     
+     
 </div>
 <!-- @TODO move picture upload to this section -->

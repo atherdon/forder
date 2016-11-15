@@ -4,7 +4,7 @@
 
     ));
 
-    echo CHtml::hiddenField('mobile_country_code', Yii::app()->functions->getAdminCountrySet(true));
+    echo CHtml::hiddenField('mobile_country_code', Yii::app()->functions->getAdminCountrySet( true ) );
   
     $this->renderPartial( '/store/profile/tabs', array(
         'info' => $info,

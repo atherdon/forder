@@ -22,7 +22,7 @@
 	    <?php 
                 if ( $theme_hours_tab == "" ){
                     
-                    $this->renderPartial('/store/menu/merchant-hours',array(
+                    $this->renderPartial('/store/menu/merchant-hours', array(
                       'merchant_id' => $merchant_id
                     )); 
                 };
@@ -31,8 +31,9 @@
 	    <!--END OPENING HOURS-->
              
             <?php
-                    $this->renderPartial('/store/menu/_phone-block',array(
-                      'phone' => $phone
+                    $this->renderPartial('/store/menu/_phone-block', array(
+                      'phone' => $phone,
+
                     ));                     
             ?>           
             

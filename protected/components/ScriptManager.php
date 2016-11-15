@@ -841,9 +841,14 @@ class ScriptManager
             );
            
 //           Datepicker & timepicker
-            $cs->registerScriptFile( Widgets::quickScriptPath() . "bootstrap-datepicker.min.js", 
+            
+            $cs->registerScriptFile( 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js', 
                     CClientScript::POS_END
             );
+//            $cs->registerScriptFile( Widgets::quickScriptPath() . "bootstrap-datepicker.min.js", 
+//                    CClientScript::POS_END
+//            );
+            
             $cs->registerScriptFile( Widgets::quickScriptPath() . "jquery.timepicker.min.js", 
                     CClientScript::POS_END
             );
@@ -851,6 +856,8 @@ class ScriptManager
             $cs->registerScriptFile( Widgets::quickScriptPath() . "form-date-time-pickers-init.js", 
                     CClientScript::POS_END
             );
+//-------------------------------------------            
+            
             
 //            Details popup Touchspin
             $cs->registerScriptFile( Widgets::quickScriptPath() . "jquery.bootstrap-touchspin.js", 

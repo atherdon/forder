@@ -14,12 +14,28 @@ $(document).ready(function() {
         orientation: 'bottom'
     });
     
+//    var nowTemp = new Date();
+//    var now     = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    
+//    var date1 = new Date();
+//    date1.setDate(date1.getDate()-1);
+    
+    
     $('#delivery_date').datepicker({
         format: website_date_picker_format,
         startDate: '0',
+//        startDate: '+0d',
         todayHighlight: true,
-        orientation: 'bottom'
+        orientation: 'bottom',
+        datesDisabled: ['2016-11-08', '2016-11-09']
+//        onRender: function(date) {
+            
+//            return date.valueOf() < now.valueOf() ? 'disabled' : '';
+//        }
+        
     });
+    
+    
     $('#booking_time').timepicker({
         timeFormat: 'g:ia',
         minTime: '8:00am',

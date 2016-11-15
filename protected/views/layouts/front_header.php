@@ -53,12 +53,14 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
     
+    <?php ?> 
+    <?php if (  !empty( Yii::app()->controller->action ) ) { ?>
     <?php if (  Yii::app()->controller->action->id != 'menu') { ?>
     
         <script src="<?php echo Widgets::quickScriptPath(); ?>map_single.js"></script> 
     
     <?php } ?>
-    
+    <?php } ?>
     
     <script type="text/javascript">
     var
@@ -224,7 +226,7 @@
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
 <![endif]-->
 
- <?php //if (  Yii::app()->controller->action->id != 'error') { ?>
+ <?php if (  !empty( Yii::app()->controller->action ) ) { ?>
 
     <div id="preloader">
         <div class="sk-spinner sk-spinner-wave" id="status">
@@ -237,5 +239,5 @@
     </div> 
     <!--End Preload-->
     
- <?php //} 
+ <?php } 
 // var_dump( $this->layout ); die();?>

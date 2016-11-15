@@ -155,7 +155,7 @@ $tips_list=$FunctionsK->tipsList(true);
   ))
   ?> 
 </div>
-
+<?php if ( 0 ) { ?>
 <div class="uk-form-row">
   <label class="uk-form-label"><?php echo Yii::t("default","Activate Menu 1")?></label>
   <?php 
@@ -180,7 +180,9 @@ $tips_list=$FunctionsK->tipsList(true);
   ?> 
 </div>
 -->  
-  
+<?php } ?>  
+
+
 <?php if ( getOptionA('mechant_sms_enabled')==""):?>
 <h2><?php echo t("Order Options")?></h2>
 
