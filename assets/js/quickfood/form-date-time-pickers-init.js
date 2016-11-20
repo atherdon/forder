@@ -30,6 +30,7 @@ $(document).ready(function() {
         daysOfWeekDisabled: disable_weekdays.toString()
         
     });
+    
     $('#delivery_date').datepicker()
     .on('change', function(e) {
         
@@ -41,15 +42,10 @@ $(document).ready(function() {
         var week_schedule1  = $('#delivery_time').data().weekschedule;
         
         var updated_options = false;
-        
+               
         $(week_schedule1).each(function(i,v){
         
-            if( i === weekDay ) {
-                updated_options = v;
-            }
-//            console.log( current_time_settings );
-    //        console.log(i);
-    //        console.log(v);
+            if( i === weekDay ) { updated_options = v; }
         
         });
         
@@ -65,57 +61,24 @@ $(document).ready(function() {
             };
 
             if( updated_options.disableTimeRanges ){
-                TimeOptions.disableTimeRanges = updated_options.disableTimeRanges;
+                TimeOptions2.disableTimeRanges = updated_options.disableTimeRanges;
             }
 
-            console.log( TimeOptions2 );
+//            console.log( TimeOptions2 );
             
-//            $('#delivery_time').timepicker('remove');
-//            $('#delivery_time').timepicker( TimeOptions2 );
+            $('#delivery_time').timepicker('remove');
+            $('#delivery_time').timepicker( TimeOptions2 );
 
         }
         
-        
-//        $('#delivery_time').timepicker({
-//            timeFormat: 'g:ia',
-//            minTime: '10:00am',
-//            maxTime: '5:00pm'
-//        
-//        });
-        
+               
 
         // `e` here contains the extra attributes
     });
     
-    var week_schedule   = $('#delivery_time').data().weekschedule;
-    var current_weekday = $('#delivery_time').data().currentweekday;
-    
-//    var weekDay2         = new Date().getDay();
+    var week_schedule            = $('#delivery_time').data().weekschedule;
+    var current_weekday_schedule = $('#delivery_time').data().currentweekday;
 
-//    console.log(week_schedule);
-//    console.log(current_weekday);
-//    console.log(current_weekday.disabledWeekday);
-    
-    var current_time_settings = false;
-    $(week_schedule).each(function(i,v){
-        
-//        if( i === current_weekday ){
-//            current_time_settings = v;
-//        }
-//        if( i === current_weekday.disabledWeekday ) {
-        if( i === 0 ) {
-            current_time_settings = v;
-        }
-//        console.log(i);
-//        console.log(v);
-        
-    });
-//    console.log();
-    console.log( current_time_settings );
-    
-//    console.log(weekDay2 == );
-//    console.log(weekDay2);
-    
 //    $('#booking_time').timepicker({
 //        timeFormat: 'g:ia',
 //        minTime: '8:00am',
@@ -126,24 +89,37 @@ $(document).ready(function() {
 ////            ['5:00pm', '8:00pm']
 ////        ]
 //    });
+
     
-    if( current_time_settings.minTime ){
+    
+    
+    
+    if( current_weekday_schedule.minTime ){
         
         var TimeOptions = {
             timeFormat: 'g:ia',
-            minTime: current_time_settings.minTime,
-            maxTime: current_time_settings.maxTime
+            minTime: current_weekday_schedule.minTime,
+            maxTime: current_weekday_schedule.maxTime
         };
         
-        if( current_time_settings.disableTimeRanges ){
-            TimeOptions.disableTimeRanges = current_time_settings.disableTimeRanges;
+        if( current_weekday_schedule.disableTimeRanges ){
+            TimeOptions.disableTimeRanges = current_weekday_schedule.disableTimeRanges;
         }
         
-        console.log( TimeOptions );
+//        console.log( TimeOptions );
+        if ( $("#delivery_time").is(":disabled") ) {
+            $("#delivery_time").prop("disabled", false);
+        }
         
         $('#delivery_time').timepicker( TimeOptions );
     
-    }
+    } 
+    
+    //@TODO finish this stuff.
+    
+//    if( current_weekday_schedule.disabledWeekday ){
+//        $("#delivery_time").prop("disabled", true);
+//    }
     
     
     
