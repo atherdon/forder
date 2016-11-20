@@ -14,7 +14,7 @@ jQuery(document).ready(function() {
 //        onError : function() {      
 //        },
 //        onSuccess : function() {     
-//            
+//            8kk
 //          console.log('123');
 ////          form_submit('forms');
 //          return false;
@@ -26,10 +26,6 @@ jQuery(document).ready(function() {
 //        console.log('123');
 //    });
     
-    
-    
-    
-});
 
 function form_submit( formid ){
 //    rm_notices();
