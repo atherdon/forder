@@ -11,7 +11,7 @@ $is_holiday = false;
 if ( $m_holiday=Yii::app()->functions->getMerchantHoliday( $merchant_id ) ){      	         	  
     
 //    var_dump(  ); die();
-     if (in_array($now,(array)$m_holiday)){
+     if (in_array( $now, (array)$m_holiday )){
             $is_holiday=true;
      }
 }
@@ -19,6 +19,8 @@ if ( $m_holiday=Yii::app()->functions->getMerchantHoliday( $merchant_id ) ){
 $open_hours    = FunctionsV3::getMerchantOpeningHours( $merchant_id, true ); 
 $closed_days   = array();
 $open_schedule = array();
+$today_key     = intval( date('w') );
+$now_time      = '';
 
 //$buffer        = $open_hours[0];
 //$open_hours[0] = $open_hours[6];
@@ -26,11 +28,12 @@ $open_schedule = array();
 
 
 
-echo '<pre>';  var_dump( $open_hours ); die();
+//echo '<pre>';  var_dump( $open_hours ); die();
 
 
 
 foreach ( $open_hours as $key => $value) {
+    
     if( !$value['hours'] ){
 //        var_dump( $value );
 //        var_dump( $key );
@@ -39,35 +42,50 @@ foreach ( $open_hours as $key => $value) {
     
      if( !$value['time'] ){ // empty time, so merchant is closed
         $open_schedule[$key] = array(
-            'disabled-weekday' => $key
+            'disabledWeekday' => $key
         );
         continue;
      }
      
      if( $value['only_open_time'] ){
+         
         $open_schedule[$key] = array(
-            'min-time' => $key
+            'minTime' => $value['open_starts']
         );
         continue;
+        
+     } else {
+         
+      
      }
+     
+//    $open_schedule[$key][''] = array(
+//        'min-time' => $key
+//    );
      
 
 
 
     $open_schedule[$key] = array(
-        'disable-time-ranges' => $key
+        'disableTimeRanges' => $key
     );
 
     if( !empty( $value['pm_starts'] ) && !empty( $value['pm_ends'] ) ){
 
         $open_schedule[$key] = array(
-            'max-time' => $value['pm_ends']
+            'maxTime' => $value['pm_ends'],
+            
+            'minTime' => $value['open_starts'],
+            
+            'disableTimeRanges' => array( $value['open_ends'], $value['pm_starts'] )
         );
 
     } else {
 
         $open_schedule[$key] = array(
-            'max-time' => $value['open_ends']
+            'maxTime' => $value['open_ends'],
+            'minTime' => $value['open_starts']
+            
         );
 
     }
@@ -88,6 +106,24 @@ foreach ( $open_hours as $key => $value) {
     
     
 } 
+//echo '<pre>'; 
+$other_array = array();
+foreach ( $open_schedule as $key => $value ){
+    
+//    var_dump($value);
+    if(array_key_exists( 'disabledWeekday', $value) ){
+        $other_array[] = strval( $key );
+    }
+//    if (array_key_exists($value, ) ){
+//      
+//    }
+}
+
+//echo '<pre>'; 
+//var_dump( $open_schedule[$today_key] ) ;
+//var_dump( $open_schedule );
+//var_dump( $other_array );
+
 //die();
 
 
@@ -102,53 +138,12 @@ foreach ( $open_hours as $key => $value) {
 $res = Yii::app()->functions->getMerchant( $merchant_id );
 if ( $res ){
     
-    switch ( $res['service'] ) {
-        
-            case 2:
-                ?>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                    <label>
-                        <?php echo CHtml::radioButton( 'delivery_type[delivery]', true, [ 'class' => 'icheck' ] ); 
-                              echo Yii::t("default", "Delivery"); ?>
-                    </label>
-                </div>
+    
+        $this->renderPartial('/store/menu/cart/_delivery_type', array(
+                'res'   => $res,
 
-            <?php
-
-                break;
-            
-            case 3:
-                ?>
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                        <label>
-                            <?php echo CHtml::radioButton( 'delivery_type[pickup]', false, [ 'class' => 'icheck' ] ); 
-                                  echo Yii::t("default", "Pickup"); ?>
-                        </label>
-                    </div>
-
-                <?php
-
-
-                    break;
-            default:
-
-            ?>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                    <label>
-                         <?php echo CHtml::radioButton( 'delivery_type[delivery]', true, [ 'class' => 'icheck' ] ); 
-                               echo Yii::t("default", "Delivery"); ?>
-                    </label>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                    <label>
-                         <?php echo CHtml::radioButton( 'delivery_type[pickup]', false, [ 'class' => 'icheck' ] ); 
-                               echo Yii::t("default", "Pickup"); ?>
-                    </label>
-                </div> 
-        <?php
-
-          break;
-    }
+        ));                     
+    
         
 } else { ?>
     
@@ -178,8 +173,8 @@ if ( $res ){
                     array(
                         'class'        => "j_date ",
                         'data-id'      => 'delivery_date',
-                        'data-disable-weekdays' => '',
-                        'data-disable-holidays' => json_encode( $m_holiday )
+                        'data-disableweekdays' => implode(', ', $other_array ),
+                        'data-disableholidays' => json_encode( $m_holiday )
                         )
                  )?>
     </div>
@@ -190,13 +185,17 @@ if ( $res ){
 
         <?php echo CHtml::textField('delivery_time', $now_time,
          array( 
+             'class' => 'active', //'disable'
 //             'class'       => "timepick ",    
              'placeholder' => Yii::t("default", "Delivery Time"),
              'data-now'    => $now_time,
 
-             'data-week-schedule'       => false,
-             'data-current-weekday'     => '',
-             'data-disable-time-ranges' => '',
+             'data-weekschedule'       => json_encode( $open_schedule ),
+             'data-currentweekday'     => json_encode( $open_schedule[$today_key] ),
+             'data-weekday'            => $today_key
+//             'data-disable-time-ranges' => '',
+             
+             
 
 
              )); ?>	       

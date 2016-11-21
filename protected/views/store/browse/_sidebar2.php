@@ -68,7 +68,8 @@
             
             
             <?php $this->renderPartial('/store/browse/sidebar/_delivery', [
-                            'filter_delivery_type' => $filter_delivery_type
+                            'filter_delivery_type' => $filter_delivery_type,
+                
                 ]); ?>
             
             <?php $this->renderPartial('/store/browse/sidebar/_minimum-delivery', [

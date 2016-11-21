@@ -25,7 +25,7 @@ jQuery(document).ready(function() {
 //        // code
 //        console.log('123');
 //    });
-    
+});   
 
 function form_submit( formid ){
 //    rm_notices();

@@ -18,9 +18,15 @@
             <table class="otable table table-striped">
              <thead>
               <tr>
-               <th><?php echo Yii::t("default","Card name")?></th>
-               <th><?php echo Yii::t("default","Card number")?></th>
-               <th><?php echo Yii::t("default","Expiration")?></th>
+               <th>
+                   <?php echo Yii::t("default","Card name")?>
+               </th>
+               <th>
+                   <?php echo Yii::t("default","Card number")?>
+               </th>
+               <th>
+                   <?php echo Yii::t("default","Expiration")?>
+               </th>
               </tr>
              </thead>
             </table>

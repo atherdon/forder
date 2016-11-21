@@ -4,17 +4,17 @@ class Functions extends CApplicationComponent
 	public $data;
 	public $sms_msg;
 	
-	public $code=2;
+	public $code = 2;
 	public $msg;
 	public $details;
 	public $db_ext;
-	public $has_session=false;
+	public $has_session = false;
 	
-	public $search_result_total=0;
+	public $search_result_total = 0;
 	
-	public function __construct()
-	{
-		$this->db_ext=new DbExt; 		
+	public function __construct(){
+            
+            $this->db_ext = new DbExt; 		
 	}
 
 //     <tr>

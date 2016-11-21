@@ -521,7 +521,14 @@ class ScriptManager
             
             
             
+            
+            
             // COMMON SCRIPTS -->
+            $cs->registerScriptFile(
+                    Widgets::quickScriptPath() . 'bootstrap.min.js',
+                    CClientScript::POS_END
+                    ); 
+            
             $cs->registerScriptFile(
                     Widgets::quickScriptPath() . 'common_scripts_min.js',
                     CClientScript::POS_END
@@ -937,6 +944,12 @@ class ScriptManager
            $cs->registerScriptFile($baseUrl."/assets/js/quickfood/search.js",
                    CClientScript::POS_END
            );
+           
+           $cs->registerScriptFile( 'https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js', 
+               CClientScript::POS_END
+           );
+           
+           
            
            $cs->registerScriptFile($baseUrl."/assets/js/quickfood/menu.js",
                    CClientScript::POS_END
