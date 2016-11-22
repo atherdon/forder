@@ -37,7 +37,7 @@
                             
                             'merchant_info'     => $merchant_info,
                             'latitude'          => $data['latitude'],
-                            'lontitude'         => $data['lontitude'],
+                            'longtitude'         => $data['lontitude'],
 
                         ) ); ?>    
                         

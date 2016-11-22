@@ -1,61 +1,13 @@
-<div class="collapse" id="collapseMap">
-    <div id="map" class="map"></div>
-</div><!-- End Map -->
+<?php if( !empty( $latitude ) && !empty( $longtitude ) ) { 
 
-<?php
-
-//var_dump( $merchant_info );
-//die();
-$merchant_info['restaurant_name'];
-$merchant_info['merchant_logo'];
-$merchant_info['merchant_address'];
-$cuisine = json_decode( $merchant_info['cuisine'], true ); 
-var_dump( $cuisine[0] );die();
-
-$cuisine_text = FunctionsV3::displayCuisine2( $merchant_info['cuisine'] );
-$restaurant_name_text = clearString( $merchant_info['restaurant_name'] );
-$address_text = $merchant_info['merchant_address'];
-//echo $latitude;
-//echo $lontitude ;    
-
-
-$array = array(
-    'name'      => clearString( $merchant_info['restaurant_name'] ),
-    'logo'      => $merchant_info['merchant_logo'],
-    'address'   => $address_text,
-    'cuisine'   => FunctionsV3::displayCuisine2( $merchant_info['cuisine'] ),
-    'lat'       => $latitude,
-    'longtitude' => $longtitude,
-        
-    );
-
-?>
-
-<?php //echo clearString( $merchant_info['restaurant_name'] );?>
-<?php //echo FunctionsV3::displayCuisine2( $merchant_info['cuisine'] ); ?>
-<?php //echo $merchant_info['merchant_address']; ?>  
-
-
-
-<script>
-//var longLink    = base_url + '/assets/images/quickfood/thumb_restaurant_map.png';
-var markersData = {
-    'Mexican': [ <?php echo FunctionsV3::displayJSRestaurantData( $array ) ; ?> ]    
-};
-                
-console.log( markersData );    
-</script>    
-
-
-<!--
-/*PROGRESS ORDER BAR*/
-    $this->renderPartial('/front/order-progress-bar',array(
-       'step'=>3,
-       'show_bar'=>true
+    $this->renderPartial('/store/menu/_google-maps', array(
+       'merchant_info' => $merchant_info,
+       'latitude'      => $latitude,
+       'longtitude'    => $longtitude 
     ));
--->
 
-
+} 
+?>
 
 <!-- Content ================================================== -->
 <div class=" margin_60_35">
@@ -64,7 +16,7 @@ console.log( markersData );
         <div class="col-md-4">
             <p>
                 
-                <?php if ( true ) { // @TODO later add variable and disable this button when we don't have maps ?>
+                <?php if ( !empty( $latitude ) && !empty( $longtitude ) ) { // @TODO later add variable and disable this button when we don't have maps ?>
                 
                     <a class         = "btn_map" 
                        data-toggle   = "collapse" 

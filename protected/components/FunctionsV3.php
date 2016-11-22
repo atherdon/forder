@@ -536,19 +536,21 @@ class FunctionsV3
     public static function displayJSRestaurantData( $values, $multiple = false ){
         
         $js = '{
-                name:                ' . $values['name']       . ',' .
-                'location_latitude:  ' . $values['lat']        . ', ' .
-                'location_longitude: ' . $values['longtitude'] . ',' .
-                'map_image_url:      ' . $values['logo']       . ',' .        
-                'name_point:         ' . $values['name']       . ',' .
-                'type_point:         ' . $values['cuisine']    . ',' .
-                'description_point:  ' . $values['address']    . 
+                name:                "' . $values['name']       . '",' .
+                'location_latitude:  "' . $values['lat']        . '", ' .
+                'location_longitude: "' . $values['longtitude'] . '",' .
+                'map_image_url:      "' . $values['logo']       . '",' .        
+                'name_point:         "' . $values['name']       . '",' .
+                'type_point:         "' . $values['cuisine']    . '",' .
+                'description_point:  "' . $values['address']    . '"'.
         '}';
                 
         if( $multiple ){
             $js .= ', ';
-        }        
-        
+        }   
+//        echo '<pre>';
+//        var_dump($js);
+//        die();
         return $js;       
         
     }
