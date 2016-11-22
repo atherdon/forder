@@ -34,6 +34,11 @@
                             'ratings'           => $ratings,
                             'photo_enabled'     => $photo_enabled,
                             'theme_info_tab'    => $theme_info_tab,
+                            
+                            'merchant_info'     => $merchant_info,
+                            'latitude'          => $data['latitude'],
+                            'lontitude'         => $data['lontitude'],
+
                         ) ); ?>    
                         
                     </div>

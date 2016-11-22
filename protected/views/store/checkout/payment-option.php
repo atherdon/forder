@@ -105,7 +105,7 @@ $this->renderPartial('/store/checkout/content', array(
    'website_enabled_map_address' => $website_enabled_map_address,
    'address_book'      => $address_book,
    'client_info'       => $client_info,
-   'is_guest_checkout'           => $is_guest_checkout,
+   'is_guest_checkout' => $is_guest_checkout,
 //   'phone'             => $phone 
     
     

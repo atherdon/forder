@@ -88,15 +88,15 @@ echo CHtml::hiddenField('website_disbaled_auto_cart',
 Yii::app()->functions->getOptionAdmin('website_disbaled_auto_cart'));
 
 $hide_foodprice=Yii::app()->functions->getOptionAdmin('website_hide_foodprice');
-echo CHtml::hiddenField('hide_foodprice',$hide_foodprice);
+echo CHtml::hiddenField('hide_foodprice', $hide_foodprice);
 
-echo CHtml::hiddenField('accept_booking_sameday',getOption($merchant_id
+echo CHtml::hiddenField('accept_booking_sameday', getOption($merchant_id
 ,'accept_booking_sameday'));
 
-echo CHtml::hiddenField('customer_ask_address',getOptionA('customer_ask_address'));
+echo CHtml::hiddenField('customer_ask_address', getOptionA('customer_ask_address'));
 
 echo CHtml::hiddenField('merchant_required_delivery_time',
-  Yii::app()->functions->getOption("merchant_required_delivery_time",$merchant_id));   
+  Yii::app()->functions->getOption("merchant_required_delivery_time", $merchant_id));   
   
 /** add minimum order for pickup status*/
 $merchant_minimum_order_pickup=Yii::app()->functions->getOption('merchant_minimum_order_pickup',$merchant_id);
@@ -142,12 +142,12 @@ if (is_numeric($merchant_delivery_distance)){
 	}
 } 
 
-echo CHtml::hiddenField('is_ok_delivered',$is_ok_delivered);
-echo CHtml::hiddenField('merchant_delivery_miles',$merchant_delivery_distance);
-echo CHtml::hiddenField('unit_distance',$distance_type);
+echo CHtml::hiddenField('is_ok_delivered', $is_ok_delivered);
+echo CHtml::hiddenField('merchant_delivery_miles', $merchant_delivery_distance);
+echo CHtml::hiddenField('unit_distance', $distance_type);
 echo CHtml::hiddenField('from_address', FunctionsV3::getSessionAddress() );
 
-echo CHtml::hiddenField('merchant_close_store',getOption($merchant_id,'merchant_close_store'));
+echo CHtml::hiddenField('merchant_close_store', getOption($merchant_id,'merchant_close_store'));
 
 /*$close_msg=getOption($merchant_id,'merchant_close_msg');
 if(empty($close_msg)){
@@ -157,11 +157,11 @@ echo CHtml::hiddenField('merchant_close_msg',
 isset($checkout['msg'])?$checkout['msg']:t("Sorry merchant is closed."));
 
 echo CHtml::hiddenField('disabled_website_ordering',getOptionA('disabled_website_ordering'));
-echo CHtml::hiddenField('web_session_id',session_id());
+echo CHtml::hiddenField('web_session_id', session_id());
 
-echo CHtml::hiddenField('merchant_map_latitude',$data['latitude']);
-echo CHtml::hiddenField('merchant_map_longtitude',$data['lontitude']);
-echo CHtml::hiddenField('restaurant_name',$data['restaurant_name']);
+echo CHtml::hiddenField('merchant_map_latitude',   $data['latitude']);
+echo CHtml::hiddenField('merchant_map_longtitude', $data['lontitude']);
+echo CHtml::hiddenField('restaurant_name',         $data['restaurant_name']);
 
 
 
@@ -210,6 +210,11 @@ $this->renderPartial( '/store/menu/tabs', array(
     'booking_enabled'   => $booking_enabled,
     'photo_enabled'     => $photo_enabled,
     'theme_info_tab'    => $theme_info_tab,
+    
+    'merchant_info'     => $merchant_info,
+    'latitude'          => $data['latitude'],
+    'longtitude'        => $data['lontitude'],
+
 ) ); 
  ?>
 

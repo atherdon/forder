@@ -391,6 +391,12 @@ class ScriptManager
               "var map_marker ='".FunctionsV3::getMapMarker()."' ",
               CClientScript::POS_HEAD
             );		
+            
+            $cs->registerScript(
+              'base_url_js',
+              "var base_url ='" . $baseUrl . "' ",
+              CClientScript::POS_HEAD
+            );
 		
 //            $cs->registerScriptFile($baseUrl."/assets/vendor/DataTables/jquery.dataTables.min.js"
 //            ,CClientScript::POS_END); 
@@ -404,8 +410,9 @@ class ScriptManager
 
 
 //            validation  
-            $cs->registerScriptFile($baseUrl."/assets/vendor/JQV/form-validator/jquery.form-validator.min.js"
-            ,CClientScript::POS_END); 
+            $cs->registerScriptFile($baseUrl . "/assets/vendor/JQV/form-validator/jquery.form-validator.min.js",
+                    CClientScript::POS_END
+                ); 
 
 
             
@@ -770,23 +777,43 @@ class ScriptManager
         $cs->registerScriptFile($baseUrl . "/assets/js/quickfood/test.js", 
                    CClientScript::POS_END); 
            
-           
-        $google_key=getOptionA('google_geo_api_key');
-        if (!empty($google_key)){
-                $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=".$google_key
-                ,CClientScript::POS_END); 
+        
+        
+        
+        
+        // @TODO uncomment later.
+        
+        $google_key = getOptionA('google_geo_api_key');
+        if ( !empty( $google_key ) ){
+//            die();
+//            $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=" . $google_key,
+//                CClientScript::POS_END
+//            ); 
+            $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?key=" . $google_key,
+                CClientScript::POS_END
+            ); 
+            
         } else {
-                $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"
-            ,CClientScript::POS_END); 
+            
+            $cs->registerScriptFile("//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places",
+                CClientScript::POS_END
+            ); 
+            
         }
-           
+        
+        
+        
+        
            
 //           $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.geocomplete.min.js", 
 //                   CClientScript::POS_END
 //            );
-           $cs->registerScriptFile($baseUrl."/assets/vendor/jquery.geocomplete.min_1.js", 
-                   CClientScript::POS_END
-            );
+            
+                                    
+//----------------------------------        
+        $cs->registerScriptFile($baseUrl . "/assets/vendor/jquery.geocomplete.min_1.js", 
+                CClientScript::POS_END
+         );
            
             $cs->registerScript(
                 'address-form-geo',
@@ -846,7 +873,8 @@ class ScriptManager
                 ',
                 CClientScript::POS_END
             );
-           
+            
+//-----------------------------------------           
 //           Datepicker & timepicker
             
             $cs->registerScriptFile( 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js', 
@@ -960,7 +988,21 @@ class ScriptManager
            );
 //           
            
-            
+        //---------------------------//  
+        // add gmaps to single restaurant page
+        //   @TODO do something with multimaps initialization later
+        //---------------------------//
+           $cs->registerScriptFile($baseUrl."/assets/js/quickfood/infobox.js",
+                   CClientScript::POS_END
+           );
+           $cs->registerScriptFile( Widgets::quickScriptPath() . "map_single.js",
+                   CClientScript::POS_END
+           );
+//           
+//            $cs->registerScriptFile($baseUrl."/assets/js/quickfood/infobox.js",
+//                   CClientScript::POS_END
+//           );
+//           
             
             
 	}
@@ -1005,6 +1047,7 @@ class ScriptManager
             $cs->registerCssFile( $baseUrl . "/assets/vendor/intel/build/css/intlTelInput.css" );
             
 //            $cs->registerCssFile($baseUrl."/assets/vendor/rupee/rupyaINR.css");			
+//            
 //
 //            //$cs->registerCssFile('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');	
 //            $cs->registerCssFile($baseUrl."/assets/vendor/bootstrap/css/bootstrap.min.css");		

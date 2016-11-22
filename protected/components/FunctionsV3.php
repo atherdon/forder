@@ -533,6 +533,26 @@ class FunctionsV3
     	return $p;
     }
     
+    public static function displayJSRestaurantData( $values, $multiple = false ){
+        
+        $js = '{
+                name:                ' . $values['name']       . ',' .
+                'location_latitude:  ' . $values['lat']        . ', ' .
+                'location_longitude: ' . $values['longtitude'] . ',' .
+                'map_image_url:      ' . $values['logo']       . ',' .        
+                'name_point:         ' . $values['name']       . ',' .
+                'type_point:         ' . $values['cuisine']    . ',' .
+                'description_point:  ' . $values['address']    . 
+        '}';
+                
+        if( $multiple ){
+            $js .= ', ';
+        }        
+        
+        return $js;       
+        
+    }
+    
     public static function minimumDeliveryFee()   
     {
     	$minimum_list=array(

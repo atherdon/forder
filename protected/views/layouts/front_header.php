@@ -54,12 +54,18 @@
     <![endif]-->
     
     <?php ?> 
+    
+    
+    
     <?php if (  !empty( Yii::app()->controller->action ) ) { ?>
-    <?php if (  Yii::app()->controller->action->id != 'menu') { ?>
-    
-        <script src="<?php echo Widgets::quickScriptPath(); ?>map_single.js"></script> 
-    
-    <?php } ?>
+        <?php if (  Yii::app()->controller->action->id != 'menu') { //echo 'in'; die();?>
+            <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+            <!--<script src="http://maps.googleapis.com/maps/api/js"></script>-->
+            
+            <script src="<?php echo Widgets::quickScriptPath(); ?>map_single.js"></script> 
+            <script src="<?php echo Widgets::quickScriptPath(); ?>infobox.js"></script>
+
+        <?php } ?>
     <?php } ?>
     
     <script type="text/javascript">
@@ -214,6 +220,10 @@
 
         };
     </script>
+    
+    
+    
+    
     
     <?php 
     /*add the analytic codes */
