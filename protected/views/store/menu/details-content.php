@@ -16,15 +16,14 @@
         <div class="col-md-4">
             <p>
                 
-                <?php if ( !empty( $latitude ) && !empty( $longtitude ) ) { // @TODO later add variable and disable this button when we don't have maps ?>
-                
-                    <a class         = "btn_map" 
-                       data-toggle   = "collapse" 
-                       href          = "#collapseMap" 
-                       aria-expanded = "false" 
-                       aria-controls = "collapseMap">
-                        View on map
-                    </a>
+                <?php if ( !empty( $latitude ) && !empty( $longtitude ) ) { 
+                    
+                        $this->renderPartial('/store/search/_map-button', array(
+                            'merchant_info' => $merchant_info,
+                            'latitude'      => $latitude,
+                            'longtitude'    => $longtitude 
+                         ));
+                        ?>
                 
                 <?php } ?>
                 
